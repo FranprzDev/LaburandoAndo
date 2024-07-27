@@ -1,0 +1,34 @@
+{
+  "name": "edusys-backend",
+  "version": "0.0.1",
+  "description": "Proyecto de RollingCode School, EduSys - Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranprzDev/EduSys-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FranprzDev/EduSys-Backend/issues"
+  },
+  "homepage": "https://github.com/FranprzDev/EduSys-Backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
+  }
+}
