@@ -12,7 +12,8 @@ const Menu = () => {
           <Nav className="ms-auto">
             <Link className='nav-link'>Home</Link>
             <Link className='nav-link'>Profesionales</Link>
-            <Link className='btn btn-secondary'>Anunciate como Profesional</Link>
+            <Link className='btn btn-Profesional'>Anúnciate como Profesional</Link>
+            <Link className='nav-link'>Login</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -2,8 +2,22 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    --Negro:  #000000;
+    --Violeta: #853f78;
+    --Rosa: #f1d0eb;
+    --Lavanda: #f0e6ef;
 }
 
 .mainSection{
     flex-grow: 1;
+}
+
+.btn-Profesional{
+    background-color: var(--Violeta);
+    color: white;
+}
+
+.btn-Profesional:hover{
+    background-color: #501c46;
+    color: white;
 }
