@@ -7,11 +7,11 @@ const Menu = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand><h5 className='display-6'>LaburandoAndo</h5></Navbar.Brand>
+        <Link to={'/'} className='navbar-brand display-6'><h5 className='display-6'>LaburandoAndo</h5></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Link className='nav-link'>Home</Link>
+            <Link to={'/'} className='nav-link'>Home</Link>
             <Link className='nav-link'>Profesionales</Link>
             <Link className='btn btn-Profesional'>Anúnciate como Profesional</Link>
             <Link className='nav-link'><IoPersonCircleOutline className='mx-1'/>Ingresar</Link>
