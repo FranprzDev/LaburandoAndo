@@ -1,8 +1,11 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import AppRouter from './router/AppRouter'
+import 'App.css'
 function App() {
 
   return (
     <>
-      <h1>hola</h1>
+      <AppRouter/>
     </>
   )
 }
