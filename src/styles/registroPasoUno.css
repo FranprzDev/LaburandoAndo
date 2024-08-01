@@ -1,6 +1,6 @@
 .cardRegister {
-  width: 250px;
-  height: 150px;
+  width: 75%;
+  height: 15vh;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border: 1px solid rgb(231, 228, 228);
   transition: 0.7s;
@@ -14,7 +14,6 @@
 .btnOptionLogin {
   width: 50%;
   background-color: var(--Violeta);
-  color: #fff;
 }
 
 .btnOptionLogin:hover {
@@ -23,12 +22,12 @@
 
 @media all and (min-width: 768px) {
   .fontSizeText {
-    font-size: 18px;
+    font-size: 1.125rem; /* 18px */
   }
 
   .cardRegister {
-    width: 350px;
-    height: 300px;
+    width: 50%;
+    height: 30vh;
   }
 
   .btnOptionLogin {
@@ -38,12 +37,11 @@
 
 @media all and (min-width: 992px) {
   .fontSizeText {
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */ 
   }
 
   .cardRegister {
-    width: 400px;
-    height: 300px;
+    width: 30%;
     cursor: pointer;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
