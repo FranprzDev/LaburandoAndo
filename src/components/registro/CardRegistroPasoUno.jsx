@@ -2,7 +2,7 @@ import React from "react";
 
 const CardRegistroPasoUno = ({ usuario }) => {
   return (
-    <article className="cardRegister d-flex justify-content-center align-items-center border rounded-2 p-3">
+    <article className="cardRegister d-flex justify-content-center align-items-center rounded-2 p-3">
       <h2>
         {usuario
           ? "Soy cliente"

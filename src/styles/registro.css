@@ -1,39 +1,51 @@
 .cardRegister {
-    width: 250px;
-    height: 150px;
-    cursor: pointer;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-    border: 1px solid rgb(231, 228, 228);
-  }
+  width: 250px;
+  height: 150px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px solid rgb(231, 228, 228);
+  transition: 0.7s;
+}
+
+.cardRegister:hover {
+  border: 1px solid var(--Violeta);
+  transition: 0.7s;
+}
+
+.btnOptionLogin {
+  width: 50%;
+  background-color: var(--Violeta);
+  color: #fff;
+}
+
+.btnOptionLogin:hover {
+
+  background-color: #7f2d6e;
+}
 
 @media all and (min-width: 768px) {
-  .fontSizeParagraph {
+  .fontSizeText {
     font-size: 18px;
   }
 
   .cardRegister {
     width: 350px;
-    height: 300px;
-    cursor: pointer;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    height: 300px;   
+  }
+
+  .btnOptionLogin {
+    width: 25%;
   }
 }
 
 @media all and (min-width: 992px) {
-  .fontSizeParagraph {
+  .fontSizeText {
     font-size: 20px;
   }
 
   .cardRegister {
     width: 400px;
     height: 300px;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-    transition: 0.7s;
-  }
-
-  .cardRegister:hover {
-    width: 400px;
-    height: 300px;
-    transition: 0.7s;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
 }
