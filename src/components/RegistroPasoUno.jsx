@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../styles/registro.css";
+import "../styles/registroPasoUno.css";
 import CardRegistroPasoUno from "./registro/CardRegistroPasoUno";
 
 const RegistroPasoUno = () => {
