@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PerfilProfesional from "../components/PerfilProfesional";
 import PerfilLayout from "../components/PerfilLayout";
 import MainLayout from "../components/MainLayout";
 import Home from "../pages/Home";
+import PerfilProfesional from "../components/profesional/PerfilProfesional";
 
 const AppRouter = () => {
   return (
