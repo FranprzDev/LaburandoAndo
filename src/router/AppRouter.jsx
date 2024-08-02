@@ -1,19 +1,33 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from '../pages/Home'
-import Menu from '../components/Menu'
-import Footer from '../components/Footer'
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PerfilProfesional from "../components/PerfilProfesional";
+import PerfilLayout from "../components/PerfilLayout";
+import MainLayout from "../components/MainLayout";
+import Home from "../pages/Home";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
-    <Menu/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+      <Route 
+          path='/' 
+          element={
+            <MainLayout>
+              <Home />
+            </MainLayout>
+          } 
+        />
+        <Route
+          path="/miperfil"
+          element={
+            <PerfilLayout>
+              <PerfilProfesional></PerfilProfesional>
+            </PerfilLayout>
+          }
+        />
       </Routes>
-      <Footer/>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;
