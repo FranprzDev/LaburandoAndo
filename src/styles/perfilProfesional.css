@@ -1,0 +1,15 @@
+@media all and (min-width:768px){
+    .containerProfile{
+        width: 100%;
+    }
+
+    .menuProfessional{
+        min-height: 100vh;
+    }
+    
+    .menuProfessional .containerMenu{
+        height: 100%;    
+    }
+
+    
+}
