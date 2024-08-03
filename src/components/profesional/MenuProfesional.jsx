@@ -1,5 +1,3 @@
-import React from "react";
-import "../../styles/perfilProfesional.css";
 import { Link } from "react-router-dom";
 import image from "../../img/Logo.jpg";
 import { FaHome, FaUser, FaWpforms, FaListAlt } from "react-icons/fa";

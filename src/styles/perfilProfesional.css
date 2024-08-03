@@ -1,3 +1,5 @@
+
+/*menu lateral*/
 .imgProfileUser{
     width: 100px;
 }
@@ -6,11 +8,34 @@
     color: #9e26ae;
 }
 
+/*formulario perfil prof*/
+.input:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.input:disabled{
+    background:none;
+}
+
+.imgProfileForm{
+    width: 150px;
+}
+
+.btnEdit{
+    background: var(--Violeta);
+}
+
+.btnEdit:hover{
+    background: #781985;
+}
+
 @media all and (min-width:768px){
+    
     .containerProfile{
         width: 100%;
     }
-
+    /*menu lateral*/
     .menuProfessional{
         min-height: 100vh;
     }
@@ -18,10 +43,22 @@
     .menuProfessional .containerMenu{
         height: 100vh;    
     }
+
+    /*perfil prof*/
+    .myProfile{
+        width: 100%;
+        height: 100%;
+    }
+
+    .myProfile .formProfile{
+        max-width: 800px;
+    }
 }
 
 @media all and (min-width:1200px){
-    .navItemOffCanvas{
+    .navItemOffCanvas,
+    .fontSizeLabel,
+    .btnEdit{
         font-size: 1.125rem;
     }
 
