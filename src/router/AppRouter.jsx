@@ -18,7 +18,7 @@ const AppRouter = () => {
           } 
         />
         <Route
-          path="/miperfil"
+          path="/mi-perfil"
           element={
             <PerfilLayout>
               <PerfilProfesional></PerfilProfesional>

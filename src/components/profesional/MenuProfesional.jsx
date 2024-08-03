@@ -22,7 +22,7 @@ const MenuProfesional = () => {
             title="imagen de perfil"
             className="rounded-circle shadow imgProfileUser"
           />
-          <figcaption className="fw-bold fs-5">Bruno Madozzo Romay</figcaption>
+          <figcaption className="fw-medium fs-5">Bruno Madozzo Romay</figcaption>
           <figcaption>Tucumán, Argentina</figcaption>
         </figure>
         <button
@@ -55,56 +55,56 @@ const MenuProfesional = () => {
             </figcaption>
             <figcaption>Tucumán, Argentina</figcaption>
           </figure>
-          <div className="offcanvas-body d-flex justify-content-center ps-xxl-2">
-            <ul className="navbar-nav d-flex flex-column justify-content-start mt-3 flex-grow-1">
-              <li className="nav-item navItemOffCanvas">
+          <div className="offcanvas-body d-flex justify-content-md-center ps-xxl-4">
+            <ul className="navbar-nav d-flex flex-column justify-content-start mt-3">
+              <li className="nav-item navItemOffCanvas w-100">
                 <Link
-                  className="nav-link px-0 d-flex gap-2 align-items-center"
+                  className="nav-link px-0 d-flex gap-2 align-items-center navLink w-100 "
                   to={"/"}
                 >
-                  <FaHome className="fs-5 text-dark" />{" "}
+                  <FaHome className="fs-5 iconMenu" />{" "}
                   <span className="align-middle">Home</span>
                 </Link>
               </li>
               <li className="nav-item mt-xl-3 navItemOffCanvas ">
                 <Link
-                  className="nav-link px-0 d-flex gap-2 align-items-center"
-                  to={"/miperfil"}
+                  className="nav-link px-0 d-flex gap-2 align-items-center navLink"
+                  to={"/mi-perfil"}
                 >
-                  <FaUser className="fs-5 text-dark" />{" "}
+                  <FaUser className="fs-5 iconMenu" />{" "}
                   <span className="align-middle">Mi Perfil</span>
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas d-flex gap-2 align-items-center">
                 <Link
-                  className="nav-link px-0 d-flex gap-2 align-items-center"
-                  to={"/publicar"}
+                  className="nav-link px-0 d-flex gap-2 align-items-center navLink"
+                  to={"/publicar-anuncio"}
                 >
-                  <FaWpforms className="fs-5 text-dark" />{" "}
+                  <FaWpforms className="fs-5 iconMenu" />{" "}
                   <span className="align-middle">Publicar Anuncio</span>
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas ">
                 <Link
-                  className="nav-link px-0 d-flex gap-2 align-items-center"
-                  to={"/mispublicaciones"}
+                  className="nav-link px-0 d-flex gap-2 align-items-center navLink"
+                  to={"/mis-publicaciones"}
                 >
-                  <FaListAlt className="fs-5 text-dark" />
+                  <FaListAlt className="fs-5 iconMenu" />
                   <span className="align-middle">Mis publicaciones</span>
                 </Link>
               </li>
-              <li className="nav-item navItemOffCanvas">
+              <li className="nav-item navItemOffCanvas navLink">
                 <Link
-                  className="nav-link px-0 d-flex gap-1 align-items-center"
+                  className="nav-link px-0 d-flex gap-1 align-items-center navLink"
                   to={"/*"}
                 >
-                  <TbHelpCircleFilled className="fs-4 text-dark" />
+                  <TbHelpCircleFilled className="fs-4 iconMenu" />
                   <span className="align-middle">Ayuda</span>
                 </Link>
               </li>
               <li className="nav-item mt-xl-3 navItemOffCanvas text-start">
-                <button className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center">
-                  <BiSolidExit className="fs-4 text-dark" />
+                <button className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center navLink">
+                  <BiSolidExit className="fs-4 iconMenu" />
                   <span className="align-middle">Salir</span>
                 </button>
               </li>
