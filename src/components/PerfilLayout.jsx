@@ -1,5 +1,5 @@
 import MenuProfesional from "./profesional/MenuProfesional";
-import "../styles/perfilProfesional.css";
+import "../styles/menuLateral.css";
 
 const PerfilLayout = ({ children }) => {
   return (
