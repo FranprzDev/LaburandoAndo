@@ -2,22 +2,25 @@ import React from "react";
 import "../../styles/perfilProfesional.css";
 import { Link } from "react-router-dom";
 import image from "../../img/Logo.jpg";
+import { FaHome, FaUser, FaWpforms, FaListAlt } from "react-icons/fa";
+import { TbHelpCircleFilled } from "react-icons/tb";
+import { BiSolidExit } from "react-icons/bi";
 
 const MenuProfesional = () => {
   return (
-    <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2">
-      <div className="px-0 px-md-2 py-md-3 container-fluid containerMenu d-flex flex-md-column align-items-start">
+    <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
+      <div className="px-0 px-md-2 py-md-3 pt-lg-0  container-fluid containerMenu d-flex flex-md-column align-items-start">
         <div className="text-md-center">
           <Link className="navbar-brand fs-2" to={"/"}>
             LaburandoAndo
           </Link>
         </div>
-        <figure className="d-none d-md-block text-center mx-auto w-100 mt-5">
+        <figure className="d-none d-md-block text-center mx-auto w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3">
           <img
             src={image}
-            alt=""
-            width={100}
-            className="rounded-circle shadow"
+            alt="imagen de perfil"
+            title="imagen de perfil"
+            className="rounded-circle shadow imgProfileUser"
           />
           <figcaption className="fw-bold fs-5">Bruno Madozzo Romay</figcaption>
           <figcaption>Tucumán, Argentina</figcaption>
@@ -26,11 +29,14 @@ const MenuProfesional = () => {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
+          data-bs-target="#offcanvasNavbarMd"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="offcanvas offcanvas-start w-100" id="offcanvasNavbar">
+        <div
+          className="offcanvas menuOffcanvas offcanvas-end w-75"
+          id="offcanvasNavbarMd"
+        >
           <div className="offcanvas-header">
             <button
               type="button"
@@ -38,37 +44,69 @@ const MenuProfesional = () => {
               data-bs-dismiss="offcanvas"
             ></button>
           </div>
-          <div className="offcanvas-body d-flex justify-content-center w-100 px-4">
-            <ul className="navbar-nav d-flex flex-column justify-content-center w-100 mt-3">
-              <li className="nav-item">
-                <Link className="nav-link w-100" aria-current="page" to={"/"}>
-                  Home
+          <figure className="d-md-none text-center w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3">
+            <img
+              src={image}
+              alt=""
+              className="rounded-circle shadow imgProfileUser"
+            />
+            <figcaption className="fw-bold fs-5">
+              Bruno Madozzo Romay
+            </figcaption>
+            <figcaption>Tucumán, Argentina</figcaption>
+          </figure>
+          <div className="offcanvas-body d-flex justify-content-center ps-xxl-2">
+            <ul className="navbar-nav d-flex flex-column justify-content-start mt-3 flex-grow-1">
+              <li className="nav-item navItemOffCanvas">
+                <Link
+                  className="nav-link px-0 d-flex gap-2 align-items-center"
+                  to={"/"}
+                >
+                  <FaHome className="fs-5 text-dark" />{" "}
+                  <span className="align-middle">Home</span>
                 </Link>
               </li>
-              <li className="nav-item mt-xl-3">
-                <Link className="nav-link w-100" to={"/miperfil"}>
-                  Mi Perfil
+              <li className="nav-item mt-xl-3 navItemOffCanvas ">
+                <Link
+                  className="nav-link px-0 d-flex gap-2 align-items-center"
+                  to={"/miperfil"}
+                >
+                  <FaUser className="fs-5 text-dark" />{" "}
+                  <span className="align-middle">Mi Perfil</span>
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/publicar"}>
-                  Publicar Anuncio
+              <li className="nav-item navItemOffCanvas d-flex gap-2 align-items-center">
+                <Link
+                  className="nav-link px-0 d-flex gap-2 align-items-center"
+                  to={"/publicar"}
+                >
+                  <FaWpforms className="fs-5 text-dark" />{" "}
+                  <span className="align-middle">Publicar Anuncio</span>
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="#">
-                  Mis Publicaciones
+              <li className="nav-item navItemOffCanvas ">
+                <Link
+                  className="nav-link px-0 d-flex gap-2 align-items-center"
+                  to={"/mispublicaciones"}
+                >
+                  <FaListAlt className="fs-5 text-dark" />
+                  <span className="align-middle">Mis publicaciones</span>
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="#">
-                  Ayuda
+              <li className="nav-item navItemOffCanvas">
+                <Link
+                  className="nav-link px-0 d-flex gap-1 align-items-center"
+                  to={"/*"}
+                >
+                  <TbHelpCircleFilled className="fs-4 text-dark" />
+                  <span className="align-middle">Ayuda</span>
                 </Link>
               </li>
-              <li className="nav-item mt-xl-3">
-                <Link className="nav-link" href="#">
-                  Cerrar Sesión
-                </Link>
+              <li className="nav-item mt-xl-3 navItemOffCanvas text-start">
+                <button className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center">
+                  <BiSolidExit className="fs-4 text-dark" />
+                  <span className="align-middle">Salir</span>
+                </button>
               </li>
             </ul>
           </div>
