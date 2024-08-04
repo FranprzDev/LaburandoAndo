@@ -50,3 +50,9 @@
     background-color: #501c46;
     color: white;
 }
+
+.imgHome{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}

@@ -4,6 +4,7 @@ import Educacion from '../img/Educacion.jpg'
 import Electricista from '../img/Electricista.jpg'
 import Fotografo from '../img/Fotografo.jpg'
 import Trainer from '../img/Trainer.jpg'
+import EncontrarAnunciar from "../components/inicio/EncontrarAnunciar";
 const Home = () => {
   return (
     <section className="mainSection">
@@ -36,6 +37,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+      <EncontrarAnunciar/>
     </section>
   );
 };
