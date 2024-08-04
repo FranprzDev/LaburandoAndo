@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import Busca from '../../img/Busca.jpg'
 import Contacto from '../../img/Contacto.jpg'
 const EncontrarAnunciar = () => {
@@ -22,6 +22,9 @@ const EncontrarAnunciar = () => {
           <p className='fs-4'>Contacta al profesional ideal según tus necesidades</p>
         </Col>
       </Row>
+      <div className='text-center my-3'>
+      <Button className='btn btn-Explorar fs-5 border-0'>Ver todos los profesionales</Button>
+      </div>
     </Container>
   )
 }
