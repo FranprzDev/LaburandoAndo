@@ -19,7 +19,7 @@ const Home = () => {
             <Link to={'/'} className="btn text-light border-0 btn-Explorar mt-4">Explorar</Link>
           </Col>
           <Col md={12} lg={6} className="contenedorImgBanner d-none d-md-inline">
-            <Row className="text-center p-5 mt-md-3 mt-lg-0 bg-body-tertiary">
+            <Row className="text-center mt-md-3 mt-lg-0 bg-body-tertiary">
               <Col md={6} lg={6} className="mb-3">
               <div>
                   <img src={Educacion} alt="Educacion Web" className="imgBanner"/>

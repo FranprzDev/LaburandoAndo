@@ -27,13 +27,9 @@
     color: white;
 }
 
-.contenedorImgBanner{
-    width: 800px;
-}
-
 .imgBanner{
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border: 5px solid grey;
 }
@@ -65,8 +61,8 @@
 }
 
 .imgHome{
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -95,6 +91,10 @@
         height: 400px;
         object-fit: cover;
     }
+
+    .contenedorImgBanner{
+        width: 100%
+    }
 }
 
 h1{
@@ -103,4 +103,8 @@ h1{
 
 p{
     font-size: 25px;
+}
+
+h2{
+    font-size: 40px;
 }
