@@ -1,0 +1,48 @@
+.cardRegister {
+  width: 75%;
+  height: 15vh;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px solid rgb(231, 228, 228);
+  transition: 0.7s;
+}
+
+.cardRegister:hover {
+  border: 1px solid var(--Violeta);
+  transition: 0.7s;
+}
+
+.btnOptionLogin {
+  width: 50%;
+  background-color: var(--Violeta);
+}
+
+.btnOptionLogin:hover {
+  background-color: #7f2d6e;
+}
+
+@media all and (min-width: 768px) {
+  .fontSizeText {
+    font-size: 1.125rem; /* 18px */
+  }
+
+  .cardRegister {
+    width: 50%;
+    height: 30vh;
+  }
+
+  .btnOptionLogin {
+    width: 25%;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .fontSizeText {
+    font-size: 1.25rem; /* 20px */ 
+  }
+
+  .cardRegister {
+    width: 30%;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+}
