@@ -5,6 +5,7 @@ import Electricista from '../img/Electricista.jpg'
 import Fotografo from '../img/Fotografo.jpg'
 import Trainer from '../img/Trainer.jpg'
 import EncontrarAnunciar from "../components/inicio/EncontrarAnunciar";
+import RegistroProfesional from "../components/inicio/RegistroProfesional";
 const Home = () => {
   return (
     <section className="mainSection">
@@ -38,6 +39,7 @@ const Home = () => {
         </Row>
       </Container>
       <EncontrarAnunciar/>
+      <RegistroProfesional/>
     </section>
   );
 };
