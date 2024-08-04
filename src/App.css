@@ -85,6 +85,7 @@
         height: 300px;
         object-fit: cover;
     }
+    
 }
 
 @media all and (min-width: 768px) and (max-width: 991px)
@@ -94,4 +95,12 @@
         height: 400px;
         object-fit: cover;
     }
+}
+
+h1{
+    font-size: 45px;
+}
+
+p{
+    font-size: 25px;
 }

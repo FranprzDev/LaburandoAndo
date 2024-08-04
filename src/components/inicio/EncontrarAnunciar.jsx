@@ -4,7 +4,7 @@ import Busca from '../../img/Busca.jpg'
 import Contacto from '../../img/Contacto.jpg'
 const EncontrarAnunciar = () => {
   return (
-    <Container fluid>
+    <Container fluid className='my-5'>
       <h2 className='display-5 fw-bold'>¿Cómo funciona LaburandoAndo?</h2>
       <Row className='text-center'>
         <Col md={6}>

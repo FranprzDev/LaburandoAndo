@@ -3,9 +3,9 @@ import { Container, Accordion } from 'react-bootstrap'
 
 const PreguntasFrecuentes = () => {
   return (
-    <Container className='mb-4'>
+    <Container className='my-5'>
         <h2 className='display-5 fw-bold'>FAQ - Preguntas Frecuentes</h2>
-      <Accordion defaultActiveKey="0">
+      <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header>¿Cómo puedo registrarme como profesional independiente en LaburandoAndo?</Accordion.Header>
         <Accordion.Body>
