@@ -6,6 +6,7 @@ import Fotografo from '../img/Fotografo.jpg'
 import Trainer from '../img/Trainer.jpg'
 import EncontrarAnunciar from "../components/inicio/EncontrarAnunciar";
 import RegistroProfesional from "../components/inicio/RegistroProfesional";
+import PreguntasFrecuentes from "../components/inicio/PreguntasFrecuentes";
 const Home = () => {
   return (
     <section className="mainSection">
@@ -40,6 +41,7 @@ const Home = () => {
       </Container>
       <EncontrarAnunciar/>
       <RegistroProfesional/>
+      <PreguntasFrecuentes/>
     </section>
   );
 };
