@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import RegistroPasoUno from '../components/RegistroPasoUno'
 import PerfilLayout from "../components/PerfilLayout";
 import MainLayout from "../components/MainLayout";
+import Login from '../pages/Login'
 
 const AppRouter = () => {
   return (
@@ -27,6 +28,7 @@ const AppRouter = () => {
           }
         />
         <Route path='/registropasouno' element={<RegistroPasoUno></RegistroPasoUno>}/>
+        <Route path='/login' element={<Login></Login>}/>
       </Routes>
     </BrowserRouter>
   );
