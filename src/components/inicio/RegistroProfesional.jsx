@@ -9,7 +9,7 @@ const RegistroProfesional = () => {
         <Col md={6}>
           <div>
             <img
-              className="imgRegistro"
+              className="imgRegistro img-fluid"
               src={Profesional}
               alt="Imagen de alguien usando una notebook"
             />
