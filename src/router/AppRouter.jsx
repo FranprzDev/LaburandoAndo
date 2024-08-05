@@ -28,7 +28,11 @@ const AppRouter = () => {
           }
         />
         <Route path='/registropasouno' element={<RegistroPasoUno></RegistroPasoUno>}/>
-        <Route path='/login' element={<Login></Login>}/>
+        <Route path='/login' element={
+          <MainLayout>
+            <Login/>
+          </MainLayout>
+          }/>
       </Routes>
     </BrowserRouter>
   );
