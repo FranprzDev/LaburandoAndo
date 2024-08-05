@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import RegistroPasoUno from '../components/RegistroPasoUno'
 import PerfilLayout from "../components/PerfilLayout";
 import MainLayout from "../components/MainLayout";
+import PublicacionProfesional from "../components/profesional/PublicacionProfesional";
 import PerfilProfesional from "../components/profesional/PerfilProfesional";
 import Login from '../pages/Login'
 
@@ -26,6 +27,14 @@ const AppRouter = () => {
           element={
             <PerfilLayout>
               <PerfilProfesional></PerfilProfesional>
+            </PerfilLayout>
+          }
+        />
+        <Route
+          path="/publicar-anuncio"
+          element={
+            <PerfilLayout>
+              <PublicacionProfesional></PublicacionProfesional>
             </PerfilLayout>
           }
         />
