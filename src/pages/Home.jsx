@@ -8,6 +8,8 @@ import EncontrarAnunciar from "../components/inicio/EncontrarAnunciar";
 import RegistroProfesional from "../components/inicio/RegistroProfesional";
 import PreguntasFrecuentes from "../components/inicio/PreguntasFrecuentes";
 import { Link } from "react-router-dom";
+import "../styles/home.css";
+
 const Home = () => {
   return (
     <section className="mainSection">
