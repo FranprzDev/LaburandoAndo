@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import RegistroPasoUno from '../components/RegistroPasoUno'
 import PerfilLayout from "../components/PerfilLayout";
 import MainLayout from "../components/MainLayout";
+import PerfilProfesional from "../components/profesional/PerfilProfesional";
 import Login from '../pages/Login'
 
 const AppRouter = () => {
@@ -24,6 +25,7 @@ const AppRouter = () => {
           path="/mi-perfil"
           element={
             <PerfilLayout>
+              <PerfilProfesional></PerfilProfesional>
             </PerfilLayout>
           }
         />
