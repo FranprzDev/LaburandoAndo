@@ -15,17 +15,20 @@ const RegitroProfesional = () => {
 
   return (
     <>
-      <div className="card mb-3">
+      <div className="card">
         <div className="row g-3 mx-5 my-5">
-          <div className="col-md-4">
+          <div className="col-md-6">
             {/* informacion */}
             <h2>¿Como funciona?</h2>
             <h2>¿Por que registrarte?</h2>
           </div>
-          <div className="col-md-8">
-            {/* formulario */}
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="col-md-6 ">
+            {/* formulario */}
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="border p-4 rounded"
+            >
               <h2 className="text-center mb-5">Registrate en LaburandoAndo</h2>
 
               <fieldset>
@@ -70,13 +73,73 @@ const RegitroProfesional = () => {
                     },
                   })}
                   required
+                  placeholder="ejemplo@ejemplo.com"
                 />
                 <p className="text-danger">{errors.email?.message}</p>
               </fieldset>
 
-              <button type="submit" className="btn btn-primary">
-                Registrarme
-              </button>
+              <fieldset>
+                <label htmlFor="passwordRegistro" className="form-label">
+                  Contraseña
+                </label>
+                <input
+                  type="password"
+                  id="passwordRegistro"
+                  className="form-control"
+                  {...register("password", {
+                    required: "Campo requerido",
+                    minLength: {
+                      value: 8,
+                      message: "Escriba mínimo 8 caracteres",
+                    },
+                    maxLength: {
+                      value: 16,
+                      message: "Escriba como máximo 16 caracteres",
+                    },
+                  })}
+                  required
+                  minLength={8}
+                  maxLength={16}
+                />
+                <p className="text-danger">{errors.password?.message}</p>
+              </fieldset>
+
+              <fieldset>
+                <label htmlFor="password2Registro" className="form-label">
+                  Repetir Contraseña
+                </label>
+                <input
+                  type="password"
+                  id="password2Registro"
+                  className="form-control"
+                  {...register("password2", {
+                    required: "Campo requerido",
+                    minLength: {
+                      value: 8,
+                      message: "Escriba mínimo 8 caracteres",
+                    },
+                    maxLength: {
+                      value: 16,
+                      message: "Escriba como máximo 16 caracteres",
+                    },
+                  })}
+                  required
+                  minLength={8}
+                  maxLength={16}
+                />
+                <p className="text-danger">{errors.password2?.message}</p>
+              </fieldset>
+
+              <div className="d-grid">
+                <button type="submit" className="btn btn-danger">
+                  Registrarme
+                </button>
+              </div>
+
+              <div className="d-grid mt-5">
+                <p>¿Ya tienes una cuena?</p>
+                <button className="btn btn-secondary">Ingresar</button>
+              </div>
             </form>
           </div>
         </div>
