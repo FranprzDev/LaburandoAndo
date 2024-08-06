@@ -30,6 +30,7 @@
 .input:focus{
     outline: none;
     box-shadow: none;
+}
 .btn:active {
     transform: translateY(2px);
     transition: cubic-bezier(1, 0, 0, 1) 0.2s;

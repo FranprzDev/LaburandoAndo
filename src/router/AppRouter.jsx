@@ -4,11 +4,12 @@ import Home from '../pages/Home'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 import RegistroPasoUno from '../components/RegistroPasoUno'
+import RegistroPasoTres from '../pages/RegistroPasoTres'
 import PerfilLayout from "../components/PerfilLayout";
 import MainLayout from "../components/MainLayout";
 import PublicacionProfesional from "../components/profesional/PublicacionProfesional";
 import PerfilProfesional from "../components/profesional/PerfilProfesional";
-import Login from '../pages/Login'
+
 
 const AppRouter = () => {
   return (
@@ -38,10 +39,14 @@ const AppRouter = () => {
             </PerfilLayout>
           }
         />
-        <Route path='/registropasouno' element={<RegistroPasoUno></RegistroPasoUno>}/>
-        <Route path='/login' element={
+        <Route path='/registropasouno' element={
           <MainLayout>
-            <Login/>
+            <RegistroPasoUno></RegistroPasoUno>
+          </MainLayout>
+          }/>
+        <Route path='/registropasotres' element={
+          <MainLayout>
+            <RegistroPasoTres></RegistroPasoTres>
           </MainLayout>
           }/>
       </Routes>
