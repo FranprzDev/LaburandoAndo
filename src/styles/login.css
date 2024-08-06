@@ -1,0 +1,31 @@
+.btn-Registrarse {
+    background-color: #E9D5FF;
+}
+
+.btn-Registrarse:hover {
+    background-color: #D1B3FF;
+}
+
+.btn-Registrarse:focus {
+    background-color: #D1B3FF;
+}
+
+.btn-Registrarse:active {
+    background-color: #D1B3FF !important;
+}
+
+.btn-LoginGoogle:hover {
+    background-color: #efeef0;
+    color: #000000;
+}
+
+.btn-LoginGoogle:active {
+    background-color: #efeef0 !important;
+    color: #000000 !important;
+
+}
+
+.btn-LoginGoogle:focus {
+    background-color: #efeef0;
+    color: #000000;
+}
