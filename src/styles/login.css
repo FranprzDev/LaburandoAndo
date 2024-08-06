@@ -1,0 +1,16 @@
+
+.btn-LoginGoogle:hover {
+    background-color: #efeef0;
+    color: #000000;
+}
+
+.btn-LoginGoogle:active {
+    background-color: #efeef0 !important;
+    color: #000000 !important;
+
+}
+
+.btn-LoginGoogle:focus {
+    background-color: #efeef0;
+    color: #000000;
+}
