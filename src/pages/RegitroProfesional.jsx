@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "../styles/login.css";
+import "../styles/registro.css";
 
 const RegitroProfesional = () => {
   const {
@@ -17,10 +17,35 @@ const RegitroProfesional = () => {
     <>
       <div className="card">
         <div className="row g-3 mx-5 my-5">
-          <div className="col-md-6">
+          <div className="col-md-6 text-center mt-5">
             {/* informacion */}
-            <h2>¿Como funciona?</h2>
-            <h2>¿Por que registrarte?</h2>
+            <h2 className="texto-registro">¿Como funciona?</h2>
+            <br />
+            <h4 className="texto-registro">1. Anunciate de manera gratuita</h4>
+            <h6>Completá tus datosy publica tu anunciogratuitamente.</h6>
+            <br />
+            <h4 className="texto-registro">2. Recibe mensajes de clientes</h4>
+            <h6>
+              Podrán contactarte a traves de WhatsApp e Email para solicitar tus
+              servicios.
+            </h6>
+            <br />
+            <h4 className="texto-registro">
+              3. Comienza a brindar tus servicios
+            </h4>
+            <h6>Concreta con tus clientes.</h6>
+            <br />
+            <br />
+            <br />
+
+            <h2 className="texto-registro">¿Por que registrarte?</h2>
+            <br />
+            <h6>Es gratis</h6>
+            <br />
+            <h6>
+              Con LaburandoAndo tienes la oportunidad de llegar a mas personas
+            </h6>
+            <br />
           </div>
 
           <div className="col-md-6 ">
@@ -29,7 +54,9 @@ const RegitroProfesional = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="border p-4 rounded"
             >
-              <h2 className="text-center mb-5">Registrate en LaburandoAndo</h2>
+              <h2 className="text-center mb-5 texto-registro">
+                Registrate en <strong>LaburandoAndo</strong>
+              </h2>
 
               <fieldset>
                 <label htmlFor="nombreRegistro" className="form-label">
@@ -131,7 +158,7 @@ const RegitroProfesional = () => {
               </fieldset>
 
               <div className="d-grid">
-                <button type="submit" className="btn btn-danger btn-lg ">
+                <button type="submit" className="btn btn-lg boton-color">
                   Registrar
                 </button>
               </div>
@@ -162,7 +189,7 @@ const RegitroProfesional = () => {
 
               <div className="d-grid mt-5">
                 <p>¿Ya tienes una cuena?</p>
-                <button className="btn btn-secondary btn-lg">Ingresar</button>
+                <button className="btn boton2-color btn-lg">Ingresar</button>
               </div>
             </form>
           </div>
