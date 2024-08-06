@@ -1,0 +1,28 @@
+#root{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    --Negro:  #000000;
+    --Violeta: #853f78;
+    --Rosa: #f1d0eb;
+    --Lavanda: #f0e6ef;
+}
+
+.img-circulo-card{
+    width: 100px;
+}
+
+.btn-descripcion-profesional{
+    background: #853f78;
+    border-color: #000000;
+    color: aliceblue;
+}
+
+.card-detalle{
+    background: rgba( 255, 255, 255, 0.4 );
+box-shadow: 0 8px 3cqi 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
