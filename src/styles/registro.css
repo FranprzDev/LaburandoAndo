@@ -1,0 +1,40 @@
+
+.btn-LoginGoogle:hover {
+    background-color: #efeef0;
+    color: #000000;
+}
+
+.btn-LoginGoogle:active {
+    background-color: #efeef0 !important;
+    color: #000000 !important;
+
+}
+
+.btn-LoginGoogle:focus {
+    background-color: #efeef0;
+    color: #000000;
+}
+
+.texto-registro{
+    color: #853f78;
+}
+
+.boton-color{
+    background-color:#853f78 !important;
+    color: white !important;
+}
+
+.boton-color:hover {
+    background-color:#521f48 !important;
+    color: white !important;
+}
+
+.boton2-color{
+    background-color:#b471a8 !important;
+    color:#000000 !important;
+}
+
+.boton2-color:hover {
+    background-color:#b471a8 !important;
+    color:#000000 !important;
+}
