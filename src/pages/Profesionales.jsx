@@ -9,7 +9,7 @@ const Profesionales = () => {
                 <article className=" mb-2 mb-md-3">
                     <h1>Profesionales a tu alcance</h1>
                 </article>
-                <article className="col-lg-3 border">
+                <article className="col-lg-3">
                     <Filtros></Filtros>
                 </article>
                 <article className="col-lg-8 col-xl-7">
