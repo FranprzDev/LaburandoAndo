@@ -8,6 +8,7 @@ import PerfilLayout from "../components/PerfilLayout";
 import MainLayout from "../components/MainLayout";
 import PublicacionProfesional from "../components/profesional/PublicacionProfesional";
 import PerfilProfesional from "../components/profesional/PerfilProfesional";
+import Profesionales from '../pages/Profesionales'
 
 
 const AppRouter = () => {
@@ -21,6 +22,14 @@ const AppRouter = () => {
           element={
             <MainLayout>
               <Home />
+            </MainLayout>
+          } 
+        />
+        <Route 
+          path='/profesionales' 
+          element={
+            <MainLayout>
+              <Profesionales></Profesionales>
             </MainLayout>
           } 
         />
