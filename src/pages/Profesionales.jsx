@@ -4,9 +4,9 @@ import "../styles/profesionales.css"
 
 const Profesionales = () => {
     return (
-        <section className='mainSection py-4 container'>
+        <section className='mainSection py-2 pb-md-5 pt-md-4 container'>
             <div className="row gap-1 justify-content-center">
-                <article className=" mb-3">
+                <article className=" mb-2 mb-md-3">
                     <h1>Profesionales a tu alcance</h1>
                 </article>
                 <article className="col-lg-3 border">
