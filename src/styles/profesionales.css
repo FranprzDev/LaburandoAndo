@@ -1,0 +1,67 @@
+.cardPublication{
+    width: 100%;
+    min-height: 300px;
+    cursor: pointer;
+    border: 1px solid #efedef;
+}
+
+.cardPublication .imgCardPublication{
+    width: 100px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.cardPublication .category{
+    display: inline;
+    min-width: 150px;
+    max-width: 200px;
+    background: #853f78;
+}
+
+.cardPublication .btnSeeProfile{
+    width: 100%;
+    background: #c24ead;
+}
+
+.cardPublication .btnSeeProfile:hover{
+    background: #9c2d88;
+}
+
+.cardPublication .outstanding{
+    background: #4c8cee;
+}
+
+@media all and (min-width: 768px){
+    .cardPublication .btnSeeProfile{
+        width: 25%;
+        min-width: 250px;
+        background: #c24ead;
+    }
+}
+
+
+@media all and (min-width: 992px){
+    .cardPublication .btnSeeProfile{
+        width: 25%;
+        min-width: 250px;
+        background: #c24ead;
+    }
+
+    .cardPublication .imgCardPublication{
+        width: 150px;
+    }
+}
+
+@media all and (min-width: 1400px){
+    .cardPublication{
+        transition: 0.8s;
+        min-width: 800px;
+    }
+
+    .cardPublication:hover{
+        transition: 0.8s;
+        border: 1px solid #c24ead;
+    }
+}

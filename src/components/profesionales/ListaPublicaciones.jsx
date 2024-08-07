@@ -3,10 +3,10 @@ import CardPublicacion from './CardPublicacion';
 
 const ListaPublicaciones = () => {
     return (
-        <section className=''>
+        <div className='d-flex flex-column gap-3'>
             <CardPublicacion></CardPublicacion>
             <CardPublicacion></CardPublicacion>
-        </section>
+        </div>
     );
 };
 
