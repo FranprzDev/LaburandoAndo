@@ -1,9 +1,8 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
-import Menu from '../components/Menu'
-import Footer from '../components/Footer'
 import RegistroPasoUno from '../components/RegistroPasoUno'
+import DetalleDelProfesional from '../pages/DetalleDelProfesional'
 import RegistroPasoTres from '../pages/RegistroPasoTres'
 import PerfilLayout from "../components/PerfilLayout";
 import MainLayout from "../components/MainLayout";
@@ -15,6 +14,9 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/detalleDelProfesional' element={<DetalleDelProfesional/>}/>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/registropasouno' element={<RegistroPasoUno></RegistroPasoUno>}/>
       <Route 
           path='/' 
           element={
