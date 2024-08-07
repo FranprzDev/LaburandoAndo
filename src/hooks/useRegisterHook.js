@@ -9,7 +9,7 @@ export const useRegisterHook = () => {
         phone,
         location,
         photo,
-        authMethod,
+        authMethod, 
         type,
         setName,
         setEmail,
@@ -76,6 +76,8 @@ export const useRegisterHook = () => {
             type,
             authMethod
         }
+
+        console.log("Creating professional", professional)
     }
 
     return {
