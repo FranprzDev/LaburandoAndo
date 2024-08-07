@@ -15,7 +15,6 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/detalleDelProfesional' element={<DetalleDelProfesional/>}/>
-        <Route path='/' element={<Home/>}/>
         <Route path='/registropasouno' element={<RegistroPasoUno></RegistroPasoUno>}/>
       <Route 
           path='/' 
