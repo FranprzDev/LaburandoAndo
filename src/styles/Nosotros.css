@@ -1,3 +1,14 @@
 .card-fundadores img{
     object-fit: cover;
 }
+
+.texto-ampliado{
+    font-size:x-large !important;
+    color:#853f78 !important;
+    font-weight:bold;
+}
+
+.negrita {
+    font-weight:normal;
+    text-align: justify;
+}
