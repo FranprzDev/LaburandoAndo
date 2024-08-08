@@ -4,8 +4,8 @@ import "../styles/Nosotros.css";
 const Nosotros = () => {
   return (
     <>
-      <div className="container">
-        <div className="row mb-5 text-center g-5">
+      <div className="container-fluid">
+        <div className="row text-center g-5 color-fondo-somos px-5 py-5">
           <h1>Quienes somos?</h1>
           <div className="col-md-6 align-items-center mt-5 text-start">
             <h6 className="negrita">
@@ -39,7 +39,7 @@ const Nosotros = () => {
           </div>
         </div>
 
-        <div className="row text-center mb-5">
+        <div className="row text-center py-5 px-5 color-fondo-mision-vision">
           <h1>Nuestros Principios</h1>
 
           <div className="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
@@ -83,7 +83,7 @@ const Nosotros = () => {
           </div>
         </div>
 
-        <div className="row text-center ">
+        <div className="row text-center py-5 px-5 color-fondo-fundadores">
           <h1>Fundadores</h1>
 
           <div className="row row-cols-1 row-cols-md-3 g-4 justify-content-center card-fundadores">
