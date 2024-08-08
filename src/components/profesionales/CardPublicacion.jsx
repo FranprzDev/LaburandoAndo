@@ -49,7 +49,7 @@ const CardPublicacion = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex justify-content-between align-items-center w-100 pb-2 py-md-3">
+      <div className="d-flex justify-content-between align-items-center w-100 pb-2">
         <div className="d-none d-md-block text-center outstanding rounded-2 text-white py-1 px-4">
           <span>Destacado</span>
         </div>

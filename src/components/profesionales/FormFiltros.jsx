@@ -12,7 +12,7 @@ const FormFiltros = () => {
         />
       </div>
       <div className="d-flex flex-wrap mb-2 mb-md-3">
-        <label className="form-label fw-medium">Categorías</label>
+        <label className="form-label fw-medium w-100">Categorías</label>
         <div className="d-flex flex-wrap gap-2">
           <button className="p-2 rounded-2 border">Fotógrafo</button>
           <button className="p-2 rounded-2 border">Personal Trainer</button>
