@@ -7,7 +7,7 @@ const FormFiltros = () => {
         <label className="form-label fw-medium">Ubicación</label>
         <input
           type="text"
-          className="form-control w-100 rounded-2"
+          className="form-control input w-100 rounded-2"
           placeholder="Yerba Buena, Tucumán"
         />
       </div>
@@ -24,7 +24,7 @@ const FormFiltros = () => {
         <label className="form-label fw-medium">Buscar por palabra clave</label>
         <input
           type="text"
-          className="form-control w-100 rounded-2"
+          className="form-control input w-100 rounded-2"
           placeholder="juan perez"
         />
       </div>
