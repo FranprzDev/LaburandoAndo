@@ -12,7 +12,7 @@ const Profesionales = () => {
         <article className="col-md-9 col-lg-3">
           <Filtros></Filtros>
         </article>
-        <article className="col-lg-8 col-xl-7">
+        <article className="col-lg-8 ">
           <ListaPublicaciones></ListaPublicaciones>
         </article>
       </div>
