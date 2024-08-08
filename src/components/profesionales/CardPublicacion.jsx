@@ -32,7 +32,7 @@ const CardPublicacion = () => {
             <h5 className="fw-bold pt-2 mb-0">
               Clases particulares de inglés en línea
             </h5>
-            <p className="fs-6 text-secondary mb-0">
+            <p className="fs-6 text-secondary mb-0 description">
               Hola me llamo juan perez y tengo 25 años. Brindo clases a alumnos
               que...
             </p>
