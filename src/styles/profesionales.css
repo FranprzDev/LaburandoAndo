@@ -57,7 +57,7 @@ a{
 @media all and (min-width: 1400px){
     .cardPublication{
         transition: 0.8s;
-        min-width: 800px;
+        min-width: 850px;
     }
 
     .cardPublication:hover{

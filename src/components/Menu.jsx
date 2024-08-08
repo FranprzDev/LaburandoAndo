@@ -11,11 +11,10 @@ const Menu = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Link to={'/detalleDelProfesional'} className='nav-link'>Detalle del Profesional</Link>
             <Link to={'/'} className='nav-link'>Home</Link>
-            <Link className='nav-link'>Profesionales</Link>
-            <Link className='btn btn-Profesional'>Anúnciate como Profesional</Link>
-            <Link className='nav-link'><IoPersonCircleOutline className='mx-1'/>Ingresar</Link>
+            <Link className='nav-link' to={'/profesionales'}>Profesionales</Link>
+            <Link className='btn btn-Profesional' to={'/registro-paso-uno'}>Anúnciate como Profesional</Link>
+            <Link className='nav-link' to={'/login'}><IoPersonCircleOutline className='mx-1'/>Ingresar</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

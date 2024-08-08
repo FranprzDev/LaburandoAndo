@@ -9,19 +9,27 @@ import MainLayout from "../components/MainLayout";
 import PublicacionProfesional from "../components/profesional/PublicacionProfesional";
 import PerfilProfesional from "../components/profesional/PerfilProfesional";
 import Profesionales from '../pages/Profesionales'
+import { BiLogIn } from 'react-icons/bi'
+import Login from '../pages/Login'
 
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/detalleDelProfesional' element={<DetalleDelProfesional/>}/>
-        <Route path='/registropasouno' element={<RegistroPasoUno></RegistroPasoUno>}/>
       <Route 
           path='/' 
           element={
             <MainLayout>
               <Home />
+            </MainLayout>
+          } 
+        />
+        <Route 
+          path='/detalle-profesional' 
+          element={
+            <MainLayout>
+              <DetalleDelProfesional></DetalleDelProfesional>
             </MainLayout>
           } 
         />
@@ -49,14 +57,19 @@ const AppRouter = () => {
             </PerfilLayout>
           }
         />
-        <Route path='/registropasouno' element={
+        <Route path='/registro-paso-uno' element={
           <MainLayout>
             <RegistroPasoUno></RegistroPasoUno>
           </MainLayout>
           }/>
-        <Route path='/registropasotres' element={
+        <Route path='/registro-paso-tres' element={
           <MainLayout>
             <RegistroPasoTres></RegistroPasoTres>
+          </MainLayout>
+          }/>
+          <Route path='/login' element={
+          <MainLayout>
+            <Login></Login>
           </MainLayout>
           }/>
       </Routes>
