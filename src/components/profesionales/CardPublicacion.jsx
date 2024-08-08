@@ -29,7 +29,7 @@ const CardPublicacion = () => {
                 Profesor particular
               </span>
             </div>
-            <h5 className="fw-bold pt-2 mb-0">
+            <h5 className="fw-bold pt-2 mb-0 title">
               Clases particulares de inglés en línea
             </h5>
             <p className="fs-6 text-secondary mb-0 description">

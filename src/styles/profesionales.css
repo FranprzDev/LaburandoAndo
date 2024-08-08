@@ -13,7 +13,8 @@ a{
     text-decoration: none;
 }
 
-.cardPublication .description{
+.cardPublication .description,
+.cardPublication .title{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
