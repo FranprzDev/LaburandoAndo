@@ -10,7 +10,7 @@ import Opiniones from '../components/Opiniones';
 
 const DetalleDelProfesional = () => {
   return (
-    <Container className='contenedor-detalle'>
+    <Container>
     <section className='d-flex mb-4 justify-content-center contenedor-detalle'>
       <Card className='me-3 mt-3 card-detalle'  >
       <div>
