@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import logo from "../img/Logo.jpg";
-import "../styles/estiloDetalleDelProfesional.css";
+import "../styles/detallePublicacion.css";
 import { FaStar } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import { FaWhatsapp } from "react-icons/fa";
@@ -11,7 +11,7 @@ import Opiniones from "../components/Opiniones";
 const DetalleDelProfesional = () => {
   return (
     <Container>
-      <section className="d-flex mb-4 gap-2 gap-md-5 contenedor-detalle pt-2 py-md-4">
+      <section className="d-flex flex-column align-items-center align-items-lg-start flex-lg-row mb-4 gap-2 gap-lg-5 contenedor-detalle pt-2 py-lg-4">
         <Card className="me-3 mt-3 card-detalle">
           <div>
             <Card.Body className="d-flex flex-column justify-content-center align-items-center">
@@ -35,7 +35,7 @@ const DetalleDelProfesional = () => {
             </Card.Body>
           </div>
         </Card>
-        <div className="mt-md-5 w-100">
+        <div className="mt-lg-5 w-100">
             <div className="  mt-3 text-center text-md-start w-100">
               <span className=" px-5 py-2 rounded-2 category opacity-50 text-white">
                 Profesor particular
@@ -43,7 +43,7 @@ const DetalleDelProfesional = () => {
             </div>
           <h2 className="my-3">Clases Particulares de inglés en línea</h2>
           <p className="fw-medium fs-5 mt-md-3 mb-0 mb-md-1">Descripción del anuncio</p>
-          <p className="pb-md-5">
+          <p className="pb-lg-3">
             Hola me llamo Juan Perez y tengo 25 años.
             Brindo clases a alumnos que deseen capacitarse en inglés
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe animi voluptatem nisi reprehenderit accusantium consequuntur hic harum voluptate culpa odit ab necessitatibus quia, consectetur at, maiores a deserunt fuga eius.
