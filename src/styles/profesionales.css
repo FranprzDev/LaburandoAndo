@@ -23,7 +23,7 @@ a{
     text-overflow: ellipsis;
 }
 
-.cardPublication .category{
+.category{
     display: inline;
     min-width: 150px;
     max-width: 200px;
