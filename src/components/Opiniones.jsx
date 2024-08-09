@@ -77,7 +77,7 @@ const Opiniones = () => {
       : opiniones;
   
   return (
-    <Container className="opiniones-container mt-4">
+    <Container className="opiniones-container mt-5">
     <h3 className="mb-4 opiniones-titulo">
       ⤷ Opiniones sobre el profesional 💭
     </h3>
