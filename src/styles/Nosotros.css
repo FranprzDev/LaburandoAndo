@@ -1,0 +1,29 @@
+.card-fundadores img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.texto-ampliado{
+    font-size:x-large !important;
+    color:#ebc6e5 !important;
+    font-weight:bold;
+}
+
+.negrita {
+    font-weight:normal;
+    text-align: justify;
+}
+
+.color-fondo-somos{
+    background-color: #853f78 ;
+    color:white;
+}
+
+.color-fondo-mision-vision{
+    background-color: #f1d0eb;
+}
+
+.color-fondo-fundadores {
+    background-color: #f0e6ef;
+}
