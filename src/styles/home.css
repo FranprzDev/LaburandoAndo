@@ -37,8 +37,6 @@
     object-fit: cover;
 }
 
-
-
 .imgRegistro{
     width: 800px;
     height: 500px;
@@ -64,22 +62,6 @@
     }
 
     .contenedorImgBanner{
-        width: 100%
+        width: 100%;
     }
-}
-
-h1{
-    font-size: 45px;
-}
-
-p{
-    font-size: 25px;
-}
-
-h2{
-    font-size: 40px;
-}
-
-h3{
-    font-size: 35px;
 }
