@@ -1,13 +1,33 @@
-import React from "react";
-import "../../styles/login.css"
-import { Link } from "react-router-dom";
+import "../../styles/login.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
 
 export default function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const navigate = useNavigate();
+
+  const login = async (usuario) => {
+
+
+
+    navigate("/mi-perfil");
+    Swal.fire({
+      icon: 'success',
+      title: 'Bienvenido'
+    });
+  };
+
   return (
     <div className="container d-flex flex-column align-items-center justify-content-center py-4">
       <div className="row w-100">
         <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
-          <div className="card p-4">
+          <form className="card p-4" onSubmit={handleSubmit(login)}>
             <div className="text-center">
               <h5 className="card-title">
                 Accede a <span className="text-primary">LaburandoAndo</span>
@@ -39,23 +59,51 @@ export default function Login() {
                 <div className="mb-3">
                   <input
                     type="email"
-                    className="form-control"
+                    className="form-control input"
                     placeholder="juanperez@gmail.com"
+                    {...register("email", {
+                      required: 'El correo es obligatorio',
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Ingrese una direccion de correo válida",
+                      },
+                    })}
                   />
+                  <div className="text-danger text-start">
+                    {errors.email?.message}
+                  </div>
                 </div>
                 <div className="mb-3">
                   <input
                     type="password"
-                    className="form-control"
+                    className="form-control input"
                     placeholder="Ju4n23!"
+                    {...register("password", {
+                      required: 'La contraseña es obligatoria',
+                      minLength: {
+                        value: 8,
+                        message: 'La clave debe tener al menos 8 caracteres',
+                      },
+                      maxLength: {
+                        value: 70,
+                        message: 'La clave debe tener como máximo 70 caracteres',
+                      },
+                      pattern: {
+                        value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                        message: "La clave debe tener al menos 1 mayúscula y 1 minúscula"
+                      },
+                    })}
                   />
+                   <div className="text-danger text-start">
+                    {errors.password?.message}
+                  </div>
                 </div>
                 <button className="btn btn-danger w-100 mb-3">Ingresar</button>
               </div>
               <div className="text-center">
-                <a href="#" className="text-primary text-decoration-none">
+                <Link to={"/*"} className="text-primary text-decoration-none">
                   ¿No recuerdas tu contraseña?
-                </a>
+                </Link>
               </div>
             </div>
             <div className="d-flex align-items-center w-100 my-3">
@@ -64,11 +112,14 @@ export default function Login() {
               <hr className="flex-grow-1 border border-secondary border-1" />
             </div>
             <div className="text-center">
-              <Link to={'../register'} className="btn btn-outline-secondary btn-Registrarse w-100 mt-2 text-dark">
+              <Link
+                to={"../register"}
+                className="btn btn-outline-secondary btn-Registrarse w-100 mt-2 text-dark"
+              >
                 Crear una cuenta nueva
               </Link>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
