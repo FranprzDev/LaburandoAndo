@@ -1,11 +1,7 @@
 import React from "react";
 import "../styles/Nosotros.css";
-import { Link } from "react-router-dom";
-import flaviaImage from "../img/flavia.jpeg";
-import franciscoImage from "../img/francisco.jpeg";
-import nicolasImage from "../img/nicolas.jpeg";
-import julianImage from "../img/julian.jpeg";
-import brunoImage from "../img/bruno.jpeg";
+import { fundadores } from "../data/fundadores";
+import CardNosotros from "../components/CardNosotros";
 
 const Nosotros = () => {
   return (
@@ -91,153 +87,10 @@ const Nosotros = () => {
 
         <div className="row text-center py-5 px-5 color-fondo-fundadores">
           <h1>Fundadores</h1>
-
           <div className="row row-cols-1 row-cols-md-3 g-4 justify-content-center card-fundadores">
-            <div className="col">
-              <div className="card h-100">
-                <img
-                  src={brunoImage}
-                  className="card-img-top h-100"
-                  alt="foto de Bruno Madozzo"
-                />
-                <div className="card-body">
-                  <h3 className="card-title">Bruno Madozzo</h3>
-                </div>
-                <div className="card-footer d-flex justify-content-evenly">
-                  <Link
-                    to="https://github.com/brunomry"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-github"></i>
-                  </Link>
-                  <Link
-                    to="https://www.linkedin.com/in/bruno-madozzo/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-linkedin"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card h-100">
-                <img
-                  src={franciscoImage}
-                  className="card-img-top h-100"
-                  alt="foto de Francisco Perez"
-                />
-                <div className="card-body">
-                  <h3 className="card-title">Francisco Perez</h3>
-                </div>
-                <div className="card-footer d-flex justify-content-evenly">
-                  <Link
-                    to="https://github.com/FranprzDev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-github"></i>
-                  </Link>
-                  <Link
-                    to="https://www.linkedin.com/in/franprzdev/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-linkedin"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card h-100">
-                <img
-                  src={julianImage}
-                  className="card-img-top h-100"
-                  alt="foto de Julian Martin"
-                />
-                <div className="card-body">
-                  <h3 className="card-title">Julian Martin</h3>
-                </div>
-                <div className="card-footer d-flex justify-content-evenly">
-                  <Link
-                    to="https://github.com/Juliancito1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-github"></i>
-                  </Link>
-                  <Link
-                    to="https://www.linkedin.com/in/julian-martin-/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-linkedin"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card h-100">
-                <img
-                  src={nicolasImage}
-                  className="card-img-top h-100"
-                  alt="foto de Nicolas Cosme"
-                />
-                <div className="card-body">
-                  <h3 className="card-title">Nicolas Cosme</h3>
-                </div>
-                <div className="card-footer d-flex justify-content-evenly">
-                  <Link
-                    to="https://github.com/CosmeNicolas"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-github"></i>
-                  </Link>
-                  <Link
-                    to="https://www.linkedin.com/in/cosmenicolas?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-linkedin"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card h-100">
-                <img
-                  src={flaviaImage}
-                  className="card-img-top h-100"
-                  alt="foto Flavia Walther"
-                />
-                <div className="card-body">
-                  <h3 className="card-title">Flavia Walther</h3>
-                </div>
-                <div className="card-footer d-flex justify-content-evenly">
-                  <Link
-                    to="https://github.com/flawalther"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-github"></i>
-                  </Link>
-
-                  <Link
-                    to="https://linkedin.com/in/flavia-walther-154144216"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-2x fa-linkedin"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
+            {fundadores.map((fundador) => (
+              <CardNosotros key={fundador.id} fundador={fundador} />
+            ))}
           </div>
         </div>
       </div>
