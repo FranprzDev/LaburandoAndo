@@ -1,0 +1,32 @@
+.imgProfileUser{
+    width: 100px;
+}
+
+.iconMenu{
+    color: #9e26ae;
+}
+
+@media all and (min-width:768px){
+    .containerProfile{
+        width: 100%;
+    }
+
+    .menuProfessional{
+        height: 100%;
+        min-height: 100vh;
+    }
+
+    .menuProfessional .containerMenu{
+        min-height: 100vh;    
+    }
+}
+
+@media all and (min-width:1200px){
+    .navItemOffCanvas{
+        font-size: 1.125rem;
+    }
+
+    .navLink:hover{
+        color: #9e26ae;
+    }
+}

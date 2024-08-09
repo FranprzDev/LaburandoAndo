@@ -1,0 +1,22 @@
+.formPublication .textareaDescription{
+    min-height: 200px;
+}
+
+.btnPost{
+    background: var(--Violeta);
+}
+
+.btnPost:hover{
+    background: #9e26ae;
+}
+
+@media all and (min-width:768px){
+    .formPublication{
+        max-width: 800px;
+    }
+
+    .fontSizeLabel{
+        font-size: 1.125rem;
+    }
+}
+

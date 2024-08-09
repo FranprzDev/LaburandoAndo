@@ -1,0 +1,67 @@
+.imgBanner{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 5px solid grey;
+}
+
+.btn-Explorar{
+    width: 300px;
+    font-size: 25px;
+    background-color: var(--Violeta);
+}
+
+.btn-Explorar:hover{
+    width: 300px;
+    font-size: 25px;
+    background-color: #501c46;
+    color: white;
+}
+
+.btnRegistrar{
+    width: 250px;
+    font-size: 25px;
+    background-color: var(--Lavanda);
+    color: var(--Negro);
+    border: 0;
+}
+
+.btnRegistrar:hover{
+    background-color: var(--Violeta);
+    color: white;
+}
+
+.imgHome{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.imgRegistro{
+    width: 800px;
+    height: 500px;
+    object-fit: contain;
+}
+
+@media all and (min-width: 360px) and (max-width: 767px)
+{
+    .imgRegistro{
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+    
+}
+
+@media all and (min-width: 768px) and (max-width: 991px)
+{
+    .imgRegistro{
+        width: 380px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .contenedorImgBanner{
+        width: 100%;
+    }
+}
