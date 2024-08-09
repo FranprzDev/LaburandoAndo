@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import instance from "../components/api/api";
+import instance from "../api/api";
 
 const initialState = {
     workers: [],

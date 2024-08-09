@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchWorkers } from "../../slice/workersSlice";
+import { loginUser } from "../../slice/authSlice";
 
 export default function Login() {
   const {
@@ -28,10 +29,12 @@ export default function Login() {
   const login = async (usuario) => {
 
     const trabajadorBuscado = workers.find(
-      (w) => w.mail === usuario.email
-    );
+      (w) => w.mail === usuario.mail
+    ); 
 
     if(trabajadorBuscado){
+      sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuario.mail))
+      dispatch(loginUser(usuario))
       navigate("/mi-perfil");
       Swal.fire({
         icon: 'success',
@@ -40,8 +43,8 @@ export default function Login() {
     }else{
       Swal.fire({
         icon: 'error',
-        title: 'No se pudo iniciar sesion',
-        text: 'Los datos ingresados no son correctos o esta deshabilitado.',
+        title: 'No se pudo iniciar sesión',
+        text: 'Los datos ingresados no son correctos.',
       });
     }
   };
@@ -86,7 +89,7 @@ export default function Login() {
                       type="email"
                       className="form-control input"
                       placeholder="juanperez@gmail.com"
-                      {...register("email", {
+                      {...register("mail", {
                         required: 'El correo es obligatorio',
                         pattern: {
                           value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -95,7 +98,7 @@ export default function Login() {
                       })}
                     />
                     <div className="text-danger text-start">
-                      {errors.email?.message}
+                      {errors.mail?.message}
                     </div>
                   </div>
                   <div className="mb-3">
