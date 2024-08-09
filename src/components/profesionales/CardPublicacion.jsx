@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import img from "../../img/Logo.jpg";
 import { Link } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../../slice/postsSlice";
 
 const CardPublicacion = () => {
+  const publicaciones = useSelector((state) => state.posts.posts)
+  
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getPosts())
+  }, [])
+  
+
   return (
     <div className="card cardPublication pt-2 px-2 px-md-3 rounded-3 shadow">
       <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
