@@ -26,7 +26,7 @@ const postSlice = createSlice({
             })
             .addCase(getPosts.fulfilled,(state,action) => {
                 state.status= 'Exitoso'
-                state.pokedex = action.payload;
+                state.posts = action.payload;
             })
             .addCase(getPosts.rejected,(state,action) => {
                 state.status = 'Denegado',
