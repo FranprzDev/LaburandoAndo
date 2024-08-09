@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "../styles/registro.css";
+import "../../styles/registro.css";
 
 const RegitroProfesional = () => {
   const {

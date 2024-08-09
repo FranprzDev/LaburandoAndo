@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/login.css"
+import "../../styles/login.css"
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -63,9 +64,9 @@ export default function Login() {
               <hr className="flex-grow-1 border border-secondary border-1" />
             </div>
             <div className="text-center">
-              <button className="btn btn-outline-secondary btn-Registrarse w-100 mt-2 text-dark">
+              <Link to={'../register'} className="btn btn-outline-secondary btn-Registrarse w-100 mt-2 text-dark">
                 Crear una cuenta nueva
-              </button>
+              </Link>
             </div>
           </div>
         </div>

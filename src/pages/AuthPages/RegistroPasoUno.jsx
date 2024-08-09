@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "../styles/registroPasoUno.css";
-import CardRegistroPasoUno from "./registro/CardRegistroPasoUno";
+import "../../styles/registroPasoUno.css";
+import CardRegistroPasoUno from "../../components/registro/CardRegistroPasoUno";
 
 const RegistroPasoUno = () => {
   return (
@@ -10,8 +10,8 @@ const RegistroPasoUno = () => {
       </h1>
       <p className="text-center fontSizeText">Selecciona una opción</p>
       <div className="d-flex flex-column flex-md-row justify-content-center gap-2 gap-md-5 align-items-center mb-4">
-        <CardRegistroPasoUno usuario={true}></CardRegistroPasoUno>
-        <CardRegistroPasoUno usuario={false}></CardRegistroPasoUno>
+        <CardRegistroPasoUno usuario={true} />
+        <CardRegistroPasoUno usuario={false} />
       </div>
       <div className="mb-5">
         <p className="fontSizeText">¿Ya tienes cuenta?</p>

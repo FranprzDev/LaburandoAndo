@@ -13,8 +13,8 @@ const Menu = () => {
           <Nav className="ms-auto">
             <Link to={'/'} className='nav-link'>Home</Link>
             <Link className='nav-link' to={'/profesionales'}>Profesionales</Link>
-            <Link className='btn btn-Profesional' to={'/registro-paso-uno'}>Anúnciate como Profesional</Link>
-            <Link className='nav-link' to={'/login'}><IoPersonCircleOutline className='mx-1'/>Ingresar</Link>
+            <Link className='btn btn-Profesional' to={'/auth/register'}>Anúnciate como Profesional</Link>
+            <Link className='nav-link' to={'/auth/login'}><IoPersonCircleOutline className='mx-1'/>Ingresar</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
