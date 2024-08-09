@@ -32,8 +32,9 @@ export default function Login() {
       (w) => w.mail === usuario.mail
     ); 
 
+    
     if(trabajadorBuscado){
-      sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuario.mail))
+
       dispatch(loginUser(usuario))
       navigate("/mi-perfil");
       Swal.fire({

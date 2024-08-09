@@ -10,8 +10,8 @@ const initialState = {
 export const loginUser = createAsyncThunk('auth', async(usuario) => {
     console.log(usuario)
     const response = await instance.post('/auth/local/login', usuario);
-    console.log(response.data)
-    return response.data;
+    console.log(response.status)
+    return response.data.data;
 })
 
 const authSlice = createSlice({
@@ -27,7 +27,7 @@ const authSlice = createSlice({
         .addCase(loginUser.fulfilled, (state, action) => {
           state.status = 'exitoso';
           state.user = action.payload;
-          
+          sessionStorage.setItem("usuarioLogeado", JSON.stringify(action.payload))
         })
         .addCase(loginUser.rejected, (state, action) => {
           state.status = 'denegado';
