@@ -67,7 +67,7 @@ const MenuProfesional = () => {
               <li className="nav-item mt-xl-3 navItemOffCanvas ">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink"
-                  to={"/mi-perfil"}
+                  to={"/work/mi-perfil"}
                 >
                   <FaUser className="fs-5 iconMenu" />{" "}
                   <span className="align-middle">Mi Perfil</span>
@@ -76,7 +76,7 @@ const MenuProfesional = () => {
               <li className="nav-item navItemOffCanvas d-flex gap-2 align-items-center">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink"
-                  to={"/publicar-anuncio"}
+                  to={"/work/publicar-anuncio"}
                 >
                   <FaWpforms className="fs-5 iconMenu" />{" "}
                   <span className="align-middle">Publicar Anuncio</span>
@@ -85,7 +85,7 @@ const MenuProfesional = () => {
               <li className="nav-item navItemOffCanvas ">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink"
-                  to={"/mis-publicaciones"}
+                  to={"/work/mis-publicaciones"}
                 >
                   <FaListAlt className="fs-5 iconMenu" />
                   <span className="align-middle">Mis publicaciones</span>
