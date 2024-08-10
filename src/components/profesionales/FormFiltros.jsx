@@ -19,14 +19,16 @@ const FormFiltros = () => {
           placeholder="Yerba Buena, Tucumán"
         />
       </div>
-      <div className="d-flex flex-wrap mb-2 mb-md-3">
-        <label className="form-label fw-medium w-100">Categorías</label>
-        <div className="d-flex flex-wrap gap-2">
-          <button className="p-2 rounded-2 border">Fotógrafo</button>
-          <button className="p-2 rounded-2 border">Personal Trainer</button>
-          <button className="p-2 rounded-2 border">Profesor particular</button>
-          <button className="p-2 rounded-2 border">Electricista</button>
-        </div>
+      <div className="input-group mb-2 mb-md-3">
+        <label className="form-label fw-medium">Categorías</label>
+        <select className="form-select w-100 rounded-2">
+          <option value="">Seleccionar categoría</option>
+          <option value="Carpintería">Carpintería</option>
+          <option value="Electricidad">Electricidad</option>
+          <option value="Plomería">Plomería</option>
+          <option value="Profesor particular">Profesor particular</option>
+          <option value="Cuidado de niños">Cuidado de niños</option>
+        </select>
       </div>
     </div>
   );
