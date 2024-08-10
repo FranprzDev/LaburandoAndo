@@ -21,7 +21,7 @@ const CardPublicacion = () => {
           <div
             key={publicacion._id}
             onClick={() => {
-              navigate("/detalle")
+              navigate(`/detalle/${publicacion._id}`)
               console.log(publicacion._id);
             }}
             className="card cardPublication pt-2 px-2 px-md-3 rounded-3 shadow"

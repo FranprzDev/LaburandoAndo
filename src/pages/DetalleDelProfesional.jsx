@@ -7,8 +7,11 @@ import Button from "react-bootstrap/Button";
 import { FaWhatsapp } from "react-icons/fa";
 import { Container } from "react-bootstrap";
 import Opiniones from "../components/Opiniones";
+import { useParams } from "react-router-dom";
 
 const DetalleDelProfesional = () => {
+  const {id} = useParams()
+  console.log(id)
   return (
     <Container>
       <section className="d-flex flex-column align-items-center align-items-lg-start flex-lg-row mb-4 gap-2 gap-lg-5 contenedor-detalle pt-2 py-lg-4">
