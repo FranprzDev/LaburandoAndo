@@ -1,8 +1,8 @@
-import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { FaFacebook } from "react-icons/fa"
-import { FaInstagramSquare } from "react-icons/fa"
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
             <Col className='mt-3 mt-md-0' md={6} lg={3}>
             <h5>Sobre Nosotros</h5>
             <ul className='list-group'>
-                <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>¿Quienes Somos?</Link>
+                <Link to={'/nosotros'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>¿Quiénes Somos?</Link>
                 <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>Nuestros Valores</Link>
             </ul>
             <article className='mt-lg-5'>
@@ -46,4 +46,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Footer;
