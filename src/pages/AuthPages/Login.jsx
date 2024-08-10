@@ -23,7 +23,7 @@ export default function Login() {
       navigate("/work/mi-perfil");
       Swal.fire({
         icon: "success",
-        title: "Bienvenido",
+        title: `Bienvenido`,
       });
       dispatch(reset());
     } else if (stateSync === 'error') {

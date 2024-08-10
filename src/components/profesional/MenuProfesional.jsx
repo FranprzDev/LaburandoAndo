@@ -5,6 +5,7 @@ import { TbHelpCircleFilled } from "react-icons/tb";
 import { BiSolidExit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../slice/authSlice";
+import Swal from "sweetalert2";
 
 const MenuProfesional = () => {
   
@@ -13,8 +14,21 @@ const MenuProfesional = () => {
   const navigate = useNavigate();
 
   const cerrarSesion = () =>{
-    dispatch(logout());
-    navigate("/");
+    Swal.fire({
+      title: "Cerrar sesión",
+      text: "¿Estas seguro que deseas salir?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cerrar sesión",
+      cancelButtonText: "cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(logout());
+        navigate("/");
+      }
+    });
   }
 
   return (
@@ -27,13 +41,13 @@ const MenuProfesional = () => {
         </div>
         <figure className="d-none d-md-block text-center mx-auto w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3">
           <img
-            src={user.img}
+            src={user ? user.img : ""}
             alt="imagen de perfil"
             title="imagen de perfil"
             className="rounded-circle shadow imgProfileUser"
           />
-          <figcaption className="fw-medium fs-5">{user.fullname}</figcaption>
-          <figcaption>{user.address}</figcaption>
+          <figcaption className="fw-medium fs-5">{user ? user.fullname : ""}</figcaption>
+          <figcaption>{user ? user.address : ""}</figcaption>
         </figure>
         <button
           className="navbar-toggler"

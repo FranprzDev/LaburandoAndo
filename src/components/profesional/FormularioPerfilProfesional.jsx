@@ -9,10 +9,10 @@ const FormularioPerfilProf = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue
+    setValue,
   } = useForm();
 
-  const [habilitado, setHabilitado] = useState(true);
+  const [habilitado, setHabilitado] = useState(true); //para manejar disabled de inputs y botones, sirve para fn de editar
 
   const user = useSelector((state) => state.auth.user);
 
@@ -23,11 +23,11 @@ const FormularioPerfilProf = () => {
   }, []);
 
   const cargarDatosUsuario = () => {
-        setValue("fullname", user.fullname);
-        setValue("mail", user.mail);
-        setValue("phone", user.phone);
-        setValue("address", user.address)
-        setValue("img", user.img);
+    setValue("fullname", user.fullname);
+    setValue("mail", user.mail);
+    setValue("phone", user.phone);
+    setValue("address", user.address);
+    setValue("img", user.img);
   };
 
   return (
@@ -99,13 +99,11 @@ const FormularioPerfilProf = () => {
             {...register("address", {
               minLength: {
                 value: 3,
-                message:
-                  "La ubicación debe tener como mínimo 3 caracteres",
+                message: "La ubicación debe tener como mínimo 3 caracteres",
               },
               maxLength: {
                 value: 70,
-                message:
-                  "La ubicación debe tener como máximo 70 caracteres",
+                message: "La ubicación debe tener como máximo 70 caracteres",
               },
             })}
           />
@@ -122,9 +120,9 @@ const FormularioPerfilProf = () => {
             id="wpp"
             className="input px-0 border-start-0 border-end-0 border-top-0 border-bottom rounded-0"
             title="tu número de WhatsApp"
-            disabled
+            disabled={habilitado}
             {...register("phone", {
-              pattern: /^[0-9]{10}$/
+              pattern: /^[0-9]{10}$/,
             })}
           />
         </Form.Group>
@@ -138,24 +136,41 @@ const FormularioPerfilProf = () => {
             Foto de Perfil
           </Form.Label>
           <img
-            src={user.img}
+            src={user ? user.img : ""}
             alt="imagen de perfil"
             className="border rounded-circle imgProfileForm"
             title="imagen de perfil"
           />
-          <Form.Control type="file" className="d-none" id="file"  {...register("img")} />
-          <button className="d-none btn rounded-2 btn-secondary px-4">
+          <Form.Control
+            type="file"
+            className="d-none"
+            id="file"
+            {...register("img")}
+          />
+          <button
+            className={` ${
+              habilitado ? "d-none" : "d-block"
+            } btn rounded-2 btn-secondary px-4`}
+          >
             Subir Imagen
           </button>
         </Form.Group>
       </div>
 
-      <div className="d-flex justify-content-end justify-content-md-center justify-content-lg-end d-block w-100">
+      <div className="d-flex justify-content-end gap-2 justify-content-md-center justify-content-lg-end d-block w-100">
+        {!habilitado && (
+          <button
+            type="submit"
+            className="px-3 px-md-5 py-2 rounded-2 btn btn-secondary text-white border-0 opacity-75"
+          >
+            Cancelar
+          </button>
+        )}
         <button
           type="submit"
           className="px-3 px-md-5 py-2 rounded-2 btnEdit text-white border-0"
         >
-          Editar Mis datos
+          {habilitado ? "Editar Mis datos" : "Guardar"}
         </button>
       </div>
     </Form>
