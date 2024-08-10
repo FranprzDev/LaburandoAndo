@@ -47,7 +47,7 @@ const CardPublicacion = () => {
             <p className="fs-6 text-secondary mb-0 description">
               {publicacion.description}
             </p>
-            <Link className="d-none d-md-block" to={"/detalle-profesional"}>
+            <Link className="d-none d-md-block" to={"/detalle"}>
               seguir leyendo
             </Link>
           </div>
@@ -67,7 +67,7 @@ const CardPublicacion = () => {
 
         <Link
           className="btn rounded-3 btnSeeProfile text-white"
-          to={"/detalle-profesional"}
+          to={"/detalle"}
         >
           Ver Perfil de <span>Juan</span>
         </Link>
