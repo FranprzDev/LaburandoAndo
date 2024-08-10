@@ -6,7 +6,6 @@ const CardRegistroPasoUno = ({ usuario }) => {
   const {
     changeAuthMethod,
     changeType,
-    type,
   } = useRegisterHook();
 
   const navigate = useNavigate()
@@ -14,7 +13,7 @@ const CardRegistroPasoUno = ({ usuario }) => {
 
   const handleClick = () => {
 
-    changeAuthMethod("Mail");
+    changeAuthMethod("Local");
 
     changeType(usuario ? "Cliente" : "Profesional");
 

@@ -48,10 +48,6 @@ export const useRegisterHook = () => {
         setLocation(location);
     }
 
-    const changePhoto = (photo) => {
-        setPhoto(photo);
-    }
-
     const changeType = (type) => {
         setType(type);
     }
