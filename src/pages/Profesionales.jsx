@@ -8,12 +8,13 @@ const Profesionales = () => {
       <div className="row gap-2 justify-content-center">
         <article className=" mb-2 mb-md-3">
           <h1>Profesionales a tu alcance</h1>
+          <p>Estos son todos los profesionales que puedes contratar!</p>
         </article>
         <article className="col-md-9 col-lg-3">
-          <Filtros></Filtros>
+          <Filtros/>
         </article>
         <article className="col-lg-8 ">
-          <ListaPublicaciones></ListaPublicaciones>
+          <ListaPublicaciones/>
         </article>
       </div>
     </section>
