@@ -5,7 +5,7 @@ const Filtros = () => {
     return (
         <div className='h-100'>
             <p className='mb-1'>Filtrar por:</p>
-            <FormFiltros></FormFiltros>
+            <FormFiltros/>
         </div>
     );
 };
