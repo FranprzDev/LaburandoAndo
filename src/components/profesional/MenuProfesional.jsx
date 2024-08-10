@@ -1,14 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import image from "../../img/Logo.jpg";
 import { FaHome, FaUser, FaWpforms, FaListAlt } from "react-icons/fa";
 import { TbHelpCircleFilled } from "react-icons/tb";
 import { BiSolidExit } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../slice/authSlice";
 
 const MenuProfesional = () => {
-
   
   const user = useSelector((state)=> state.auth.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const cerrarSesion = () =>{
+    dispatch(logout());
+    navigate("/");
+  }
 
   return (
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
@@ -106,7 +113,7 @@ const MenuProfesional = () => {
                 </Link>
               </li>
               <li className="nav-item mt-xl-3 navItemOffCanvas text-start">
-                <button className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center navLink">
+                <button className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center navLink" onClick={cerrarSesion}>
                   <BiSolidExit className="fs-4 iconMenu" />
                   <span className="align-middle">Salir</span>
                 </button>
