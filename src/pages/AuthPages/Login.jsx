@@ -20,7 +20,7 @@ export default function Login() {
   
   useEffect(() => {
     if (stateSync === 'exitoso') {
-      navigate("/mi-perfil");
+      navigate("/work/mi-perfil");
       Swal.fire({
         icon: "success",
         title: "Bienvenido",

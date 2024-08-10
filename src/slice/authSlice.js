@@ -3,7 +3,7 @@ import instance from "../api/api";
 import { useDispatch } from "react-redux";
 
 const initialState = {
-    user: null,
+    user: JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null,
     stateSync: "iddle",
     state: "iddle",
     error: null

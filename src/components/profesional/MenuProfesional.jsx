@@ -3,8 +3,13 @@ import image from "../../img/Logo.jpg";
 import { FaHome, FaUser, FaWpforms, FaListAlt } from "react-icons/fa";
 import { TbHelpCircleFilled } from "react-icons/tb";
 import { BiSolidExit } from "react-icons/bi";
+import { useSelector } from "react-redux";
 
 const MenuProfesional = () => {
+
+  
+  const user = useSelector((state)=> state.auth.user);
+
   return (
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
       <div className="px-0 px-md-2 py-md-3 pt-lg-0  container-fluid containerMenu d-flex flex-md-column align-items-start">
@@ -15,13 +20,13 @@ const MenuProfesional = () => {
         </div>
         <figure className="d-none d-md-block text-center mx-auto w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3">
           <img
-            src={image}
+            src={user.img}
             alt="imagen de perfil"
             title="imagen de perfil"
             className="rounded-circle shadow imgProfileUser"
           />
-          <figcaption className="fw-medium fs-5">Bruno Madozzo Romay</figcaption>
-          <figcaption>Tucumán, Argentina</figcaption>
+          <figcaption className="fw-medium fs-5">{user.fullname}</figcaption>
+          <figcaption>{user.address}</figcaption>
         </figure>
         <button
           className="navbar-toggler"
