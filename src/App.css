@@ -6,6 +6,7 @@
     --Violeta: #853f78;
     --Rosa: #f1d0eb;
     --Lavanda: #f0e6ef;
+    --HoverVioleta: #501c46;
 }
 
 .mainSection {
@@ -14,12 +15,12 @@
 
 .btn-Profesional {
     background-color: var(--Violeta);
-    color: white;
+    color: var(--Lavanda);
 }
 
 .btn-Profesional:hover {
     background-color: #501c46;
-    color: white;
+    color: var(--Lavanda);
 }
 
 .instagramLogo {

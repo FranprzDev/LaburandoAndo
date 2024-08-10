@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../api/api";
-import { useDispatch } from "react-redux";
 
 const initialState = {
     user: null,

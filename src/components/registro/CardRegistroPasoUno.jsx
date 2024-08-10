@@ -1,22 +1,15 @@
-import React, { useEffect } from "react";
-import { useRegisterHook } from "../../hooks/useRegisterHook";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeType } from "../../slice/registerSlice";
 
 const CardRegistroPasoUno = ({ usuario }) => {
-  const {
-    changeAuthMethod,
-    changeType,
-  } = useRegisterHook();
 
+  const dispatch = useDispatch();
   const navigate = useNavigate()
 
 
   const handleClick = () => {
-
-    changeAuthMethod("Local");
-
-    changeType(usuario ? "Cliente" : "Profesional");
-
+    dispatch(changeType());
     navigate("../register2")
   }
 
