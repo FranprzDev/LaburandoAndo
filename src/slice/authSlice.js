@@ -40,6 +40,7 @@ const authSlice = createSlice({
         logout: (state) => {
           state.state = "idle";
           state.stateSync = "idle";
+          state.user = null;
           sessionStorage.removeItem("usuarioLogeado");
         },
     },
