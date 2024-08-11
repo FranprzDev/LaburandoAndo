@@ -20,6 +20,7 @@ const FormularioPublicacion = () => {
           className="input rounded-2"
           title="Selecciona una categoría de trabajo"
         >
+          {/* AQUÍ ALGUIEN TIENE QUE AÑADIR LAS CATEGORÍAS, HAY QUE VER COMO HIZO NICO EL SLICE PARA TRAERLAS AQUÍ. */}
           <option value="">seleccione</option>
           <option value="">Profesor particular</option>
           <option value="">Fotógrafo</option>

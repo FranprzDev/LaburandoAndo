@@ -11,20 +11,20 @@ import { useEffect } from "react";
 
 const MenuProfesional = () => {
   
-  const user = useSelector((state)=> state.auth.user);
+  const userJwt = useSelector((state)=> state.auth.user);
   const worker = useSelector((state) => state.workers.worker);
-  const status = useSelector((state) => state.workers.status);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      dispatch(fetchWorkerForID(user._id));
+    console.log("El id es: ", userJwt._id)
+    if (userJwt._id) {
+      dispatch(fetchWorkerForID(userJwt._id));
     } else {
       navigate("/");
     }
-  }, [user]);
+  }, [userJwt]);
 
    const cerrarSesion = () =>{
     Swal.fire({
@@ -35,7 +35,7 @@ const MenuProfesional = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Cerrar sesión",
-      cancelButtonText: "cancelar",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(logout());
@@ -54,13 +54,13 @@ const MenuProfesional = () => {
         </div>
         <figure className="d-none d-md-block text-center mx-auto w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3">
           <img
-            src={worker ? worker.img : ""}
+            src={worker ? worker?.img : image}
             alt="imagen de perfil"
             title="imagen de perfil"
             className="rounded-circle shadow imgProfileUser"
           />
-          <figcaption className="fw-medium fs-5">{worker ? worker.fullname : ""}</figcaption>
-          <figcaption>{worker ? worker.address : ""}</figcaption>
+          <figcaption className="fw-medium fs-5">{worker ? worker?.fullname : ""}</figcaption>
+          <figcaption>{worker ? worker?.address : ""}</figcaption>
         </figure>
         <button
           className="navbar-toggler"
@@ -83,18 +83,18 @@ const MenuProfesional = () => {
           </div>
           <figure className="d-md-none text-center w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3">
             <img
-              src={image}
+              src={worker ? worker.img : image}
               alt=""
               className="rounded-circle shadow imgProfileUser"
             />
             <figcaption className="fw-bold fs-5">
-              Bruno Madozzo Romay
+              { worker ? worker.fullname : ""}
             </figcaption>
-            <figcaption>Tucumán, Argentina</figcaption>
+            <figcaption>{ worker ? worker.address : ""}</figcaption>
           </figure>
           <div className="offcanvas-body d-flex justify-content-md-center ps-xxl-4">
             <ul className="navbar-nav d-flex flex-column justify-content-start mt-3">
-              <li className="nav-item navItemOffCanvas w-100">
+              {/* <li className="nav-item navItemOffCanvas w-100">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink w-100 "
                   to={"/"}
@@ -102,7 +102,7 @@ const MenuProfesional = () => {
                   <FaHome className="fs-5 iconMenu" />{" "}
                   <span className="align-middle">Home</span>
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item mt-xl-3 navItemOffCanvas ">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink"

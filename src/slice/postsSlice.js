@@ -10,7 +10,6 @@ const initialState = {
 
 export const getPosts = createAsyncThunk('work/Posts', async () => {
     const res = await instance.get('/work/')
-    console.log(res.data.data)
     return res.data.data
 })
 
