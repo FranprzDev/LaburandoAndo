@@ -18,7 +18,16 @@ const initialState = {
 
 export const createProfessional = createAsyncThunk('register', async(_, { getState }) => {
   try {
-    const response = await instance.post('/auth/jwt/register/Worker', getState().register.form);
+    if (getState().register.form.type === 'Client') {
+      throw new Error('No se puede crear un cliente con este método');
+    }
+    
+    const { photo, ...rest } = getState().register.form;
+
+    const response = await instance.post('/auth/jwt/register/Worker', 
+      !getState().register.form.photo ? rest : getState().register.form
+    );
+
     return response.data.data;
   } catch(error){
     console.log(error);

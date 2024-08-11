@@ -27,7 +27,7 @@ const RegistroPasoTres = () => {
         text: "Los datos ingresadodsdsdss no son correctos.",
       });
     }
-    if(state && state.stateSync === 'exitoso' && type){
+    if(state && state.stateSync === 'exitoso' && type === "Professional"){
       navigate("../../work/mi-perfil");
       Swal.fire({
         icon: "success",
@@ -41,12 +41,17 @@ const RegistroPasoTres = () => {
         title: "Bienvenido",
       });
     }
+    // Evaluar si esta porción de código es necesario línea 37 - 44, si no lo es; entonces borrar.
   }, [state]);
 
   const onSubmit = (data) => {
     dispatch(setAditionalValues(data))
 
-    if(type) dispatch(createProfessional())
+    if(type === "Professional") {
+      dispatch(createProfessional())
+
+      navigate("../../work/mi-perfil");
+    }
   };
 
   return (

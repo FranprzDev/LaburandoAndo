@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../api/api";
+import { jwtDecode } from "jwt-decode";
 
 const initialState = {
     user: JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null,
-    stateSync: "iddle",
-    state: "iddle",
+    stateSync: "idle",
+    state: "idle",
     error: null
 };
 
@@ -23,7 +24,7 @@ const authSlice = createSlice({
     initialState,
     reducers:{
         reset: (state) => {
-          state.stateSync = "iddle";
+          state.stateSync = "idle";
           state.error = null;
         },
         pending: (state) => {
@@ -37,7 +38,8 @@ const authSlice = createSlice({
           state.error = action.payload;
         },
         logout: (state) => {
-          state.stateSync = "iddle";
+          state.state = "idle";
+          state.stateSync = "idle";
           sessionStorage.removeItem("usuarioLogeado");
         },
     },
@@ -50,12 +52,14 @@ const authSlice = createSlice({
         .addCase(loginUser.fulfilled, (state, action) => {
           state.stateSync = 'exitoso';
           state.status = 'exitoso';
-          state.user = action.payload;
-          sessionStorage.setItem("usuarioLogeado", JSON.stringify(action.payload))
+          const decodedToken = jwtDecode(action.payload);
+
+          state.user = decodedToken.user;
+          sessionStorage.setItem("usuarioLogeado", JSON.stringify(decodedToken.user));
         })
         .addCase(loginUser.rejected, (state, action) => {
           state.stateSync = 'error';
-          state.status = 'iddle';
+          state.status = 'error';
           state.error = action.payload ? action.payload.message : action.error.message;
         });
     }

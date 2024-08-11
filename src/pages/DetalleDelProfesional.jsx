@@ -35,7 +35,7 @@ const DetalleDelProfesional = () => {
               </Card.Title>
               <Card.Text>{profesional?.worker.address}</Card.Text>
               <Card.Subtitle className="mb-2 text-muted">
-                <div className=" d-flex">
+                <div className=" d-flex justify-content-center">
                   <FaStar className="me-2 text-warning fs-5" />
                   <p>4.0</p>
                 </div>
@@ -60,7 +60,7 @@ const DetalleDelProfesional = () => {
               {profesional?.category[0].name}
             </span>
           </div>
-          <h2 className="my-3">Clases Particulares de inglés en línea</h2>
+          <h2 className="my-3">{profesional?.title}</h2>
           <p className="fw-medium fs-5 mt-md-3 mb-0 mb-md-1">
             Descripción del anuncio
           </p>
