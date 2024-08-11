@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../api/api";
 
 const initialState = {
-    user: null,
+    user: JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null,
     stateSync: "iddle",
     state: "iddle",
     error: null

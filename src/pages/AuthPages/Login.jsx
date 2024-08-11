@@ -20,17 +20,17 @@ export default function Login() {
   
   useEffect(() => {
     if (stateSync === 'exitoso') {
-      navigate("/mi-perfil");
+      navigate("/work/mi-perfil");
       Swal.fire({
         icon: "success",
-        title: "Bienvenido",
+        title: `Bienvenido`,
       });
       dispatch(reset());
     } else if (stateSync === 'error') {
       Swal.fire({
         icon: "error",
-        title: "No se pudo iniciar sesión",
-        text: "Los datos ingresados no son correctos.",
+        title: "No pudiste iniciar sesión. Verifica tus credenciales.",
+        text: "correo o contraseña incorrecto.",
       });
     }
   }, [stateSync, navigate]);  
