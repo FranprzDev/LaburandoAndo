@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { get, useForm } from "react-hook-form";
 import "../../styles/registroPasoTres.css";
 import Foto from "../../img/FotoPerfil.jpg";
@@ -7,14 +7,46 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { createProfessional, getProfessional, setAditionalValues } from "../../slice/registerSlice";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const RegistroPasoTres = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  const type = useSelector((state) => state.register.form.type);
+
+  const state = useSelector((state) => state.register);
+
+  useEffect(() => {
+    if (state && state.stateSync === 'error') {
+      Swal.fire({
+        icon: "error",
+        title: "No se pudo iniciar sesión",
+        text: "Los datos ingresadodsdsdss no son correctos.",
+      });
+    }
+    if(state && state.stateSync === 'exitoso' && type){
+      navigate("../../work/mi-perfil");
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenido",
+      });
+    }
+    if(state && state.stateSync === 'exitoso' && type === "Client"){
+      navigate("../../profesionales");
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenido",
+      });
+    }
+  }, [state]);
 
   const onSubmit = (data) => {
     dispatch(setAditionalValues(data))
-    dispatch(createProfessional())
+
+    if(type) dispatch(createProfessional())
   };
 
   return (

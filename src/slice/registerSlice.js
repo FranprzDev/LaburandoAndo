@@ -9,7 +9,7 @@ const initialState = {
       adress: "",
       photo: "",
       authMethod: "Local",
-      type: false,
+      type: "Client",
     },
     stateSync: "idle",
     state: "idle",
@@ -18,7 +18,24 @@ const initialState = {
 
 export const createProfessional = createAsyncThunk('register', async(_, { getState }) => {
   try {
-    const response = await instance.post('/auth/local/register/worker', getState().register.form);
+    const response = await instance.post('/auth/jwt/register/Worker', getState().register.form);
+    return response.data.data;
+  } catch(error){
+    console.log(error);
+  }
+});
+
+export const createClient = createAsyncThunk('client', async(_, { getState }) => {
+  try {
+    const form = getState().register.form;
+
+    const { fullname, mail, password } = form
+
+    const response = await instance.post('/auth/jwt/register/', {
+      fullname,
+      mail,
+      password,
+    });
     return response.data.data;
   } catch(error){
     console.log(error);
@@ -29,8 +46,8 @@ const registerSlice = createSlice({
     name: 'register',
     initialState,
     reducers:{
-      changeType: (state) => {
-            state.form.type = !state.form.type;
+      changeType: (state, action) => {
+            state.form.type = action.payload;
       },
       setValues: (state, action) => {
         state.form.fullname = action.payload.fullname;
@@ -55,9 +72,23 @@ const registerSlice = createSlice({
         })
         .addCase(createProfessional.rejected, (state, action) => {
           state.stateSync = 'error';
-          state.status = 'iddle';
+          state.status = 'idle';
           state.error = action.payload ? action.payload.message : action.error.message;
-        });
+        })
+        .addCase(createClient.pending, (state) => {
+          state.stateSync = 'cargando';
+          state.status = 'cargando';
+        })
+        .addCase(createClient.fulfilled, (state, action) => {
+          state.stateSync = 'exitoso';
+          state.status = 'exitoso';
+          state.user = action.payload;
+        })
+        .addCase(createClient.rejected, (state, action) => {
+          state.stateSync = 'error';
+          state.status = 'idle';
+          state.error = action.payload ? action.payload.message : action.error.message;
+        })
     }
 })
 

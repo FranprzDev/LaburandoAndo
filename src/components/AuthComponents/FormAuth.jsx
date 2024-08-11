@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { setValues } from "../../slice/registerSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { createClient, setValues } from "../../slice/registerSlice";
 
 function FormAuth() {
   const {
@@ -13,6 +13,7 @@ function FormAuth() {
   } = useForm();
 
   const dispatch = useDispatch();
+  const type = useSelector((state) => state.register.form.type);
 
   const password = useRef({});
   password.current = watch("password", "");
@@ -26,12 +27,22 @@ function FormAuth() {
           <div className="text-center">
             <h5 className="card-title">
               Registrate en <span className="text-primary">LaburandoAndo</span>
+              {
+                type === "Client" ? " como cliente" : " como profesional"
+              }
             </h5>
           </div>
           <div className="card-body">
             <form className="text-center my-3" onSubmit={handleSubmit((data) => {
               dispatch(setValues(data))
-              navigate("/auth/register3")
+              if(type === "Professional") navigate("/auth/register3")
+
+              if(type === "Client"){
+                dispatch(createClient())
+                navigate("../../profesionales");
+
+                /* Lógica para guardar el jwt */
+              }
             })}>
               <div className="mb-3 text-start">
                 <label htmlFor="fullname" className="mb-1">

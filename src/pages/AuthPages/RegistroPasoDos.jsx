@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import FormAuth from "../../components/AuthComponents/FormAuth";
 import { useSelector } from "react-redux";
 
@@ -10,7 +10,7 @@ function RegistroPasoDos() {
   return (
     <div className="container d-flex align-items-center justify-content-center my-3">
       <div className="row w-100">
-        {type && (
+        {type === "Professional" && (
           <div className="col-md-6 justify-content-center text-center mt-2">
             <div className="col-md-10 d-flex justify-center flex-column">
               <h2 className="mb-4">¿Cómo funciona?</h2>

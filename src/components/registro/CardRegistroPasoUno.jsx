@@ -9,7 +9,7 @@ const CardRegistroPasoUno = ({ usuario }) => {
 
 
   const handleClick = () => {
-    dispatch(changeType());
+    dispatch(changeType(usuario ? "Client" : "Professional"));
     navigate("../register2")
   }
 
