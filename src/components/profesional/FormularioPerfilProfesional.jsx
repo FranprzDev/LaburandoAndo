@@ -1,8 +1,10 @@
 import { Form } from "react-bootstrap";
 import imgUsuario from "../../img/imgUsuario.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { fetchWorkerForID } from "../../slice/workersSlice";
+import { useNavigate } from "react-router-dom";
 
 const FormularioPerfilProf = () => {
   const {
@@ -15,19 +17,32 @@ const FormularioPerfilProf = () => {
   const [habilitado, setHabilitado] = useState(true); //para manejar disabled de inputs y botones, sirve para fn de editar
 
   const user = useSelector((state) => state.auth.user);
+  const worker = useSelector((state) => state.workers.worker);
+  const status = useSelector((state) => state.workers.status);
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
-      cargarDatosUsuario();
+      dispatch(fetchWorkerForID(user._id));
+    } else {
+      navigate("/");
     }
   }, []);
 
+  useEffect(() => {
+    if (worker && status === "exitoso") {
+      cargarDatosUsuario();
+    }
+  }, [worker, status]);
+
   const cargarDatosUsuario = () => {
-    setValue("fullname", user.fullname);
-    setValue("mail", user.mail);
-    setValue("phone", user.phone);
-    setValue("address", user.address);
-    setValue("img", user.img);
+    setValue("fullname", worker.fullname);
+    setValue("mail", worker.mail);
+    setValue("phone", worker.phone);
+    setValue("address", worker.address);
+    setValue("img", worker.img);
   };
 
   return (
@@ -60,6 +75,7 @@ const FormularioPerfilProf = () => {
               },
             })}
           />
+          <div className="text-danger text-start">{errors.fullname?.message}</div>
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label
@@ -82,6 +98,7 @@ const FormularioPerfilProf = () => {
               },
             })}
           />
+          <div className="text-danger text-start">{errors.mail?.message}</div>
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label
@@ -136,7 +153,7 @@ const FormularioPerfilProf = () => {
             Foto de Perfil
           </Form.Label>
           <img
-            src={user ? user.img : ""}
+            src={worker.img}
             alt="imagen de perfil"
             className="border rounded-circle imgProfileForm"
             title="imagen de perfil"
