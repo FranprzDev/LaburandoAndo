@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getCategories } from "../../api/api";
 
-const FormFiltros = () => {
+const FormFiltros = ({ onCategoryChange }) => {
+  const [categoriaTrabajos, setCategoriaTrabajos] = useState([]);
+  
+  const categorias = async () => {
+    try {
+      const response = await getCategories();
+      console.log(response); 
+      setCategoriaTrabajos(response.data);
+    } catch (error) {
+      console.error("Error al llamar a las categorías:", error);
+    }
+  };
+
+  useEffect(() => {
+    categorias();
+  }, []);
+
+  const handleCambioDeCategoria = (e) => {
+    onCategoryChange(e.target.value);
+  };
+
   return (
     <div className="border p-2 p-md-3 rounded-2 shadow">
       <div className="input-group mb-2">
@@ -21,13 +42,16 @@ const FormFiltros = () => {
       </div>
       <div className="input-group mb-2 mb-md-3">
         <label className="form-label fw-medium">Categorías</label>
-        <select className="form-select w-100 rounded-2">
+        <select
+          className="form-select w-100 rounded-2"
+          onChange={handleCambioDeCategoria}
+        >
           <option value="">Seleccionar categoría</option>
-          <option value="Carpintería">Carpintería</option>
-          <option value="Electricidad">Electricidad</option>
-          <option value="Plomería">Plomería</option>
-          <option value="Profesor particular">Profesor particular</option>
-          <option value="Cuidado de niños">Cuidado de niños</option>
+          {Array.isArray(categoriaTrabajos) && categoriaTrabajos.map((categoria) => (
+            <option key={categoria._id} value={categoria.name}>
+              {categoria.name}
+            </option>
+          ))}
         </select>
       </div>
     </div>
