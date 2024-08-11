@@ -153,7 +153,7 @@ const FormularioPerfilProf = () => {
             Foto de Perfil
           </Form.Label>
           <img
-            src={worker.img}
+            src={worker ? worker.img : ""}
             alt="imagen de perfil"
             className="border rounded-circle imgProfileForm"
             title="imagen de perfil"
