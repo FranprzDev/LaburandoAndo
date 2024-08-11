@@ -6,10 +6,13 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { Link} from "react-router-dom";
 import "../styles/menu.css";
+import useLogout from "../hooks/useLogout";
 
 const Menu = () => {
   const user = useSelector((state) => state.auth.user);
   const status = useSelector((state) => state.auth.stateSync);
+
+  const { cerrarSesion } = useLogout();
 
   useEffect(() => {}, [status]);
 
@@ -43,6 +46,9 @@ const Menu = () => {
               <Link className="nav-link d-lg-none" to="/work/mi-perfil">
                 Mi cuenta
               </Link>
+              <button className="py-0 nav-link text-center nav-item w-100 d-lg-none" onClick={cerrarSesion}>
+                <span className="align-middle">Salir</span>
+              </button>
               <NavDropdown
                 title={`Mi cuenta`}
                 id="basic-nav-dropdown"
@@ -74,13 +80,12 @@ const Menu = () => {
                   <span className="align-middle">Mis publicaciones</span>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <button className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1">
+                <button className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1" onClick={cerrarSesion}>
                   <BiSolidExit className="fs-4 iconMenu" />
                   <span className="align-middle">Salir</span>
                 </button>
               </NavDropdown>
-              </>
-              
+              </>            
             ) : (
               <Link className="nav-link " to="/auth/login">
                 <IoPersonCircleOutline className="me-1 fs-4" />

@@ -1,13 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import image from "../../img/Logo.jpg";
-import { FaHome, FaUser, FaWpforms, FaListAlt } from "react-icons/fa";
+import { FaUser, FaWpforms, FaListAlt } from "react-icons/fa";
 import { TbHelpCircleFilled } from "react-icons/tb";
 import { BiSolidExit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../slice/authSlice";
-import Swal from "sweetalert2";
 import { fetchWorkerForID } from "../../slice/workersSlice";
 import { useEffect } from "react";
+import useLogout from "../../hooks/useLogout";
 
 const MenuProfesional = () => {
   
@@ -17,6 +16,8 @@ const MenuProfesional = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { cerrarSesion } = useLogout();
+
   useEffect(() => {
     console.log("El id es: ", userJwt._id)
     if (userJwt._id) {
@@ -25,24 +26,6 @@ const MenuProfesional = () => {
       navigate("/");
     }
   }, [userJwt]);
-
-   const cerrarSesion = () =>{
-    Swal.fire({
-      title: "Cerrar sesión",
-      text: "¿Estas seguro que deseas salir?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Cerrar sesión",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        dispatch(logout());
-        navigate("/");
-      }
-    });
-  }
 
   return (
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
