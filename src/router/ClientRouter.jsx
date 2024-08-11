@@ -12,7 +12,7 @@ const ClientRouter = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path='/profesionales' element={<Profesionales/>}/>
-                <Route path="/detalle" element={<DetalleDelProfesional />} />
+                <Route path="/detalle/:id" element={<DetalleDelProfesional />} />
                 <Route path='/nosotros' element={<Nosotros/>}/>
             </Routes>
         </MainLayout>

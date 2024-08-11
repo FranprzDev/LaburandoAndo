@@ -11,7 +11,6 @@ const Menu = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Link to={'/'} className='nav-link'>Home</Link>
             <Link className='nav-link' to={'/profesionales'}>Profesionales</Link>
             <Link className='btn btn-Profesional' to={'/auth/register'}>Anúnciate como Profesional</Link>
             <Link className='nav-link' to={'/auth/login'}><IoPersonCircleOutline className='mx-1'/>Ingresar</Link>
