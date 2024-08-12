@@ -1,49 +1,106 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className='bg-body-tertiary border-top pt-5'>
-      <Container fluid="md" className='text-center text-md-start'>
-        <Row>
-            <Col className='mt-3 mt-md-0' md={6} lg={3}>
-            <Link to={'/'} className='navbar-brand'><h5 className='display-6'>LaburandoAndo</h5></Link>
-            </Col>
-            <Col className='mt-3 mt-md-0' md={6} lg={3}>
-            <h5>Sobre Nosotros</h5>
-            <ul className='list-group'>
-                <Link to={'/nosotros'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>¿Quiénes Somos?</Link>
-                <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>Nuestros Valores</Link>
-            </ul>
-            <article className='mt-lg-5'>
+    <footer className="bg-body-tertiary border-top pt-5">
+      <Container fluid className="text-center text-md-start">
+        <Row className="gy-3 justify-content-md-center">
+          <Col className="text-center mb-3 mb-md-0" md={12} lg={3} xl={3}>
+            <Link to={"/"} className="navbar-brand">
+              <h5 className="logo">LaburandoAndo</h5>
+            </Link>
+          </Col>
+          <Col className="text-center text-lg-start" md={4} lg={3}>
+            <div className="d-flex flex-column ">
+              <h5>Sobre Nosotros</h5>
+              <ul className="list-group">
+                <Link
+                  to={"/nosotros"}
+                  className="text-dark mb-1"
+                >
+                  ¿Quiénes Somos?
+                </Link>
+                <Link
+                  to={"/"}
+                  className="text-dark mb-1"
+                >
+                  Nuestros Valores
+                </Link>
+              </ul>
+              <article className="mt-lg-5 mt-md-3">
                 <h5>Síguenos en nuestras redes</h5>
-                <Link><FaFacebook className='fs-1 text-primary'/></Link>
-                <Link><FaInstagramSquare className='fs-1 ms-2 instagramLogo'/></Link>
-            </article>
-            </Col>
-            <Col className='mt-3 mt-md-3 mt-lg-0' md={6} lg={3}>
-            <h5>Términos y Condiciones</h5>
-            <ul className='list-group'>
-                <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>Políticas de privacidad</Link>
-                <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>Condiciones de uso para profesionales</Link>
-                <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>Condiciones de uso para clientes</Link>
-            </ul>
-            </Col>
-            <Col className='mt-3 mt-md-3 mt-lg-0' md={6} lg={3}>
-            <h5>Asistencia</h5>
-            <ul className='list-group'>
-                <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>¿Necesitas Ayuda?</Link>
-                <Link to={'/'} className='list-group-item border-0 pt-0 ps-0 bg-body-tertiary'>Contacto</Link>
-            </ul>
-            </Col>
+                <Link>
+                  <FaFacebook className="fs-1 text-primary" />
+                </Link>
+                <Link>
+                  <FaInstagramSquare className="fs-1 ms-2 instagramLogo" />
+                </Link>
+              </article>
+            </div>
+          </Col>
+          <Col
+            className="text-center text-lg-start "
+            md={4}
+            lg={3}
+          >
+            <div>
+              <h5>Términos y Condiciones</h5>
+              <ul className="list-group">
+                <Link
+                  to={"/"}
+                  className="text-dark mb-1"
+                >
+                  Políticas de privacidad
+                </Link>
+                <Link
+                  to={"/"}
+                  className="text-dark mb-1"
+                >
+                  Condiciones de uso para profesionales
+                </Link>
+                <Link
+                  to={"/"}
+                  className="text-dark mb-1"
+                >
+                  Condiciones de uso para clientes
+                </Link>
+              </ul>
+            </div>
+          </Col>
+          <Col
+            className="mt-3 text-center text-lg-start "
+            md={4}
+            lg={3}
+          >
+            <div>
+              <h5>Asistencia</h5>
+              <ul className="list-group">
+                <Link
+                  to={"/"}
+                  className="text-dark mb-1"
+                >
+                  ¿Necesitas Ayuda?
+                </Link>
+                <Link
+                  to={"/"}
+                  className="text-dark"
+                >
+                  Contacto
+                </Link>
+              </ul>
+            </div>
+          </Col>
         </Row>
-        <h5 className='text-center my-3'>LaburandoAndo. &copy; Todos los Derechos Reservados. 2024</h5>
+        <h5 className="text-center mt-5">
+          LaburandoAndo. &copy; Todos los Derechos Reservados. 2024
+        </h5>
       </Container>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;
