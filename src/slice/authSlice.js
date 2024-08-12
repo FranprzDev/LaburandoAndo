@@ -1,21 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../api/api";
-import { useDispatch } from "react-redux";
+import { jwtDecode } from "jwt-decode";
 
 const initialState = {
-    user: null,
-    stateSync: "iddle",
-    state: "iddle",
+    user: JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null,
+    stateSync: "idle",
+    state: "idle",
     error: null
 };
 
 export const loginUser = createAsyncThunk('auth', async(usuario) => {
   try {
-    const response = await instance.post('/auth/local/login', usuario);
-    
-    return response.data.data;
+    const response = await instance.post('/auth/jwt/login', usuario);
+
+    return response.data.data.token
   } catch (error) {
-    return rejectWithValue(error.response.data);
+    console.log(error)
   }
 })
 
@@ -24,7 +24,7 @@ const authSlice = createSlice({
     initialState,
     reducers:{
         reset: (state) => {
-          state.stateSync = "iddle";
+          state.stateSync = "idle";
           state.error = null;
         },
         pending: (state) => {
@@ -38,7 +38,9 @@ const authSlice = createSlice({
           state.error = action.payload;
         },
         logout: (state) => {
-          state.stateSync = "iddle";
+          state.state = "idle";
+          state.stateSync = "idle";
+          state.user = null;
           sessionStorage.removeItem("usuarioLogeado");
         },
     },
@@ -51,12 +53,14 @@ const authSlice = createSlice({
         .addCase(loginUser.fulfilled, (state, action) => {
           state.stateSync = 'exitoso';
           state.status = 'exitoso';
-          state.user = action.payload;
-          sessionStorage.setItem("usuarioLogeado", JSON.stringify(action.payload))
+          const decodedToken = jwtDecode(action.payload);
+
+          state.user = decodedToken.user;
+          sessionStorage.setItem("usuarioLogeado", JSON.stringify(decodedToken.user));
         })
         .addCase(loginUser.rejected, (state, action) => {
           state.stateSync = 'error';
-          state.status = 'iddle';
+          state.status = 'error';
           state.error = action.payload ? action.payload.message : action.error.message;
         });
     }

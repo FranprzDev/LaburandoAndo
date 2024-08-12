@@ -1,19 +1,22 @@
-import React, { useMemo } from "react";
-import { useRegisterHook } from "../../hooks/useRegisterHook";
+import React, { useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { createClient, setValues } from "../../slice/registerSlice";
 
 function FormAuth() {
   const {
-    changeName,
-    changeEmail,
-    changePassword,
-    changeRetryPassword,
-    comparePassword,
-  } = useRegisterHook();
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
 
-  const equals = useMemo(() => {
-    return comparePassword();
-  }, [comparePassword]);
+  const dispatch = useDispatch();
+  const type = useSelector((state) => state.register.form.type);
+
+  const password = useRef({});
+  password.current = watch("password", "");
 
   const navigate = useNavigate();
 
@@ -24,31 +27,58 @@ function FormAuth() {
           <div className="text-center">
             <h5 className="card-title">
               Registrate en <span className="text-primary">LaburandoAndo</span>
+              {
+                type === "Client" ? " como cliente" : " como profesional"
+              }
             </h5>
           </div>
           <div className="card-body">
-            <div className="text-center my-3">
+            <form className="text-center my-3" onSubmit={handleSubmit((data) => {
+              dispatch(setValues(data))
+              if(type === "Professional") navigate("/auth/register3")
+
+              if(type === "Client"){
+                dispatch(createClient())
+                navigate("../../profesionales");
+
+                /* Lógica para guardar el jwt */
+              }
+            })}>
               <div className="mb-3 text-start">
-                <label htmlFor="email" className="mb-1">
+                <label htmlFor="fullname" className="mb-1">
                   Nombre y Apellido
                 </label>
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Francisco Perez"
-                  onChange={(e) => changeName(e.target.value)}
+                  {...register("fullname", {
+                    required: "El nombre completo es obligatorio",
+                    pattern: {
+                      value: /^[a-zA-Z\s]*$/,
+                      message: "Ingrese un nombre válido",
+                    },
+                  })}
                 />
+                <div className="text-danger">{errors.fullname?.message}</div>
               </div>
               <div className="mb-3 text-start">
-                <label htmlFor="email" className="mb-1">
+                <label htmlFor="mail" className="mb-1">
                   Email
                 </label>
                 <input
                   type="email"
                   className="form-control"
                   placeholder="franciscoperez@gmail.com"
-                  onChange={(e) => changeEmail(e.target.value)}
+                  {...register("mail", {
+                    required: "El correo es obligatorio",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Ingrese una dirección de correo válida",
+                    },
+                  })}
                 />
+                <div className="text-danger">{errors.mail?.message}</div>
               </div>
               <div className="mb-3 text-start">
                 <label htmlFor="password" className="mb-1">
@@ -56,27 +86,41 @@ function FormAuth() {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   className="form-control"
                   placeholder="Ju4n23!"
-                  onChange={(e) => changePassword(e.target.value)}
+                  {...register("password", {
+                    required: "La contraseña es obligatoria",
+                    minLength: {
+                      value: 8,
+                      message: "La clave debe tener al menos 8 caracteres",
+                    },
+                    maxLength: {
+                      value: 70,
+                      message: "La clave debe tener como máximo 70 caracteres",
+                    },
+                  })}
                 />
+                <div className="text-danger">{errors.password?.message}</div>
               </div>
               <div className="mb-3 text-start">
-                <label htmlFor="password" className="mb-1">
+                <label htmlFor="retry-password" className="mb-1">
                   Repetir Contraseña
                 </label>
                 <input
+                  name="password_repeat"
                   type="password"
                   className="form-control"
                   placeholder="Ju4n23!"
-                  onChange={(e) => changeRetryPassword(e.target.value)}
+                  {...register("password_repeat", {
+                    validate: value =>
+                      value === password.current || "Las contraseñas no coinciden.",
+                  })}
                 />
+                <div className="text-danger">{errors.password_repeat?.message}</div>
               </div>
-              {equals ? null : (
-                <p className="text-danger fs-6">Las contraseñas no coinciden</p>
-              )}
-              <button className="btn btn-danger w-100 mb-3" disabled={!equals} onClick={() => {navigate("../register3")}}>Registrarme</button>
-            </div>
+              <button className="btn btn-danger w-100 mb-3">Registrarme</button>
+            </form>
             <button className="btn btn-LoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -6,20 +6,11 @@
     --Violeta: #853f78;
     --Rosa: #f1d0eb;
     --Lavanda: #f0e6ef;
+    --HoverVioleta: #501c46;
 }
 
 .mainSection {
     flex-grow: 1;
-}
-
-.btn-Profesional {
-    background-color: var(--Violeta);
-    color: white;
-}
-
-.btn-Profesional:hover {
-    background-color: #501c46;
-    color: white;
 }
 
 .instagramLogo {
@@ -31,6 +22,7 @@
     outline: none;
     box-shadow: none;
 }
+
 .btn:active {
     transform: translateY(2px);
     transition: cubic-bezier(1, 0, 0, 1) 0.2s;

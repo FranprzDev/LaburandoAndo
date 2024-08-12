@@ -24,6 +24,10 @@ const CardPublicacion = ({ selectedCategory }) => {
         filteredPublicaciones.map((publicacion) => (
           <div
             key={publicacion._id}
+            onClick={() => {
+              navigate(`/detalle/${publicacion._id}`)
+              console.log(publicacion._id);
+            }}
             className="card cardPublication pt-2 px-2 px-md-3 rounded-3 shadow"
           >
             <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
@@ -56,9 +60,6 @@ const CardPublicacion = ({ selectedCategory }) => {
                     {publicacion.title}
                   </h5>
                   <p
-                    onClick={() => {
-                      navigate("/detalle");
-                    }}
                     className="fs-6 text-secondary mb-0 description"
                   >
                     {publicacion.description}
