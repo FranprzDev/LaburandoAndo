@@ -1,11 +1,10 @@
 import React from 'react';
 import CardPublicacion from './CardPublicacion';
 
-const ListaPublicaciones = () => {
+const ListaPublicaciones = ({ selectedCategory }) => {
     return (
         <div className='d-flex flex-column gap-3'>
-            <CardPublicacion></CardPublicacion>
-            <CardPublicacion></CardPublicacion>
+            <CardPublicacion selectedCategory={selectedCategory} />
         </div>
     );
 };

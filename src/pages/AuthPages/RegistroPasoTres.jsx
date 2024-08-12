@@ -1,51 +1,100 @@
-import React from "react";
-import "../../App.css";
+import React, { useEffect } from "react";
+import { get, useForm } from "react-hook-form";
 import "../../styles/registroPasoTres.css";
 import Foto from "../../img/FotoPerfil.jpg";
 import { Col, Container, Row } from "react-bootstrap";
-import { useRegisterHook } from "../../hooks/useRegisterHook";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { createProfessional, getProfessional, setAditionalValues } from "../../slice/registerSlice";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const RegistroPasoTres = () => {
-  const { createProfessional } = useRegisterHook();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
 
-  const handleCreateProfessional = (e) => {
-    e.preventDefault();
-    createProfessional();
+  const type = useSelector((state) => state.register.form.type);
+
+  const state = useSelector((state) => state.register);
+
+  useEffect(() => {
+    if (state && state.stateSync === 'error') {
+      Swal.fire({
+        icon: "error",
+        title: "No se pudo iniciar sesión",
+        text: "Los datos ingresadodsdsdss no son correctos.",
+      });
+    }
+    if(state && state.stateSync === 'exitoso' && type === "Professional"){
+      navigate("../../work/mi-perfil");
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenido",
+      });
+    }
+    if(state && state.stateSync === 'exitoso' && type === "Client"){
+      navigate("../../profesionales");
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenido",
+      });
+    }
+    // Evaluar si esta porción de código es necesario línea 37 - 44, si no lo es; entonces borrar.
+  }, [state]);
+
+  const onSubmit = (data) => {
+    dispatch(setAditionalValues(data))
+
+    if(type === "Professional") {
+      dispatch(createProfessional())
+
+      navigate("../../work/mi-perfil");
+    }
   };
 
   return (
-    <Container className="my-5 border border-1 border-black p-5">
-      <h1>Añade datos a tú perfil!</h1>
-      <p>Completá los datos que se muestran a continuación.</p>
-      <section className="border-1">
-        <form>
-          <Row className="d-flex justify-content-center  align-items-center">
-            <Col md={6}>
-              <label className="fs-5">Ubicación:</label>
-              <input type="text" className="form-control" />
-              <label className="fs-5">WhatsApp:</label>
-              <input type="number" min={0} className="form-control" />
+    <Container className="mx-1 my-5 p-3 mx-sm-auto border">
+      <section>
+        <h1>Añade datos a tu perfil!</h1>
+        <p>Completá los datos que se muestran a continuación.</p>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Row className="d-flex justify-content-center align-items-center">
+            <Col md={6} className="d-flex justify-content-center flex-column">
+              <label className="fs-5"><FaLocationDot/>Ubicación: <span className="optional-text fs-6">(Opcional)</span></label>
+              <input type="text" className=" form-control" {...register("adress")} />
+              <label className="fs-5"><FaWhatsapp/>WhatsApp: <span className="optional-text fs-6">(Opcional)</span></label>
+              <input
+                type="text"
+                className="form-control input-optionals"
+                {...register("phone", {
+                  pattern: {
+                    value: /^[0-9]+$/,
+                    message: "Por favor, introduce un número válido",
+                  },
+                })}
+              />
+              {errors.whatsapp && <p>{errors.whatsapp.message}</p>}
             </Col>
-            <Col md={6}>
-              <div className="text-center d-flex flex-column justify-content-center align-items-center">
-                <img src={Foto} className="img-fluid perfilImg" alt="" />
+            <Col md={6} className="d-flex justify-content-center flex-column">
+              <div className="text-center d-flex flex-column justify-content-center align-items-center position-relative">
+                <img src={Foto} className="img-fluid perfilImg mb-3 rounded-circle" alt="Foto de perfil" />
                 <input
                   className="d-none"
                   type="file"
                   name="FotoPerfil"
                   id="FotoPerfil"
-                  accept='"image/png, image/jpeg"'
+                  accept="image/png, image/jpeg"
                 />
-                <button className="btn-Profesional btn">Subir Imagen</button>
+                <label htmlFor="FotoPerfil" className="upload-button">
+                  +
+                </label>
               </div>
             </Col>
             <div className="text-center d-flex justify-content-end gap-2">
-              <button
-                className="btn btn-success mt-4 fs-4"
-                type="submit"
-                onClick={handleCreateProfessional}
-              >
-                Crear Usuario
+              <button className="btn btn-Profesional mt-4 fs-4" type="submit">
+                Crear cuenta
               </button>
             </div>
           </Row>

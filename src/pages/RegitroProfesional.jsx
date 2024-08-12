@@ -18,7 +18,6 @@ const RegitroProfesional = () => {
       <div className="card">
         <div className="row g-3 mx-5 my-5">
           <div className="col-md-6 text-center mt-5">
-            {/* informacion */}
             <h2 className="texto-registro">¿Como funciona?</h2>
             <br />
             <h4 className="texto-registro">1. Anunciate de manera gratuita</h4>
