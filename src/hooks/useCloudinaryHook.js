@@ -1,6 +1,4 @@
-export const useCloudinary = () => {
-    /* Hagan aquí la lógica del Cloudinary, es una sugerencia del loco GPT, pruebenlo. */
-    
+export const useCloudinary = () => {   
     const uploadImage = async (file) => {
         const data = new FormData()
         data.append('file', file)
@@ -12,8 +10,7 @@ export const useCloudinary = () => {
         const image = await res.json()
         return image.secure_url
     }
-
-    
+ 
     return {
         uploadImage
     }
