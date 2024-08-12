@@ -3,10 +3,12 @@ import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../slice/categorySlice";
 import { useForm } from "react-hook-form";
+import { createPost } from "../../slice/postsSlice";
 
 const FormularioPublicacion = () => {
   const categorias = useSelector((state) => state.categories.categories);
   const status = useSelector((state) => state.categories.status);
+  const userLogeado = useSelector((state)=>state.auth.user);
   const dispatch = useDispatch();
 
   const {
@@ -21,12 +23,13 @@ const FormularioPublicacion = () => {
     }
   }, []);
 
-  const handlePost = () => {
-    
+  const handlePost = async (post) => {
+    console.log(post)
+    dispatch(createPost(userLogeado._id, post))
   }
 
   return (
-    <Form className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border">
+    <Form className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border" onSubmit={handleSubmit(handlePost)}>
       <p>
         Campo Obligatorio &#40; <span className="text-danger fs-5">*</span>{" "}
         &#41;
@@ -82,7 +85,7 @@ const FormularioPublicacion = () => {
             {status === "exitoso" &&
               categorias &&
               categorias.map((c) => (
-                <option key={c._id} value={`${c.name}`}>
+                <option key={c._id} value={`${c._id}`}>
                   {c.name}
                 </option>
               ))}
@@ -155,7 +158,7 @@ const FormularioPublicacion = () => {
         <button
           type="submit"
           className="px-3 px-md-5 py-2 btnPost rounded-2 text-white border-0"
-          onClick={handleSubmit(handlePost)}
+          
         >
           Publicar anuncio
         </button>
