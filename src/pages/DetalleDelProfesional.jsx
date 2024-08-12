@@ -16,12 +16,10 @@ const DetalleDelProfesional = () => {
   const profesional = useSelector((state) => state.posts.post);
   const { id } = useParams();
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getPost(id));
-    console.log(profesional);
   }, [id]);
-  
-  console.log(id);
 
   return (
     <Container>
@@ -43,7 +41,7 @@ const DetalleDelProfesional = () => {
               </Card.Subtitle>
               <Button
                 as={Link}
-                to={`https://wa.me/${profesional?.worker.phone}?text=Hola%20${profesional?.worker.fullname}%20solicito%20tu%20servicio%20de%20${profesional?.category[0].name}`}
+                to={`https://wa.me/${profesional?.worker.phone}?text=Hola%20${profesional?.worker.fullname}%20solicito%20tu%20servicio.`}
                 target="_blank"
                 variant="success"
                 className="w-100 d-flex align-items-center justify-content-center"
@@ -56,9 +54,12 @@ const DetalleDelProfesional = () => {
         </Card>
         <div className="mt-lg-5 w-100">
           <div className="  mt-3 text-center text-md-start w-100">
-            <span className=" px-5 py-2 rounded-2 category opacity-50 text-white">
-              {profesional?.category[0].name}
-            </span>
+            {
+              profesional?.category.map((category) => (
+                <span className=" px-5 py-2 rounded-2 category opacity-50 text-white">
+                  {category?.name}
+                </span>
+            ))}
           </div>
           <h2 className="my-3">{profesional?.title}</h2>
           <p className="fw-medium fs-5 mt-md-3 mb-0 mb-md-1">

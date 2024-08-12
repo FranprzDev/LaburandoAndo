@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../api/api";
-
+import { jwtDecode } from "jwt-decode";
 
 const initialState = {
     user: JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null,

@@ -19,7 +19,6 @@ const MenuProfesional = () => {
   const { cerrarSesion } = useLogout();
 
   useEffect(() => {
-    console.log("El id es: ", userJwt._id)
     if (userJwt._id) {
       dispatch(fetchWorkerForID(userJwt._id));
     } else {
