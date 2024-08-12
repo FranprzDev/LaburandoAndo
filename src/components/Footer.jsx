@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-body-tertiary border-top pt-5">
       <Container fluid className="text-center text-md-start">
-        <Row className="gy-3 justify-content-md-center">
+        <Row className="gy-2 gy-md-3 gx-5 justify-content-md-center">
           <Col className="text-center mb-3 mb-md-0" md={12} lg={3} xl={3}>
             <Link to={"/"} className="navbar-brand">
               <h5 className="logo">LaburandoAndo</h5>
@@ -95,8 +95,8 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-        <h5 className="text-center mt-5">
-          LaburandoAndo. &copy; Todos los Derechos Reservados. 2024
+        <h5 className="text-center mt-4 mt-md-5">
+          LaburandoAndo. &copy;Todos los Derechos Reservados. 2024.
         </h5>
       </Container>
     </footer>

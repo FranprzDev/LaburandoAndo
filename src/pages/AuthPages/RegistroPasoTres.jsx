@@ -63,8 +63,8 @@ const RegistroPasoTres = () => {
   };
 
   return (
-    <Container className="my-3 my-md-5 py-3 px-2 mx-sm-auto mainSection">
-      <div>
+    <Container className="py-3 py-md-5 px-2 mx-sm-auto mainSection">
+      <div className="text-md-center mx-auto d-flex flex-column align-items-center justify-content-center">
         <h1>Añade datos a tu perfil</h1>
         <p>Completá los datos que se muestran a continuación.</p>
         <form
@@ -72,26 +72,34 @@ const RegistroPasoTres = () => {
           className="border p-2 p-md-3 px-lg-5 formRegisterThree rounded-2 shadow"
         >
           <Row className="d-flex justify-content-center align-items-center">
-            <Col md={8} className="d-flex justify-content-center flex-column">
+            <Col lg={8} className="d-flex justify-content-center flex-column">
               <div className="mb-2">
-                <label className="form-label">
-                  <FaLocationDot className="fs-4"/>
-                  Ubicación:{" "}
-                  <span className="optional-text fs-6">(Opcional)</span>
+                <label
+                  htmlFor="location"
+                  className="form-label d-flex align-items-center gap-1"
+                >
+                  <FaLocationDot className="fs-4 text-secondary" />
+                  <span className="fw-medium">Ubicación</span>{" "}
+                  <span className="optional-text">(Opcional)</span>
                 </label>
                 <input
+                  id="location"
                   type="text"
                   className=" form-control input"
                   {...register("adress")}
                 />
               </div>
               <div className="mb-2">
-                <label className="form-label">
-                  <FaWhatsapp className="fs-4"/>
-                  WhatsApp:{" "}
-                  <span className="optional-text fs-6">(Opcional)</span>
+                <label
+                  htmlFor="wpp"
+                  className="form-label d-flex align-items-center gap-1"
+                >
+                  <FaWhatsapp className="fs-4 text-success" />
+                  <span className="fw-medium">WhatsApp</span>{" "}
+                  <span className="optional-text">(Opcional)</span>
                 </label>
                 <input
+                  id="wpp"
                   type="text"
                   className="form-control input-optionals input"
                   {...register("phone", {
@@ -104,8 +112,11 @@ const RegistroPasoTres = () => {
                 {errors.whatsapp && <p>{errors.whatsapp.message}</p>}
               </div>
             </Col>
-            <Col md={4} className="d-flex justify-content-center flex-column">
+            <Col lg={4} className="d-flex justify-content-center flex-column">
               <div className="text-center d-flex flex-column justify-content-center align-items-center position-relative">
+                <label htmlFor="" className="fw-medium">
+                  Foto de perfil
+                </label>
                 <img
                   src={Foto}
                   className="img-fluid perfilImg mb-3 rounded-circle"
