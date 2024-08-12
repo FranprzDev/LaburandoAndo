@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createClient, setValues } from "../../slice/registerSlice";
+import Swal from "sweetalert2";
 
 function FormAuth() {
   const {
@@ -22,7 +23,7 @@ function FormAuth() {
 
   return (
     <div className="col-md-6 d-flex justify-content-center align-items-center">
-      <div className="col-11 col-sm-10 col-md-12 col-lg-11 col-xl-9 mx-auto">
+      <div className={`col-11 col-sm-10 col-md-12 col-lg-11 col-xl-9 mx-auto`}>
         <div className="card p-4">
           <div className="text-center">
             <h5 className="card-title">
@@ -41,7 +42,11 @@ function FormAuth() {
                 dispatch(createClient())
                 navigate("../../profesionales");
 
-                /* Lógica para guardar el jwt */
+                Swal.fire({
+                  icon: "success",
+                  title: `Bienvenido`,
+                  text: "Tu cuenta ha sido creada exitosamente",
+                })
               }
             })}>
               <div className="mb-3 text-start">
