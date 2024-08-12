@@ -9,7 +9,7 @@ function RegistroPasoDos() {
   
   return (
     <div className="container d-flex align-items-center justify-content-center my-3">
-      <div className="row w-100">
+      <div className={`row w-100 ${type === "Client" ? "d-flex justify-content-center" : ""}`}>
         {type === "Professional" && (
           <div className="col-md-6 justify-content-center text-center mt-2">
             <div className="col-md-10 d-flex justify-center flex-column">
