@@ -1,13 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../slice/categorySlice";
 import { useForm } from "react-hook-form";
 import { createPost } from "../../slice/postsSlice";
+import Swal from "sweetalert2";
+import PostModalComponent from "../ModalsComponents/PostModalComponents";
 
 const FormularioPublicacion = () => {
   const categorias = useSelector((state) => state.categories.categories);
   const status = useSelector((state) => state.categories.status);
+  const createPostStatus = useSelector((state) => state.posts.createPostStatus);
   const userLogeado = useSelector((state)=>state.auth.user);
   const dispatch = useDispatch();
 
@@ -17,6 +20,8 @@ const FormularioPublicacion = () => {
     formState: { errors },
   } = useForm();
 
+  const postCreateState = useMemo(() => { return createPostStatus }, [createPostStatus])
+
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchCategories());
@@ -24,12 +29,12 @@ const FormularioPublicacion = () => {
   }, []);
 
   const handlePost = async (post) => {
-    console.log(post)
-    dispatch(createPost(userLogeado._id, post))
+    dispatch(createPost({id: userLogeado._id, post: post}));
   }
 
   return (
     <Form className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border" onSubmit={handleSubmit(handlePost)}>
+      <PostModalComponent postCreateState={postCreateState} />
       <p>
         Campo Obligatorio &#40; <span className="text-danger fs-5">*</span>{" "}
         &#41;
@@ -77,7 +82,7 @@ const FormularioPublicacion = () => {
             id="category"
             className="input rounded-2"
             title="Selecciona una categoría de trabajo"
-            {...register("category", {
+            {...register("categoryId", {
               required: "La categoría es obligatoria",
             })}
           >
@@ -91,7 +96,7 @@ const FormularioPublicacion = () => {
               ))}
           </Form.Select>
           <div className="text-danger text-start">
-          {errors.category?.message}
+          {errors.categoryId?.message}
         </div>
         </Form.Group>
         <Form.Group className="col-md-4 mb-2 mb-md-3">
@@ -107,7 +112,7 @@ const FormularioPublicacion = () => {
             className="rounded-2 input"
             title="Ingresa el sitio web de tu negocio en caso de tener"
             placeholder="5000"
-            {...register("pricePerHour", {
+            {...register("price", {
               required: "El precio es obligatorio",
               min: {
                 value: 500,
@@ -120,7 +125,7 @@ const FormularioPublicacion = () => {
             })}
           />
           <div className="text-danger text-start">
-          {errors.pricePerHour?.message}
+          {errors.price?.message}
         </div>
         </Form.Group>
       </div>
