@@ -3,6 +3,7 @@ import authSlice from "../slice/authSlice";
 import postsSlice from "../slice/postsSlice";
 import workersSlice from "../slice/workersSlice";
 import registerSlice from "../slice/registerSlice";
+import categorySlice from "../slice/categorySlice";
 
 export const store = configureStore({
     reducer:{
@@ -10,5 +11,6 @@ export const store = configureStore({
         posts: postsSlice,
         workers: workersSlice,
         register: registerSlice,
+        categories: categorySlice
     }
 })

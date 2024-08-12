@@ -16,12 +16,10 @@ const DetalleDelProfesional = () => {
   const profesional = useSelector((state) => state.posts.post);
   const { id } = useParams();
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getPost(id));
-    console.log(profesional);
   }, [id]);
-  
-  console.log(id);
 
   return (
     <Container>

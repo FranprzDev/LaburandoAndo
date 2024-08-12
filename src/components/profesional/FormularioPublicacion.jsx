@@ -1,6 +1,19 @@
+import { useEffect } from "react";
 import { Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../../slice/categorySlice";
 
 const FormularioPublicacion = () => {
+  const categorias = useSelector((state) => state.categories.categories);
+  const status = useSelector((state) => state.categories.status);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchCategories());
+    }
+  }, []);
+
   return (
     <Form className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border">
       <p>
@@ -20,12 +33,12 @@ const FormularioPublicacion = () => {
           className="input rounded-2"
           title="Selecciona una categoría de trabajo"
         >
-          {/* AQUÍ ALGUIEN TIENE QUE AÑADIR LAS CATEGORÍAS, HAY QUE VER COMO HIZO NICO EL SLICE PARA TRAERLAS AQUÍ. */}
           <option value="">seleccione</option>
-          <option value="">Profesor particular</option>
-          <option value="">Fotógrafo</option>
-          <option value="">Electricista</option>
-          <option value="">Personal trainer</option>
+          {status === "exitoso" && categorias &&
+            categorias.map((c) => (
+              <option key={c._id} value={`${c.name}`}>{c.name}</option>
+            ))}
+          
         </Form.Select>
       </Form.Group>
       <Form.Group className="mb-3">
