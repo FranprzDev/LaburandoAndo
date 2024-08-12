@@ -3,13 +3,14 @@ import { Container, Accordion } from "react-bootstrap";
 
 const PreguntasFrecuentes = () => {
   return (
-    <Container className="my-5">
-      <h2 className="display-5 fw-bold">FAQ - Preguntas Frecuentes</h2>
-      <section className="accordion" id="accordion">
-        <article className="accordion-item">
-          <h2 className="accordion-header">
+    <div className="sectionFAQ py-5">
+<Container className="my-lg-5">
+      <h3 className="fw-bold">FAQ - Preguntas Frecuentes</h3>
+      <section className="accordion sectionFAQ" id="accordion">
+        <article className="accordion-item ">
+          <p className="accordion-header ">
             <button
-              className="accordion-button"
+              className="accordion-button fw-bold"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -18,7 +19,7 @@ const PreguntasFrecuentes = () => {
               ¿Cómo puedo registrarme como profesional independiente en
               LaburandoAndo?
             </button>
-          </h2>
+          </p>
           <div
             id="collapseOne"
             className="accordion-collapse collapse show"
@@ -125,6 +126,8 @@ const PreguntasFrecuentes = () => {
         </article>
       </section>
     </Container>
+    </div>
+    
   );
 };
 
