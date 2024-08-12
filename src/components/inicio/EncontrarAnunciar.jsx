@@ -37,7 +37,7 @@ const EncontrarAnunciar = () => {
           </Col>
         </Row>
         <div className="text-center">
-          <Link to={"/"} className="btn text-light btnExplore border-0">
+          <Link to={"/profesionales"} className="btn text-light btnExplore border-0">
             Ver todos los profesionales
           </Link>
         </div>

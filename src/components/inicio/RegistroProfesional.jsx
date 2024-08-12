@@ -26,7 +26,7 @@ const RegistroProfesional = () => {
               LaburandoAndo!
             </h2>
             <p>Regístrate y ofrece tus servicios</p>
-            <Link className="btn btnRegister ">Regístrate Ahora</Link>
+            <Link className="btn btnRegister " to={"/auth/register"}>Regístrate Ahora</Link>
           </div>
         </Col>
       </Row>
