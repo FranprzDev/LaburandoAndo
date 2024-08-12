@@ -17,7 +17,7 @@ const RegistroPasoUno = () => {
       <div className="mb-5">
         <p className="fontSizeText">¿Ya tienes cuenta?</p>
         <Link
-          to={"/login"}
+          to={"/auth/login"}
           className="btn px-5 border btnOptionLogin fontSizeText text-white"
         >
           Ingresar
