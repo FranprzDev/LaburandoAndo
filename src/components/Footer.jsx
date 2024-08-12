@@ -6,7 +6,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className='bg-body-tertiary'>
+    <footer className='bg-body-tertiary border-top pt-5'>
       <Container fluid="md" className='text-center text-md-start'>
         <Row>
             <Col className='mt-3 mt-md-0' md={6} lg={3}>

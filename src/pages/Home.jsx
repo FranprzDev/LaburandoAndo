@@ -12,7 +12,7 @@ import "../styles/home.css";
 
 const Home = () => {
   return (
-    <section className="mainSection d-flex flex-column border ">
+    <section className="mainSection d-flex flex-column ">
       <Container fluid className="py-3 py-md-5 sectionBanner">
         <Row className="mb-3 justify-content-md-center gy-3">
           <Col md={12} lg={5} className="text-center d-flex flex-column pt-3 pt-lg-5 mt-xl-5">

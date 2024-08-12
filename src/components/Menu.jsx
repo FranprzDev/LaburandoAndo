@@ -17,7 +17,7 @@ const Menu = () => {
   useEffect(() => {}, [status]);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary text-center ">
+    <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
       <Container>
         <Link to={"/"} className="navbar-brand display-6">
           <h5 className="display-6">LaburandoAndo</h5>

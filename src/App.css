@@ -50,6 +50,10 @@
   color: white;
 }
 
+a{
+  text-decoration: none;
+}
+
 .input:focus {
   outline: none;
   box-shadow: none;

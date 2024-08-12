@@ -23,13 +23,13 @@ const FormFiltros = ({ onCategoryChange }) => {
   };
 
   return (
-    <div className="border p-2 p-md-3 rounded-2 shadow">
+    <div className="border p-2 p-md-3 rounded-2 shadow bg-white">
       <div className="input-group mb-2">
         <label className="form-label fw-medium">Nombre</label>
         <input
           type="text"
           className="form-control input w-100 rounded-2"
-          placeholder="Francisco Perez"
+          placeholder="Juan Perez"
         />
       </div>
       <div className="input-group mb-2 mb-md-3">
@@ -43,7 +43,7 @@ const FormFiltros = ({ onCategoryChange }) => {
       <div className="input-group mb-2 mb-md-3">
         <label className="form-label fw-medium">Categorías</label>
         <select
-          className="form-select w-100 rounded-2"
+          className="form-select w-100 rounded-2 input"
           onChange={handleCambioDeCategoria}
         >
           <option value="">Seleccionar categoría</option>
