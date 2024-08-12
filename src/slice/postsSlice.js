@@ -12,16 +12,17 @@ const initialState = {
 export const createPost = createAsyncThunk(
   "work/createPost",
   async (formData) => {
-
     const sanitizedPost = {
         title: formData.post.title,
         description: formData.post.description,
-        category: formData.post.category ? formData.post.category : "Otro",
+        categoryId: formData.post.categoryId,
         location: formData.post.location ? formData.post.location : "Remoto",
-        price: formData.post.price,
+        price: Number(formData.post.price),
     };
+
     try {
         const res = await instance.post(`/work/${formData.id}`, sanitizedPost);
+
         return res.data.data;
     } catch (error) {
         return rejectWithValue(error.response?.data?.message || 'An error occurred while creating the post');
@@ -36,6 +37,7 @@ export const getPosts = createAsyncThunk("work/Posts", async () => {
 
 export const getPost = createAsyncThunk("work/Post", async (id) => {
   const res = await instance.get(`/work/${id}`);
+  console.log(res.data.data);
   return res.data.data;
 });
 
