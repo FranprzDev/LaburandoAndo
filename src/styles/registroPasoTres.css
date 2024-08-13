@@ -1,31 +1,66 @@
-.perfilImg{
-    width: 200px;
-    height: 200px;
+.perfilImg {
+  width: 150px;
+  height: 150px;
+}
 
+.formRegisterThree {
+  width: 100%;
+}
+
+.formRegisterThree .btnCreateAccount{
+  width: 100%;
+  background-color: var(--Violeta);
+  color: var(--Lavanda);
 }
 
 .position-relative {
-    position: relative;
+  position: relative;
+}
+
+.upload-button {
+  position: absolute;
+  top: 70%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background-color: var(--Violeta);
+  color: var(--Lavanda);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.upload-button:hover {
+  background-color: var(--HoverVioleta);
+}
+
+@media all and (min-width: 768px) {
+  .formRegisterThree {
+    width: 500px;
   }
-  
-  .upload-button {
-    position: absolute;
-    top: 70%;
-    left: 60%;
-    transform: translate(-50%, -50%);
+
+  .formRegisterThree .btnCreateAccount{
+    width: 200px;
     background-color: var(--Violeta);
     color: var(--Lavanda);
-    border: none;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 24px;
+
   }
-  
-  .upload-button:hover {
-    background-color: var(--HoverVioleta);
+}
+
+@media all and (min-width: 992px) {
+  .formRegisterThree {
+    width: 800px;
   }
+
+  .formRegisterThree .btnCreateAccount{
+    width: 200px;
+    background-color: var(--Violeta);
+    color: var(--Lavanda);
+
+  }
+}

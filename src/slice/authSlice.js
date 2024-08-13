@@ -6,6 +6,7 @@ const initialState = {
     user: JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null,
     stateSync: "idle",
     state: "idle",
+    role: "Client",
     error: null
 };
 
@@ -56,6 +57,7 @@ const authSlice = createSlice({
           const decodedToken = jwtDecode(action.payload);
 
           state.user = decodedToken.user;
+          state.role = decodedToken.user.role;
           sessionStorage.setItem("usuarioLogeado", JSON.stringify(decodedToken.user));
         })
         .addCase(loginUser.rejected, (state, action) => {

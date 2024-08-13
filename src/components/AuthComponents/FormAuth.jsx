@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createClient, setValues } from "../../slice/registerSlice";
+import Swal from "sweetalert2";
 
 function FormAuth() {
   const {
@@ -21,18 +22,18 @@ function FormAuth() {
   const navigate = useNavigate();
 
   return (
-    <div className="col-md-6 d-flex justify-content-center align-items-center">
-      <div className="col-11 col-sm-10 col-md-12 col-lg-11 col-xl-9 mx-auto">
-        <div className="card p-4">
+    <div className="col-md-6 d-flex justify-content-center align-items-center mb-3 mb-md-0 order-md-1 px-0">
+      <div className={`col-11 col-sm-10 col-md-12 col-lg-11 col-xl-9 mx-auto`}>
+        <div className="card p-lg-4 pt-3 px-0">
           <div className="text-center">
-            <h5 className="card-title">
+            <p className="fw-bold mb-0">
               Registrate en <span className="text-primary">LaburandoAndo</span>
               {
                 type === "Client" ? " como cliente" : " como profesional"
               }
-            </h5>
+            </p>
           </div>
-          <div className="card-body">
+          <div className="card-body pb-0">
             <form className="text-center my-3" onSubmit={handleSubmit((data) => {
               dispatch(setValues(data))
               if(type === "Professional") navigate("/auth/register3")
@@ -41,16 +42,20 @@ function FormAuth() {
                 dispatch(createClient())
                 navigate("../../profesionales");
 
-                /* Lógica para guardar el jwt */
+                Swal.fire({
+                  icon: "success",
+                  title: `Bienvenido`,
+                  text: "Tu cuenta ha sido creada exitosamente",
+                })
               }
             })}>
-              <div className="mb-3 text-start">
-                <label htmlFor="fullname" className="mb-1">
+              <div className="mb-2 text-start">
+                <label htmlFor="fullname" className="mb-1 fw-medium">
                   Nombre y Apellido
                 </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control input"
                   placeholder="Francisco Perez"
                   {...register("fullname", {
                     required: "El nombre completo es obligatorio",
@@ -62,13 +67,13 @@ function FormAuth() {
                 />
                 <div className="text-danger">{errors.fullname?.message}</div>
               </div>
-              <div className="mb-3 text-start">
-                <label htmlFor="mail" className="mb-1">
+              <div className="mb-2 text-start">
+                <label htmlFor="mail" className="mb-1 fw-medium">
                   Email
                 </label>
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control input"
                   placeholder="franciscoperez@gmail.com"
                   {...register("mail", {
                     required: "El correo es obligatorio",
@@ -80,14 +85,14 @@ function FormAuth() {
                 />
                 <div className="text-danger">{errors.mail?.message}</div>
               </div>
-              <div className="mb-3 text-start">
-                <label htmlFor="password" className="mb-1">
+              <div className="mb-2 text-start">
+                <label htmlFor="password" className="mb-1 fw-medium">
                   Contraseña
                 </label>
                 <input
                   type="password"
                   name="password"
-                  className="form-control"
+                  className="form-control input"
                   placeholder="Ju4n23!"
                   {...register("password", {
                     required: "La contraseña es obligatoria",
@@ -103,14 +108,14 @@ function FormAuth() {
                 />
                 <div className="text-danger">{errors.password?.message}</div>
               </div>
-              <div className="mb-3 text-start">
-                <label htmlFor="retry-password" className="mb-1">
+              <div className="mb-2 text-start">
+                <label htmlFor="retry-password" className="mb-1 fw-medium">
                   Repetir Contraseña
                 </label>
                 <input
                   name="password_repeat"
                   type="password"
-                  className="form-control"
+                  className="form-control input"
                   placeholder="Ju4n23!"
                   {...register("password_repeat", {
                     validate: value =>

@@ -1,67 +1,105 @@
-.imgBanner{
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border: 5px solid grey;
+.btnExplore {
+  width: 280px;
+  background-color:var(--HoverVioleta);
+  color: white;
 }
 
-.btn-Explorar{
+.btnExplore:hover {
+    background-color: var(--HoverVioleta);
+    border: 1px solid var(--HoverVioleta);
+    color: var(--Lavanda);
+}
+
+.btnRegister {
+  width: 250px;
+  background-color: var(--HoverVioleta);
+  color: var(--Lavanda);
+}
+
+.btnRegister:hover {
+  background-color: var(--Violeta);
+  color: var(--Lavanda);
+  border: 1px solid var(--Violeta);
+}
+
+.imgHome {
+  width: 200px;
+  height: 200px;
+}
+
+.sectionBanner,
+.sectionRegister{
+    background: #f7f7f7;
+    color: #000;
+}
+
+.iconAdd{
+    font-size: 20px;
+}
+
+@media all and (min-width: 360px) {
+  .imgRegister {
     width: 300px;
-    font-size: 25px;
-    background-color: var(--Violeta);
+    height: 300px;
+  }
 }
 
-.btn-Explorar:hover{
-    width: 300px;
-    font-size: 25px;
-    background-color: #501c46;
-    color: white;
-}
-
-.btnRegistrar{
-    width: 250px;
-    font-size: 25px;
-    background-color: var(--Lavanda);
-    color: var(--Negro);
-    border: 0;
-}
-
-.btnRegistrar:hover{
-    background-color: var(--Violeta);
-    color: white;
-}
-
-.imgHome{
+@media all and (min-width: 768px) {
+  .imgBanner {
     width: 200px;
     height: 200px;
-    object-fit: cover;
+    border: 2px solid grey;
+  }
+
+  .imgRegister {
+    width: 100%;
+    height: 350px;
+  }
+
+  .containerImgBanner {
+    max-width: 700px;
+  }
+
+.iconAdd{
+    font-size: 25px;
+}
 }
 
-.imgRegistro{
-    width: 800px;
-    height: 500px;
-    object-fit: contain;
-}
-
-@media all and (min-width: 360px) and (max-width: 767px)
-{
-    .imgRegistro{
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-    }
-    
-}
-
-@media all and (min-width: 768px) and (max-width: 991px)
-{
-    .imgRegistro{
-        width: 380px;
-        height: 400px;
-        object-fit: cover;
+@media all and (min-width: 992px) {
+    .imgBanner {
+      width: 225px;
+      height: 225px;
+      border: 2px solid grey;
     }
 
-    .contenedorImgBanner{
+    .imgRegister {
         width: 100%;
+        height: 600;
+      }
+}
+
+@media all and (min-width: 1200px) {
+    .imgBanner {
+      width: 225px;
+      height: 225px;
+      border: 2px solid grey;
     }
+
+    .imgRegister {
+        width: 100%;
+        height: 500px;
+      }
+}
+
+@media all and (min-width: 1400px) {
+    .imgBanner {
+      width: 250px;
+      height: 250px;
+      border: 2px solid grey;
+    }
+
+    .imgRegister {
+        width: 100%;
+        height: 550px;
+      }
 }

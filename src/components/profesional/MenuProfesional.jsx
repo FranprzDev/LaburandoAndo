@@ -30,7 +30,7 @@ const MenuProfesional = () => {
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
       <div className="px-0 px-md-2 py-md-3 pt-lg-0  container-fluid containerMenu d-flex flex-md-column align-items-start">
         <div className="text-md-center">
-          <Link className="navbar-brand fs-2" to={"/"}>
+          <Link className="fw-medium text-dark logo" to={"/"}>
             LaburandoAndo
           </Link>
         </div>
@@ -121,7 +121,7 @@ const MenuProfesional = () => {
                   <span className="align-middle">Ayuda</span>
                 </Link>
               </li>
-              <li className="nav-item mt-xl-3 navItemOffCanvas text-start">
+              <li className="nav-item navItemOffCanvas text-start">
                 <button className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center navLink" onClick={cerrarSesion}>
                   <BiSolidExit className="fs-4 iconMenu" />
                   <span className="align-middle">Salir</span>
