@@ -9,7 +9,6 @@ const FormFiltros = ({ onCategoryChange }) => {
   const categorias = async () => {
     try {
       const response = await getCategories();
-      console.log(response);
       setCategoriaTrabajos(response.data);
     } catch (error) {
       console.error("Error al llamar a las categorías:", error);

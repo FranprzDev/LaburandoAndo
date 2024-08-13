@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { get, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import "../../styles/registroPasoTres.css";
-import Foto from "../../img/FotoPerfil.jpg";
+
 import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
@@ -13,6 +13,7 @@ import {
 } from "../../slice/registerSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import ImageUploader from "../../components/Common/ImageUploader";
 
 const RegistroPasoTres = () => {
   const {
@@ -113,26 +114,7 @@ const RegistroPasoTres = () => {
               </div>
             </Col>
             <Col lg={4} className="d-flex justify-content-center flex-column">
-              <div className="text-center d-flex flex-column justify-content-center align-items-center position-relative">
-                <label htmlFor="" className="fw-medium">
-                  Foto de perfil
-                </label>
-                <img
-                  src={Foto}
-                  className="img-fluid perfilImg mb-3 rounded-circle"
-                  alt="Foto de perfil"
-                />
-                <input
-                  className="d-none"
-                  type="file"
-                  name="FotoPerfil"
-                  id="FotoPerfil"
-                  accept="image/png, image/jpeg"
-                />
-                <label htmlFor="FotoPerfil" className="upload-button">
-                  +
-                </label>
-              </div>
+                  <ImageUploader/>
             </Col>
             <div className="text-center d-flex justify-content-end gap-2">
               <button className="btn btnCreateAccount mt-lg-4" type="submit">
