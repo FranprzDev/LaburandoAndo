@@ -37,6 +37,7 @@ const FormFiltros = ({ onCategoryChange }) => {
                 type="text"
                 className="form-control input w-100 rounded-2"
                 placeholder="Juan Perez"
+                disabled={true}
               />
             </div>
             <div className="input-group mb-2 mb-md-3">
@@ -47,6 +48,7 @@ const FormFiltros = ({ onCategoryChange }) => {
                 type="text"
                 className="form-control input w-100 rounded-2"
                 placeholder="Yerba Buena, Tucumán"
+                disabled={true}
               />
             </div>
             <div className="input-group mb-2 mb-md-3">

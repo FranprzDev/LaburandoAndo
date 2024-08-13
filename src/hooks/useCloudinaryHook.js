@@ -1,13 +1,8 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { changePhoto } from '../slice/registerSlice';
 
 export const useCloudinary = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [imageUrl, setImageUrl] = useState(null);
-    const img = useSelector((state) => state.register.form.img);
-    const dispatch = useDispatch();
 
     const uploadImage = async (file) => {
         setLoading(true);
@@ -27,7 +22,7 @@ export const useCloudinary = () => {
 
             const image = await res.json()
 
-            image !== null ? dispatch(changePhoto(image.secure_url)) : setError("Error al cargar la imagen");
+            return image.secure_url;
         } catch (err) {
             setLoading(false);
             setError(err);
@@ -36,7 +31,6 @@ export const useCloudinary = () => {
 
     return {
         uploadImage,
-        imageUrl,
         loading,
         error
     };

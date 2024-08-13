@@ -7,27 +7,20 @@ import Swal from "sweetalert2";
 const ImageUploader = () => {
   const [file, setFile] = useState(null);
 
-  const { error, imageUrl, uploadImage } = useCloudinary();
+  const { uploadImage } = useCloudinary();
 
   const dispatch = useDispatch();
 
-  const img = useMemo(() => imageUrl, [imageUrl]);
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     setFile(e.target.files[0]);
     const file = e.target.files[0];
     
-    file ? uploadImage(file) : Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Hubo un error al cargar la imagen. Inténtalo de nuevo',
-    })
-    
-    error !== "" ? dispatch(changePhoto(img)) : Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Hubo un error al cargar la imagen. Inténtalo de nuevo',
-    })
+    if (file) {
+      const link = await uploadImage(file);
+
+      link && dispatch(changePhoto(link));
+    }
   };
 
   return (

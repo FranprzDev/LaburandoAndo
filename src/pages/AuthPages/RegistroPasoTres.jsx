@@ -8,7 +8,6 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createProfessional,
-  getProfessional,
   setAditionalValues,
 } from "../../slice/registerSlice";
 import Swal from "sweetalert2";

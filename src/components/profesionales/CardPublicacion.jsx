@@ -44,7 +44,7 @@ const CardPublicacion = ({ selectedCategory }) => {
                   </p>
                   <small className="align-middle text-center text-md-start">
                     <FaMapMarkerAlt className="fs-6 me-1" />
-                    {publicacion.worker.address}
+                    {publicacion.worker.address || "Remoto"}
                   </small>
                   <div className="mt-3 text-center text-md-start w-100">
                     <span className="px-5 py-2 rounded-2 category opacity-50 text-white">

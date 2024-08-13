@@ -28,13 +28,11 @@ export const createProfessional = createAsyncThunk('register', async(_, { getSta
       password: getState().register.form.password,
       phone: getState().register.form.phone,
       address: getState().register.form.adress,
-      img: "",
+      img: getState().register.form.img ? getState().register.form.img : "",
     }
 
-    if(getState().register.form.img !== ""){
-      sanitizedWorker.img = getState().register.form.img;
-    }
-
+    console.log(sanitizedWorker)
+    
     const response = await instance.post('/auth/jwt/register/Worker', sanitizedWorker);
 
     return response.data.data;
