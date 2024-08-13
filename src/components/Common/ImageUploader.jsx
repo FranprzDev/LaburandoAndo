@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { changePhoto } from "../../slice/registerSlice";
 import { useCloudinary } from "../../hooks/useCloudinaryHook";
@@ -11,6 +11,8 @@ const ImageUploader = () => {
 
   const dispatch = useDispatch();
 
+  const img = useMemo(() => imageUrl, [imageUrl]);
+
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     const file = e.target.files[0];
@@ -21,7 +23,7 @@ const ImageUploader = () => {
       text: 'Hubo un error al cargar la imagen. Inténtalo de nuevo',
     })
     
-    error !== "" ? dispatch(changePhoto(imageUrl)) : Swal.fire({
+    error !== "" ? dispatch(changePhoto(img)) : Swal.fire({
       icon: 'error',
       title: 'Oops...',
       text: 'Hubo un error al cargar la imagen. Inténtalo de nuevo',

@@ -5,9 +5,9 @@ const initialState = {
     form: {
       mail: "",
       password: "",
-      img: "",
+      fullname: "",
       adress: "",
-      photo: "",
+      img: "",
       authMethod: "Local",
       type: "Client",
     },
@@ -22,12 +22,22 @@ export const createProfessional = createAsyncThunk('register', async(_, { getSta
       throw new Error('No se puede crear un cliente con este método');
     }
 
+    console.log(getState().register.form);
     
-    const { img, ...rest } = getState().register.form;
+    let sanitizedWorker = {
+      fullname: getState().register.form.fullname,
+      mail: getState().register.form.mail,
+      password: getState().register.form.password,
+      phone: getState().register.form.phone,
+      address: getState().register.form.adress,
+      img: "",
+    }
 
-    const response = await instance.post('/auth/jwt/register/Worker', 
-      !getState().register.form.img ? rest : getState().register.form
-    );
+    if(getState().register.form.img !== ""){
+      sanitizedWorker.img = getState().register.form.img;
+    }
+
+    const response = await instance.post('/auth/jwt/register/Worker', sanitizedWorker);
 
     return response.data.data;
   } catch(error){

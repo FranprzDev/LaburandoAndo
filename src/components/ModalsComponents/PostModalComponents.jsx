@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
+import { resetPostStatus } from '../../slice/postsSlice';
 
 const PostModalComponent = ({ postCreateState }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (postCreateState === "exitoso") {
       Swal.fire({
@@ -9,6 +13,7 @@ const PostModalComponent = ({ postCreateState }) => {
         title: 'Publicación exitosa',
         text: 'Tu publicación ha sido exitosa',
       });
+      dispatch(resetPostStatus());
     } else if (postCreateState === "denegado") {
       Swal.fire({
         icon: 'error',
@@ -16,6 +21,7 @@ const PostModalComponent = ({ postCreateState }) => {
         text: 'Hubo un error al crear tu post. Inténtalo de nuevo',
       });
     }
+    dispatch(resetPostStatus());
   }, [postCreateState]);
 
   return null;

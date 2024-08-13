@@ -29,7 +29,7 @@ export default function Login() {
       dispatch(reset());
     } else 
     if (stateSync === 'exitoso' && role === 'worker') {
-      navigate("/work/mi-perfil");
+      navigate("/work/mi-perfil");  
       Swal.fire({
         icon: "success",
         title: `Bienvenido`,

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import "../../styles/registroPasoTres.css";
 
@@ -14,6 +14,7 @@ import {
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import ImageUploader from "../../components/Common/ImageUploader";
+import { useCloudinary } from "../../hooks/useCloudinaryHook";
 
 const RegistroPasoTres = () => {
   const {
@@ -28,6 +29,9 @@ const RegistroPasoTres = () => {
 
   const state = useSelector((state) => state.register);
 
+  const { loading } = useCloudinary();
+  const load = useMemo(() => loading, [loading]);
+
   useEffect(() => {
     if (state && state.stateSync === "error") {
       Swal.fire({
@@ -37,29 +41,19 @@ const RegistroPasoTres = () => {
       });
     }
     if (state && state.stateSync === "exitoso" && type === "Professional") {
-      navigate("../../work/mi-perfil");
       Swal.fire({
         icon: "success",
-        title: "Bienvenido",
+        title: "Se creo tu cuenta, inicia sesión para poder acceder al panel.",
       });
+      navigate("../../auth/login");
     }
-    if (state && state.stateSync === "exitoso" && type === "Client") {
-      navigate("../../profesionales");
-      Swal.fire({
-        icon: "success",
-        title: "Bienvenido",
-      });
-    }
-    // Evaluar si esta porción de código es necesario línea 37 - 44, si no lo es; entonces borrar.
   }, [state]);
 
   const onSubmit = (data) => {
     dispatch(setAditionalValues(data));
-
+    
     if (type === "Professional") {
       dispatch(createProfessional());
-
-      navigate("../../work/mi-perfil");
     }
   };
 
@@ -117,7 +111,7 @@ const RegistroPasoTres = () => {
                   <ImageUploader/>
             </Col>
             <div className="text-center d-flex justify-content-end gap-2">
-              <button className="btn btnCreateAccount mt-lg-4" type="submit">
+              <button className="btn btnCreateAccount mt-lg-4" type="submit" disabled={load}>
                 Crear cuenta
               </button>
             </div>

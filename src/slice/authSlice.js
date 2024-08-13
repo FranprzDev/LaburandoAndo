@@ -58,7 +58,6 @@ const authSlice = createSlice({
 
           state.user = decodedToken.user;
           state.role = decodedToken.user.role;
-          console.log(decodedToken.user);
           sessionStorage.setItem("usuarioLogeado", JSON.stringify(decodedToken.user));
         })
         .addCase(loginUser.rejected, (state, action) => {
