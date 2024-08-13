@@ -4,7 +4,7 @@ import { BiSolidExit } from "react-icons/bi";
 import { FaListAlt, FaUser, FaWpforms } from "react-icons/fa";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/menu.css";
 import useLogout from "../hooks/useLogout";
 
@@ -15,6 +15,8 @@ const Menu = () => {
   const { cerrarSesion } = useLogout();
 
   useEffect(() => {}, [status]);
+
+  console.log(user);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
@@ -31,66 +33,108 @@ const Menu = () => {
             >
               Profesionales
             </Link>
-            {user ? (
-              <Link className="btn btn-Profesional px-md-4" to="/work/publicar-anuncio">
+            {user?.role === "worker" && (
+              <Link
+                className="btn btn-Profesional px-md-4"
+                to="/work/publicar-anuncio"
+              >
                 Publicar Anuncio
               </Link>
-            ) : (
+            )}
+            {user?.role !== "worker" && user?.role !== "client" && (
               <Link className="btn btn-Profesional me-3" to="/auth/register">
                 Anúnciate como profesional
               </Link>
             )}
-
-            {user ? (
-              <>
-              <Link className="nav-link d-lg-none" to="/work/mi-perfil">
-                Mi cuenta
-              </Link>
-              <button className="py-0 nav-link text-center nav-item w-100 d-lg-none" onClick={cerrarSesion}>
-                <span className="align-middle">Salir</span>
-              </button>
-              <NavDropdown
-                title={`Mi cuenta`}
-                id="basic-nav-dropdown"
-                className="w-7100 mx-auto d-none d-lg-block"
+            {user?.role !== "worker" && user?.role !== "client" && (
+              <Link
+                className="nav-link d-flex align-items-center gap-1 me-3"
+                to="/auth/login"
               >
-                <div className="w-100 text-center">
-                  <img
-                    src={user.img}
-                    alt="imagen de perfil"
-                    title="imagen de perfil"
-                    className="rounded-circle shadow imgProfileDropdown mx-auto"
-                  />
-                </div>
-                <p className="fw-bold text-center my-1">{user.fullname}</p>
-                <NavDropdown.Item as={Link} to={"/work/mi-perfil"} className="d-flex gap-2 align-items-center px-2">
-                  <FaUser className="fs-5 iconMenu" />{" "}
-                  <span className="align-middle">Mi Perfil</span>
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/work/publicar-anuncio"} className="d-flex gap-2 align-items-center px-2">
-                  <FaWpforms className="fs-5 iconMenu" />{" "}
-                  <span className="align-middle">Publicar Anuncio</span>
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="d-flex gap-2 align-items-center px-2"
-                  as={Link}
-                  to={"/work/mis-publicaciones"}
+                <span className="fs-3 align-middle d-flex align-items-center">
+                  <IoPersonCircleOutline></IoPersonCircleOutline>
+                </span>
+                <span>Ingresar</span>
+              </Link>
+            )}
+            {user?.role === "worker" && (
+              <>
+                <Link className="nav-link d-lg-none" to="/work/mi-perfil">
+                  Mi cuenta
+                </Link>
+                <button
+                  className="py-0 nav-link text-center nav-item w-100 d-lg-none"
+                  onClick={cerrarSesion}
                 >
-                  <FaListAlt className="fs-5 iconMenu" />
-                  <span className="align-middle">Mis publicaciones</span>
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <button className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1" onClick={cerrarSesion}>
-                  <BiSolidExit className="fs-4 iconMenu" />
                   <span className="align-middle">Salir</span>
                 </button>
-              </NavDropdown>
-              </>            
-            ) : (
-              <Link className="nav-link " to="/auth/login">
-                <IoPersonCircleOutline className="me-1 fs-4" />
-                Ingresar
-              </Link>
+                <NavDropdown
+                  title={`Mi cuenta`}
+                  id="basic-nav-dropdown"
+                  className="w-7100 mx-auto d-none d-lg-block"
+                >
+                  <div className="w-100 text-center">
+                    <img
+                      src={user.img}
+                      alt="imagen de perfil"
+                      title="imagen de perfil"
+                      className="rounded-circle shadow imgProfileDropdown mx-auto"
+                    />
+                  </div>
+                  <p className="fw-bold text-center my-1">{user.fullname}</p>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={"/work/mi-perfil"}
+                    className="d-flex gap-2 align-items-center px-2"
+                  >
+                    <FaUser className="fs-5 iconMenu" />{" "}
+                    <span className="align-middle">Mi Perfil</span>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={"/work/publicar-anuncio"}
+                    className="d-flex gap-2 align-items-center px-2"
+                  >
+                    <FaWpforms className="fs-5 iconMenu" />{" "}
+                    <span className="align-middle">Publicar Anuncio</span>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="d-flex gap-2 align-items-center px-2"
+                    as={Link}
+                    to={"/work/mis-publicaciones"}
+                  >
+                    <FaListAlt className="fs-5 iconMenu" />
+                    <span className="align-middle">Mis publicaciones</span>
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <button
+                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
+                    onClick={cerrarSesion}
+                  >
+                    <BiSolidExit className="fs-4 iconMenu" />
+                    <span className="align-middle">Salir</span>
+                  </button>
+                </NavDropdown>
+              </>
+            )}
+
+            {user?.role === "client" && (
+              <>
+                <NavDropdown
+                  title={`${user.fullname}`}
+                  id="basic-nav-dropdown"
+                  className="w-7100 mx-auto"
+                >
+                  <p className=" text-center my-1 mb-2"></p>
+                  <button
+                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
+                    onClick={cerrarSesion}
+                  >
+                    <BiSolidExit className="fs-4 iconMenu" />
+                    <span className="align-middle">Salir</span>
+                  </button>
+                </NavDropdown>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>
