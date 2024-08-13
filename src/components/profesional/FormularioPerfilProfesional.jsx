@@ -45,8 +45,18 @@ const FormularioPerfilProf = () => {
     setValue("img", worker.img);
   };
 
+  const handleEdit = (e) => {
+    e.preventDefault();
+    setHabilitado(false)
+  }
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setHabilitado(true)
+  }
+
   return (
-    <Form className="formProfile row gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border">
+    <Form className="formProfile row gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border" >
       <div className="col-lg-7">
         <Form.Group className="mb-3">
           <Form.Label
@@ -75,7 +85,9 @@ const FormularioPerfilProf = () => {
               },
             })}
           />
-          <div className="text-danger text-start">{errors.fullname?.message}</div>
+          <div className="text-danger text-start">
+            {errors.fullname?.message}
+          </div>
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label
@@ -145,32 +157,27 @@ const FormularioPerfilProf = () => {
         </Form.Group>
       </div>
       <div className="col-lg-5 mt-lg-5">
-        <Form.Group className="mb-3 d-flex flex-column justify-content-center align-items-md-center gap-2">
-          <Form.Label
-            htmlFor="wpp"
-            className="text-md-center w-100 fw-medium mb-0 fontSizeLabel"
-          >
-            Foto de Perfil
+        <Form.Group className="text-center d-flex flex-column justify-content-center align-items-center position-relative mb-3">
+          <Form.Label htmlFor="FotoPerfil" className="fw-medium">
+            Foto de perfil
           </Form.Label>
           <img
             src={worker ? worker.img : ""}
             alt="imagen de perfil"
-            className="border rounded-circle imgProfileForm"
+            className="img-fluid imgProfileForm mb-5 rounded-circle"
             title="imagen de perfil"
           />
           <Form.Control
-            type="file"
             className="d-none"
-            id="file"
+            type="file"
+            name="FotoPerfil"
+            id="FotoPerfil"
+            accept="image/png, image/jpeg"
             {...register("img")}
           />
-          <button
-            className={` ${
-              habilitado ? "d-none" : "d-block"
-            } btn rounded-2 btn-secondary px-4`}
-          >
-            Subir Imagen
-          </button>
+          <label htmlFor="FotoPerfil" className={`upload-button ${habilitado ? "d-none" : "d-block"}`}>
+            +
+          </label>
         </Form.Group>
       </div>
 
@@ -179,6 +186,7 @@ const FormularioPerfilProf = () => {
           <button
             type="submit"
             className="px-3 px-md-5 py-2 rounded-2 btn btn-secondary text-white border-0 opacity-75"
+            onClick={(e) => handleCancel(e)}
           >
             Cancelar
           </button>
@@ -186,6 +194,7 @@ const FormularioPerfilProf = () => {
         <button
           type="submit"
           className="px-3 px-md-5 py-2 rounded-2 btnEdit text-white border-0"
+          onClick={(e) => handleEdit(e)}
         >
           {habilitado ? "Editar Mis datos" : "Guardar"}
         </button>
