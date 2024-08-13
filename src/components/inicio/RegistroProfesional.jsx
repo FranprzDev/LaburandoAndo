@@ -1,8 +1,11 @@
-import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Profesional from "../../img/Profesional.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const RegistroProfesional = () => {
+  const user = useSelector((state) => state.auth.user);
+
   return (
     <Container fluid className="text-center px-0 sectionRegister">
       <Row className="gap-lg-5">
@@ -21,11 +24,18 @@ const RegistroProfesional = () => {
           className="d-flex justify-content-center align-items-center mb-xl-5 py-5"
         >
           <div className="d-flex flex-column gap-md-2 gap-xxl-3 align-items-center">
-            <h2 className="fw-bold">
-              ¿Eres un profesional independiente? 
-            </h2>
+            <h2 className="fw-bold">¿Eres un profesional independiente?</h2>
             <h3>¡Regístrate, ofrece tus servicios y llega a más personas!</h3>
-            <Link className="btn btnRegister " to={"/auth/register"}>Registrarme</Link>
+            <Link
+              className="btn btnRegister"
+              to={
+                user?.role === "client" || user?.role === "worker"
+                  ? "/"
+                  : "/auth/register"
+              }
+            >
+              Registrarme
+            </Link>
           </div>
         </Col>
       </Row>

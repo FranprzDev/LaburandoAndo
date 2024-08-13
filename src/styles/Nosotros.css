@@ -1,29 +1,42 @@
-.card-fundadores img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.bannerUs {
+  position: relative;
+  height: 400px;
+  background-image: url("../img/imgBannerUs.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-.texto-ampliado{
-    font-size:x-large !important;
-    color:#ebc6e5 !important;
-    font-weight:bold;
+.bannerUs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
 }
 
-.negrita {
-    font-weight:normal;
-    text-align: justify;
+.bannerUs .bannerContent {
+  position: relative;
+  z-index: 2;
+  color: #e9d9d9;
 }
 
-.color-fondo-somos{
-    background-color: #853f78 ;
-    color:white;
+.cardUs {
+  width: 300px;
+  min-height: 500px;
 }
 
-.color-fondo-mision-vision{
-    background-color: #f1d0eb;
+.cardUs .imgCardUs {
+  height: 375px;
+  object-fit: cover;
 }
 
-.color-fondo-fundadores {
-    background-color: #f0e6ef;
+@media all and (min-width: 1400px) {
+  .bannerUs {
+    position: relative;
+    height: 550px;
+  }
 }
