@@ -17,6 +17,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const stateSync = useSelector((state) => state.auth.stateSync);
+  const state = useSelector((state) => state.auth.state);
   const role = useSelector((state) => state.auth.role);
   
   useEffect(() => {
@@ -35,12 +36,13 @@ export default function Login() {
         title: `Bienvenido`,
       });
       dispatch(reset());
-    } else if (stateSync === 'error') {
+    } else if(stateSync === 'error' && state === 'error'){
       Swal.fire({
         icon: "error",
         title: "No pudiste iniciar sesión. Verifica tus credenciales.",
         text: "Correo o contraseña incorrecto.",
-      });
+      }); 
+      dispatch(reset());
     }
   }, [stateSync, navigate]);  
 

@@ -21,8 +21,6 @@ export const createProfessional = createAsyncThunk('register', async(_, { getSta
     if (getState().register.form.type === 'Client') {
       throw new Error('No se puede crear un cliente con este método');
     }
-
-    console.log(getState().register.form);
     
     let sanitizedWorker = {
       fullname: getState().register.form.fullname,
