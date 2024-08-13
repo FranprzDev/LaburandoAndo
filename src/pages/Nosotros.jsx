@@ -2,99 +2,67 @@ import React from "react";
 import "../styles/Nosotros.css";
 import { fundadores } from "../data/fundadores";
 import CardNosotros from "../components/CardNosotros";
+import imgBanner from "../img/imgBannerUs.jpg";
 
 const Nosotros = () => {
   return (
-    <>
-      <div className="container-fluid">
-        <div className="row text-center g-5 color-fondo-somos px-5 py-5">
-          <h1>Quienes somos?</h1>
-          <div className="col-md-6 align-items-center mt-5 text-start">
-            <h6 className="negrita">
-              <span className="texto-ampliado">LaburandoAndo</span> es una
-              innovadora plataforma digital que conecta a proveedores de
-              servicios con clientes a nivel global, facilitando la prestación
-              de servicios de manera eficiente y accesible. Nuestra empresa se
-              especializa en ofrecer un entorno intuitivo y seguro donde los
-              usuarios pueden registrarse, listar sus servicios, y establecer
-              conexiones significativas con quienes buscan soluciones
-              específicas. Con un enfoque en la calidad y la confianza,
-              LaburandoAndo permite a los proveedores de servicios crear
-              perfiles detallados, recibir valoraciones y construir una
-              reputación sólida dentro de la comunidad. Al mismo tiempo, los
-              clientes pueden explorar una amplia gama de servicios, comparar
-              opciones y seleccionar a los proveedores que mejor se ajusten a
-              sus necesidades y expectativas.
-            </h6>
+    <section className="pb-5">
+      <div className="container-fluid py-5 sectionBanner bannerUs">
+        <div className="row justify-content-around gy-3 px-5 py-xxl-5 bannerContent">
+          <h1 className="fw-bold">¿Quiénes somos?</h1>
+          <div className="col-lg-6 align-items-center mt-4 text-start">
+            <h2 className="negrita text-center  fw-bold">
+              Somos un equipo dedicado a conectar profesionales independientes
+              con sus futuros clientes, beneficiando al crecimiento mutuo.
+            </h2>
           </div>
 
-          <div className="col-md-6 align-items-center mt-5 text-start">
-            <h6 className="negrita">
-              En <span className="texto-ampliado">LaburandoAndo</span>,
-              impulsamos el trabajo al conectar a proveedores de servicios con
-              clientes a través de una plataforma accesible e innovadora.
-              Facilitamos oportunidades de empleo y emprendimientos. Nuestro
-              objetivo es empoderar a nuestros usuarios para que puedan alcanzar
-              su máximo potencial y contribuir al desarrollo económico y social
-              de sus comunidades.
-            </h6>
+          <div className="d-none d-md-block col-lg-3 justify-content-center align-items-center  text-start">
+            <h2 className="negrita text-center fw-bold">
+              Impulsando el trabajo independiente y el desarrollo profesional.
+            </h2>
           </div>
         </div>
+      </div>
 
-        <div className="row text-center py-5 px-5 color-fondo-mision-vision">
-          <h1>Nuestros Principios</h1>
-
-          <div className="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
-            <div className="col">
-              <div className="card h-100">
-                <div className="card-body">
-                  <h2 className="card-title mb-4">Misión</h2>
-                  <p className="card-text">
-                    Nuestra misión es empoderar a los individuos y las empresas
-                    mediante la creación de una plataforma confiable y accesible
-                    donde los usuarios puedan registrarse y ofrecer sus
-                    servicios. Nos comprometemos a facilitar conexiones
-                    significativas entre proveedores de servicios y clientes,
-                    asegurando la calidad, la transparencia y la satisfacción
-                    mutua. Fomentamos el crecimiento profesional y personal de
-                    nuestros usuarios, brindando las herramientas y el soporte
-                    necesarios para que alcancen su máximo potencial en un
-                    entorno seguro y colaborativo.
-                  </p>
-                </div>
+      <div className="container py-5">
+        <h3 className="mb-3 mb-md-4 text-center">Nuestros Principios</h3>
+        <div className="row g-3">
+          <div className="col-md-6">
+            <div className="card py-3 shadow">
+              <div className="card-body">
+                <p className="card-title fw-bold mb-3">Misión</p>
+                <p className="card-text">
+                  Nuestra misión es conectar a profesionales independientes con
+                  personas que buscan sus servicios, creando oportunidades para
+                  que ambos prosperen.
+                </p>
               </div>
             </div>
-
-            <div className="col">
-              <div className="card h-100">
-                <div className="card-body">
-                  <h2 className="card-title mb-4">Visión</h2>
-                  <p className="card-text">
-                    Ser la plataforma líder a nivel global en la conexión de
-                    proveedores de servicios con clientes, transformando la
-                    manera en que las personas encuentran y brindan servicios a
-                    través de la innovación continua, la confianza y la
-                    excelencia. Nos esforzamos por crear un ecosistema inclusivo
-                    y dinámico donde cada usuario, independientemente de su
-                    ubicación, pueda alcanzar su máximo potencial y contribuir
-                    al crecimiento económico y social de sus comunidades.
-                  </p>
-                </div>
+          </div>
+          <div className="col-md-6">
+            <div className="card py-3 shadow">
+              <div className="card-body">
+                <p className="card-title fw-bold mb-3">Visión</p>
+                <p className="card-text">
+                  Nuestra visión es ser la plataforma líder que facilite el
+                  acceso a servicios profesionales independientes, empoderando a
+                  trabajadores y clientes por igual.
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="row text-center py-5 px-5 color-fondo-fundadores">
-          <h1>Fundadores</h1>
-          <div className="row row-cols-1 row-cols-md-3 g-4 justify-content-center card-fundadores">
+        <div className="py-5 ">
+          <h3 className="mb-3 mb-md-4 text-center">Fundadores</h3>
+          <div className="d-flex flex-wrap gap-5 justify-content-center">
             {fundadores.map((fundador) => (
               <CardNosotros key={fundador.id} fundador={fundador} />
             ))}
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

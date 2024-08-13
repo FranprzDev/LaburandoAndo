@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../slice/postsSlice";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CardPublicacion = ({ selectedCategory }) => {
   const publicaciones = useSelector((state) => state.posts.posts);
@@ -28,7 +28,7 @@ const CardPublicacion = ({ selectedCategory }) => {
               navigate(`/detalle/${publicacion._id}`)
               console.log(publicacion._id);
             }}
-            className="card cardPublication pt-2 px-2 px-md-3 rounded-3 shadow"
+            className="card cardPublication py-2 px-2 px-md-3 rounded-3 shadow"
           >
             <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
               <div className="h-100 d-flex flex-column justify-content-between align-items-center mt-lg-3">
@@ -38,8 +38,8 @@ const CardPublicacion = ({ selectedCategory }) => {
                   className="imgCardPublication border rounded-circle"
                 />
               </div>
-              <div className="d-flex flex-column flex-md-row justify-content-between">
-                <div className="d-flex flex-column gap-1 gap-md-2 pt-2 pb-2 pb-md-3 order-1 order-md-0">
+              <div className="d-flex flex-column flex-md-row justify-content-between w-100">
+                <div className="containerDescriptionPost d-flex flex-column gap-1 gap-md-2 pt-2 pb-2 pb-md-3 order-1 order-md-0">
                   <p className="mb-0 fs-5 text-center fw-medium text-md-start">
                     {publicacion.worker.fullname}
                   </p>
@@ -65,8 +65,7 @@ const CardPublicacion = ({ selectedCategory }) => {
                     {publicacion.description}
                   </p>
                 </div>
-                <div className="d-flex flex-md-column justify-content-center gap-4 align-items-center justify-content-md-start gap-md-1 align-items-md-start"></div>
-                <div className="d-flex flex-md-column justify-content-center gap-4 align-items-center justify-content-md-start gap-md-1 align-items-md-start">
+                <div className="containerStars d-flex flex-md-column justify-content-center gap-4 align-items-center justify-content-md-start gap-md-1 align-items-md-start">
                   <div className="d-flex align-items-center gap-1 text-center">
                     <IoMdStar className="fs-3 text-warning" />
                     <span>5.0</span>
@@ -82,6 +81,18 @@ const CardPublicacion = ({ selectedCategory }) => {
                 </div>
               </div>
             )}
+            <div className="d-flex justify-content-end align-items-center d-lg-none w-100 pb-2">
+                <div className="d-none text-center outstanding rounded-2 text-white py-1 px-4">
+                  <span>Destacado</span>
+                </div>
+                <Link
+          className="btn rounded-3 btnSeeProfile text-white d-lg-none"
+          to={"/detalle-profesional"}
+        >
+          Más información
+        </Link>
+              </div>
+            
           </div>
         ))
       ) : (

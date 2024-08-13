@@ -6,35 +6,43 @@ import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { createProfessional, getProfessional, setAditionalValues } from "../../slice/registerSlice";
+import {
+  createProfessional,
+  getProfessional,
+  setAditionalValues,
+} from "../../slice/registerSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const RegistroPasoTres = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const type = useSelector((state) => state.register.form.type);
 
   const state = useSelector((state) => state.register);
 
   useEffect(() => {
-    if (state && state.stateSync === 'error') {
+    if (state && state.stateSync === "error") {
       Swal.fire({
         icon: "error",
         title: "No se pudo iniciar sesión",
         text: "Los datos ingresadodsdsdss no son correctos.",
       });
     }
-    if(state && state.stateSync === 'exitoso' && type === "Professional"){
+    if (state && state.stateSync === "exitoso" && type === "Professional") {
       navigate("../../work/mi-perfil");
       Swal.fire({
         icon: "success",
         title: "Bienvenido",
       });
     }
-    if(state && state.stateSync === 'exitoso' && type === "Client"){
+    if (state && state.stateSync === "exitoso" && type === "Client") {
       navigate("../../profesionales");
       Swal.fire({
         icon: "success",
@@ -45,41 +53,75 @@ const RegistroPasoTres = () => {
   }, [state]);
 
   const onSubmit = (data) => {
-    dispatch(setAditionalValues(data))
+    dispatch(setAditionalValues(data));
 
-    if(type === "Professional") {
-      dispatch(createProfessional())
+    if (type === "Professional") {
+      dispatch(createProfessional());
 
       navigate("../../work/mi-perfil");
     }
   };
 
   return (
-    <Container className="mx-1 my-5 p-3 mx-sm-auto border">
-      <section>
-        <h1>Añade datos a tu perfil!</h1>
+    <Container className="py-3 py-md-5 px-2 mx-sm-auto mainSection">
+      <div className="text-md-center mx-auto d-flex flex-column align-items-center justify-content-center">
+        <h1>Añade datos a tu perfil</h1>
         <p>Completá los datos que se muestran a continuación.</p>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="border p-2 p-md-3 px-lg-5 formRegisterThree rounded-2 shadow"
+        >
           <Row className="d-flex justify-content-center align-items-center">
-            <Col md={6} className="d-flex justify-content-center flex-column">
-              <label className="fs-5"><FaLocationDot/>Ubicación: <span className="optional-text fs-6">(Opcional)</span></label>
-              <input type="text" className=" form-control" {...register("adress")} />
-              <label className="fs-5"><FaWhatsapp/>WhatsApp: <span className="optional-text fs-6">(Opcional)</span></label>
-              <input
-                type="text"
-                className="form-control input-optionals"
-                {...register("phone", {
-                  pattern: {
-                    value: /^[0-9]+$/,
-                    message: "Por favor, introduce un número válido",
-                  },
-                })}
-              />
-              {errors.whatsapp && <p>{errors.whatsapp.message}</p>}
+            <Col lg={8} className="d-flex justify-content-center flex-column">
+              <div className="mb-2">
+                <label
+                  htmlFor="location"
+                  className="form-label d-flex align-items-center gap-1"
+                >
+                  <FaLocationDot className="fs-4 text-secondary" />
+                  <span className="fw-medium">Ubicación</span>{" "}
+                  <span className="optional-text">(Opcional)</span>
+                </label>
+                <input
+                  id="location"
+                  type="text"
+                  className=" form-control input"
+                  {...register("adress")}
+                />
+              </div>
+              <div className="mb-2">
+                <label
+                  htmlFor="wpp"
+                  className="form-label d-flex align-items-center gap-1"
+                >
+                  <FaWhatsapp className="fs-4 text-success" />
+                  <span className="fw-medium">WhatsApp</span>{" "}
+                  <span className="optional-text">(Opcional)</span>
+                </label>
+                <input
+                  id="wpp"
+                  type="text"
+                  className="form-control input-optionals input"
+                  {...register("phone", {
+                    pattern: {
+                      value: /^[0-9]+$/,
+                      message: "Por favor, introduce un número válido",
+                    },
+                  })}
+                />
+                {errors.whatsapp && <p>{errors.whatsapp.message}</p>}
+              </div>
             </Col>
-            <Col md={6} className="d-flex justify-content-center flex-column">
+            <Col lg={4} className="d-flex justify-content-center flex-column">
               <div className="text-center d-flex flex-column justify-content-center align-items-center position-relative">
-                <img src={Foto} className="img-fluid perfilImg mb-3 rounded-circle" alt="Foto de perfil" />
+                <label htmlFor="" className="fw-medium">
+                  Foto de perfil
+                </label>
+                <img
+                  src={Foto}
+                  className="img-fluid perfilImg mb-3 rounded-circle"
+                  alt="Foto de perfil"
+                />
                 <input
                   className="d-none"
                   type="file"
@@ -93,13 +135,13 @@ const RegistroPasoTres = () => {
               </div>
             </Col>
             <div className="text-center d-flex justify-content-end gap-2">
-              <button className="btn btn-Profesional mt-4 fs-4" type="submit">
+              <button className="btn btnCreateAccount mt-lg-4" type="submit">
                 Crear cuenta
               </button>
             </div>
           </Row>
         </form>
-      </section>
+      </div>
     </Container>
   );
 };

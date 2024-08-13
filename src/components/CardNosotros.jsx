@@ -1,37 +1,39 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Nosotros.css";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaGithubSquare } from "react-icons/fa";
 
 const CardNosotros = ({ fundador }) => {
   return (
-    <div className="col">
-      <div className="card h-100">
+      <div className="card cardUs shadow">
         <img
           src={fundador.foto}
-          className="card-img-top"
+          className="card-img-top imgCardUs"
           alt={fundador.nombre}
         />
-        <div className="card-body">
-          <h3 className="card-title">{fundador.nombre}</h3>
-        </div>
-        <div className="card-footer d-flex justify-content-evenly">
+        <div className="card-body text-center">
+          <p className="card-title fw-bold">{fundador.nombre}</p>
+          <div className="d-flex justify-content-center gap-2">
           <Link
+          className="fs-1 text-dark"
             to={fundador.linkGitHub}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-2x fa-github"></i>
+            <FaGithubSquare />
           </Link>
           <Link
             to={fundador.linkLinkedin}
             target="_blank"
             rel="noopener noreferrer"
+            className="fs-1"
           >
-            <i className="fab fa-2x fa-linkedin"></i>
+            <FaLinkedin />
           </Link>
         </div>
+        </div>
+        
       </div>
-    </div>
   );
 };
 
