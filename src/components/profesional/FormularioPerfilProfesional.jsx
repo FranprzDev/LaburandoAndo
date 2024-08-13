@@ -46,12 +46,12 @@ const FormularioPerfilProf = () => {
   };
 
   return (
-    <Form className="formProfile row gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-5 border">
+    <Form className="formProfile row gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border">
       <div className="col-lg-7">
         <Form.Group className="mb-3">
           <Form.Label
             htmlFor="name"
-            className="text-md-center w-100 text-lg-start fw-bold mb-0 fontSizeLabel"
+            className="text-md-center w-100 text-lg-start fw-medium mb-0 fontSizeLabel"
           >
             Nombre y Apellido
           </Form.Label>
@@ -80,7 +80,7 @@ const FormularioPerfilProf = () => {
         <Form.Group className="mb-3">
           <Form.Label
             htmlFor="email"
-            className="text-md-center w-100 text-lg-start fw-bold mb-0 fontSizeLabel"
+            className="text-md-center w-100 text-lg-start fw-medium mb-0 fontSizeLabel"
           >
             Email
           </Form.Label>
@@ -103,7 +103,7 @@ const FormularioPerfilProf = () => {
         <Form.Group className="mb-3">
           <Form.Label
             htmlFor="ubication"
-            className="text-md-center w-100 text-lg-start fw-bold mb-0 fontSizeLabel"
+            className="text-md-center w-100 text-lg-start fw-medium mb-0 fontSizeLabel"
           >
             Ubicación
           </Form.Label>
@@ -128,7 +128,7 @@ const FormularioPerfilProf = () => {
         <Form.Group className="mb-3">
           <Form.Label
             htmlFor="wpp"
-            className="text-md-center w-100 text-lg-start fw-bold mb-0 fontSizeLabel"
+            className="text-md-center w-100 text-lg-start fw-medium mb-0 fontSizeLabel"
           >
             Número de WhatsApp
           </Form.Label>
@@ -148,7 +148,7 @@ const FormularioPerfilProf = () => {
         <Form.Group className="mb-3 d-flex flex-column justify-content-center align-items-md-center gap-2">
           <Form.Label
             htmlFor="wpp"
-            className="text-md-center w-100 fw-bold mb-0 fontSizeLabel"
+            className="text-md-center w-100 fw-medium mb-0 fontSizeLabel"
           >
             Foto de Perfil
           </Form.Label>

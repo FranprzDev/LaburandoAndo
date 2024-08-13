@@ -17,6 +17,7 @@ const FormularioPublicacion = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const postCreateState = useMemo(() => { return createPostStatus }, [createPostStatus])
@@ -29,6 +30,7 @@ const FormularioPublicacion = () => {
 
   const handlePost = async (post) => {
     dispatch(createPost({id: userLogeado._id, post: post}));
+    reset();
   }
 
   return (
@@ -42,7 +44,7 @@ const FormularioPublicacion = () => {
       <Form.Group className="mb-2 mb-md-3">
         <Form.Label
           htmlFor="title"
-          className="w-100 text-lg-start fw-bold fontSizeLabel mb-0 mb-md-1"
+          className="w-100 text-lg-start fw-medium fontSizeLabel mb-0 mb-md-1"
         >
           Título del anuncio <span className="text-danger fs-5">*</span>
         </Form.Label>
@@ -72,7 +74,7 @@ const FormularioPublicacion = () => {
         <Form.Group className="mb-2 mb-md-3 col-md-8">
           <Form.Label
             htmlFor="category"
-            className="w-100 text-lg-start fw-bold fontSizeLabel mb-0 mb-md-1"
+            className="w-100 text-lg-start fw-medium fontSizeLabel mb-0 mb-md-1"
           >
             Categoría <span className="text-danger fs-5">*</span>
           </Form.Label>
@@ -101,7 +103,7 @@ const FormularioPublicacion = () => {
         <Form.Group className="col-md-4 mb-2 mb-md-3">
           <Form.Label
             htmlFor="price"
-            className="w-100 text-lg-start fw-bold  fontSizeLabel mb-0 mb-md-1"
+            className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
           >
             Precio por hora <span className="text-danger fs-5">*</span>
           </Form.Label>
@@ -132,7 +134,7 @@ const FormularioPublicacion = () => {
       <Form.Group className="mb-2 mb-md-3">
         <Form.Label
           htmlFor="description"
-          className="w-100 text-lg-start fw-bold  fontSizeLabel mb-0 mb-md-1"
+          className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
         >
           Descripción <span className="text-danger fs-5">*</span>
         </Form.Label>
