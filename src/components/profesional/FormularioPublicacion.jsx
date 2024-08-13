@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../slice/categorySlice";
 import { useForm } from "react-hook-form";
 import { createPost } from "../../slice/postsSlice";
-import Swal from "sweetalert2";
 import PostModalComponent from "../ModalsComponents/PostModalComponents";
 
 const FormularioPublicacion = () => {

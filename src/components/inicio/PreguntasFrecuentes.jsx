@@ -18,8 +18,7 @@ const PreguntasFrecuentes = () => {
               aria-controls="collapseOne"
             >
               <span>
-                ¿Cómo puedo registrarme como profesional independiente en
-                LaburandoAndo?
+                ¿Cómo puedo registrarme como profesional independiente?
               </span>
               <span className="d-none iconAdd fw-bold d-md-flex align-items-center">
                 <IoAddSharp />
@@ -47,7 +46,7 @@ const PreguntasFrecuentes = () => {
               aria-controls="collapseTwo"
             >
               <span>
-              ¿Cómo puedo contactar a un profesional en LaburandoAndo?
+              ¿Cómo puedo contactar a un profesional?
               </span>
               <span className="d-none iconAdd fw-bold d-md-flex align-items-center">
                 <IoAddSharp />
@@ -75,7 +74,7 @@ const PreguntasFrecuentes = () => {
               aria-controls="collapseThree"
             >
               <span>
-              ¿Es seguro contratar servicios a través de LaburandoAndo?
+              ¿Es seguro contratar servicios a través de la aplicación?
               </span>
               <span className="d-none iconAdd fw-bold d-md-flex align-items-center">
                 <IoAddSharp />
@@ -103,7 +102,7 @@ const PreguntasFrecuentes = () => {
               aria-controls="collapseFor"
             >
               <span>
-              ¿Cómo puedo dejar una reseña sobre un profesional en LaburandoAndo?
+              ¿Cómo puedo dejar una reseña sobre un profesional?
               </span>
               <span className="d-none iconAdd fw-bold d-md-flex align-items-center">
                 <IoAddSharp />

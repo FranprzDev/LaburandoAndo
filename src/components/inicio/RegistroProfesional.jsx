@@ -22,11 +22,10 @@ const RegistroProfesional = () => {
         >
           <div className="d-flex flex-column gap-md-2 gap-xxl-3 align-items-center">
             <h2 className="fw-bold">
-              ¿Eres un profesional independiente? ¡Llega a más clientes con
-              LaburandoAndo!
+              ¿Eres un profesional independiente? 
             </h2>
-            <p>Regístrate y ofrece tus servicios</p>
-            <Link className="btn btnRegister " to={"/auth/register"}>Regístrate Ahora</Link>
+            <h3>¡Regístrate, ofrece tus servicios y llega a más personas!</h3>
+            <Link className="btn btnRegister " to={"/auth/register"}>Registrarme</Link>
           </div>
         </Col>
       </Row>
