@@ -12,11 +12,11 @@ const initialState = {
 
 export const loginUser = createAsyncThunk('auth', async(usuario) => {
   try {
-    const response = await instance.post('/auth/jwt/login', usuario);
+    const response = await instance.post('/auth/jwt/login', usuario)
 
     return response.data.data.token
   } catch (error) {
-    console.log(error)
+    return error.response.error
   }
 })
 
@@ -26,6 +26,7 @@ const authSlice = createSlice({
     reducers:{
         reset: (state) => {
           state.stateSync = "idle";
+          state.state = "idle";
           state.error = null;
         },
         pending: (state) => {
@@ -55,6 +56,8 @@ const authSlice = createSlice({
           state.stateSync = 'exitoso';
           state.status = 'exitoso';
           const decodedToken = jwtDecode(action.payload);
+
+          console.log(decodedToken)
 
           state.user = decodedToken.user;
           state.role = decodedToken.user.role;

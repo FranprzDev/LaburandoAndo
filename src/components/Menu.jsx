@@ -16,8 +16,6 @@ const Menu = () => {
 
   useEffect(() => {}, [status]);
 
-  console.log(user);
-
   return (
     <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
       <Container>

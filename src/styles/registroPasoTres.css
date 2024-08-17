@@ -17,6 +17,30 @@
   position: relative;
 }
 
+.uploadButton {
+  background-color: var(--Violeta);
+}
+
+.uploadButton:hover {
+  background-color: var(--Violeta);
+}
+
+.uploadButton:active {
+  background-color: var(--Violeta);
+}
+
+.uploadPlusButton {
+  background-color: var(--Lavanda);
+}
+
+.uploadPlusButton:hover {
+  background-color: var(--Lavanda);
+}
+
+.uploadPlusButton:active {
+  background-color: var(--Lavanda);
+}
+
 .upload-button {
   position: absolute;
   top: 70%;
