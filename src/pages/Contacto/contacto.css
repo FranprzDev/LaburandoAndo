@@ -1,0 +1,10 @@
+:root{
+    --Violeta: #91277d;
+    --HoverVioleta: #501c46;
+}
+.btnContacto{
+    background-color: var(--Violeta);
+}
+.btnContacto:hover{
+    background-color: var(--HoverVioleta);
+}
