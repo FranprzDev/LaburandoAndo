@@ -5,8 +5,8 @@
   --Rosa: #ffe3fa;
   --Lavanda: #ffebfd;
   --HoverVioleta: #501c46;
-  --fontText-md: 1.125rem; 
-  --fontText-lg: 1.25rem;
+  --fontText-lg: 1.125rem; 
+  --fontText-xxl: 1.25rem;
 }
 
 #root {
@@ -21,7 +21,7 @@
 }
 
 .logo{
-  font-size: 30px;
+  font-size: 1.8rem;
 }
 
 .instagramLogo {
@@ -72,18 +72,18 @@ img{
     object-fit: cover;
 }
 
-@media all and (min-width: 768px){
+@media all and (min-width: 992px){
     p,
     .btn, 
     .nav-link,
     button,
     label{
-        font-size: var(--fontText-md);
+        font-size: var(--fontText-lg);
     }
 }
 
-@media all and (min-width: 992px){
+@media all and (min-width: 1400px){
     p{
-        font-size: var(--fontText-lg);
+        font-size: var(--fontText-xxl);
     }
 }
