@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap'
 import '../contacto.css'
 const FormularioContacto = () => {
   return (
-    <div className='w-50 border border-2 border-dark-subtle mb-5'>
+    <div className='border border-2 border-dark-subtle rounded-5 mb-5'>
       <Form className='p-4'>
     <h3>Contáctanos y pronto recibirás una respuesta</h3>
       <Form.Group className="mb-3" controlId="formNombreApellido">
