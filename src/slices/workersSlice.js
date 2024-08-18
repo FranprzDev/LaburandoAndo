@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import instance from "../api/api";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchWorkerForID, fetchWorkers } from "./actions/workersActions";
 
 const initialState = {
     workers: [],
@@ -7,16 +7,6 @@ const initialState = {
     status: "idle",
     error: null
 };
-
-export const fetchWorkerForID = createAsyncThunk("workers/fetchWorker", async (id) =>{
-    const response = await instance.get(`/worker/${id}`);
-    return response.data.data;
-});
-
-export const fetchWorkers = createAsyncThunk("workers/fetchWorkers", async () =>{
-    const response = await instance.get(`${import.meta.env.VITE_API_WORKERS}`);
-    return response.data.data;
-});
 
 const workersSlice = createSlice({
     name: 'workers',

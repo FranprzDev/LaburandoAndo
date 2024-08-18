@@ -1,17 +1,11 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../api/api";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchCategories } from "./actions/categoryActions";
 
 const initialState = {
   categories: [],
   status: "idle",
   error: null,
 };
-
-export const fetchCategories = createAsyncThunk("categories/fetchCategories", async () => {
-    const response = await instance.get("/category/");
-    return response.data.data;
-  }
-);
 
 const categoriesSlice = createSlice({
   name: "categories",

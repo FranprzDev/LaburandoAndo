@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import instance from "../api/api";
+import { createSlice } from "@reduxjs/toolkit";
 import { jwtDecode } from "jwt-decode";
+import { loginUser } from "./actions/authActions";
 
 const initialState = {
     user: JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null,
@@ -9,16 +9,6 @@ const initialState = {
     role: "Client",
     error: null
 };
-
-export const loginUser = createAsyncThunk('auth', async(usuario) => {
-  try {
-    const response = await instance.post('/auth/jwt/login', usuario)
-
-    return response.data.data.token
-  } catch (error) {
-    return error.response.error
-  }
-})
 
 const authSlice = createSlice({
     name: 'login',

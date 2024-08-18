@@ -4,7 +4,7 @@ import { FaUser, FaWpforms, FaListAlt } from "react-icons/fa";
 import { TbHelpCircleFilled } from "react-icons/tb";
 import { BiSolidExit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchWorkerForID } from "../../slices/workersSlice";
+import { fetchWorkerForID } from "../../slices/actions/workersActions";
 import { useEffect } from "react";
 import useLogout from "../../hooks/useLogout";
 

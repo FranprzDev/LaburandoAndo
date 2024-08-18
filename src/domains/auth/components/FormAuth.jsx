@@ -1,9 +1,10 @@
-import React, { useMemo, useRef } from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { createClient, setValues } from "../../../slices/registerSlice";
+import { createClient } from "../../../slices/actions/registerActions";
 import Swal from "sweetalert2";
+import { setAditionalValues } from "../../../slices/registerSlice";
 
 function FormAuth() {
   const {
@@ -35,7 +36,7 @@ function FormAuth() {
           </div>
           <div className="card-body pb-0">
             <form className="text-center my-3" onSubmit={handleSubmit((data) => {
-              dispatch(setValues(data))
+              dispatch(setAditionalValues(data))
               if(type === "Professional") navigate("/auth/register3")
 
               if(type === "Client"){

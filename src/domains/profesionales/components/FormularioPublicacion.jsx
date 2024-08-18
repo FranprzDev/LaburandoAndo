@@ -3,8 +3,8 @@ import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import PostModalComponent from "../../../components/PostModalComponents";
-import { fetchCategories } from "../../../slices/categorySlice";
-import { createPost } from "../../../slices/postsSlice";
+import { fetchCategories } from "../../../slices/actions/categoryActions";
+import { createPost } from "../../../slices/actions/postsActions";
 
 const FormularioPublicacion = () => {
   const categorias = useSelector((state) => state.categories.categories);

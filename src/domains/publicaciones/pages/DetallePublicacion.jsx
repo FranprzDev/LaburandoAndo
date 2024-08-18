@@ -10,7 +10,7 @@ import Opiniones from "../components/Opiniones";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPost } from "../../../slices/postsSlice";
+import { getPost } from "../../../slices/actions/postsActions";
 
 const DetallePublicacion = () => {
   const profesional = useSelector((state) => state.posts.post);

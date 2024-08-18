@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/registroPasoTres.css";
-
 import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
@@ -10,7 +9,9 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import ImageUploader from "../../../components/Common/ImageUploader";
 import { useCloudinary } from "../../../hooks/useCloudinaryHook";
-import { createProfessional, setAditionalValues } from "../../../slices/registerSlice";
+import { createProfessional } from "../../../slices/actions/registerActions";
+import { setAditionalValues } from "../../../slices/registerSlice";
+
 
 const RegistroPasoTres = () => {
   const {

@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { loginUser } from "../../../slices/authSlice";
 import { reset } from "../../../slices/authSlice";
+import { loginUser } from "../../../slices/actions/authActions";
 
 export default function Login() {
   const {
