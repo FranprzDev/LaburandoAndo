@@ -1,10 +1,10 @@
 import { Form } from "react-bootstrap";
-import imgUsuario from "../../img/imgUsuario.png";
+import imgUsuario from "../../../img/imgUsuario.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { fetchWorkerForID } from "../../slices/workersSlice";
+import { fetchWorkerForID } from "../../../slices/workersSlice";
 
 const FormularioPerfilProf = () => {
   const {

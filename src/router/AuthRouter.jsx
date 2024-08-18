@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import Login from "../auth/pages/Login";
-import RegistroPasoUno from "../auth/pages/RegistroPasoUno";
-import RegistroPasoDos from "../auth/pages/RegistroPasoDos";
-import RegistroPasoTres from "../auth/pages/RegistroPasoTres";
+import Login from "../domains/auth/pages/Login";
+import RegistroPasoUno from "../domains/auth/pages/RegistroPasoUno";
+import RegistroPasoDos from "../domains/auth/pages/RegistroPasoDos";
+import RegistroPasoTres from "../domains/auth/pages/RegistroPasoTres";
 
 const AuthRouter = () => {
   return (

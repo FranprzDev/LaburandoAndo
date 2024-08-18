@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../../slices/postsSlice";
+import { getPosts } from "../../../slices/postsSlice";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";

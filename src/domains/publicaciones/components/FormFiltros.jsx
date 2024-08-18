@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCategories } from "../../api/api";
+import { getCategories } from "../../../api/api";
 import { Accordion } from "react-bootstrap";
 
 const FormFiltros = ({ onCategoryChange }) => {

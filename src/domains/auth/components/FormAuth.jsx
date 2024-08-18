@@ -2,7 +2,7 @@ import React, { useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { createClient, setValues } from "../../slices/registerSlice";
+import { createClient, setValues } from "../../../slices/registerSlice";
 import Swal from "sweetalert2";
 
 function FormAuth() {

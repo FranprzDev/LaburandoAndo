@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { changeType } from "../../slices/registerSlice";
+import { changeType } from "../../../slices/registerSlice";
 
 const CardRegistroPasoUno = ({ usuario }) => {
 

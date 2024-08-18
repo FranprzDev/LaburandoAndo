@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import PerfilLayout from '../layout/PerfilLayout'
-import PerfilProfesional from '../profesionales/pages/PerfilProfesional'
-import PublicacionProfesional from '../profesionales/pages/PublicacionProfesional'
+import PerfilProfesional from '../domains/profesionales/pages/PerfilProfesional'
+import PublicacionProfesional from '../domains/profesionales/pages/PublicacionProfesional'
 
 function WorkerRouter() {
   return (

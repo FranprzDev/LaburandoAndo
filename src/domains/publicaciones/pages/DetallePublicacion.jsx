@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
-import logo from "../../img/Logo.jpg";
+import logo from "../../../img/Logo.jpg";
 import "../styles/detallePublicacion.css";
 import { FaStar } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
@@ -10,7 +10,7 @@ import Opiniones from "../components/Opiniones";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPost } from "../../slices/postsSlice";
+import { getPost } from "../../../slices/postsSlice";
 
 const DetallePublicacion = () => {
   const profesional = useSelector((state) => state.posts.post);

@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
-import DetallePublicacion from '../publicaciones/pages/DetallePublicacion';
-import Profesionales from '../publicaciones/pages/Profesionales';
+import Profesionales from '../domains/publicaciones/pages/Profesionales';
 import Home from '../pages/Home/Home';
 import Nosotros from '../pages/AboutUs/Nosotros';
+import DetallePublicacion from '../domains/publicaciones/pages/DetallePublicacion';
 
 const ClientRouter = () => {
     return (
