@@ -6,14 +6,11 @@ import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createProfessional,
-  setAditionalValues,
-} from "../slice/registerSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import ImageUploader from "../../components/Common/ImageUploader";
 import { useCloudinary } from "../../hooks/useCloudinaryHook";
+import { createProfessional, setAditionalValues } from "../../slices/registerSlice";
 
 const RegistroPasoTres = () => {
   const {

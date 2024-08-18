@@ -3,7 +3,7 @@ import authSlice from "../slices/authSlice";
 import postsSlice from "../slices/postsSlice";
 import workersSlice from "../slices/workersSlice";
 import categorySlice from "../slices/categorySlice";
-import registerSlice from "../auth/slice/registerSlice";
+import registerSlice from "../slices/registerSlice";
 
 export const store = configureStore({
     reducer:{

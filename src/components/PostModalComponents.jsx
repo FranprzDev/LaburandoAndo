@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-import { resetPostStatus } from '../../slice/postsSlice';
+import { resetPostStatus } from '../slices/postsSlice';
 
 const PostModalComponent = ({ postCreateState }) => {
   const dispatch = useDispatch();
