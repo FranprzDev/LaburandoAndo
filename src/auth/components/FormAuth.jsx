@@ -40,12 +40,12 @@ function FormAuth() {
 
               if(type === "Client"){
                 dispatch(createClient())
-                navigate("../../profesionales");
+                navigate("../login");
 
                 Swal.fire({
                   icon: "success",
                   title: `Bienvenido`,
-                  text: "Tu cuenta ha sido creada exitosamente",
+                  text: "Tu cuenta ha sido creada exitosamente, ingresa sesión para iniciar.",
                 })
               }
             })}>

@@ -2,8 +2,8 @@ import FormularioPerfilProfesional from "../components/FormularioPerfilProfesion
 import "../styles/perfilProfesional.css";
 import { useSelector } from "react-redux";
 
-const PerfilProfesional = () => {
-
+const PerfilProfesional = () => { 
+  
   const user = useSelector((state) => state.auth.user);
 
   return (
@@ -11,7 +11,7 @@ const PerfilProfesional = () => {
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            {user.fullname}
+            {user?.fullname}
           </li>
           <li className="breadcrumb-item text-primary">
             Mi perfil

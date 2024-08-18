@@ -26,8 +26,6 @@ const FormularioPerfilProf = () => {
   useEffect(() => {
     if (user) {
       dispatch(fetchWorkerForID(user._id));
-    } else {
-      navigate("/");
     }
   }, []);
 

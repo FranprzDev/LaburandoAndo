@@ -5,9 +5,9 @@ const initialState = {
     form: {
       mail: "",
       password: "",
-      phone: "",
+      fullname: "",
       adress: "",
-      photo: "",
+      img: "",
       authMethod: "Local",
       type: "Client",
     },
@@ -22,11 +22,18 @@ export const createProfessional = createAsyncThunk('register', async(_, { getSta
       throw new Error('No se puede crear un cliente con este método');
     }
     
-    const { photo, ...rest } = getState().register.form;
+    let sanitizedWorker = {
+      fullname: getState().register.form.fullname,
+      mail: getState().register.form.mail,
+      password: getState().register.form.password,
+      phone: getState().register.form.phone,
+      address: getState().register.form.adress,
+      img: getState().register.form.img ? getState().register.form.img : "",
+    }
 
-    const response = await instance.post('/auth/jwt/register/Worker', 
-      !getState().register.form.photo ? rest : getState().register.form
-    );
+    console.log(sanitizedWorker)
+    
+    const response = await instance.post('/auth/jwt/register/Worker', sanitizedWorker);
 
     return response.data.data;
   } catch(error){
@@ -57,6 +64,9 @@ const registerSlice = createSlice({
     reducers:{
       changeType: (state, action) => {
             state.form.type = action.payload;
+      },
+      changePhoto: (state, action) => {
+         state.form.img = action.payload;
       },
       setValues: (state, action) => {
         state.form.fullname = action.payload.fullname;
@@ -101,6 +111,6 @@ const registerSlice = createSlice({
     }
 })
 
-export const { changeType, setValues, setAditionalValues, getProfessional } = registerSlice.actions;
+export const { changeType, setValues, setAditionalValues, getProfessional, changePhoto } = registerSlice.actions;
 
 export default registerSlice.reducer;

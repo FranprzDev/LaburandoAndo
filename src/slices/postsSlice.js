@@ -44,7 +44,11 @@ export const getPost = createAsyncThunk("work/Post", async (id) => {
 const postSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {},
+  reducers: {
+    resetPostStatus: (state) => {
+      state.createPostStatus = "idle";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPosts.pending, (state) => {
@@ -82,5 +86,7 @@ const postSlice = createSlice({
       });
   },
 });
+
+export const { resetPostStatus } = postSlice.actions;
 
 export default postSlice.reducer;

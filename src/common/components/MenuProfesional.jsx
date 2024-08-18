@@ -19,10 +19,8 @@ const MenuProfesional = () => {
   const { cerrarSesion } = useLogout();
 
   useEffect(() => {
-    if (userJwt._id) {
-      dispatch(fetchWorkerForID(userJwt._id));
-    } else {
-      navigate("/");
+    if (userJwt?._id) {
+      dispatch(fetchWorkerForID(userJwt?._id));
     }
   }, [userJwt]);
 
