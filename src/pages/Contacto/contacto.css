@@ -8,3 +8,7 @@
 .btnContacto:hover{
     background-color: var(--HoverVioleta);
 }
+
+textarea{
+    resize: none;
+}

@@ -18,10 +18,11 @@ const FormularioContacto = () => {
         <Form.Label>Mensaje</Form.Label>
         <Form.Control as="textarea" rows={5} placeholder="Contraseña" />
       </Form.Group>
-
-      <Button className='btnContacto border-0'type="submit">
+      <div className='text-end'>
+      <Button className='btnContacto w-25 border-0'type="submit">
         Enviar
       </Button>
+      </div>
     </Form>
     </div>
   )
