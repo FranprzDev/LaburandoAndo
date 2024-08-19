@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
-import { changePhoto } from "../../slice/registerSlice";
+import { changePhoto } from "../../slices/registerSlice";
 import { useCloudinary } from "../../hooks/useCloudinaryHook";
 import Swal from "sweetalert2";
 
