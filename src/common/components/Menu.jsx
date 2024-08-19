@@ -134,12 +134,6 @@ const Menu = () => {
                 </NavDropdown>
               </>
             )}
-            <Link
-              className={`nav-link`}
-              to={"/contacto"}
-            >
-              Contacto
-            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,4 +1,5 @@
-import emailjs from '@emailjs/browser'
+import emailjs from '@emailjs/browser';
+
 export const sendEmail = (nombreApellido, correo) => {
 let templateParams = {
     from_name: "LaburandoAndo",
@@ -6,7 +7,6 @@ let templateParams = {
     destinatario: correo,
     message: "Gracias por comunicarte con nosotros y formar parte de nuestra plataforma"
   };
-  
 
   emailjs.send('service_6v2u03o', 'template_4bpkd6v', templateParams,{publicKey: 'OxrGU-cI0SpRng_Xg'}).then(
     (response) => {

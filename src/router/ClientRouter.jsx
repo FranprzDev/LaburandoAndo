@@ -14,7 +14,7 @@ const ClientRouter = () => {
                 <Route path='/profesionales' element={<Profesionales/>}/>
                 <Route path="/detalle/:id" element={<DetallePublicacion />} />
                 <Route path='/nosotros' element={<Nosotros/>}/>
-                <Route path='/contacto' element={<Contacto/>}/>
+                <Route path='/contacto' element={<Contacto></Contacto>}/>
             </Routes>
         </MainLayout>
     )
