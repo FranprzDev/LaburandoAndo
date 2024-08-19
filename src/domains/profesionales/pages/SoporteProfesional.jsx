@@ -8,13 +8,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 const SoporteProfesional = () => {
   return (
     <section className="mt-3 container-fluid">
-      <Breadcrumb>
-        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="/work/soporteProfesional">
-          Juan Perez
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Soporte</Breadcrumb.Item>
-      </Breadcrumb>
+      
 
       {/* formualario de contacto con el profesional */}
       <article className="container">
