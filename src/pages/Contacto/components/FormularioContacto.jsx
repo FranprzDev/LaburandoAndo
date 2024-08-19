@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import "../contacto.css";
 import { useForm } from "react-hook-form";
+import { sendEmail } from "../emailJS/email";
 const FormularioContacto = () => {
   const {
     register,
@@ -10,8 +11,10 @@ const FormularioContacto = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (e) => {
-    e.preventDefault()
+  const onSubmit = (data) => {
+    const {nombreApellido, email} = data
+    sendEmail(nombreApellido,email)
+   
   }
 
   return (
