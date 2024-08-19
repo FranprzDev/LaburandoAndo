@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-/* import { jwtDecode } from "jwt-decode"; */
+import { jwtDecode } from "jwt-decode";
 import { loginUser } from "./actions/authActions";
 
 const initialState = {
