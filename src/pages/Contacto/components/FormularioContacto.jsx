@@ -21,12 +21,20 @@ const FormularioContacto = () => {
         <Form.Group className="mb-3" controlId="formNombreApellido">
           <Form.Label>Nombre y Apellido</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
             placeholder="Ej: Juan Perez"
             {...register("nombreApellido", {
               required: "Su nombre y apellido es requerido",
+              minLength:{
+                value: 3,
+                message: "Debe escribir al menos 3 letras"
+              },
+              maxLength: {
+                value: 40,
+                message: "Debe escribir menos de 40 letras"
+              },
               pattern: {
-                value: /^[a-zA-Z\s]*$/,
+                value: /^[a-zA-Z\s]{3,40}$/,
                 message: "Ingrese un nombre y apellido válido",
               },
             })}
@@ -35,11 +43,33 @@ const FormularioContacto = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Ej: juanperez@gmail.com" />
+          <Form.Control type="email" placeholder="Ej: juanperez@gmail.com" {...register("email", {
+              required: "Su email es requerido",
+              pattern: {
+                value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                message: "Ingrese un email válido",
+              },
+            })} />
+            <div className="text-danger">{errors.email?.message}</div>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPassword">
           <Form.Label>Mensaje</Form.Label>
-          <Form.Control as="textarea" rows={5} placeholder="Contraseña" />
+          <Form.Control as="textarea" rows={5} placeholder="Ej: Tengo un problema con..." {...register("mensaje", {
+              required: "Su mensaje es requerido",
+              minLength:{
+                value: 4,
+                message: "El mínimo de carácteres es 4",
+              },
+              maxLength:{
+                value: 300,
+                message: "El máximo de carácteres es 300",
+              },
+              pattern: {
+                value: /^[a-zA-Z\s0-9]{4,300}$/,
+                message: "Ingrese un mensaje válido",
+              },
+            })} />
+            <div className="text-danger">{errors.mensaje?.message}</div>
         </Form.Group>
         <div className="text-end">
           <Button className="btnContacto w-25 border-0" type="submit">
