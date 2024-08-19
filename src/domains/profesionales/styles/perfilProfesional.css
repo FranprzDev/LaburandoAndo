@@ -9,6 +9,8 @@
 
 .imgProfileForm{
     width: 150px;
+    height: 150px;
+    border: 1px solid #f7f7f7;
 }
 
 .formProfile .btnEdit{

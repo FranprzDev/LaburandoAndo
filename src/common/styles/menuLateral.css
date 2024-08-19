@@ -1,5 +1,7 @@
 .imgProfileUser{
-    width: 100px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #f7f7f7;
 }
 
 .iconMenu{
