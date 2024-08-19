@@ -12,3 +12,7 @@
 textarea{
     resize: none;
 }
+
+.formularioContenedor{
+    max-width: 800px;
+}
