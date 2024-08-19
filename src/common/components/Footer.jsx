@@ -86,7 +86,7 @@ const Footer = () => {
                   ¿Necesitas Ayuda?
                 </Link>
                 <Link
-                  to={"/"}
+                  to={"/contacto"}
                   className="text-dark"
                 >
                   Contacto

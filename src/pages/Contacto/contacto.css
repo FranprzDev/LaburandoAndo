@@ -1,0 +1,18 @@
+:root{
+    --Violeta: #91277d;
+    --HoverVioleta: #501c46;
+}
+.btnContacto{
+    background-color: var(--Violeta);
+}
+.btnContacto:hover{
+    background-color: var(--HoverVioleta);
+}
+
+textarea{
+    resize: none;
+}
+
+.formularioContenedor{
+    max-width: 800px;
+}
