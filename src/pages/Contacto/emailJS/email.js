@@ -8,7 +8,7 @@ let templateParams = {
   };
   
 
-  emailjs.send('service_6v2u03o', 'template_4bpkd6v', templateParams).then(
+  emailjs.send('service_6v2u03o', 'template_4bpkd6v', templateParams,{publicKey: 'OxrGU-cI0SpRng_Xg'}).then(
     (response) => {
       console.log('SUCCESS!', response.status, response.text);
     },

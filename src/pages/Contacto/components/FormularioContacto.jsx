@@ -7,14 +7,14 @@ const FormularioContacto = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     const {nombreApellido, email} = data
     sendEmail(nombreApellido,email)
-   
+    reset()
   }
 
   return (
