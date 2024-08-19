@@ -6,6 +6,7 @@ import { BiSolidExit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkerForID } from "../../slices/actions/workersActions";
 import { useEffect } from "react";
+import { BiSupport } from "react-icons/bi";
 import useLogout from "../../hooks/useLogout";
 
 const MenuProfesional = () => {
@@ -117,6 +118,16 @@ const MenuProfesional = () => {
                 >
                   <TbHelpCircleFilled className="fs-4 iconMenu" />
                   <span className="align-middle">Ayuda</span>
+                </Link>
+              </li>
+              {/* soporte Prfesional */}
+              <li className="nav-item navItemOffCanvas navLink">
+                <Link
+                  className="nav-link px-0 d-flex gap-1 align-items-center navLink"
+                  to={"/work/soporteProfesional"}
+                >
+                  <BiSupport className="fs-4 iconMenu" />
+                  <span className="align-middle">Soporte</span>
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas text-start">
