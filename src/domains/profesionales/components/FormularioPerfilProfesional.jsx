@@ -41,22 +41,19 @@ const FormularioPerfilProf = ({ setLoading }) => {
     customAlert(
       "¿Estás seguro de que deseas actualizar tus datos?",
       async () => {
-        const formData = new FormData();
-        formData.append("mail", data.mail);
-        formData.append("address", data.address);
-        formData.append("phone", data.phone);
-        if (data.img && data.img[0]) {
-          formData.append("img", data.img[0]);
-        }
-
+        console.log(data.mail)
         try {
-          await instance.put(`/worker/update/${worker._id}`, formData);
+          await instance.put(`/worker/update/${worker._id}`, {
+            mail: data.mail,
+            address: data.address,
+            phone: data.phone,
+          });
           autoCloseAlert(
             "Tus datos se han actualizado correctamente",
             "success"
           );
           setEdit(!edit);
-          dispatch(fetchWorkerForID(user._id));
+          dispatch(fetchWorkerForID(worker._id));
         } catch (error) {
           autoCloseAlert("No se pudieron actualizar tus datos", "error");
           setEdit(!edit);
