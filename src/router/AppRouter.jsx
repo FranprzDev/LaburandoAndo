@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AuthRouter from "./AuthRouter";
 import ClientRouter from "./ClientRouter";

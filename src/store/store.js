@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authSlice from "../slice/authSlice";
-import postsSlice from "../slice/postsSlice";
-import workersSlice from "../slice/workersSlice";
-import registerSlice from "../slice/registerSlice";
-import categorySlice from "../slice/categorySlice";
+import authSlice from "../slices/authSlice";
+import postsSlice from "../slices/postsSlice";
+import workersSlice from "../slices/workersSlice";
+import categorySlice from "../slices/categorySlice";
+import registerSlice from "../slices/registerSlice";
 
 export const store = configureStore({
     reducer:{
