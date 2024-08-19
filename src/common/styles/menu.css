@@ -15,6 +15,7 @@
 
 .imgProfileDropdown{
     width: 75px;
+    height: 75px;
 }
 
 @media all and (min-width:768px){
