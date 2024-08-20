@@ -27,14 +27,14 @@ const CardPublicacion = ({ selectedCategory }) => {
             onClick={() => {
               navigate(`/detalle/${publicacion._id}`)
             }}
-            className="card cardPublication py-2 px-2 px-md-3 rounded-3 shadow"
+            className="card cardPost py-2 px-2 px-md-3 rounded-3 shadow"
           >
             <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
               <div className="h-100 d-flex flex-column justify-content-between align-items-center mt-lg-3">
                 <img
                   src={publicacion.worker.img}
                   alt="imagen de perfil"
-                  className="imgCardPublication border rounded-circle"
+                  className="imgcardPost border rounded-circle"
                 />
               </div>
               <div className="d-flex flex-column flex-md-row justify-content-between w-100">
@@ -95,13 +95,13 @@ const CardPublicacion = ({ selectedCategory }) => {
           </div>
         ))
       ) : (
-        <div className="card cardPublication pt-2 px-2 px-md-3 rounded-3 shadow">
+        <div className="cardPost d-flex align-items-center px-2 px-md-3 rounded-3 shadow">
           <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
-            <div className="col-6 d-flex flex-column justify-content-md-between align-items-center w-50 mx-auto">
+            <div className="d-flex flex-column justify-content-md-center align-items-center ">
               <img
                 src="https://media.discordapp.net/attachments/1271548261097934871/1271583466768564368/Imagen_de_WhatsApp_2024-08-09_a_las_18.37.56_612a8ac6.jpg?ex=66b7dde3&is=66b68c63&hm=56f0c7645bf3ca0e1028530d01f492ba11269c4f9b28ecf75f1a24f9e7da0f65&=&format=webp&width=676&height=676"
                 alt="imagen de perfil"
-                className="imgCardPublication border rounded-circle w-100"
+                className="imgcardPost border rounded-circle "
               />
             </div>
             <div className="d-flex text-center justify-content-center items-center align-items-center">

@@ -80,3 +80,19 @@ img{
         font-size: var(--fontText-xl);
     }
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #876e8f;
+  border-radius: 3px;
+  border: 2px solid #d3c5cf;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--Violeta);
+  border-radius: 3px;
+  border: 2px solid #d3c5cf;
+}
