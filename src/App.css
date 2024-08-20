@@ -5,8 +5,7 @@
   --Rosa: #ffe3fa;
   --Lavanda: #ffebfd;
   --HoverVioleta: #501c46;
-  --fontText-lg: 1.125rem; 
-  --fontText-xxl: 1.25rem;
+  --fontText-xl: 1.125rem; 
 }
 
 #root {
@@ -72,18 +71,12 @@ img{
     object-fit: cover;
 }
 
-@media all and (min-width: 992px){
+@media all and (min-width: 1200px){
     p,
     .btn, 
     .nav-link,
     button,
     label{
-        font-size: var(--fontText-lg);
-    }
-}
-
-@media all and (min-width: 1400px){
-    p{
-        font-size: var(--fontText-xxl);
+        font-size: var(--fontText-xl);
     }
 }
