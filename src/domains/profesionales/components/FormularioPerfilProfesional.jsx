@@ -14,6 +14,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
     handleSubmit,
     formState: { errors },
     setValue,
+    reset,
   } = useForm();
 
   const [edit, setEdit] = useState(true);
@@ -29,6 +30,10 @@ const FormularioPerfilProf = ({ setLoading }) => {
     }
   }, []);
 
+  useEffect(() => {
+    reset();
+  }, [user, worker]);
+
   const handleEdit = (e) => {
     e.preventDefault();
     setEdit(!edit);
@@ -41,7 +46,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
     customAlert(
       "¿Estás seguro de que deseas actualizar tus datos?",
       async () => {
-        console.log(data.mail)
+        console.log(data.mail);
         try {
           await instance.put(`/worker/update/${worker._id}`, {
             mail: data.mail,
@@ -65,7 +70,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
   const { uploadImage } = useCloudinary();
   const changeImage = async (e) => {
     const file = e.target.files[0];
-    if(!file) return;
+    if (!file) return;
 
     try {
       setLoading(true);
@@ -77,10 +82,9 @@ const FormularioPerfilProf = ({ setLoading }) => {
       autoCloseAlert("No se pudo actualizar tu foto de perfil", "error");
     } finally {
       setLoading(false);
-  }
-};
+    }
+  };
 
-  
   return (
     <Form
       className="formProfile row gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border"
