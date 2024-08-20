@@ -1,17 +1,17 @@
-.cardPublication{
+.cardPost{
     width: 100%;
     min-height: 200px;
     cursor: pointer;
     border: 1px solid #d6d4d6;
 }
 
-.cardPublication .imgCardPublication{
+.imgcardPost{
     width: 100px;
     height: 150px;
 }
 
-.cardPublication .description,
-.cardPublication .title{
+.cardPost .description,
+.cardPost .title{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -27,21 +27,21 @@
     background: #853f78;
 }
 
-.cardPublication .btnSeeProfile{
+.cardPost .btnSeeProfile{
     width: 100%;
     background: #c24ead;
 }
 
-.cardPublication .btnSeeProfile:hover{
+.cardPost .btnSeeProfile:hover{
     background: #9c2d88;
 }
 
-.cardPublication .outstanding{
+.cardPost .outstanding{
     background: #4c8cee;
 }
 
 @media all and (min-width: 768px){
-    .cardPublication .btnSeeProfile{
+    .cardPost .btnSeeProfile{
         width: 25%;
         min-width: 250px;
         background: #c24ead;
@@ -57,24 +57,24 @@
 
 
 @media all and (min-width: 992px){
-    .cardPublication .btnSeeProfile{
+    .cardPost .btnSeeProfile{
         width: 25%;
         min-width: 250px;
         background: #c24ead;
     }
 
-    .cardPublication .imgCardPublication{
+    .cardPost .imgcardPost{
         width: 150px;
     }
 }
 
 @media all and (min-width: 1400px){
-    .cardPublication{
+    .cardPost{
         transition: 0.8s;
         min-width: 850px;
     }
 
-    .cardPublication:hover{
+    .cardPost:hover{
         transition: 0.8s;
         border: 1px solid #c24ead;
     }

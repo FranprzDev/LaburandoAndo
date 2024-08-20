@@ -151,8 +151,8 @@ const FormularioPublicacion = () => {
               message: "La descripción debe tener al menos 25 caracteres",
             },
             maxLength: {
-              value: 250,
-              message: "La descripción debe tener como máximo 250 caracteres",
+              value: 500,
+              message: "La descripción debe tener como máximo 500 caracteres",
             },
           })}
         />
