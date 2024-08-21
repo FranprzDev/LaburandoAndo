@@ -1,4 +1,5 @@
-
+import ListaMensajesSoporte from "../components/ListaMensajesSoporte";
+import "../styles/soporte.css";
 
 const Soporte = () => {
     return (
@@ -13,6 +14,8 @@ const Soporte = () => {
             </li>
           </ol>
         </nav>
+        <p className="mb-0">Mensajes</p>
+        <ListaMensajesSoporte></ListaMensajesSoporte>
       </section>
     );
 };

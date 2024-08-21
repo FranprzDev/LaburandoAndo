@@ -33,6 +33,7 @@
 
 a{
   text-decoration: none;
+  cursor: pointer;
 }
 
 .input{
@@ -69,16 +70,6 @@ img{
   background: none;
 }
 
-@media all and (min-width: 1200px){
-    p,
-    .btn, 
-    .nav-link,
-    button,
-    label{
-        font-size: var(--fontText-xl);
-    }
-}
-
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -93,4 +84,14 @@ img{
   background: var(--Violeta);
   border-radius: 3px;
   border: 2px solid #d3c5cf;
+}
+
+@media all and (min-width: 1200px){
+    p,
+    .btn, 
+    .nav-link,
+    button,
+    label{
+        font-size: var(--fontText-xl);
+    }
 }
