@@ -3,14 +3,16 @@ import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deletePost } from "../../../slices/actions/postsActions";
+import useAlert from "../../../hooks/useAlertHook";
 
 const ItemPublicacion = ({ work }) => {
 
   const dispatch = useDispatch()
-
+  const {customAlert, autoCloseAlert} = useAlert()
   const handleDelete = () => {
-    dispatch(deletePost(work._id))
-    
+    customAlert("¿Desea Borrar su publicación?", () => {
+      dispatch(deletePost(work._id))
+      autoCloseAlert("Su publicacion fue borrada con éxito", "success")})
   }
 
   return (
