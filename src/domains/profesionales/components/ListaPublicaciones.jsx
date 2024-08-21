@@ -12,7 +12,7 @@ const ListaPublicaciones = () => {
 
   useEffect(() => {
     dispatch(fetchWorkerForID(user._id));
-  }, []);
+  }, [profesional]);
 
   return (
     <div

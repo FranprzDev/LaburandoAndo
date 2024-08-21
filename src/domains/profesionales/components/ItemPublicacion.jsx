@@ -1,8 +1,18 @@
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { deletePost } from "../../../slices/actions/postsActions";
 
 const ItemPublicacion = ({ work }) => {
+
+  const dispatch = useDispatch()
+
+  const handleDelete = () => {
+    dispatch(deletePost(work._id))
+    
+  }
+
   return (
     <div className="cardPostProfessional shadow rounded-2 justify-content-center justify-content-md-between gy-2 align-items-center p-2 p-md-3 border">
       <p className="fw-bold align-middle mb-1 titlePostProfesional">
@@ -14,7 +24,7 @@ const ItemPublicacion = ({ work }) => {
           <FaEdit />
         </Link>
         <a className="iconDeletePost" title="eliminar publicación">
-          <MdDelete />
+          <MdDelete onClick={handleDelete} />
         </a>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createPost, getPost, getPosts } from "./actions/postsActions";
+import { createPost, deletePost, getPost, getPosts } from "./actions/postsActions";
 
 const initialState = {
   post: null,
@@ -50,6 +50,17 @@ const postSlice = createSlice({
       })
       .addCase(createPost.rejected, (state, action) => {
         state.createPostStatus = "denegado";
+        state.error = action.error.message;
+      })
+      .addCase(deletePost.pending, (state) => {
+        state.createPostStatus = "cargando";
+      })
+      .addCase(deletePost.fulfilled, (state, action) => {
+        state.status = "exitoso";
+        state.posts = state.posts.filter(item => item.id !== action.payload);
+      })
+      .addCase(deletePost.rejected, (state, action) => {
+        state.status = "denegado";
         state.error = action.error.message;
       });
   },
