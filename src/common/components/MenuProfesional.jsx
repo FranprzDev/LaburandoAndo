@@ -133,6 +133,11 @@ const MenuProfesional = () => {
                 >
                   <BiSupport className="fs-4 iconMenu" />
                   <span className="align-middle">Soporte</span>
+                  {userJwt?.role !== "worker" && (
+                    <span className="rounded-circle px-2 bg-primary text-white">
+                      5
+                    </span>
+                  )}
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas text-start">
