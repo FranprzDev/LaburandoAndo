@@ -44,7 +44,7 @@ const MenuProfesional = () => {
           <figcaption className="fw-bold fs-5">
             {worker ? worker?.fullname : "Admin"}
           </figcaption>
-          <figcaption>{worker ? worker?.address : ""}</figcaption>
+          <figcaption>{worker ? worker?.address : "Remoto"}</figcaption>
         </figure>
         <button
           className="navbar-toggler"
