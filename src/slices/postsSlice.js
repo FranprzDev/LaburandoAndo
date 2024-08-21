@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createPost, deletePost, getPost, getPosts } from "./actions/postsActions";
+import {
+  createPost,
+  deletePost,
+  getPost,
+  getPosts,
+} from "./actions/postsActions";
 
 const initialState = {
   post: null,
@@ -57,7 +62,7 @@ const postSlice = createSlice({
       })
       .addCase(deletePost.fulfilled, (state, action) => {
         state.status = "exitoso";
-        state.posts = state.posts.filter(item => item.id !== action.payload);
+        state.posts = state.posts.filter((item) => item.id !== action.payload);
       })
       .addCase(deletePost.rejected, (state, action) => {
         state.status = "denegado";

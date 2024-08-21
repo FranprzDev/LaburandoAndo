@@ -6,14 +6,14 @@ import { deletePost } from "../../../slices/actions/postsActions";
 import useAlert from "../../../hooks/useAlertHook";
 
 const ItemPublicacion = ({ work }) => {
-
-  const dispatch = useDispatch()
-  const {customAlert, autoCloseAlert} = useAlert()
+  const dispatch = useDispatch();
+  const { customAlert, autoCloseAlert } = useAlert();
   const handleDelete = () => {
     customAlert("¿Desea Borrar su publicación?", () => {
-      dispatch(deletePost(work._id))
-      autoCloseAlert("Su publicacion fue borrada con éxito", "success")})
-  }
+      dispatch(deletePost(work._id));
+      autoCloseAlert("Su publicacion fue borrada con éxito", "success");
+    });
+  };
 
   return (
     <div className="cardPostProfessional shadow rounded-2 justify-content-center justify-content-md-between gy-2 align-items-center p-2 p-md-3 border">
