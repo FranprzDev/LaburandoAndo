@@ -37,7 +37,7 @@ const FormularioPublicacion = () => {
     <Form className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border" onSubmit={handleSubmit(handlePost)}>
       <PostModalComponent postCreateState={postCreateState} />
       <p>
-        Campo Obligatorio &#40; <span className="text-danger fs-5">*</span>{" "}
+        Campo Obligatorio &#40; <span className="text-danger">*</span>{" "}
         &#41;
       </p>
 
@@ -46,7 +46,7 @@ const FormularioPublicacion = () => {
           htmlFor="title"
           className="w-100 text-lg-start fw-medium fontSizeLabel mb-0 mb-md-1"
         >
-          Título del anuncio <span className="text-danger fs-5">*</span>
+          Título del anuncio <span className="text-danger">*</span>
         </Form.Label>
         <Form.Control
           as="textarea"
@@ -76,7 +76,7 @@ const FormularioPublicacion = () => {
             htmlFor="category"
             className="w-100 text-lg-start fw-medium fontSizeLabel mb-0 mb-md-1"
           >
-            Categoría <span className="text-danger fs-5">*</span>
+            Categoría <span className="text-danger">*</span>
           </Form.Label>
           <Form.Select
             type="text"
@@ -105,7 +105,7 @@ const FormularioPublicacion = () => {
             htmlFor="price"
             className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
           >
-            Precio por hora <span className="text-danger fs-5">*</span>
+            Precio por hora <span className="text-danger">*</span>
           </Form.Label>
           <Form.Control
             type="number"

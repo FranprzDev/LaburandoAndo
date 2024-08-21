@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
+import { FaSquareInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -37,7 +37,7 @@ const Footer = () => {
                   <FaFacebook className="fs-1 text-primary" />
                 </Link>
                 <Link>
-                  <FaInstagramSquare className="fs-1 ms-2 instagramLogo" />
+                <FaSquareInstagram className="fs-1 iconInstagram"/>
                 </Link>
               </article>
             </div>

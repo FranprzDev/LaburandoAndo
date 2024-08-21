@@ -27,12 +27,8 @@ const RegistroProfesional = () => {
             <h2 className="fw-bold">¿Eres un profesional independiente?</h2>
             <h3>¡Regístrate, ofrece tus servicios y llega a más personas!</h3>
             <Link
-              className="btn btnRegister"
-              to={
-                user?.role === "client" || user?.role === "worker"
-                  ? "/"
-                  : "/auth/register"
-              }
+              className={`${user ? "d-none" : "btn btnRegister"}`}
+              to={"/auth/register"}
             >
               Registrarme
             </Link>

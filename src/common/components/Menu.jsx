@@ -3,10 +3,11 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BiSolidExit } from "react-icons/bi";
 import { FaListAlt, FaUser, FaWpforms } from "react-icons/fa";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/menu.css";
 import useLogout from "../../hooks/useLogout";
+import image from "../../img/Logo.jpg";
 
 const Menu = () => {
   const user = useSelector((state) => state.auth.user);
@@ -39,12 +40,12 @@ const Menu = () => {
                 Publicar Anuncio
               </Link>
             )}
-            {user?.role !== "worker" && user?.role !== "client" && (
+            {user?.role !== "worker" && user?.role !== "client" && user?.role !== "admin" && (
               <Link className="btn btn-Profesional me-3" to="/auth/register">
                 Anúnciate como profesional
               </Link>
             )}
-            {user?.role !== "worker" && user?.role !== "client" && (
+            {user?.role !== "worker" && user?.role !== "client" && user?.role !== "admin" && (
               <Link
                 className="nav-link d-flex align-items-center gap-1 me-3"
                 to="/auth/login"
@@ -55,9 +56,9 @@ const Menu = () => {
                 <span>Ingresar</span>
               </Link>
             )}
-            {user?.role === "worker" && (
+            {user?.role === "admin" || user?.role === "worker"  && (
               <>
-                <Link className="nav-link d-lg-none" to="/work/mi-perfil">
+                <Link className="nav-link d-lg-none" to={`${user?.role === "worker" ? "/work/mi-perfil" : "/admin/clientes"}`}>
                   Mi cuenta
                 </Link>
                 <button
@@ -73,36 +74,36 @@ const Menu = () => {
                 >
                   <div className="w-100 text-center">
                     <img
-                      src={user.img}
+                      src={`${user?.role === "worker" ? `${user.img}` : `${image}`}`}
                       alt="imagen de perfil"
                       title="imagen de perfil"
                       className="rounded-circle shadow imgProfileDropdown mx-auto"
                     />
                   </div>
-                  <p className="fw-bold text-center my-1">{user.fullname}</p>
+                  <p className="fw-bold text-center my-1">{`${user?.role === "worker" ? `${user.fullname}` : `Admin`}`}</p>
                   <NavDropdown.Item
                     as={Link}
-                    to={"/work/mi-perfil"}
+                    to={`${user?.role === "worker" ? `/work/mi-perfil` : `/admin/clientes`}`}
                     className="d-flex gap-2 align-items-center px-2"
                   >
                     <FaUser className="fs-5 iconMenu" />{" "}
-                    <span className="align-middle">Mi Perfil</span>
+                    <span className="align-middle">{`${user?.role === "worker" ? `Mi perfil` : `Clientes`}`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
-                    to={"/work/publicar-anuncio"}
+                    to={`${user?.role === "worker" ? `/work/publicar-anuncio` : `/admin/profesionales`}`}
                     className="d-flex gap-2 align-items-center px-2"
                   >
                     <FaWpforms className="fs-5 iconMenu" />{" "}
-                    <span className="align-middle">Publicar Anuncio</span>
+                    <span className="align-middle">{`${user?.role === "worker" ? `Publicar Anuncio` : `Profesionales`}`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     className="d-flex gap-2 align-items-center px-2"
                     as={Link}
-                    to={"/work/mis-publicaciones"}
+                    to={`${user?.role === "worker" ? `/work/mis-publicaciones` : `/admin/categorias`}`}
                   >
                     <FaListAlt className="fs-5 iconMenu" />
-                    <span className="align-middle">Mis publicaciones</span>
+                    <span className="align-middle">{`${user?.role === "worker" ? `Mis publicaciones` : `Categorías`}`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <button

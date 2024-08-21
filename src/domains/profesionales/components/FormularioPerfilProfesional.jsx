@@ -101,7 +101,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
           <Form.Control
             type="text"
             id="name"
-            className="input px-0 border-start-0 border-end-0 border-top-0 border-bottom rounded-0"
+            className="input rounded-2"
             title="tu nombre y apellido"
             value={worker ? worker.fullname : ""}
             disabled={true}
@@ -117,7 +117,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
           <Form.Control
             type="email"
             id="email"
-            className="input px-0 border-start-0 border-end-0 border-top-0 border-bottom rounded-0"
+            className="input rounded-2"
             title="tu dirección de correo electrónico"
             disabled={edit}
             defaultValue={worker ? worker.mail : ""}
@@ -141,7 +141,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
           <Form.Control
             type="text"
             id="ubication"
-            className="input px-0 border-start-0 border-end-0 border-top-0 border-bottom rounded-0"
+            className="input rounded-2"
             title="tu ubicación actual"
             disabled={edit}
             defaultValue={worker ? worker.address : ""}
@@ -167,7 +167,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
           <Form.Control
             type="text"
             id="wpp"
-            className="input px-0 border-start-0 border-end-0 border-top-0 border-bottom rounded-0"
+            className="input rounded-2"
             title="tu número de WhatsApp"
             disabled={edit}
             defaultValue={worker ? worker.phone : ""}

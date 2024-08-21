@@ -7,11 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkerForID } from "../../slices/actions/workersActions";
 import { useEffect } from "react";
 import { BiSupport } from "react-icons/bi";
+import { GrUserWorker } from "react-icons/gr";
+import { FaUsers } from "react-icons/fa";
 import useLogout from "../../hooks/useLogout";
 
 const MenuProfesional = () => {
-  
-  const userJwt = useSelector((state)=> state.auth.user);
+  const userJwt = useSelector((state) => state.auth.user);
   const worker = useSelector((state) => state.workers.worker);
 
   const dispatch = useDispatch();
@@ -40,8 +41,10 @@ const MenuProfesional = () => {
             title="imagen de perfil"
             className="rounded-circle shadow imgProfileUser"
           />
-          <figcaption className="fw-medium fs-5">{worker ? worker?.fullname : ""}</figcaption>
-          <figcaption>{worker ? worker?.address : ""}</figcaption>
+          <figcaption className="fw-bold fs-5">
+            {worker ? worker?.fullname : "Admin"}
+          </figcaption>
+          <figcaption>{worker ? worker?.address : "Remoto"}</figcaption>
         </figure>
         <button
           className="navbar-toggler"
@@ -69,69 +72,79 @@ const MenuProfesional = () => {
               className="rounded-circle shadow imgProfileUser"
             />
             <figcaption className="fw-bold fs-5">
-              { worker ? worker.fullname : ""}
+              {worker ? worker.fullname : "Admin"}
             </figcaption>
-            <figcaption>{ worker ? worker.address : ""}</figcaption>
+            <figcaption>{worker ? worker.address : ""}</figcaption>
           </figure>
           <div className="offcanvas-body d-flex justify-content-md-center ps-xxl-4">
             <ul className="navbar-nav d-flex flex-column justify-content-start mt-3">
-              {/* <li className="nav-item navItemOffCanvas w-100">
-                <Link
-                  className="nav-link px-0 d-flex gap-2 align-items-center navLink w-100 "
-                  to={"/"}
-                >
-                  <FaHome className="fs-5 iconMenu" />{" "}
-                  <span className="align-middle">Home</span>
-                </Link>
-              </li> */}
               <li className="nav-item mt-xl-3 navItemOffCanvas ">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink"
-                  to={"/work/mi-perfil"}
+                  to={`${worker ? "/work/mi-perfil" : "/admin/clientes"}`}
                 >
-                  <FaUser className="fs-5 iconMenu" />{" "}
-                  <span className="align-middle">Mi Perfil</span>
+                  {worker ? (
+                    <FaUser className="fs-5 iconMenu" />
+                  ) : (
+                    <FaUsers className="fs-5 iconMenu" />
+                  )}
+
+                  <span className="align-middle">
+                    {worker ? "Mi perfil" : "Clientes"}
+                  </span>
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas d-flex gap-2 align-items-center">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink"
-                  to={"/work/publicar-anuncio"}
+                  to={`${
+                    worker ? "/work/publicar-anuncio" : "/admin/profesionales"
+                  }`}
                 >
-                  <FaWpforms className="fs-5 iconMenu" />{" "}
-                  <span className="align-middle">Publicar Anuncio</span>
+                  {worker ? (
+                    <FaWpforms className="fs-5 iconMenu" />
+                  ) : (
+                    <GrUserWorker className="fs-5 iconMenu" />
+                  )}{" "}
+                  <span className="align-middle">
+                    {worker ? "Publicar Anuncio" : "Profesionales"}
+                  </span>
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas ">
                 <Link
                   className="nav-link px-0 d-flex gap-2 align-items-center navLink"
-                  to={"/work/mis-publicaciones"}
+                  to={`${
+                    worker ? "/work/mis-publicaciones" : "/admin/categorias"
+                  }`}
                 >
                   <FaListAlt className="fs-5 iconMenu" />
-                  <span className="align-middle">Mis publicaciones</span>
+                  <span className="align-middle">
+                    {worker ? "Mis publicaciones" : "Categorías"}
+                  </span>
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas navLink">
                 <Link
                   className="nav-link px-0 d-flex gap-1 align-items-center navLink"
-                  to={"/*"}
-                >
-                  <TbHelpCircleFilled className="fs-4 iconMenu" />
-                  <span className="align-middle">Ayuda</span>
-                </Link>
-              </li>
-              {/* soporte Prfesional */}
-              <li className="nav-item navItemOffCanvas navLink">
-                <Link
-                  className="nav-link px-0 d-flex gap-1 align-items-center navLink"
-                  to={"/work/soporteProfesional"}
+                  to={`${
+                    worker ? "/work/soporteProfesional" : "/admin/soporte"
+                  }`}
                 >
                   <BiSupport className="fs-4 iconMenu" />
                   <span className="align-middle">Soporte</span>
+                  {userJwt?.role !== "worker" && (
+                    <span className="rounded-circle px-2 bg-primary text-white">
+                      5
+                    </span>
+                  )}
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas text-start">
-                <button className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center navLink" onClick={cerrarSesion}>
+                <button
+                  className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center navLink"
+                  onClick={cerrarSesion}
+                >
                   <BiSolidExit className="fs-4 iconMenu" />
                   <span className="align-middle">Salir</span>
                 </button>
