@@ -56,7 +56,7 @@ const Menu = () => {
                 <span>Ingresar</span>
               </Link>
             )}
-            {user?.role === "worker" || user?.role === "admin" && (
+            {user?.role === "admin" || user?.role === "worker"  && (
               <>
                 <Link className="nav-link d-lg-none" to={`${user?.role === "worker" ? "/work/mi-perfil" : "/admin/clientes"}`}>
                   Mi cuenta

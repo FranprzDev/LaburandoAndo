@@ -45,10 +45,10 @@ const DetallePublicacion = () => {
             <div>
               <Card.Body className="d-flex flex-column justify-content-center align-items-center pb-0 pb-md-2">
                 <Image src={logo} roundedCircle className="imgProfessional " />
-                <Card.Title className="mb-0">
+                <Card.Title className="mb-0 fw-bold">
                   {profesional?.worker.fullname}
                 </Card.Title>
-                <Card.Text>{profesional?.worker.address}</Card.Text>
+                <Card.Text className="text-center">{profesional?.worker.address}</Card.Text>
                 <Card.Subtitle className="mb-2 text-muted d-flex gap-3">
                   <div className=" d-flex justify-content-center">
                     <FaStar className="me-2 text-warning fs-5" />
@@ -78,7 +78,7 @@ const DetallePublicacion = () => {
                 </span>
               ))}
             </div>
-            <h2 className="mt-3">{profesional?.title}</h2>
+            <h2 className="mt-3 fw-bold">{profesional?.title}</h2>
             <p className="fw-bold mt-md-3 mb-0 mb-md-1">
               Descripción del anuncio
             </p>

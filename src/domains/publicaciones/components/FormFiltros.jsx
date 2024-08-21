@@ -27,7 +27,7 @@ const FormFiltros = ({ onCategoryChange }) => {
       <Accordion.Item eventKey="0" show>
         <Accordion.Header>Filtrar por:</Accordion.Header>
         <Accordion.Body>
-          <div className="border p-2 p-md-3 rounded-2 bg-white">
+          <div className=" rounded-2 bg-white">
             <div className="input-group mb-2">
               <label className="form-label fw-medium mb-0 mb-md-1">
                 Nombre
@@ -36,7 +36,6 @@ const FormFiltros = ({ onCategoryChange }) => {
                 type="text"
                 className="form-control input w-100 rounded-2"
                 placeholder="Juan Perez"
-                disabled={true}
               />
             </div>
             <div className="input-group mb-2 mb-md-3">
@@ -47,7 +46,6 @@ const FormFiltros = ({ onCategoryChange }) => {
                 type="text"
                 className="form-control input w-100 rounded-2"
                 placeholder="Yerba Buena, Tucumán"
-                disabled={true}
               />
             </div>
             <div className="input-group mb-2 mb-md-3">

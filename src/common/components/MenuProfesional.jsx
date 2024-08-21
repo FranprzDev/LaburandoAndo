@@ -41,7 +41,7 @@ const MenuProfesional = () => {
             title="imagen de perfil"
             className="rounded-circle shadow imgProfileUser"
           />
-          <figcaption className="fw-medium fs-5">
+          <figcaption className="fw-bold fs-5">
             {worker ? worker?.fullname : "Admin"}
           </figcaption>
           <figcaption>{worker ? worker?.address : ""}</figcaption>
