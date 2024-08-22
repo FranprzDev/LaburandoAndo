@@ -32,3 +32,8 @@ export const createPost = createAsyncThunk(
     console.log(res.data.data);
     return res.data.data;
   });
+
+  export const deletePost = createAsyncThunk("work/Delete", async(id) => {
+    const res = await instance.delete(`/work/${id}`)
+    return id
+  })
