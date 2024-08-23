@@ -1,0 +1,13 @@
+.cardMessage {
+  width: 100%;
+}
+
+.descriptionMessage{
+    background: #f2f2f7;
+}
+
+@media all and (min-width: 1400px) {
+  .containerMessages {
+    max-width: 50%;
+  }
+}

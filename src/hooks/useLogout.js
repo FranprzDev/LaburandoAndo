@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
-import { logout } from "../slice/authSlice";
+import { logout } from "../slices/authSlice";
 
 const useLogout = () => {
   const dispatch = useDispatch();
