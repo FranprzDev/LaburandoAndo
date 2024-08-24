@@ -74,7 +74,7 @@ const Opiniones = () => {
 
   const opinionesFiltradas = filtroCalificacion
     ? opiniones.filter((opinion) => opinion.calificacion === filtroCalificacion)
-    : opiniones;
+    : opiniones;  
 
   return (
     <Container className="containerOpinions mt-5 px-0">
@@ -114,7 +114,7 @@ const Opiniones = () => {
         </article>
         <article className="col-lg-7 col-xl-8 d-flex flex-column gap-2 order-1 ">
       
-          {opinionesFiltradas.map((opinion, index) => (
+          {/* {opinionesFiltradas.map((opinion, index) => (
             <div
               key={index}
               className="cardOpinion w-100 d-flex flex-column gap-3 border rounded-2 p-3"
@@ -135,7 +135,7 @@ const Opiniones = () => {
 
               <p className="mb-0">{opinion.opinion}</p>
             </div>
-          ))}
+          ))} */}
         </article>
         <article className="order-lg-1 col-lg-5 col-xl-4">
         <h3>Deja tu reseña</h3>
