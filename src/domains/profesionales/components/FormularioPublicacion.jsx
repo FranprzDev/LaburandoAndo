@@ -4,41 +4,59 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import PostModalComponent from "../../../components/PostModalComponents";
 import { fetchCategories } from "../../../slices/actions/categoryActions";
-import { createPost } from "../../../slices/actions/postsActions";
+import { createPost, getPost } from "../../../slices/actions/postsActions";
 
-const FormularioPublicacion = () => {
+const FormularioPublicacion = ({ id }) => {
+  const post = useSelector((state) => state.posts.post);
   const categorias = useSelector((state) => state.categories.categories);
   const status = useSelector((state) => state.categories.status);
   const createPostStatus = useSelector((state) => state.posts.createPostStatus);
-  const userLogeado = useSelector((state)=>state.auth.user);
+  const userLogeado = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
-
+  console.log(id);
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
-  const postCreateState = useMemo(() => { return createPostStatus }, [createPostStatus])
+  const postCreateState = useMemo(() => {
+    return createPostStatus;
+  }, [createPostStatus]);
 
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchCategories());
+    } else {
+      if (id) {
+        dispatch(getPost(id));
+      }
+      else{
+        reset({
+          title: "",
+          categoryId: "",
+          description: "",
+          price: ""
+        })
+      }
     }
-  }, []);
-
+  }, [id,post,reset]);
+  console.log(post)
   const handlePost = async (post) => {
-    dispatch(createPost({id: userLogeado._id, post: post}));
+    dispatch(createPost({ id: userLogeado._id, post: post }));
     reset();
-  }
+  };
 
   return (
-    <Form className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border" onSubmit={handleSubmit(handlePost)}>
+    <Form
+      className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border"
+      onSubmit={handleSubmit(handlePost)}
+    >
       <PostModalComponent postCreateState={postCreateState} />
       <p>
-        Campo Obligatorio &#40; <span className="text-danger">*</span>{" "}
-        &#41;
+        Campo Obligatorio &#40; <span className="text-danger">*</span> &#41;
       </p>
 
       <Form.Group className="mb-2 mb-md-3">
@@ -50,6 +68,7 @@ const FormularioPublicacion = () => {
         </Form.Label>
         <Form.Control
           as="textarea"
+          value={post ? post.title : ''}
           id="title"
           className="rounded-2 input"
           title="Ingresa el título del anuncio"
@@ -66,9 +85,7 @@ const FormularioPublicacion = () => {
             },
           })}
         />
-        <div className="text-danger text-start">
-          {errors.title?.message}
-        </div>
+        <div className="text-danger text-start">{errors.title?.message}</div>
       </Form.Group>
       <div className="row">
         <Form.Group className="mb-2 mb-md-3 col-md-8">
@@ -91,14 +108,14 @@ const FormularioPublicacion = () => {
             {status === "exitoso" &&
               categorias &&
               categorias.map((c) => (
-                <option key={c._id} value={`${c._id}`}>
+                <option key={c._id} selected={post ? post.category[0].name === c.name : ''} value={`${c._id}`}>
                   {c.name}
                 </option>
               ))}
           </Form.Select>
           <div className="text-danger text-start">
-          {errors.categoryId?.message}
-        </div>
+            {errors.categoryId?.message}
+          </div>
         </Form.Group>
         <Form.Group className="col-md-4 mb-2 mb-md-3">
           <Form.Label
@@ -110,6 +127,7 @@ const FormularioPublicacion = () => {
           <Form.Control
             type="number"
             id="price"
+            value={post ? post.pricePerHour : ""}
             className="rounded-2 input"
             title="Ingresa el sitio web de tu negocio en caso de tener"
             placeholder="5000"
@@ -125,9 +143,7 @@ const FormularioPublicacion = () => {
               },
             })}
           />
-          <div className="text-danger text-start">
-          {errors.price?.message}
-        </div>
+          <div className="text-danger text-start">{errors.price?.message}</div>
         </Form.Group>
       </div>
 
@@ -141,6 +157,7 @@ const FormularioPublicacion = () => {
         <Form.Control
           as="textarea"
           id="description"
+          value={post ? post.description : ""}
           className="rounded-2 input textareaDescription"
           title="Ingresa una breve presentación sobre ti y del anuncio"
           placeholder="Hola, me llamo juan y soy electricista con mas de 5 años de exp...."
@@ -164,9 +181,8 @@ const FormularioPublicacion = () => {
         <button
           type="submit"
           className="px-3 px-md-5 py-2 btnPost rounded-2 text-white border-0"
-          
         >
-          Publicar anuncio
+          {post ? "Editar Anuncio" : "Publicar Anuncio"}
         </button>
       </div>
     </Form>

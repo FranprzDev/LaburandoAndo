@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const PublicacionProfesional = () => {
   const {id} = useParams()
-  console.log(id)
   const user = useSelector((state) => state.auth.user);
 
   return (
@@ -16,11 +15,11 @@ const PublicacionProfesional = () => {
             {user.fullname}
           </li>
           <li className="breadcrumb-item text-primary">
-            Publicar Anuncio
+            {id ? "Editar Anuncio" : "Publicar Anuncio"}
           </li>
         </ol>
       </nav>
-      <FormularioPublicacion/>
+      <FormularioPublicacion id={id}/>
     </section>
   );
 };
