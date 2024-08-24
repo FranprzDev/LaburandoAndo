@@ -13,8 +13,6 @@ const FormularioPublicacion = ({ id }) => {
   const createPostStatus = useSelector((state) => state.posts.createPostStatus);
   const userLogeado = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
-  console.log(id);
-  
   const {
     register,
     handleSubmit,
@@ -31,28 +29,37 @@ const FormularioPublicacion = ({ id }) => {
       dispatch(fetchCategories());
     } else {
       if (id) {
-        dispatch(getPost(id));
+        dispatch(getPost(id))
       }
       else{
         reset({
           title: "",
           categoryId: "",
           description: "",
-          price: ""
+          pricePerHour: ""
         })
       }
     }
-  }, [id,post,reset]);
-  console.log(post)
+  }, [id,status,dispatch]);
+
   const handlePost = async (post) => {
     dispatch(createPost({ id: userLogeado._id, post: post }));
     reset();
   };
 
+  const handleUpdate = (data) =>{
+    console.log(data)
+  }
+
+  if(status !== "exitoso")
+  {
+    return <div>Cargando...</div>
+  }
+
   return (
     <Form
       className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border"
-      onSubmit={handleSubmit(handlePost)}
+      onSubmit={handleSubmit(id ? handleUpdate : handlePost)}
     >
       <PostModalComponent postCreateState={postCreateState} />
       <p>
@@ -182,7 +189,7 @@ const FormularioPublicacion = ({ id }) => {
           type="submit"
           className="px-3 px-md-5 py-2 btnPost rounded-2 text-white border-0"
         >
-          {post ? "Editar Anuncio" : "Publicar Anuncio"}
+          {id ? "Editar Anuncio" : "Publicar Anuncio"}
         </button>
       </div>
     </Form>
