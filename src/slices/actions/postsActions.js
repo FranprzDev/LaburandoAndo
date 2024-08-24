@@ -37,3 +37,12 @@ export const createPost = createAsyncThunk(
     const res = await instance.delete(`/work/${id}`)
     return id
   })
+
+  export const updatePost = createAsyncThunk("work/Update", async(id,data) => {
+    try {
+      const res = await instance.put(`/work/${id}`, data)
+      return id
+    } catch (error) {
+      console.log(error)
+    }
+  })

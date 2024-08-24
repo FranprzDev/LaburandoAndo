@@ -4,6 +4,7 @@ import {
   deletePost,
   getPost,
   getPosts,
+  updatePost,
 } from "./actions/postsActions";
 
 const initialState = {
@@ -65,6 +66,18 @@ const postSlice = createSlice({
         state.posts = state.posts.filter((item) => item.id !== action.payload);
       })
       .addCase(deletePost.rejected, (state, action) => {
+        state.status = "denegado";
+        state.error = action.error.message;
+      })
+      .addCase(updatePost.pending, (state, action) => {
+        state.status = "idle";
+        state.error = action.error.message;
+      })
+      .addCase(updatePost.fulfilled, (state, action) => {
+        state.status = "exitoso";
+        state.post = action.payload;
+      })
+      .addCase(updatePost.rejected, (state, action) => {
         state.status = "denegado";
         state.error = action.error.message;
       });
