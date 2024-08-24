@@ -1,9 +1,11 @@
+import { useParams } from "react-router-dom";
 import FormularioPublicacion from "../components/FormularioPublicacion";
 import "../styles/publicacionProfesional.css";
 import { useSelector } from "react-redux";
 
 const PublicacionProfesional = () => {
-
+  const {id} = useParams()
+  console.log(id)
   const user = useSelector((state) => state.auth.user);
 
   return (
