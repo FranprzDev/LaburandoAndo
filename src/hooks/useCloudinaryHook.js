@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import axios from 'axios';
 import useAlert from './useAlertHook';
 
@@ -13,7 +13,6 @@ export const useCloudinary = () => {
     const { autoCloseAlert } = useAlert();
 
     const uploadImage = async (file, folderName) => {
-        setLoading(true);
         setError(null);
         let url;
 
@@ -28,8 +27,6 @@ export const useCloudinary = () => {
         } catch (error) {
             setError(error);
             console.log(error);
-        } finally {
-            setLoading(false);
         }
 
         return url;
@@ -55,6 +52,7 @@ export const useCloudinary = () => {
         uploadImage,
         readImage,
         loading,
+        setLoading,
         error,
         previewImage
     };

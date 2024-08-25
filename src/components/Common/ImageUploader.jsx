@@ -1,30 +1,26 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { changePhoto } from "../../slices/registerSlice";
 import { useCloudinary } from "../../hooks/useCloudinaryHook";
-import Swal from "sweetalert2";
-
+import Loader from "../loaders/Loader";
 const ImageUploader = () => {
-  const [file, setFile] = useState(null);
 
-  const { uploadImage } = useCloudinary();
 
   const dispatch = useDispatch();
+  const { loading } = useCloudinary();
 
 
-  const handleFileChange = async (e) => {
-    setFile(e.target.files[0]);
-    const file = e.target.files[0];
-    
-    if (file) {
-      const link = await uploadImage(file);
 
-      link && dispatch(changePhoto(link));
-    }
-  };
+
+  useEffect(() => {
+    console.log("El estado actual es: ", loading)
+  }, [loading])
 
   return (
     <div className="d-flex align-items-center justify-content-center position-relative mb-3 flex-column">
+      {
+        loading && <Loader />
+      }
       <label
         htmlFor="file-upload"
         className="btn uploadPlusButton rounded-circle d-flex align-items-center justify-content-center"

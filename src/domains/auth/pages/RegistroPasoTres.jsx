@@ -1,17 +1,16 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/registroPasoTres.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import ImageUploader from "../../../components/Common/ImageUploader";
 import { useCloudinary } from "../../../hooks/useCloudinaryHook";
 import { createProfessional } from "../../../slices/actions/registerActions";
-import { setAditionalValues } from "../../../slices/registerSlice";
-
+import { changePhoto, resetProfessional, setAditionalValues } from "../../../slices/registerSlice";
+import Loader from "../../../components/loaders/Loader";
+import useAlert from "../../../hooks/useAlertHook";
 
 const RegistroPasoTres = () => {
   const {
@@ -20,42 +19,56 @@ const RegistroPasoTres = () => {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
+  const [file, setFile] = useState(null);
   const navigate = useNavigate();
-
   const type = useSelector((state) => state.register.form.type);
+  const statusProfessional = useSelector((state) => state.register.statusProfessional);
+  const { loading, setLoading } = useCloudinary();
 
-  const state = useSelector((state) => state.register);
+  const { uploadImage } = useCloudinary();
+  const { autoCloseAlert } = useAlert();
 
-  const { loading } = useCloudinary();
-  const load = useMemo(() => loading, [loading]);
-
-  useEffect(() => {
-    if (state && state.stateSync === "error") {
-      Swal.fire({
-        icon: "error",
-        title: "No se pudo iniciar sesión",
-        text: "Los datos ingresadodsdsdss no son correctos.",
-      });
-    }
-    if (state && state.stateSync === "exitoso" && type === "Professional") {
-      Swal.fire({
-        icon: "success",
-        title: "Se creo tu cuenta, inicia sesión para poder acceder al panel.",
-      });
-      navigate("../../auth/login");
-    }
-  }, [state]);
-
-  const onSubmit = (data) => {
-    dispatch(setAditionalValues(data));
+  const load = useMemo(() => loading ? <Loader /> : null, [loading]);
+  
+  const handleFileChange = async (e) => {
+    setLoading(true)
+    setFile(e.target.files[0]);
+    const file = e.target.files[0];
     
-    if (type === "Professional") {
-      dispatch(createProfessional());
+    if (file) {
+      const link = await uploadImage(file);
+      link && dispatch(changePhoto(link));
+      setLoading(false)
     }
   };
 
+  const onSubmit = (data) => {
+    dispatch(setAditionalValues(data));
+
+    if (type === "Professional") {
+      dispatch(createProfessional());
+      
+    }
+  };
+
+  useEffect(() => {
+
+    if (statusProfessional === "exitoso") {
+      autoCloseAlert("Cuenta creada con éxito", "success");
+      navigate("/auth/login");
+    }
+    if (statusProfessional === "error") {
+      autoCloseAlert("Hubo un error al crear la cuenta", "error");
+      navigate("/auth/register");
+    }
+    dispatch(resetProfessional());
+  }, [statusProfessional]);
+
   return (
     <Container className="py-3 py-md-5 px-2 mx-sm-auto mainSection">
+      {
+       load
+      }
       <div className="text-md-center mx-auto d-flex flex-column align-items-center justify-content-center">
         <h1>Añade datos a tu perfil</h1>
         <p>Completá los datos que se muestran a continuación.</p>
@@ -105,10 +118,56 @@ const RegistroPasoTres = () => {
               </div>
             </Col>
             <Col lg={4} className="d-flex justify-content-center flex-column">
-                  <ImageUploader/>
+              <div className="d-flex align-items-center justify-content-center position-relative mb-3 flex-column">
+                <label
+                  htmlFor="file-upload"
+                  className="btn uploadPlusButton rounded-circle d-flex align-items-center justify-content-center"
+                  style={{ width: "6rem", height: "6rem" }}
+                >
+                  <input
+                    id="file-upload"
+                    type="file"
+                    className={`d-none ${
+                      !file ? "uploadButtonDefaultValue" : ""
+                    }`}
+                    accept="image/jpeg, image/png"
+                    onChange={handleFileChange}
+                    defaultValue={file ? file.name : ""}
+                  />
+                  <div className="position-relative">
+                    <div
+                      className="position-absolute"
+                      style={{
+                        top: "0px",
+                        left: "0px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    >
+                      <div className="uploadButton text-white rounded-circle p-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="bi bi-plus-lg"
+                        >
+                          <path d="M5 12h14" />
+                          <path d="M12 5v14" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+                {file && <div className="mt-2 text-center">{file.name}</div>}
+              </div>
             </Col>
             <div className="text-center d-flex justify-content-end gap-2">
-              <button className="btn btnCreateAccount mt-lg-4" type="submit" disabled={load}>
+              <button className="btn btnCreateAccount mt-lg-4" type="submit" disabled={loading}>
                 Crear cuenta
               </button>
             </div>
