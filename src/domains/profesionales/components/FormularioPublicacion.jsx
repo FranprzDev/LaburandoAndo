@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import PostModalComponent from "../../../components/PostModalComponents";
 import { fetchCategories } from "../../../slices/actions/categoryActions";
-import { createPost, getPost } from "../../../slices/actions/postsActions";
+import { createPost, getPost, updatePost } from "../../../slices/actions/postsActions";
 
 const FormularioPublicacion = ({ id }) => {
   const post = useSelector((state) => state.posts.post);
@@ -18,6 +18,7 @@ const FormularioPublicacion = ({ id }) => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm();
 
   const postCreateState = useMemo(() => {
@@ -42,13 +43,26 @@ const FormularioPublicacion = ({ id }) => {
     }
   }, [id,status,dispatch]);
 
+  useEffect(() => {
+    if (id && post) {
+      setValue("title", post.title);
+      setValue("categoryId", post.category[0]?._id || '');
+      setValue("price", post.pricePerHour);
+      setValue("description", post.description);
+    }
+    else{
+      reset()
+    }
+  }, [post, setValue]);
+
   const handlePost = async (post) => {
     dispatch(createPost({ id: userLogeado._id, post: post }));
     reset();
   };
 
-  const handleUpdate = (data) =>{
+  const handleUpdate =  (data) =>{
     console.log(data)
+    dispatch(updatePost({id: id, data: data}))
   }
 
   if(status !== "exitoso")
@@ -75,7 +89,6 @@ const FormularioPublicacion = ({ id }) => {
         </Form.Label>
         <Form.Control
           as="textarea"
-          value={post ? post.title : ''}
           id="title"
           className="rounded-2 input"
           title="Ingresa el título del anuncio"
@@ -115,7 +128,7 @@ const FormularioPublicacion = ({ id }) => {
             {status === "exitoso" &&
               categorias &&
               categorias.map((c) => (
-                <option key={c._id} selected={post ? post.category[0].name === c.name : ''} value={`${c._id}`}>
+                <option key={c._id} defaultValue={post ? post.category[0].name === c.name : ''} value={`${c._id}`}>
                   {c.name}
                 </option>
               ))}
@@ -134,7 +147,6 @@ const FormularioPublicacion = ({ id }) => {
           <Form.Control
             type="number"
             id="price"
-            value={post ? post.pricePerHour : ""}
             className="rounded-2 input"
             title="Ingresa el sitio web de tu negocio en caso de tener"
             placeholder="5000"
@@ -164,7 +176,6 @@ const FormularioPublicacion = ({ id }) => {
         <Form.Control
           as="textarea"
           id="description"
-          value={post ? post.description : ""}
           className="rounded-2 input textareaDescription"
           title="Ingresa una breve presentación sobre ti y del anuncio"
           placeholder="Hola, me llamo juan y soy electricista con mas de 5 años de exp...."

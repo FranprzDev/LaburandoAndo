@@ -38,11 +38,16 @@ export const createPost = createAsyncThunk(
     return id
   })
 
-  export const updatePost = createAsyncThunk("work/Update", async(id,data) => {
-    try {
-      const res = await instance.put(`/work/${id}`, data)
-      return id
-    } catch (error) {
-      console.log(error)
-    }
+  export const updatePost = createAsyncThunk("work/Update", async(data) => {
+    console.log(data)
+      const sanitizedPost = {
+          title: data.title,
+          description: data.description,
+          categoryId: data.categoryId,
+          location: data.location ? data.location : "Remoto",
+          price: Number(data.price),
+      };
+      console.log(sanitizedPost)
+      const res = await instance.put(`/work/${data.id}`, sanitizedPost)
+      return res.data
   })

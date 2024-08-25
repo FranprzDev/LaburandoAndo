@@ -75,7 +75,8 @@ const postSlice = createSlice({
       })
       .addCase(updatePost.fulfilled, (state, action) => {
         state.status = "exitoso";
-        state.post = action.payload;
+        const updatePost = action.payload;
+        state.posts = state.posts.map(post => post._id === updatePost._id ? updatePost : post)
       })
       .addCase(updatePost.rejected, (state, action) => {
         state.status = "denegado";
