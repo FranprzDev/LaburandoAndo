@@ -12,7 +12,8 @@ const initialState = {
     authMethod: "Local",
     type: "Client",
   },
-  state: "idle",
+  status: "idle",
+  statusProfessional: "idle",
   isCreated: false,
   error: null,
 };
@@ -36,19 +37,22 @@ const registerSlice = createSlice({
       state.form.phone = action.payload.phone;
       state.form.adress = action.payload.adress;
     },
+    resetProfessional: (state) => {
+      state.statusProfessional = initialState.statusProfessional;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(createProfessional.pending, (state) => {
-        state.status = "cargando";
+        state.statusProfessional = "cargando";
       })
       .addCase(createProfessional.fulfilled, (state, action) => {
-        state.status = "exitoso";
+        state.statusProfessional = "exitoso";
         state.isCreated = true;
         state.user = action.payload;
       })
       .addCase(createProfessional.rejected, (state, action) => {
-        state.status = "idle";
+        state.statusProfessional = "error";
         state.isCreated = false;
         state.error = action.payload
           ? action.payload.message
@@ -63,7 +67,7 @@ const registerSlice = createSlice({
         state.isCreated = true;
       })
       .addCase(createClient.rejected, (state, action) => {
-        state.status = "idle";
+        state.status = "error";
         state.isCreated = false;
         state.error = action.payload
           ? action.payload.message
@@ -78,6 +82,7 @@ export const {
   setAditionalValues,
   getProfessional,
   changePhoto,
+  resetProfessional,
 } = registerSlice.actions;
 
 export default registerSlice.reducer;

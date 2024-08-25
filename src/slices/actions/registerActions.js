@@ -17,8 +17,6 @@ export const createProfessional = createAsyncThunk(
       img: getState().register.form.img ? getState().register.form.img : "",
     };
 
-    console.log(sanitizedWorker);
-
     const response = await instance.post(
       "/auth/jwt/register/Worker",
       sanitizedWorker

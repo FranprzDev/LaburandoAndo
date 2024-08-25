@@ -41,7 +41,7 @@ function FormAuth() {
               
               if(type === "Professional") {
                 navigate("/auth/register3")
-                autoCloseAlert("Rellena los datos adicionales, estos son opcionales.", "success")
+                autoCloseAlert("Rellena los datos adicionales, estos son opcionales.", "warning")
               }
                 
 
