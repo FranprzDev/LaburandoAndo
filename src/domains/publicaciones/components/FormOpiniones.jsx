@@ -19,7 +19,7 @@ const FormOpiniones = () => {
   const dispatch = useDispatch();
 
   const handleReview = async (review) => {
-    if(userLogeado && userLogeado === "client"){
+    if(userLogeado && userLogeado.role === "client"){
       dispatch(createReview({idUser: userLogeado._id, idWork: id, ...review}));
     }else{
       alert("para comentar tiene que estar logueado ")

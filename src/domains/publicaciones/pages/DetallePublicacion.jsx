@@ -48,7 +48,9 @@ const DetallePublicacion = () => {
                 <Card.Title className="mb-0 fw-bold">
                   {profesional?.worker.fullname}
                 </Card.Title>
-                <Card.Text className="text-center">{profesional?.worker.address}</Card.Text>
+                <Card.Text className="text-center">
+                  {profesional?.worker.address}
+                </Card.Text>
                 <Card.Subtitle className="mb-2 text-muted d-flex gap-3">
                   <div className=" d-flex justify-content-center">
                     <FaStar className="me-2 text-warning fs-5" />
@@ -87,7 +89,7 @@ const DetallePublicacion = () => {
             <p>${profesional?.pricePerHour}</p>
           </div>
         </section>
-        <Opiniones />
+        <Opiniones reviews={profesional?.reviews} />
       </Container>
     </>
   );
