@@ -1,8 +1,12 @@
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { createReview } from "../../../slices/actions/reviewsActions";
+import { useParams } from "react-router-dom";
 
 const FormOpiniones = () => {
+
+  const { id } = useParams();
 
   const {
     register,
@@ -11,15 +15,22 @@ const FormOpiniones = () => {
     reset,
   } = useForm();
 
-  const onSubmit = () => {
-    console.log("comentario");
+  const userLogeado = useSelector((state)=>state.auth.user);
+  const dispatch = useDispatch();
+
+  const handleReview = async (review) => {
+    if(userLogeado && userLogeado === "client"){
+      dispatch(createReview({idUser: userLogeado._id, idWork: id, ...review}));
+    }else{
+      alert("para comentar tiene que estar logueado ")
+    }
     reset();
-  };
+  }
 
   return (
     <Form
       className="formComments border p-2 rounded-2 p-md-3 shadow"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(handleReview)}
     >
       <div className="mb-2 d-flex flex-column w-100">
         <label htmlFor="" className="form-label d-block">

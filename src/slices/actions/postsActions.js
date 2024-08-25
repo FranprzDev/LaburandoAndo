@@ -19,6 +19,7 @@ export const createPost = createAsyncThunk(
       } catch (error) {
           return rejectWithValue(error.response?.data?.message || 'An error occurred while creating the post');
       }
+      
     }
   );
   
