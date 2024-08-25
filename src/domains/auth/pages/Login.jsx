@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { reset } from "../../../slices/authSlice";
 import { loginUser } from "../../../slices/actions/authActions";
+import useAlert from "../../../hooks/useAlertHook";
+import Loader from "../../../components/loaders/Loader";
 
 export default function Login() {
   const {
@@ -15,43 +17,38 @@ export default function Login() {
   } = useForm();
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const stateSync = useSelector((state) => state.auth.stateSync);
-  const state = useSelector((state) => state.auth.state);
   const role = useSelector((state) => state.auth.role);
-  
-  useEffect(() => {
-    if (stateSync === 'exitoso' && role === 'client') {
-      navigate("/profesionales");
-      Swal.fire({
-        icon: "success",
-        title: `Bienvenido`,
-      });
-      dispatch(reset());
-    } else 
-    if (stateSync === 'exitoso' && role === 'worker') {
-      navigate("/work/mi-perfil");  
-      Swal.fire({
-        icon: "success",
-        title: `Bienvenido`,
-      });
-      dispatch(reset());
-    } else if(stateSync === 'error' && state === 'error'){
-      Swal.fire({
-        icon: "error",
-        title: "No pudiste iniciar sesión. Verifica tus credenciales.",
-        text: "Correo o contraseña incorrecto.",
-      }); 
-      dispatch(reset());
-    }
-  }, [stateSync, navigate]);  
+  const status = useSelector((state) => state.auth.status);
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const navigate = useNavigate();
+
+  const { autoCloseAlert } = useAlert();
 
   const login = async (usuario) => {
-      dispatch(loginUser(usuario));
+    dispatch(loginUser(usuario));
   };
+
+  useEffect(() => {
+    if (status === "error") {
+      autoCloseAlert(`Error al iniciar sesión`, "error");
+    } else if (status === "exitoso" && isAuth) {
+      autoCloseAlert(`Iniciando sesión...`, "success");
+      if (role === "client"){
+        navigate("../../profesionales");
+      } 
+      if (role === "worker"){
+        navigate("../../work/mi-perfil");
+      } 
+      // dispatch(reset());
+    }
+  }, [status]);
 
   return (
     <div className="container d-flex flex-column align-items-center justify-content-center py-5">
+      {
+        status === "cargando" && <Loader />
+        // AQUI HAY QUE VER COMO HACER PARA QUE ESTE LOADER QUEDE BIEN XD
+      } 
       <div className="row w-100">
         <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
           <form className="card p-4" onSubmit={handleSubmit(login)}>
