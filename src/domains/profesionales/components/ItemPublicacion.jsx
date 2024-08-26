@@ -13,7 +13,7 @@ const ItemPublicacion = ({ work, onDelete }) => {
     customAlert("¿Desea Borrar su publicación?", () => {
       dispatch(deletePost(work._id)).then(() => {
         autoCloseAlert("Su publicación fue borrada con éxito", "success");
-        onDelete();  // Llama al callback para actualizar la lista
+        onDelete();  
       });
     });
   };
