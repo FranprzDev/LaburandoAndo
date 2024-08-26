@@ -2,20 +2,23 @@ import { Container, DropdownButton, Dropdown } from "react-bootstrap";
 import FormOpiniones from "./FormOpiniones";
 import { useSelector } from "react-redux";
 import ListaOpiniones from "./ListaOpiniones";
+import { useState } from "react";
 
-const Opiniones = ({ reviews }) => {
-  // const [filtroCalificacion, setFiltroCalificacion] = useState(null);
-
-  // const handleFiltrarPorCalificacion = (calificacion) => {
-  //   setFiltroCalificacion(calificacion);
-  // };
-
-  // const opinionesFiltradas = filtroCalificacion
-  //   ? opiniones.filter((opinion) => opinion.calificacion === filtroCalificacion)
-  //   : opiniones;
-
+const Opiniones = () => {
   const profesional = useSelector((state) => state.posts.post);
   const userLogeado = useSelector((state) => state.auth.user);
+
+  const [stars, setStars] = useState(null);
+
+  const handleFiltrarPorCalificacion = (stars) => {
+    setStars(stars);
+  };
+
+  const opinionesFiltradas = stars
+    ? profesional?.reviews.filter(
+        (review) => review.stars === stars
+      )
+    : profesional?.reviews;
 
   return (
     <Container className="containerOpinions mt-5 px-0">
@@ -59,15 +62,12 @@ const Opiniones = ({ reviews }) => {
           </div>
         </article>
         <article className="col-lg-7 col-xl-8  order-1">
-          <ListaOpiniones userLogeado={userLogeado}></ListaOpiniones>
+          <ListaOpiniones
+            userLogeado={userLogeado}
+            opinionesFiltradas={opinionesFiltradas}
+          ></ListaOpiniones>
         </article>
-        <article
-          className={`${
-            (userLogeado && userLogeado.role === "client") || !userLogeado
-              ? "d-block"
-              : "d-none"
-          } order-lg-1 col-lg-5 col-xl-4`}
-        >
+        <article className="d-block order-lg-1 col-lg-5 col-xl-4">
           <h3>Deja tu reseña</h3>
           <FormOpiniones></FormOpiniones>
         </article>
