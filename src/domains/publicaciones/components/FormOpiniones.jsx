@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createReview } from "../../../slices/actions/reviewsActions";
 import { useParams } from "react-router-dom";
 import { getPost } from "../../../slices/actions/postsActions";
+import useAlert from "../../../hooks/useAlertHook";
 
 const FormOpiniones = () => {
   const { id } = useParams();
@@ -17,6 +18,7 @@ const FormOpiniones = () => {
 
   const userLogeado = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
+  const { autoCloseAlert } = useAlert();
 
   const handleReview = async (review) => {
     if (userLogeado && userLogeado.role === "client") {
@@ -24,9 +26,10 @@ const FormOpiniones = () => {
         createReview({ userId: userLogeado._id, idWork: id, ...review })
       );
       dispatch(getPost(id));
+      autoCloseAlert("Tu comentario fue agregado con éxito", "success");
       reset();
     } else {
-      alert("para comentar tiene que estar logueado ");
+      autoCloseAlert("Debes iniciar sesión para dejar una reseña", "error");
     }
   };
 
