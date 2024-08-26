@@ -11,8 +11,13 @@ const ListaPublicaciones = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const refreshPosts = () => {
+    setLoading(true);
     dispatch(fetchWorkerForID(user._id)).then(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    refreshPosts();  // Llama a refreshPosts al montar el componente
   }, [dispatch, user._id]);
 
   return (
@@ -24,7 +29,7 @@ const ListaPublicaciones = () => {
       ) : (
         profesional && profesional.works.length > 0 ? (
           profesional.works.map((work) => (
-            <ItemPublicacion key={work._id} work={work} />
+            <ItemPublicacion key={work._id} work={work} onDelete={refreshPosts} />
           ))
         ) : (
           <div className="mt-5 text-center border px-3 py-5 p-md-5 rounded-2 shadow">
@@ -43,3 +48,4 @@ const ListaPublicaciones = () => {
 };
 
 export default ListaPublicaciones;
+
