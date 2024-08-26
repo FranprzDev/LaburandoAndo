@@ -1,6 +1,7 @@
 import { FaStar, FaUser } from "react-icons/fa";
 
-const Opinion = ({ review, userLogeado }) => {
+const Opinion = ({ review}) => {
+
   return (
     <div className="cardOpinion w-100 d-flex flex-column gap-3 border rounded-2 p-3">
       <div className="d-flex justify-content-between">

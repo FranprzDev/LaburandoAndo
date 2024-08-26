@@ -1,74 +1,10 @@
-import { useEffect, useState } from "react";
 import { Container, DropdownButton, Dropdown } from "react-bootstrap";
 import FormOpiniones from "./FormOpiniones";
 import { useSelector } from "react-redux";
-import Opinion from "./Opinion";
-import { FaStar, FaUser } from "react-icons/fa";
+import ListaOpiniones from "./ListaOpiniones";
 
 const Opiniones = ({ reviews }) => {
   // const [filtroCalificacion, setFiltroCalificacion] = useState(null);
-
-  // const opiniones = [
-  //   {
-  //     usuario: "Juan567",
-  //     calificacion: 4,
-  //     opinion:
-  //       "¡Uno de los mejores profesionales, me ayudo a superar todos mis examenes!",
-  //   },
-  //   {
-  //     usuario: "María_Reyes",
-  //     calificacion: 5,
-  //     opinion: "El mejor profesional.",
-  //   },
-  //   {
-  //     usuario: "Nahiara111",
-  //     calificacion: 4,
-  //     opinion: "La pasé de maravilla, y aprendi sobre todo. 100% recomendado.",
-  //   },
-  //   {
-  //     usuario: "Messi_Goat",
-  //     calificacion: 5,
-  //     opinion:
-  //       "Me ayudo a aprobar mi materia cuando estaba en las inferiores del barza.",
-  //   },
-  //   {
-  //     usuario: "Pedrito",
-  //     calificacion: 3,
-  //     opinion:
-  //       "Buen Profe, pero podría mejorar en algunos aspectos como tomar mate en clases.",
-  //   },
-  //   {
-  //     usuario: "Lauraaa",
-  //     calificacion: 2,
-  //     opinion: "No me gustó mucho no tener un enchufe para cargar el celu.",
-  //   },
-  //   {
-  //     usuario: "Ana_Anana",
-  //     calificacion: 1,
-  //     opinion: "Me bocharon.",
-  //   },
-  //   {
-  //     usuario: "Gustavo97",
-  //     calificacion: 5,
-  //     opinion:
-  //       "Sinceramente es un profe totalmente agradable y sabe lo que hace.",
-  //   },
-  //   {
-  //     usuario: "Emilia☺",
-  //     calificacion: 4,
-  //     opinion: "Muy buen profe, lo recomiendo para universitarios!.",
-  //   },
-  //   {
-  //     usuario: "Hernán_malo",
-  //     calificacion: 3,
-  //     opinion: "La pasé bien, a pesar de no dejarte usar el celu.",
-  //   },
-  //   {
-  //     usuario: "Spinetta",
-  //     calificacion: 5,
-  //     opinion: "Solo tengo para decir que este profe es fabuloso.",
-  //   },
-  // ];
 
   // const handleFiltrarPorCalificacion = (calificacion) => {
   //   setFiltroCalificacion(calificacion);
@@ -78,6 +14,7 @@ const Opiniones = ({ reviews }) => {
   //   ? opiniones.filter((opinion) => opinion.calificacion === filtroCalificacion)
   //   : opiniones;
 
+  const profesional = useSelector((state) => state.posts.post);
   const userLogeado = useSelector((state) => state.auth.user);
 
   return (
@@ -87,7 +24,13 @@ const Opiniones = ({ reviews }) => {
           <h3 className="mb-md-4 opiniones-titulo">
             ⤷ Opiniones sobre el profesional 💭
           </h3>
-          <div className={`${reviews && reviews.length > 0 ? "d-block" : "d-none"} boton-container`}>
+          <div
+            className={`${
+              profesional?.reviews && profesional?.reviews.length > 0
+                ? "d-block"
+                : "d-none"
+            } boton-container`}
+          >
             <DropdownButton
               id="dropdown-basic-button"
               title="Filtrar opiniones"
@@ -115,14 +58,8 @@ const Opiniones = ({ reviews }) => {
             </DropdownButton>
           </div>
         </article>
-        <article className="col-lg-7 col-xl-8 d-flex flex-column gap-2 order-1 ">
-          {reviews &&
-            reviews.map((review) => (
-              <Opinion key={review._id} review={review} userLogeado={userLogeado}></Opinion>
-            ))}
-          {reviews && reviews.length === 0 && (
-            <p>0 opiniones hasta el momento</p>
-          )}
+        <article className="col-lg-7 col-xl-8  order-1">
+          <ListaOpiniones userLogeado={userLogeado}></ListaOpiniones>
         </article>
         <article
           className={`${

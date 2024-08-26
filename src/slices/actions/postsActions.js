@@ -30,7 +30,6 @@ export const createPost = createAsyncThunk(
   
   export const getPost = createAsyncThunk("work/Post", async (id) => {
     const res = await instance.get(`/work/${id}`);
-    console.log(res.data.data);
     return res.data.data;
   });
 

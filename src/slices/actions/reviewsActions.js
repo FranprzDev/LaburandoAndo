@@ -5,16 +5,19 @@ export const createReview = createAsyncThunk(
     "review/createReview",
     async (data) => {
       
+      const sanitizedReview = {
+        stars: data.stars,
+        comment: data.comment,
+        userId: data.userId,
+        idWork: data.idWork
+    }
+
       try {
-          const res = await instance.post(`/review/${data.idWork}`, {
-            stars: data.stars,
-            comment: data.comment,
-            userId: data.idUser
-        });
+          const res = await instance.put(`/review/${data.idWork}`, sanitizedReview);
   
           return res.data.data;
       } catch (error) {
-          return rejectWithValue(error.response?.data?.message || 'An error occurred while creating the post');
+          return rejectWithValue(error.response?.data?.message || 'An error occurred while creating the review');
       }
       
     }

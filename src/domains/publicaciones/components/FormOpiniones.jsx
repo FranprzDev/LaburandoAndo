@@ -3,9 +3,9 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createReview } from "../../../slices/actions/reviewsActions";
 import { useParams } from "react-router-dom";
+import { getPost } from "../../../slices/actions/postsActions";
 
 const FormOpiniones = () => {
-
   const { id } = useParams();
 
   const {
@@ -15,17 +15,20 @@ const FormOpiniones = () => {
     reset,
   } = useForm();
 
-  const userLogeado = useSelector((state)=>state.auth.user);
+  const userLogeado = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
 
   const handleReview = async (review) => {
-    if(userLogeado && userLogeado.role === "client"){
-      dispatch(createReview({idUser: userLogeado._id, idWork: id, ...review}));
-    }else{
-      alert("para comentar tiene que estar logueado ")
+    if (userLogeado && userLogeado.role === "client") {
+      await dispatch(
+        createReview({ userId: userLogeado._id, idWork: id, ...review })
+      );
+      dispatch(getPost(id));
+      reset();
+    } else {
+      alert("para comentar tiene que estar logueado ");
     }
-    reset();
-  }
+  };
 
   return (
     <Form
@@ -36,11 +39,12 @@ const FormOpiniones = () => {
         <label htmlFor="" className="form-label d-block">
           Valoración
         </label>
-        <Form.Select className="rounded-2 w-100 input py-2 border-1"
-           title="selecciona una valoración"
-           {...register("stars", {
-             required: "La valoración es obligatoria",
-           })}
+        <Form.Select
+          className="rounded-2 w-100 input py-2 border-1"
+          title="selecciona una valoración"
+          {...register("stars", {
+            required: "La valoración es obligatoria",
+          })}
         >
           <option value="">seleccione</option>
           <option value="1">1 estrella</option>
@@ -49,9 +53,7 @@ const FormOpiniones = () => {
           <option value="4">4 estrellas</option>
           <option value="5">5 estrellas</option>
         </Form.Select>
-        <div className="text-danger text-start">
-          {errors.stars?.message}
-        </div>
+        <div className="text-danger text-start">{errors.stars?.message}</div>
       </div>
       <div className="mb-2 d-flex flex-column w-100">
         <label htmlFor="" className="form-label d-block">
@@ -72,14 +74,10 @@ const FormOpiniones = () => {
             },
           })}
         ></textarea>
-          <div className="text-danger text-start">
-          {errors.comment?.message}
-        </div>
+        <div className="text-danger text-start">{errors.comment?.message}</div>
       </div>
       <div className="d-flex justify-content-md-end">
-        <button className="btn btn-secondary px-5 w-100 opacity-50">
-          Publicar
-        </button>
+        <button className="btn btn-secondary px-5 w-100">Publicar</button>
       </div>
     </Form>
   );

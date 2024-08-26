@@ -17,8 +17,6 @@ const DetallePublicacion = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  console.log(profesional);
-
   useEffect(() => {
     dispatch(getPost(id));
   }, [id]);
@@ -44,7 +42,7 @@ const DetallePublicacion = () => {
           <Card className="me-3 mt-3 cardDetail">
             <div>
               <Card.Body className="d-flex flex-column justify-content-center align-items-center pb-0 pb-md-2">
-                <Image src={logo} roundedCircle className="imgProfessional " />
+                <Image src={profesional?.worker.img} roundedCircle className="imgProfessional mb-1" />
                 <Card.Title className="mb-0 fw-bold">
                   {profesional?.worker.fullname}
                 </Card.Title>
