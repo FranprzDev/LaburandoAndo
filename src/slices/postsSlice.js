@@ -69,17 +69,14 @@ const postSlice = createSlice({
         state.status = "denegado";
         state.error = action.error.message;
       })
-      .addCase(updatePost.pending, (state, action) => {
-        state.status = "idle";
-        state.error = action.error.message;
-      })
+      .addCase(updatePost.pending, (state) => {
+        state.createPostStatus = "cargando";
+      }) 
       .addCase(updatePost.fulfilled, (state, action) => {
-        state.status = "exitoso";
-        const updatePost = action.payload;
-        state.posts = state.posts.map(post => post._id === updatePost._id ? updatePost : post)
+        state.post = action.payload;
       })
       .addCase(updatePost.rejected, (state, action) => {
-        state.status = "denegado";
+        state.createPostStatus = "denegado";
         state.error = action.error.message;
       });
   },

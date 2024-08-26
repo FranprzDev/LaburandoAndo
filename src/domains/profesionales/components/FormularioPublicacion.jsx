@@ -61,8 +61,7 @@ const FormularioPublicacion = ({ id }) => {
   };
 
   const handleUpdate =  (data) =>{
-    console.log(data)
-    dispatch(updatePost({id: id, data: data}))
+    dispatch(updatePost({data: data, id: id}))
   }
 
   if(status !== "exitoso")
@@ -75,7 +74,9 @@ const FormularioPublicacion = ({ id }) => {
       className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border"
       onSubmit={handleSubmit(id ? handleUpdate : handlePost)}
     >
-      <PostModalComponent postCreateState={postCreateState} />
+      {/* <PostModalComponent postCreateState={postCreateState} /> */}
+      {/* TODO: Cambiar a los modales del customAlert  */}
+      {/* TODO: Agregar los loaders */}
       <p>
         Campo Obligatorio &#40; <span className="text-danger">*</span> &#41;
       </p>
