@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import { Button, Card, Image } from "react-bootstrap";
 import { FaStar, FaWhatsapp } from "react-icons/fa";
 
 const CardProfesional = ({ profesional, handleWhatsApp }) => {
-
   return (
     <Card className="me-3 mt-3 cardDetail">
       <div>
@@ -19,11 +19,23 @@ const CardProfesional = ({ profesional, handleWhatsApp }) => {
             {profesional?.worker.address}
           </Card.Text>
           <Card.Subtitle className="mb-2 text-muted d-flex gap-3">
-            <div className=" d-flex justify-content-center">
+            <div
+              className={`${
+                profesional?.reviews.length === 0 ? "d-none" : "d-flex"
+              } d-flex justify-content-center`}
+            >
               <FaStar className="me-2 text-warning fs-5" />
-              <p>4.0</p>
+              <p>4</p>
             </div>
-            <p>10 Valoraciones</p>
+            {profesional?.reviews.length > 0 ? (
+              <p>
+                {profesional?.reviews.length > 1
+                  ? `${profesional?.reviews.length} valoraciones`
+                  : `${profesional?.reviews.length} valoración`}
+              </p>
+            ) : (
+              <p>Sin valoraciones</p>
+            )}
           </Card.Subtitle>
           <Button
             onClick={handleWhatsApp}

@@ -22,7 +22,7 @@ const ListaOpiniones = ({ userLogeado, opinionesFiltradas }) => {
         <p>0 opiniones hasta el momento</p>
       )}
       {opinionesFiltradas &&
-        opinionesFiltradas.map((review) => (
+        opinionesFiltradas.slice().reverse().map((review) => (
           <Opinion
             key={review._id}
             review={review}
