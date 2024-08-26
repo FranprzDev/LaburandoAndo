@@ -6,6 +6,7 @@ import PostModalComponent from "../../../components/PostModalComponents";
 import { fetchCategories } from "../../../slices/actions/categoryActions";
 import { createPost, getPost, updatePost } from "../../../slices/actions/postsActions";
 import useAlert from "../../../hooks/useAlertHook";
+import { useNavigate } from "react-router-dom";
 
 const FormularioPublicacion = ({ id }) => {
   const post = useSelector((state) => state.posts.post);
@@ -14,6 +15,7 @@ const FormularioPublicacion = ({ id }) => {
   const createPostStatus = useSelector((state) => state.posts.createPostStatus);
   const userLogeado = useSelector((state) => state.auth.user);
   const {customAlert, autoCloseAlert} = useAlert()
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const {
     register,
@@ -66,6 +68,7 @@ const FormularioPublicacion = ({ id }) => {
     customAlert("¿Desea Editar su publicación?", () => {
       dispatch(updatePost({data: data, id: id}))
       autoCloseAlert("Su publicacion fue editada con éxito", "success");
+      navigate('/work/mis-publicaciones')
     });
   }
 
