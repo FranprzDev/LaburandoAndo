@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import PostModalComponent from "../../../components/PostModalComponents";
 import { fetchCategories } from "../../../slices/actions/categoryActions";
 import { createPost, getPost, updatePost } from "../../../slices/actions/postsActions";
+import useAlert from "../../../hooks/useAlertHook";
 
 const FormularioPublicacion = ({ id }) => {
   const post = useSelector((state) => state.posts.post);
@@ -12,6 +13,7 @@ const FormularioPublicacion = ({ id }) => {
   const status = useSelector((state) => state.categories.status);
   const createPostStatus = useSelector((state) => state.posts.createPostStatus);
   const userLogeado = useSelector((state) => state.auth.user);
+  const {customAlert, autoCloseAlert} = useAlert()
   const dispatch = useDispatch();
   const {
     register,
@@ -61,7 +63,10 @@ const FormularioPublicacion = ({ id }) => {
   };
 
   const handleUpdate =  (data) =>{
-    dispatch(updatePost({data: data, id: id}))
+    customAlert("¿Desea Editar su publicación?", () => {
+      dispatch(updatePost({data: data, id: id}))
+      autoCloseAlert("Su publicacion fue editada con éxito", "success");
+    });
   }
 
   if(status !== "exitoso")
