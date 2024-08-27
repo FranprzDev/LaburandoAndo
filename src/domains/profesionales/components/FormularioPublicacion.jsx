@@ -2,11 +2,11 @@ import { useEffect, useMemo } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import PostModalComponent from "../../../components/PostModalComponents";
 import { fetchCategories } from "../../../slices/actions/categoryActions";
 import { createPost, getPost, updatePost } from "../../../slices/actions/postsActions";
 import useAlert from "../../../hooks/useAlertHook";
-import { useNavigate } from "react-router-dom";
 
 const FormularioPublicacion = ({ id }) => {
   const post = useSelector((state) => state.posts.post);
@@ -14,8 +14,8 @@ const FormularioPublicacion = ({ id }) => {
   const status = useSelector((state) => state.categories.status);
   const createPostStatus = useSelector((state) => state.posts.createPostStatus);
   const userLogeado = useSelector((state) => state.auth.user);
-  const {customAlert, autoCloseAlert} = useAlert()
-  const navigate = useNavigate()
+  const { customAlert, autoCloseAlert } = useAlert();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
     register,
@@ -34,47 +34,49 @@ const FormularioPublicacion = ({ id }) => {
       dispatch(fetchCategories());
     } else {
       if (id) {
-        dispatch(getPost(id))
-      }
-      else{
+        dispatch(getPost(id));
+      } else {
         reset({
           title: "",
           categoryId: "",
           description: "",
-          pricePerHour: ""
-        })
+          pricePerHour: "",
+        });
       }
     }
-  }, [id,status,dispatch]);
+  }, [id, status, dispatch, reset]);
 
   useEffect(() => {
     if (id && post) {
       setValue("title", post.title);
-      setValue("categoryId", post.category[0]?._id || '');
+      setValue("categoryId", post.category[0]?._id || "");
       setValue("price", post.pricePerHour);
       setValue("description", post.description);
+    } else {
+      reset();
     }
-    else{
-      reset()
-    }
-  }, [post, setValue]);
+  }, [post, setValue, reset, id]);
 
   const handlePost = async (post) => {
-    dispatch(createPost({ id: userLogeado._id, post: post }));
-    reset();
+    customAlert("¿Desea crear su publicación?", () => {
+      dispatch(createPost({ id: userLogeado._id, post: post })).then(() => {
+        autoCloseAlert("Su publicación fue creada con éxito", "success");
+        reset();
+        navigate('/work/mis-publicaciones');
+      });
+    });
   };
 
-  const handleUpdate =  (data) =>{
+  const handleUpdate = (data) => {
     customAlert("¿Desea Editar su publicación?", () => {
-      dispatch(updatePost({data: data, id: id}))
-      autoCloseAlert("Su publicacion fue editada con éxito", "success");
-      navigate('/work/mis-publicaciones')
+      dispatch(updatePost({ data: data, id: id }));
+      autoCloseAlert("Su publicación fue editada con éxito", "success");
+      navigate("/work/mis-publicaciones");
     });
-  }
+  };
 
-  if(status !== "exitoso")
-  {
-    return <div>Cargando...</div>
+  if (status !== "exitoso") {
+    return <div>Cargando...</div>;
   }
 
   return (
@@ -82,9 +84,6 @@ const FormularioPublicacion = ({ id }) => {
       className="formPublication mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-2 pb-md-3 mt-lg-2 pt-4 mt-xl-4 border"
       onSubmit={handleSubmit(id ? handleUpdate : handlePost)}
     >
-      {/* <PostModalComponent postCreateState={postCreateState} /> */}
-      {/* TODO: Cambiar a los modales del customAlert  */}
-      {/* TODO: Agregar los loaders */}
       <p>
         Campo Obligatorio &#40; <span className="text-danger">*</span> &#41;
       </p>
@@ -137,7 +136,11 @@ const FormularioPublicacion = ({ id }) => {
             {status === "exitoso" &&
               categorias &&
               categorias.map((c) => (
-                <option key={c._id} defaultValue={post ? post.category[0].name === c.name : ''} value={`${c._id}`}>
+                <option
+                  key={c._id}
+                  defaultValue={post ? post.category[0].name === c.name : ""}
+                  value={`${c._id}`}
+                >
                   {c.name}
                 </option>
               ))}
@@ -171,7 +174,9 @@ const FormularioPublicacion = ({ id }) => {
               },
             })}
           />
-          <div className="text-danger text-start">{errors.price?.message}</div>
+          <div className="text-danger text-start">
+            {errors.price?.message}
+          </div>
         </Form.Group>
       </div>
 
@@ -187,7 +192,7 @@ const FormularioPublicacion = ({ id }) => {
           id="description"
           className="rounded-2 input textareaDescription"
           title="Ingresa una breve presentación sobre ti y del anuncio"
-          placeholder="Hola, me llamo juan y soy electricista con mas de 5 años de exp...."
+          placeholder="Hola, me llamo Juan y soy electricista con más de 5 años de experiencia..."
           {...register("description", {
             required: "La descripción es obligatoria",
             minLength: {
