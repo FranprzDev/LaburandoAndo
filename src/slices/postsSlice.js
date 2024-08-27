@@ -4,6 +4,7 @@ import {
   deletePost,
   getPost,
   getPosts,
+  updatePost,
 } from "./actions/postsActions";
 
 const initialState = {
@@ -66,6 +67,16 @@ const postSlice = createSlice({
       })
       .addCase(deletePost.rejected, (state, action) => {
         state.status = "denegado";
+        state.error = action.error.message;
+      })
+      .addCase(updatePost.pending, (state) => {
+        state.createPostStatus = "cargando";
+      }) 
+      .addCase(updatePost.fulfilled, (state, action) => {
+        state.post = action.payload;
+      })
+      .addCase(updatePost.rejected, (state, action) => {
+        state.createPostStatus = "denegado";
         state.error = action.error.message;
       });
   },
