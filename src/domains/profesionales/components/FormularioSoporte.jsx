@@ -11,6 +11,8 @@ const FormularioSoporte = () => {
 
   const handleCrear = (data) => {
     console.log(data)
+
+    reset()
   }
 
   return (
@@ -32,9 +34,12 @@ const FormularioSoporte = () => {
             required: "El asunto es obligatorio",
           })}
         >
-          <option value="">seleccione</option>
-          <option value="categoria">Categoría</option>
-          <option value="otro">Otro</option>
+          <option value="">Seleccione el asunto</option>
+          <option value="Sugerencia">Sugerencia</option>
+          <option value="Consulta">Consulta</option>
+          <option value="Queja">Queja</option>
+          <option value="Felicitación">Felicitación</option>
+          <option value="Petición">Petición</option>
         </Form.Select>
         <div className="text-danger text-start">{errors.affair?.message}</div>
       </Form.Group>
