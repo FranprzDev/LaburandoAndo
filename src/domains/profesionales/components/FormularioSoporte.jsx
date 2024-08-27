@@ -9,15 +9,19 @@ const FormularioSoporte = () => {
     reset,
   } = useForm();
 
+  const handleCrear = (data) => {
+    console.log(data)
+  }
+
   return (
-    <Form className="formSupport gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border">
+    <Form onSubmit={handleSubmit(handleCrear)} className="formSupport gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border">
       <span>
         Si tienes alguna consulta o problema, completa el formulario y te
         ayudaremos lo antes posible.
       </span>
       <Form.Group className="my-2 my-md-3">
         <Form.Label
-          label="Correo Electrónico"
+          label="Asunto"
           className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
         >
           Asunto
@@ -48,12 +52,12 @@ const FormularioSoporte = () => {
           {...register("question", {
             required: "El mensaje es obligatorio",
             minLength: {
-              value: 40,
+              value: 25,
               message: "El mensaje debe tener al menos 25 caracteres",
             },
             maxLength: {
-              value: 250,
-              message: "El mensaje debe tener como máximo 250 caracteres",
+              value: 300,
+              message: "El mensaje debe tener como máximo 300 caracteres",
             },
           })}
         />
