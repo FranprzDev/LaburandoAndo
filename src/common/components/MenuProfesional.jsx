@@ -42,7 +42,7 @@ const MenuProfesional = () => {
             LaburandoAndo
           </Link>
         </div>
-        <figure className="d-none d-md-block text-center mx-auto w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 ms-3 position-relative">
+        <figure className="d-none text-center w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 d-md-flex flex-column align-items-center position-relative">
           {imageLoading && (
             <div className="position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center">
               <div className="spinner"></div> 
@@ -52,7 +52,7 @@ const MenuProfesional = () => {
             src={worker ? worker.img : image}
             alt="imagen de perfil"
             title="imagen de perfil"
-            className={`rounded-circle shadow ms-5 imgProfileUser ${imageLoading ? 'd-none' : 'd-block'}`}
+            className={`rounded-circle shadow  imgProfileUser ${imageLoading ? 'd-none' : 'd-block'}`}
             onLoad={handleImageLoaded}
         
           />
@@ -80,7 +80,7 @@ const MenuProfesional = () => {
               data-bs-dismiss="offcanvas"
             ></button>
           </div>
-          <figure className="d-md-none text-center w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 position-relative">
+          <figure className="d-md-none text-center w-100 d-flex flex-column align-items-center mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 position-relative">
             {imageLoading && (
               <div className="position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center">
                 <div className="spinner"></div> {/* Loader */}
