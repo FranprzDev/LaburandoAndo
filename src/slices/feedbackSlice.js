@@ -27,3 +27,5 @@ const feedbackSlice = createSlice({
         })
     }
 })
+
+export default feedbackSlice.reducer
