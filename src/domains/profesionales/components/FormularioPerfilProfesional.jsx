@@ -18,6 +18,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
   } = useForm();
 
   const [edit, setEdit] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true); 
   const { customAlert, autoCloseAlert } = useAlert();
 
   const user = useSelector((state) => state.auth.user);
@@ -83,6 +84,11 @@ const FormularioPerfilProf = ({ setLoading }) => {
     } finally {
       setLoading(false);
     }
+  };
+
+
+  const handleImageLoaded = () => {
+    setImageLoading(false);
   };
 
   return (
@@ -182,11 +188,15 @@ const FormularioPerfilProf = ({ setLoading }) => {
           <Form.Label htmlFor="FotoPerfil" className="fw-medium">
             Foto de perfil
           </Form.Label>
+          {imageLoading && <div className="spinner"></div>} {/* Loader */}
           <img
             src={worker ? worker.img : imgUsuario}
             alt="imagen de perfil"
-            className="img-fluid imgProfileForm mb-5 rounded-circle"
+            className={`img-fluid imgProfileForm mb-5 rounded-circle ${
+              imageLoading ? "d-none" : "d-block"
+            }`}
             title="imagen de perfil"
+            onLoad={handleImageLoaded} 
           />
           <Form.Control
             className="d-none"

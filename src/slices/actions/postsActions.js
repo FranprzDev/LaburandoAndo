@@ -37,3 +37,18 @@ export const createPost = createAsyncThunk(
     const res = await instance.delete(`/work/${id}`)
     return id
   })
+
+export const updatePost = createAsyncThunk("work/Update", async ({data, id}) => {
+
+  const sanitizedPost = {
+    title: data.title,
+    description: data.description,
+    categoryId: data.categoryId,
+    location: data.location ? data.location : "Remoto",
+    pricePerHour: Number(data.price),
+  };
+
+  const res = await instance.patch(`/work/${id}`, sanitizedPost);
+  return res.data.data;
+});
+

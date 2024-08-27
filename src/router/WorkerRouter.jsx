@@ -11,6 +11,7 @@ function WorkerRouter() {
         <Routes>
             <Route path="/mi-perfil" element={<PerfilProfesional/>}/>
             <Route path="/publicar-anuncio" element={<PublicacionProfesional/>}/>
+            <Route path="/editar-anuncio/:id" element={<PublicacionProfesional/>}/>
             <Route path="/soporteProfesional" element={<SoporteProfesional/>}/>
             <Route path="/mis-publicaciones" element={<PublicacionesProfesional />}/>
         </Routes>
