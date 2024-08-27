@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 import { deletePost } from "../../../slices/actions/postsActions";
 import useAlert from "../../../hooks/useAlertHook";
 
-const ItemPublicacion = ({ work }) => {
+const ItemPublicacion = ({ work, onDelete }) => {
   const dispatch = useDispatch();
   const { customAlert, autoCloseAlert } = useAlert();
+
   const handleDelete = () => {
     customAlert("¿Desea Borrar su publicación?", () => {
-      dispatch(deletePost(work._id));
-      autoCloseAlert("Su publicacion fue borrada con éxito", "success");
+      dispatch(deletePost(work._id)).then(() => {
+        autoCloseAlert("Su publicación fue borrada con éxito", "success");
+        onDelete();  
+      });
     });
   };
 
@@ -21,12 +24,12 @@ const ItemPublicacion = ({ work }) => {
         {work.title}
       </p>
       <span className="mb-0">{work.category[0].name}</span>
-      <div className=" d-flex gap-3 align-items-center justify-content-end mt-0">
+      <div className="d-flex gap-3 align-items-center justify-content-end mt-0">
         <Link to={`/work/editar-anuncio/${work._id}`} className="iconUpdatePost" title="editar publicación">
           <FaEdit />
         </Link>
-        <a className="iconDeletePost" title="eliminar publicación">
-          <MdDelete onClick={handleDelete} />
+        <a className="iconDeletePost" title="eliminar publicación" onClick={handleDelete}>
+          <MdDelete />
         </a>
       </div>
     </div>
