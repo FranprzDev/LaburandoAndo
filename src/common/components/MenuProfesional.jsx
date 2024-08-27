@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkerForID } from "../../slices/actions/workersActions";
 import { useEffect, useState } from "react";
 import useLogout from "../../hooks/useLogout";
+import useAlert from "../../hooks/useAlertHook";
 
 const MenuProfesional = () => {
   const userJwt = useSelector((state) => state.auth.user);
@@ -15,7 +16,12 @@ const MenuProfesional = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
+
+  const logoutUser = () =>{
+    customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
+  }
 
   const [imageLoading, setImageLoading] = useState(true); 
   useEffect(() => {
@@ -158,7 +164,7 @@ const MenuProfesional = () => {
               <li className="nav-item navItemOffCanvas text-start">
                 <button
                   className="nav-link px-0 w-100 text-start d-flex gap-1 align-items-center navLink"
-                  onClick={cerrarSesion}
+                  onClick={logoutUser}
                 >
                   <BiSolidExit className="fs-4 iconMenu" />
                   <span className="align-middle">Salir</span>

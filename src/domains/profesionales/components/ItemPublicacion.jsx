@@ -23,7 +23,7 @@ const ItemPublicacion = ({ work, onDelete }) => {
       <p className="fw-bold align-middle mb-1 titlePostProfesional">
         {work.title}
       </p>
-      <span className="mb-0">{work.category[0].name}</span>
+      <span className="mb-0">{work.category[0]?.name}</span>
       <div className="d-flex gap-3 align-items-center justify-content-end mt-0">
         <Link to={`/work/editar-anuncio/${work._id}`} className="iconUpdatePost" title="editar publicación">
           <FaEdit />

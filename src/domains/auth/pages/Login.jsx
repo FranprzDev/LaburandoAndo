@@ -1,15 +1,17 @@
 import "../styles/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo } from "react";
-import { reset } from "../../../slices/authSlice";
 import { loginUser } from "../../../slices/actions/authActions";
 import useAlert from "../../../hooks/useAlertHook";
 import Loader from "../../../components/loaders/Loader";
 
 export default function Login() {
+
+  const adminEmail = import.meta.env.VITE_ADMIN_MAIL;
+  const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+
   const {
     register,
     handleSubmit,
@@ -25,7 +27,14 @@ export default function Login() {
   const { autoCloseAlert } = useAlert();
 
   const login = async (usuario) => {
-    dispatch(loginUser(usuario));
+    if(usuario.mail === adminEmail && usuario.password === adminPassword){
+      usuario.role = "admin";
+      autoCloseAlert(`Iniciando sesión...`, "success");
+      sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
+      navigate("/admin/clientes")
+    }else{
+      dispatch(loginUser(usuario));
+    }
   };
 
   useEffect(() => {
