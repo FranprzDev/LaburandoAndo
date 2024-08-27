@@ -8,14 +8,24 @@ import { Link } from "react-router-dom";
 import "../styles/menu.css";
 import useLogout from "../../hooks/useLogout";
 import image from "../../img/Logo.jpg";
+import useAlert from "../../hooks/useAlertHook";
 
 const Menu = () => {
   const user = useSelector((state) => state.auth.user);
   const status = useSelector((state) => state.auth.stateSync);
 
+  const usuario = JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null;
+
+  const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
 
+  const logoutUser = () =>{
+    customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
+  }
   useEffect(() => {}, [status]);
+  useEffect(()=>{
+
+  },[user,usuario])
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
@@ -40,12 +50,12 @@ const Menu = () => {
                 Publicar Anuncio
               </Link>
             )}
-            {user?.role !== "worker" && user?.role !== "client" && user?.role !== "admin" && (
+            {(user?.role !== "worker" && user?.role !== "client" && (usuario && usuario.role !== "admin")) && (
               <Link className="btn btn-Profesional me-3" to="/auth/register">
                 Anúnciate como profesional
               </Link>
             )}
-            {user?.role !== "worker" && user?.role !== "client" && user?.role !== "admin" && (
+            {(!user && !usuario) && (
               <Link
                 className="nav-link d-flex align-items-center gap-1 me-3"
                 to="/auth/login"
@@ -56,7 +66,7 @@ const Menu = () => {
                 <span>Ingresar</span>
               </Link>
             )}
-            {user?.role === "admin" || user?.role === "worker"  && (
+            {((usuario && usuario.role === "admin") || user?.role === "worker")  && (
               <>
                 <Link className="nav-link d-lg-none" to={`${user?.role === "worker" ? "/work/mi-perfil" : "/admin/clientes"}`}>
                   Mi cuenta
@@ -80,7 +90,7 @@ const Menu = () => {
                       className="rounded-circle shadow imgProfileDropdown mx-auto"
                     />
                   </div>
-                  <p className="fw-bold text-center my-1">{`${user?.role === "worker" ? `${user.fullname}` : `Admin`}`}</p>
+                  <p className="fw-bold text-center my-1">{`${user?.role === "worker" ? `${user.fullname}` : `admin`}`}</p>
                   <NavDropdown.Item
                     as={Link}
                     to={`${user?.role === "worker" ? `/work/mi-perfil` : `/admin/clientes`}`}
@@ -108,7 +118,7 @@ const Menu = () => {
                   <NavDropdown.Divider />
                   <button
                     className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
-                    onClick={cerrarSesion}
+                    onClick={logoutUser}
                   >
                     <BiSolidExit className="fs-4 iconMenu" />
                     <span className="align-middle">Salir</span>
@@ -127,7 +137,7 @@ const Menu = () => {
                   <p className=" text-center my-1 mb-2"></p>
                   <button
                     className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
-                    onClick={cerrarSesion}
+                    onClick={logoutUser}
                   >
                     <BiSolidExit className="fs-4 iconMenu" />
                     <span className="align-middle">Salir</span>
@@ -135,6 +145,7 @@ const Menu = () => {
                 </NavDropdown>
               </>
             )}
+             
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -9,7 +9,7 @@ const Opinion = ({ review}) => {
           <span>
             <FaUser className="fs-4" />
           </span>
-          <p className="fw-bold mb-0">{review.user}</p>
+          <p className="fw-bold mb-0">{review.user.fullname}</p>
         </div>
         <div className="calificacion mb-2">
           {[...Array(review.stars)].map((_, index) => (

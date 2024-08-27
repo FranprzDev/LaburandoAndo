@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../slices/authSlice";
 
 const useLogout = () => {
@@ -8,20 +7,13 @@ const useLogout = () => {
   const navigate = useNavigate();
 
   const cerrarSesion = () => {
-    Swal.fire({
-      text: "¿Estás seguro que deseas salir?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si",
-      cancelButtonText: "No",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        dispatch(logout());
-        navigate("/");
-      }
-    });
+    let usuario = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
+    if (usuario.role === "admin") {
+      sessionStorage.removeItem("usuarioLogeado");
+    } else {
+      dispatch(logout());
+    }
+    navigate("/");
   };
 
   return { cerrarSesion };
