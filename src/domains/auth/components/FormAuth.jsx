@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createClient } from "../../../slices/actions/registerActions";
-import Swal from "sweetalert2";
-import { setAditionalValues } from "../../../slices/registerSlice";
+import { setAditionalValues, setValues } from "../../../slices/registerSlice";
+import useAlert from "../../../hooks/useAlertHook";
 
 function FormAuth() {
   const {
@@ -21,6 +21,7 @@ function FormAuth() {
   password.current = watch("password", "");
 
   const navigate = useNavigate();
+  const { customAlert, autoCloseAlert } = useAlert();
 
   return (
     <div className="col-md-6 d-flex justify-content-center align-items-center mb-3 mb-md-0 order-md-1 px-0">
@@ -36,17 +37,18 @@ function FormAuth() {
           </div>
           <div className="card-body pb-0">
             <form className="text-center my-3" onSubmit={handleSubmit((data) => {
-              dispatch(setAditionalValues(data))
-              if(type === "Professional") navigate("/auth/register3")
+              dispatch(setValues(data))
+              
+              if(type === "Professional") {
+                navigate("/auth/register3")
+                autoCloseAlert("Rellena los datos adicionales, estos son opcionales.", "warning")
+              }
+                
 
               if(type === "Client"){
-                dispatch(createClient())
-                navigate("../login");
-
-                Swal.fire({
-                  icon: "success",
-                  title: `Bienvenido`,
-                  text: "Tu cuenta ha sido creada exitosamente, ingresa sesión para iniciar.",
+                customAlert("Tu cuenta ha sido creada exitosamente, ingresa sesión para iniciar.", () => {
+                  dispatch(createClient())
+                  navigate("../login");
                 })
               }
             })}>
