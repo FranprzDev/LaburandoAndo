@@ -1,5 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { createFeedback } from "../../../slices/actions/feedbackActions";
 
 const FormularioSoporte = () => {
   const {
@@ -9,9 +11,14 @@ const FormularioSoporte = () => {
     reset,
   } = useForm();
 
+  const user = useSelector((state)=> state.auth.user)
+  console.log(user._id)
+  const dispatch = useDispatch()
+  
+
   const handleCrear = (data) => {
     console.log(data)
-
+    dispatch(createFeedback(user._id,data))
     reset()
   }
 
