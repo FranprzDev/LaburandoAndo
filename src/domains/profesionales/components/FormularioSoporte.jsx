@@ -11,19 +11,21 @@ const FormularioSoporte = () => {
     reset,
   } = useForm();
 
-  const user = useSelector((state)=> state.auth.user)
-  console.log(user._id)
-  const dispatch = useDispatch()
-  
+  const user = useSelector((state) => state.auth.user);
+  console.log(user._id);
+  const dispatch = useDispatch();
 
   const handleCrear = (data) => {
-    console.log(data)
-    dispatch(createFeedback(user._id,data))
-    reset()
-  }
+    console.log(data);
+    dispatch(createFeedback({ id: user._id, data: data }));
+    reset();
+  };
 
   return (
-    <Form onSubmit={handleSubmit(handleCrear)} className="formSupport gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border">
+    <Form
+      onSubmit={handleSubmit(handleCrear)}
+      className="formSupport gy-3 mt-2 mt-md-5 bg-white shadow rounded-2 px-3 px-xl-5 pb-3 mt-lg-2 pt-4 mt-xl-4 border"
+    >
       <span>
         Si tienes alguna consulta o problema, completa el formulario y te
         ayudaremos lo antes posible.
@@ -61,7 +63,7 @@ const FormularioSoporte = () => {
           as="textarea"
           className="rounded-2 input textareaMessage"
           placeholder="Escribe tu mensaje..."
-          {...register("question", {
+          {...register("message", {
             required: "El mensaje es obligatorio",
             minLength: {
               value: 25,
@@ -73,7 +75,7 @@ const FormularioSoporte = () => {
             },
           })}
         />
-        <div className="text-danger text-start">{errors.question?.message}</div>
+        <div className="text-danger text-start">{errors.message?.message}</div>
       </Form.Group>
 
       <div className="py-2 text-end">

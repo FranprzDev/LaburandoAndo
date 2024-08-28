@@ -9,7 +9,7 @@ const initialState = {
 }
 
 const feedbackSlice = createSlice({
-    name: "feedback",
+    name: "feedbacks",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
