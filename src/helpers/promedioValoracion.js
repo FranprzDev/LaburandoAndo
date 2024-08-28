@@ -6,7 +6,6 @@ export const promedioValoracion = (promedios) => {
 }
 
 export const promedioValoracionDetalle = (reviews) => {
-    console.log(reviews)
     const suma = reviews.reduce((acumulador, valorActual) => acumulador + valorActual, 0)
     return Math.round(suma/reviews.length)
 }
