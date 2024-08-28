@@ -24,11 +24,11 @@ const FormCategoria = () => {
           label="Correo Electrónico"
           className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
         >
-          Categoría
+          Nueva Categoría
         </Form.Label>
         <Form.Control
           className="rounded-2 input "
-          placeholder="Ingresa una categoría"
+          placeholder="Por ej. Fotógrafo"
           {...register("name", {
             required: "La categoría es obligatoria",
             minLength: {

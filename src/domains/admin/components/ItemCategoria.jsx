@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 
 const ItemCategoria = () => {
   return (
-    <div className="cardCategory rounded-2 d-flex flex-column px-2 p-md-2 flex-md-row justify-content-center justify-content-md-between gy-3 align-items-center px-md-3 border">
+    <div className="cardCategory shadow rounded-2 d-flex flex-column px-2 p-md-2 flex-md-row justify-content-center justify-content-md-between gy-3 align-items-center px-md-3 border">
       <p className="text-center mb-0 text-md-start fw-bold w-100 d-block p-2 rounded-2 align-middle">
         Profesor particular
       </p>
