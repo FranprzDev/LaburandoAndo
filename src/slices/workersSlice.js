@@ -12,7 +12,9 @@ const workersSlice = createSlice({
     name: 'workers',
     initialState,
     reducers:{
-
+        clearWorker(state) { // Nueva acción para limpiar el estado del worker
+            state.worker = null;
+        }
     },
     extraReducers: (builder) =>{
         builder.addCase(fetchWorkers.pending, (state) => {
@@ -29,8 +31,10 @@ const workersSlice = createSlice({
         .addCase(fetchWorkerForID.fulfilled, (state,action) => {
             state.status = "exitoso";
             state.worker = action.payload;
-        })
+        });
     }
 })
+
+export const { clearWorker } = workersSlice.actions; // Exporta la acción clearWorker
 
 export default workersSlice.reducer;

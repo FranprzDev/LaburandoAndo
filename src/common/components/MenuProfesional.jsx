@@ -16,15 +16,19 @@ const MenuProfesional = () => {
   const navigate = useNavigate();
   const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
+  
   const logoutUser = () =>{
-    customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
+    customAlert("¿Estás seguro que deseas salir?",()=>{
+      cerrarSesion()
+     
+    } );
   }
-
   const [imageLoading, setImageLoading] = useState(true); 
   useEffect(() => {
     if (userJwt?._id) {
       dispatch(fetchWorkerForID(userJwt?._id));
     }
+    handleImageLoaded()
   }, [userJwt, dispatch]);
 
   const handleImageLoaded = () => {

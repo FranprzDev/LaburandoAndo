@@ -22,10 +22,7 @@ const Menu = () => {
     customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
   }
   useEffect(() => {}, [status]);
-  useEffect(()=>{
-    
-    console.log(status)
-  },[user,usuario])
+  useEffect(()=>{},[user,usuario])
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
