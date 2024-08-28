@@ -1,0 +1,18 @@
+.formCategory{
+    max-width: 500px;
+}
+
+.formCategory .btnCategory{
+    width: 100%;
+    background: var(--Violeta);
+}
+
+.formCategory .btnCategory:hover{
+    background: #781985;
+}
+
+@media all and (min-width:576px){
+    .formCategory .btnCategory{
+        width: 50%;
+    }
+}

@@ -1,4 +1,6 @@
 import React from "react";
+import FormCategoria from "../components/FormCategoria";
+import "../styles/administracion.css";
 
 const Categorias = () => {
   return (
@@ -9,7 +11,7 @@ const Categorias = () => {
           <li className="breadcrumb-item text-primary">Categorías</li>
         </ol>
       </nav>
-
+      <FormCategoria></FormCategoria>
     </section>
   );
 };
