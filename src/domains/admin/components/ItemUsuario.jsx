@@ -1,4 +1,7 @@
 import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { RiEdit2Fill } from "react-icons/ri";
 
 const ItemUsuario = () => {
   return (
@@ -9,8 +12,12 @@ const ItemUsuario = () => {
         <p>tipo de usuario</p>
 
         <div className="d-flex  justify-content-center">
-          <button className="me-3">aa</button>
-          <button>bb</button>
+          <button className="btn btn-warning me-3">
+            <RiEdit2Fill className="fs-5" />
+          </button>
+          <button className="btn btn-danger">
+            <MdDelete className="fs-5" />
+          </button>
         </div>
       </div>
 
