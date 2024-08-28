@@ -25,7 +25,6 @@ const FormFiltros = () => {
 
   useEffect(() => {
     dispatch(filterPostByName(name));
-    console.log(categoriaTrabajos)
   }, [name]);
 
   useEffect(() => {

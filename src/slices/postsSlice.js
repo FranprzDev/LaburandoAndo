@@ -28,6 +28,7 @@ const postSlice = createSlice({
       state.selectCategory = action.payload;
     },
     filterPostByCategory: (state, action) => {
+      state.filterPosts = state.posts;
       if(action.payload !== "") {
         state.filterPosts = state.posts.filter((post) =>
           post.category[0]?.name.toLowerCase().includes(action.payload.toLowerCase())
@@ -35,6 +36,7 @@ const postSlice = createSlice({
       }
     },
     filterPostByName: (state, action) => {
+      state.filterPosts = state.posts;
       if(action.payload !== "") {
       state.filterPosts = state.posts.filter((post) =>
         post.worker.fullname.toLowerCase().includes(action.payload.toLowerCase())
@@ -42,11 +44,11 @@ const postSlice = createSlice({
       }
     },
     filterPostByLocation: (state, action) => {
+      state.filterPosts = state.posts;
       if(action.payload !== "") {
         state.filterPosts = state.posts.filter((post) =>
           post.worker.address.toLowerCase().includes(action.payload.toLowerCase())
         );
-        console.log(state.filterPosts)
       }
     },
   },
@@ -58,6 +60,7 @@ const postSlice = createSlice({
       .addCase(getPosts.fulfilled, (state, action) => {
         state.status = "Exitoso";
         state.posts = action.payload;
+        state.filterPosts = action.payload;
       })
       .addCase(getPosts.rejected, (state, action) => {
         state.status = "Denegado";

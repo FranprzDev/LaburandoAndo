@@ -28,7 +28,7 @@ const CardPublicacion = () => {
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = publicaciones.slice(
+  const currentPosts = filterPosts.slice(
     indexOfFirstPost,
     indexOfLastPost
   );
@@ -40,12 +40,12 @@ const CardPublicacion = () => {
         <div className="loader-wrapper">
           <div className="spinner"></div>
         </div>
-      ) : publicaciones.length > 0 ? (
+      ) : filterPosts.length > 0 ? (
         <>
           <div className="pagination d-flex justify-content-center gap-2">
             {Array.from(
               {
-                length: Math.ceil(publicaciones.length / postsPerPage),
+                length: Math.ceil(filterPosts.length / postsPerPage),
               },
               (_, i) => (
                 <button
