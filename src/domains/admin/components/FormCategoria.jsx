@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { createCategory } from "../../../slices/actions/categoryActions";
+import useAlert from "../../../hooks/useAlertHook";
 
 const FormCategoria = () => {
   const {
@@ -13,9 +14,13 @@ const FormCategoria = () => {
   } = useForm();
 
   const dispatch = useDispatch()
+  const {customAlert, autoCloseAlert} = useAlert()
 
   const handleCategory = (data) => {
-    dispatch(createCategory({data: data}))
+    customAlert('¿Desea crear esta categoria?', () => {
+      dispatch(createCategory({data: data}))
+      autoCloseAlert('Categoria creada correctamente','success')
+    })
     reset();
   };
 
