@@ -4,12 +4,6 @@ import ListaPublicaciones from "../components/ListaPublicaciones";
 import "../styles/profesionales.css";
 
 const Profesionales = () => {
-  const [selectedCategory, setSelectedCategory] = useState("");
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-  };
-
   return (
     <section className="mainSection py-2 pb-md-5 pt-md-4 sectionBanner">
       <div className="container">
@@ -19,10 +13,10 @@ const Profesionales = () => {
           <p>Estos son todos los profesionales que puedes contratar!</p>
         </article>
         <article className="col-md-9 col-lg-3">
-          <Filtros onCategoryChange={handleCategoryChange} />
+          <Filtros/>
         </article>
         <article className="col-lg-8">
-          <ListaPublicaciones selectedCategory={selectedCategory} />
+          <ListaPublicaciones />
         </article>
       </div>
       </div>
