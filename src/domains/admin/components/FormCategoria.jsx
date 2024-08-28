@@ -13,14 +13,12 @@ const FormCategoria = () => {
     reset,
   } = useForm();
 
-  const dispatch = useDispatch()
-  const {customAlert, autoCloseAlert} = useAlert()
+  const dispatch = useDispatch();
+  const { autoCloseAlert } = useAlert();
 
   const handleCategory = (data) => {
-    customAlert('¿Desea crear esta categoria?', () => {
-      dispatch(createCategory({data: data}))
-      autoCloseAlert('Categoria creada correctamente','success')
-    })
+    dispatch(createCategory({ data: data }));
+    autoCloseAlert("Categoria creada correctamente", "success");
     reset();
   };
 
