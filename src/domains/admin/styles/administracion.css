@@ -11,8 +11,16 @@
     background: #781985;
 }
 
+.cardCategory{
+    width: 100%;
+}
+
 @media all and (min-width:576px){
     .formCategory .btnCategory{
         width: 50%;
+    }
+
+    .cardCategory{
+        width: 500px;
     }
 }

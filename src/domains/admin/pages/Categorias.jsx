@@ -1,6 +1,7 @@
 import React from "react";
 import FormCategoria from "../components/FormCategoria";
 import "../styles/administracion.css";
+import ListaCategorias from "../components/ListaCategorias";
 
 const Categorias = () => {
   return (
@@ -12,6 +13,8 @@ const Categorias = () => {
         </ol>
       </nav>
       <FormCategoria></FormCategoria>
+      <p className="mt-5">Categorías</p>
+      <ListaCategorias></ListaCategorias>
     </section>
   );
 };
