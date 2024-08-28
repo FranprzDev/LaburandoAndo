@@ -10,9 +10,9 @@ const ListaCategorias = () => {
   
   useEffect(() => {
     dispatch(fetchCategories())
-  }, [])
+  }, [categorias])
 
-  console.log(categorias)
+  
   
 
   return (
