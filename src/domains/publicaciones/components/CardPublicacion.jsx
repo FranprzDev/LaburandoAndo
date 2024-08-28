@@ -14,7 +14,8 @@ const CardPublicacion = () => {
 
   const publicaciones = useSelector((state) => state.posts.posts);
   const reviews = publicaciones.map(publicacion => publicacion.reviews.map(review => review.stars))
-  console.log(promedioValoracion(reviews))
+  const promedios = promedioValoracion(reviews)
+  console.log(promedios)
   console.log(reviews)
   const filterPosts = useSelector((state) => state.posts.filterPosts);
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ const CardPublicacion = () => {
       ) : filterPosts.length > 0 ? (
         <>
          
-          {currentPosts.map((publicacion) => (
+          {currentPosts.map((publicacion,index) => (
             <div
               key={publicacion._id}
               onClick={() => {
@@ -91,7 +92,7 @@ const CardPublicacion = () => {
                   <div className="containerStars d-flex flex-md-column justify-content-center gap-4 align-items-center justify-content-md-start gap-md-1 align-items-md-start">
                     <div className="d-flex align-items-center gap-1 text-center">
                       <IoMdStar className="fs-3 text-warning" />
-                      <span>5.0</span>
+                      <span>{promedios[index]}</span>
                     </div>
                     <span className="text-center">10 valoraciones</span>
                   </div>
