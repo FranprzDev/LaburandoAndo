@@ -2,6 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createFeedback } from "../../../slices/actions/feedbackActions";
+import useAlert from "../../../hooks/useAlertHook";
 
 const FormularioSoporte = () => {
   const {
@@ -12,12 +13,12 @@ const FormularioSoporte = () => {
   } = useForm();
 
   const user = useSelector((state) => state.auth.user);
-  console.log(user._id);
   const dispatch = useDispatch();
+  const {autoCloseAlert} = useAlert()
 
   const handleCrear = (data) => {
-    console.log(data);
     dispatch(createFeedback({ id: user._id, data: data }));
+    autoCloseAlert('Su mensaje fue enviado con éxito', 'success')
     reset();
   };
 
