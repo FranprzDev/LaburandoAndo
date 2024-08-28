@@ -12,27 +12,29 @@ import useAlert from "../../hooks/useAlertHook";
 const MenuProfesional = () => {
   const userJwt = useSelector((state) => state.auth.user);
   const worker = useSelector((state) => state.workers.worker);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
-
+  
   const logoutUser = () =>{
-    customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
+    customAlert("¿Estás seguro que deseas salir?",()=>{
+      cerrarSesion()
+     
+    } );
   }
-
   const [imageLoading, setImageLoading] = useState(true); 
   useEffect(() => {
     if (userJwt?._id) {
       dispatch(fetchWorkerForID(userJwt?._id));
     }
+    handleImageLoaded()
   }, [userJwt, dispatch]);
 
   const handleImageLoaded = () => {
     setImageLoading(false);
   };
+
 
   return (
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
@@ -42,7 +44,7 @@ const MenuProfesional = () => {
             LaburandoAndo
           </Link>
         </div>
-        <figure className="d-none d-md-block text-center mx-auto w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 ms-3 position-relative">
+        <figure className="d-none text-center w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 d-md-flex flex-column align-items-center position-relative">
           {imageLoading && (
             <div className="position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center">
               <div className="spinner"></div> 
@@ -52,7 +54,7 @@ const MenuProfesional = () => {
             src={worker ? worker.img : image}
             alt="imagen de perfil"
             title="imagen de perfil"
-            className={`rounded-circle shadow ms-5 imgProfileUser ${imageLoading ? 'd-none' : 'd-block'}`}
+            className={`rounded-circle shadow  imgProfileUser ${imageLoading ? 'd-none' : 'd-block'}`}
             onLoad={handleImageLoaded}
         
           />
@@ -80,7 +82,7 @@ const MenuProfesional = () => {
               data-bs-dismiss="offcanvas"
             ></button>
           </div>
-          <figure className="d-md-none text-center w-100 mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 position-relative">
+          <figure className="d-md-none text-center w-100 d-flex flex-column align-items-center mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 position-relative">
             {imageLoading && (
               <div className="position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center">
                 <div className="spinner"></div> {/* Loader */}
