@@ -34,7 +34,7 @@ const MenuProfesional = () => {
   const handleImageLoaded = () => {
     setImageLoading(false);
   };
-  console.log(worker)
+
 
   return (
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
