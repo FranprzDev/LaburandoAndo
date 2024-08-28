@@ -33,7 +33,7 @@ const FormFiltros = () => {
 
 
   return (
-    <Accordion defaultActiveKey="0">
+    <Accordion defaultActiveKey="0" className="w-100">
       <Accordion.Item eventKey="0">
         <Accordion.Header>Filtrar por:</Accordion.Header>
         <Accordion.Body>

@@ -42,22 +42,7 @@ const CardPublicacion = () => {
         </div>
       ) : filterPosts.length > 0 ? (
         <>
-          <div className="pagination d-flex justify-content-center gap-2">
-            {Array.from(
-              {
-                length: Math.ceil(filterPosts.length / postsPerPage),
-              },
-              (_, i) => (
-                <button
-                  key={i + 1}
-                  onClick={() => paginate(i + 1)}
-                  className="page-link btn btn-outline-primary rounded"
-                >
-                  {i + 1}
-                </button>
-              )
-            )}
-          </div>
+         
           {currentPosts.map((publicacion) => (
             <div
               key={publicacion._id}
@@ -127,8 +112,26 @@ const CardPublicacion = () => {
                 </Link>
               </div>
             </div>
+            
           ))}
+           <div className="pagination d-flex justify-content-center gap-2">
+            {Array.from(
+              {
+                length: Math.ceil(filterPosts.length / postsPerPage),
+              },
+              (_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => paginate(i + 1)}
+                  className="page-link btn btn-outline-primary rounded"
+                >
+                  {i + 1}
+                </button>
+              )
+            )}
+          </div>
         </>
+        
       ) : (
         <div className="cardPost d-flex align-items-center px-2 px-md-3 rounded-3 shadow">
           <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
