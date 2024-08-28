@@ -9,18 +9,21 @@ import { getPost } from "../../../slices/actions/postsActions";
 import CardProfesional from "../components/CardProfesional";
 import { FaWhatsapp } from "react-icons/fa";
 import useAlert from "../../../hooks/useAlertHook";
+import { promedioValoracionDetalle } from "../../../helpers/promedioValoracion";
 
 const DetallePublicacion = () => {
   const profesional = useSelector((state) => state.posts.post);
   const userLogeado = useSelector((state) => state.auth.user);
   const { id } = useParams();
   const dispatch = useDispatch();
-
+  const reviews = profesional?.reviews ? profesional.reviews.map(review => review.stars) : []
+  const promedio = promedioValoracionDetalle(reviews)
   useEffect(() => {
     dispatch(getPost(id));
   }, [id]);
 
   const { autoCloseAlert } = useAlert();
+  
 
   const handleWhatsApp = () => {
     if (userLogeado) {
@@ -57,6 +60,7 @@ const DetallePublicacion = () => {
           <CardProfesional
             profesional={profesional}
             handleWhatsApp={handleWhatsApp}
+            promedio={promedio}
           ></CardProfesional>
           <div className="mt-3 mt-md-5 w-100">
             <div className=" w-100">

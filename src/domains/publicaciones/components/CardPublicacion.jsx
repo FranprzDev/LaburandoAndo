@@ -4,6 +4,7 @@ import { getPosts } from "../../../slices/actions/postsActions";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
+import { promedioValoracion } from "../../../helpers/promedioValoracion";
 
 const CardPublicacion = () => {
   const [loading, setLoading] = useState(true);
@@ -12,6 +13,10 @@ const CardPublicacion = () => {
   const selectedCategory = useSelector((state) => state.posts.selectCategory);
 
   const publicaciones = useSelector((state) => state.posts.posts);
+  const reviews = publicaciones.map((publicacion) =>
+    publicacion.reviews.map((review) => review.stars)
+  );
+  const promedios = promedioValoracion(reviews);
   const filterPosts = useSelector((state) => state.posts.filterPosts);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,13 +30,9 @@ const CardPublicacion = () => {
     setCurrentPage(1);
   }, [selectedCategory]);
 
-
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filterPosts.slice(
-    indexOfFirstPost,
-    indexOfLastPost
-  );
+  const currentPosts = filterPosts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -42,8 +43,7 @@ const CardPublicacion = () => {
         </div>
       ) : filterPosts.length > 0 ? (
         <>
-         
-          {currentPosts.map((publicacion) => (
+          {currentPosts.map((publicacion, index) => (
             <div
               key={publicacion._id}
               onClick={() => {
@@ -87,9 +87,15 @@ const CardPublicacion = () => {
                   <div className="containerStars d-flex flex-md-column justify-content-center gap-4 align-items-center justify-content-md-start gap-md-1 align-items-md-start">
                     <div className="d-flex align-items-center gap-1 text-center">
                       <IoMdStar className="fs-3 text-warning" />
-                      <span>5.0</span>
+                      <span>{promedios[index] ? promedios[index] : 0}</span>
                     </div>
-                    <span className="text-center">10 valoraciones</span>
+                    <span className="text-center">
+                      {reviews[index].length === 1
+                        ? "1 valoración"
+                        : reviews[index].length > 1
+                        ? reviews[index].length + " valoraciones"
+                        : "Sin Valoraciones"}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -112,9 +118,8 @@ const CardPublicacion = () => {
                 </Link>
               </div>
             </div>
-            
           ))}
-           <div className="pagination d-flex justify-content-center gap-2">
+          <div className="pagination d-flex justify-content-center gap-2">
             {Array.from(
               {
                 length: Math.ceil(filterPosts.length / postsPerPage),
@@ -131,7 +136,6 @@ const CardPublicacion = () => {
             )}
           </div>
         </>
-        
       ) : (
         <div className="cardPost d-flex align-items-center px-2 px-md-3 rounded-3 shadow">
           <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
