@@ -9,7 +9,7 @@ export const fetchCategories = createAsyncThunk("categories/fetchCategories", as
 
 export const createCategory = createAsyncThunk("categories/createCategory", async (FormData) => {
     const sanitizedPost = {
-      name: FormData.post.name
+      name: FormData.data.name
     }
 
     try {

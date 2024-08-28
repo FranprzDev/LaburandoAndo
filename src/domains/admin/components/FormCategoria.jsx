@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { createCategory } from "../../../slices/actions/categoryActions";
 
 const FormCategoria = () => {
   const {
@@ -10,7 +12,10 @@ const FormCategoria = () => {
     reset,
   } = useForm();
 
-  const handleCategory = () => {
+  const dispatch = useDispatch()
+
+  const handleCategory = (data) => {
+    dispatch(createCategory({data: data}))
     reset();
   };
 

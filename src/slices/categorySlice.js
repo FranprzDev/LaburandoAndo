@@ -30,7 +30,7 @@ const categoriesSlice = createSlice({
       })
       .addCase(createCategory.fulfilled, (state, action) => {
         state.status = "exitoso"
-        state.post = action.payload
+        state.category = action.payload
       })
       .addCase(createCategory.rejected, (state, action) => {
         state.status = "denegado"
