@@ -1,6 +1,9 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { createCategory } from "../../../slices/actions/categoryActions";
+import useAlert from "../../../hooks/useAlertHook";
 
 const FormCategoria = () => {
   const {
@@ -10,7 +13,12 @@ const FormCategoria = () => {
     reset,
   } = useForm();
 
-  const handleCategory = () => {
+  const dispatch = useDispatch();
+  const { autoCloseAlert } = useAlert();
+
+  const handleCategory = (data) => {
+    dispatch(createCategory({ data: data }));
+    autoCloseAlert("Categoria creada correctamente", "success");
     reset();
   };
 

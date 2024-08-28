@@ -6,3 +6,16 @@ export const fetchCategories = createAsyncThunk("categories/fetchCategories", as
     return response.data.data;
   }
 );
+
+export const createCategory = createAsyncThunk("categories/createCategory", async (FormData) => {
+    const sanitizedPost = {
+      name: FormData.data.name
+    }
+
+    try {
+      const res = await instance.post('/category/create',sanitizedPost)
+      return res.data.data
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || 'An error occurred while creating the post');
+    }
+})
