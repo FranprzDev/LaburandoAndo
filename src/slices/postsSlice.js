@@ -10,6 +10,8 @@ import {
 const initialState = {
   post: null,
   posts: [],
+  filterPosts: [],
+  selectCategory: "",
   status: "idle",
   createPostStatus: "idle",
   error: null,
@@ -21,6 +23,31 @@ const postSlice = createSlice({
   reducers: {
     resetPostStatus: (state) => {
       state.createPostStatus = "idle";
+    },
+    changeSelectedCategory: (state, action) => {
+      state.selectCategory = action.payload;
+    },
+    filterPostByCategory: (state, action) => {
+      if(action.payload !== "") {
+        state.filterPosts = state.posts.filter((post) =>
+          post.category[0]?.name.toLowerCase().includes(action.payload.toLowerCase())
+        );
+      }
+    },
+    filterPostByName: (state, action) => {
+      if(action.payload !== "") {
+      state.filterPosts = state.posts.filter((post) =>
+        post.worker.fullname.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      }
+    },
+    filterPostByLocation: (state, action) => {
+      if(action.payload !== "") {
+        state.filterPosts = state.posts.filter((post) =>
+          post.worker.address.toLowerCase().includes(action.payload.toLowerCase())
+        );
+        console.log(state.filterPosts)
+      }
     },
   },
   extraReducers: (builder) => {
@@ -82,6 +109,6 @@ const postSlice = createSlice({
   },
 });
 
-export const { resetPostStatus } = postSlice.actions;
+export const { resetPostStatus, changeSelectedCategory, filterPostByCategory, filterPostByName, filterPostByLocation } = postSlice.actions;
 
 export default postSlice.reducer;
