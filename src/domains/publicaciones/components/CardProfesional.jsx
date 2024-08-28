@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Image } from "react-bootstrap";
 import { FaStar, FaWhatsapp } from "react-icons/fa";
 
-const CardProfesional = ({ profesional, handleWhatsApp }) => {
+const CardProfesional = ({ profesional, handleWhatsApp, promedio }) => {
   return (
     <Card className="me-3 mt-3 cardDetail">
       <div>
@@ -25,7 +25,7 @@ const CardProfesional = ({ profesional, handleWhatsApp }) => {
               } d-flex justify-content-center`}
             >
               <FaStar className="me-2 text-warning fs-5" />
-              <p>4</p>
+              <p>{promedio}</p>
             </div>
             {profesional?.reviews.length > 0 ? (
               <p>
