@@ -4,6 +4,7 @@ import { getPosts } from "../../../slices/actions/postsActions";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
+import { promedioValoracion } from "../../../helpers/promedioValoracion";
 
 const CardPublicacion = () => {
   const [loading, setLoading] = useState(true);
@@ -12,8 +13,8 @@ const CardPublicacion = () => {
   const selectedCategory = useSelector((state) => state.posts.selectCategory);
 
   const publicaciones = useSelector((state) => state.posts.posts);
-  const reviews = publicaciones.map(publicacion => publicacion.reviews)
-  
+  const reviews = publicaciones.map(publicacion => publicacion.reviews.map(review => review.stars))
+  console.log(promedioValoracion(reviews))
   console.log(reviews)
   const filterPosts = useSelector((state) => state.posts.filterPosts);
   const dispatch = useDispatch();

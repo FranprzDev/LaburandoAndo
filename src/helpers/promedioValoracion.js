@@ -1,3 +1,6 @@
 export const promedioValoracion = (promedios) => {
-    promedios.reduce((acumulador, valorActual) => Math.round((acumulador+valorActual)/promedios.length))
+    return promedios.map((valores) => {
+        const suma = valores.reduce((acumulador, valorActual) => acumulador + valorActual, 0)
+        return Math.round(suma/valores.length)
+    })
 }
