@@ -12,13 +12,10 @@ import useAlert from "../../hooks/useAlertHook";
 const MenuProfesional = () => {
   const userJwt = useSelector((state) => state.auth.user);
   const worker = useSelector((state) => state.workers.worker);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
-
   const logoutUser = () =>{
     customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
   }
@@ -33,6 +30,7 @@ const MenuProfesional = () => {
   const handleImageLoaded = () => {
     setImageLoading(false);
   };
+  console.log(worker)
 
   return (
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">

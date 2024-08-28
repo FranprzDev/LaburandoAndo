@@ -13,18 +13,18 @@ import useAlert from "../../hooks/useAlertHook";
 const Menu = () => {
   const user = useSelector((state) => state.auth.user);
   const status = useSelector((state) => state.auth.stateSync);
-
   const usuario = JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null;
-
+  
   const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
-
+  
   const logoutUser = () =>{
     customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
   }
   useEffect(() => {}, [status]);
   useEffect(()=>{
-
+    
+    console.log(status)
   },[user,usuario])
 
   return (
