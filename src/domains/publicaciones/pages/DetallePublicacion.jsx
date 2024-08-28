@@ -21,6 +21,7 @@ const DetallePublicacion = () => {
   }, [id]);
 
   const { autoCloseAlert } = useAlert();
+  console.log(profesional)
 
   const handleWhatsApp = () => {
     if (userLogeado) {

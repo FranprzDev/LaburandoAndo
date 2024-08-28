@@ -12,6 +12,9 @@ const CardPublicacion = () => {
   const selectedCategory = useSelector((state) => state.posts.selectCategory);
 
   const publicaciones = useSelector((state) => state.posts.posts);
+  const reviews = publicaciones.map(publicacion => publicacion.reviews)
+  
+  console.log(reviews)
   const filterPosts = useSelector((state) => state.posts.filterPosts);
   const dispatch = useDispatch();
   const navigate = useNavigate();
