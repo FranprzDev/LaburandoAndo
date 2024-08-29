@@ -2,13 +2,17 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { deleteCategory } from "../../../slices/actions/categoryActions";
+import useAlert from "../../../hooks/useAlertHook";
 
 const ItemCategoria = ({categoria}) => {
 
   const dispatch = useDispatch()
-
+  const {customAlert, autoCloseAlert} = useAlert()
   const handleDelete = (id) => {
-    dispatch(deleteCategory(id))
+    customAlert('¿Estas seguro que quieres borrar esta categoria?', () => {
+      dispatch(deleteCategory(id))
+      autoCloseAlert('Categoria Eliminada','success')
+    }) 
   }
 
   return (
