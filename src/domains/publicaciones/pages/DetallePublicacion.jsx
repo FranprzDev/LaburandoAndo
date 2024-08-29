@@ -18,9 +18,14 @@ const DetallePublicacion = () => {
   const dispatch = useDispatch();
   const reviews = profesional?.reviews ? profesional.reviews.map(review => review.stars) : []
   const promedio = promedioValoracionDetalle(reviews)
+
   useEffect(() => {
     dispatch(getPost(id));
   }, [id]);
+
+  useEffect(()=>{
+    dispatch(getPost(id))
+  },[profesional])
 
   const { autoCloseAlert } = useAlert();
   
