@@ -14,7 +14,7 @@ const Soporte = () => {
             </li>
           </ol>
         </nav>
-        <p className="mb-0">Mensajes</p>
+        <p className="">Mensajes</p>
         <ListaMensajesSoporte></ListaMensajesSoporte>
       </section>
     );
