@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchWorkerForID, fetchWorkers, getWorkers } from "./actions/workersActions";
+import { deleteWorker, fetchWorkerForID, fetchWorkers, getWorkers } from "./actions/workersActions";
 
 const initialState = {
     workers: [],
@@ -40,6 +40,17 @@ const workersSlice = createSlice({
             state.workers = action.payload
         })
         .addCase(getWorkers.rejected, (state,action) => {
+            state.status = "denegado"
+            state.error = action.error.message
+        })
+        .addCase(deleteWorker.pending, (state) => {
+            state.status = "cargando"
+        })
+        .addCase(deleteWorker.rejected, (state, action) => {
+            state.status = "exitoso"
+            state.workers = state.workers.filter((worker) => worker.id !== action.payload)
+        })
+        .addCase(deleteWorker.rejected, (state, action) => {
             state.status = "denegado"
             state.error = action.error.message
         })
