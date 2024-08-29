@@ -1,10 +1,14 @@
 import React from "react";
 import { MdDelete } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { deleteCategory } from "../../../slices/actions/categoryActions";
 
 const ItemCategoria = ({categoria}) => {
 
+  const dispatch = useDispatch()
+
   const handleDelete = (id) => {
-    console.log(id)
+    dispatch(deleteCategory(id))
   }
 
   return (

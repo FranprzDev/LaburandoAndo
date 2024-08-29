@@ -21,8 +21,9 @@ export const createCategory = createAsyncThunk("categories/createCategory", asyn
 })
 
 export const deleteCategory = createAsyncThunk("categories/deleteCategory", async(id) => {
+  console.log(id)
   try {
-    const res = await instance.delete(`/category/${id}`)
+    const res = await instance.delete(`/category/delete/${id}`)
     return id
   } catch (error) {
     return error
