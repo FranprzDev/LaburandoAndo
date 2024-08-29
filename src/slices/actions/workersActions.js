@@ -17,6 +17,6 @@ export const getWorkers = createAsyncThunk("workers/getWorkers", async () => {
 })
 
 export const deleteWorker = createAsyncThunk("workers/deleteWorker", async (id) => {
-    const response = await instance.delete(`/worker/${id}`)
+    const response = await instance.delete(`/worker/delete/${id}`)
     return id
 })

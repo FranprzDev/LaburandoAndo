@@ -10,11 +10,12 @@ const ItemUsuario = ({ user, profesional }) => {
   const dispatch = useDispatch()
 
   const handleDelete = (id) => {
-    console.log(id)
-    // if(user.role)
-    // {
-    //   dispatch(deleteWorker(id))
-    // }
+     if(user.role)
+     {
+       dispatch(deleteWorker(id))
+     }else{
+      console.log("Esto es usuario papi")
+     }
   }
 
   return (
@@ -28,8 +29,8 @@ const ItemUsuario = ({ user, profesional }) => {
           <button className="btn btn-warning me-3">
             <RiEdit2Fill className="fs-5" />
           </button>
-          <button className="btn btn-danger">
-            <MdDelete className="fs-5" onClick={handleDelete(user._id)} />
+          <button className="btn btn-danger" onClick={() => handleDelete(user._id)}>
+            <MdDelete className="fs-5" />
           </button>
         </div>
       </div>
