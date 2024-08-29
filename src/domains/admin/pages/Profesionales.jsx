@@ -4,15 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getWorkers } from "../../../slices/actions/workersActions";
 
 const Profesionales = () => {
-
-  const profesionales = useSelector((state) => state.workers.workers)
-  const dispatch = useDispatch()
+  const profesionales = useSelector((state) => state.workers.workers);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getWorkers())
-  }, [])
-  
-  console.log(profesionales)
+    dispatch(getWorkers());
+  }, []);
 
   return (
     <section className="container-fluid px-2 px-lg-5 py-3 py-md-5 mainSection containerProfile">
