@@ -46,7 +46,7 @@ const workersSlice = createSlice({
         .addCase(deleteWorker.pending, (state) => {
             state.status = "cargando"
         })
-        .addCase(deleteWorker.rejected, (state, action) => {
+        .addCase(deleteWorker.fulfilled, (state, action) => {
             state.status = "exitoso"
             state.workers = state.workers.filter((worker) => worker.id !== action.payload)
         })

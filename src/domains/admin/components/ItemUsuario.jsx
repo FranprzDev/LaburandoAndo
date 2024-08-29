@@ -2,8 +2,21 @@ import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { RiEdit2Fill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { deleteWorker } from "../../../slices/actions/workersActions";
 
 const ItemUsuario = ({ user, profesional }) => {
+
+  const dispatch = useDispatch()
+
+  const handleDelete = (id) => {
+    console.log(id)
+    // if(user.role)
+    // {
+    //   dispatch(deleteWorker(id))
+    // }
+  }
+
   return (
     <>
       <div className="row ms-1 cardMessage shadow rounded-2 p-2 pt-md-3 px-md-3 border">
@@ -16,7 +29,7 @@ const ItemUsuario = ({ user, profesional }) => {
             <RiEdit2Fill className="fs-5" />
           </button>
           <button className="btn btn-danger">
-            <MdDelete className="fs-5" />
+            <MdDelete className="fs-5" onClick={handleDelete(user._id)} />
           </button>
         </div>
       </div>
