@@ -6,8 +6,8 @@ const ItemMensaje = ({ feedback }) => {
     <div className="cardMessage shadow rounded-2 justify-content-center justify-content-md-between gy-3 align-items-center p-2 pt-md-3 px-md-3 border">
       <div className="d-flex flex-column flex-md-row justify-content-md-between">
         <div className="d-flex flex-column ">
-          <span className="fw-medium">Asunto: {feedback.subject}</span>
-          <p className="fw-bold mb-0 align-middle">
+          <span className="fw-medium text-secondary">Asunto: {feedback.subject}</span>
+          <p className="fw-medium mb-0 align-middle">
             {feedback.worker.fullname}
           </p>
         </div>
