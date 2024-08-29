@@ -8,25 +8,29 @@ import useAlert from "../../../hooks/useAlertHook";
 import { deleteUser } from "../../../slices/actions/usersActions";
 
 const ItemUsuario = ({ user, profesional }) => {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const {customAlert, autoCloseAlert} = useAlert()
+  const { customAlert, autoCloseAlert } = useAlert();
 
   const handleDelete = (id) => {
-     if(user.role)
-     {
-      customAlert('¿Estas seguro que quieres borrar a este usuario profesional?', () => {
-        dispatch(deleteWorker(id))
-        autoCloseAlert('Usuario eliminado',"success")
-      })
-     }else{
-      customAlert('¿Estas seguro que quieres borrar a este usuario cliente?',() => {
-        dispatch(deleteUser(id))
-        autoCloseAlert('Usuario eliminado',"success")
-      })
-     }
-  }
+    if (user.role) {
+      customAlert(
+        "¿Estas seguro que quieres borrar a este usuario profesional?",
+        () => {
+          dispatch(deleteWorker(id));
+          autoCloseAlert("Usuario eliminado", "success");
+        }
+      );
+    } else {
+      customAlert(
+        "¿Estas seguro que quieres borrar a este usuario cliente?",
+        () => {
+          dispatch(deleteUser(id));
+          autoCloseAlert("Usuario eliminado", "success");
+        }
+      );
+    }
+  };
 
   return (
     <>
@@ -39,7 +43,10 @@ const ItemUsuario = ({ user, profesional }) => {
           <button className="btn btn-warning me-3">
             <RiEdit2Fill className="fs-5" />
           </button>
-          <button className="btn btn-danger" onClick={() => handleDelete(user._id)}>
+          <button
+            className="btn btn-danger"
+            onClick={() => handleDelete(user._id)}
+          >
             <MdDelete className="fs-5" />
           </button>
         </div>
