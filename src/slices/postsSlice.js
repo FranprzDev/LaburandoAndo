@@ -13,7 +13,6 @@ const initialState = {
   filterPosts: [],
   selectCategory: "",
   status: "idle",
-  createPostStatus: "idle",
   error: null,
 };
 
@@ -21,9 +20,6 @@ const postSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    resetPostStatus: (state) => {
-      state.createPostStatus = "idle";
-    },
     changeSelectedCategory: (state, action) => {
       state.selectCategory = action.payload;
     },
@@ -78,18 +74,18 @@ const postSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(createPost.pending, (state) => {
-        state.createPostStatus = "cargando";
+        state.status = "cargando";
       })
       .addCase(createPost.fulfilled, (state, action) => {
-        state.createPostStatus = "exitoso";
+        state.status = "exitoso";
         state.post = action.payload;
       })
       .addCase(createPost.rejected, (state, action) => {
-        state.createPostStatus = "denegado";
+        state.status = "denegado";
         state.error = action.error.message;
       })
       .addCase(deletePost.pending, (state) => {
-        state.createPostStatus = "cargando";
+        state.status = "cargando";
       })
       .addCase(deletePost.fulfilled, (state, action) => {
         state.status = "exitoso";
@@ -100,13 +96,13 @@ const postSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(updatePost.pending, (state) => {
-        state.createPostStatus = "cargando";
+        state.status = "cargando";
       }) 
       .addCase(updatePost.fulfilled, (state, action) => {
         state.post = action.payload;
       })
       .addCase(updatePost.rejected, (state, action) => {
-        state.createPostStatus = "denegado";
+        state.status = "denegado";
         state.error = action.error.message;
       });
   },

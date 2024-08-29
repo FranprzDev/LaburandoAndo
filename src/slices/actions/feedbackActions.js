@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../api/api";
 
 export const createFeedback = createAsyncThunk(
-  "work/createFeedback",
+  "worker/createFeedback",
   async (FormData) => {
     const sanitizedFeedback = {
       subject: FormData.data.affair,
@@ -24,3 +24,8 @@ export const createFeedback = createAsyncThunk(
     }
   }
 );
+
+export const getFeedbacks = createAsyncThunk("admin/Feedbacks", async () => {
+  const res = await instance.get("/feedback/?read=false");
+  return res.data.data;
+});

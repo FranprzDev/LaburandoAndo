@@ -3,16 +3,18 @@ import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import PostModalComponent from "../../../components/PostModalComponents";
 import { fetchCategories } from "../../../slices/actions/categoryActions";
-import { createPost, getPost, updatePost } from "../../../slices/actions/postsActions";
+import {
+  createPost,
+  getPost,
+  updatePost,
+} from "../../../slices/actions/postsActions";
 import useAlert from "../../../hooks/useAlertHook";
 
 const FormularioPublicacion = ({ id }) => {
   const post = useSelector((state) => state.posts.post);
   const categorias = useSelector((state) => state.categories.categories);
   const status = useSelector((state) => state.categories.status);
-  const createPostStatus = useSelector((state) => state.posts.createPostStatus);
   const userLogeado = useSelector((state) => state.auth.user);
   const { customAlert, autoCloseAlert } = useAlert();
   const navigate = useNavigate();
@@ -24,10 +26,6 @@ const FormularioPublicacion = ({ id }) => {
     reset,
     setValue,
   } = useForm();
-
-  const postCreateState = useMemo(() => {
-    return createPostStatus;
-  }, [createPostStatus]);
 
   useEffect(() => {
     if (status === "idle") {
@@ -62,7 +60,7 @@ const FormularioPublicacion = ({ id }) => {
       dispatch(createPost({ id: userLogeado._id, post: post })).then(() => {
         autoCloseAlert("Su publicación fue creada con éxito", "success");
         reset();
-        navigate('/work/mis-publicaciones');
+        navigate("/work/mis-publicaciones");
       });
     });
   };
@@ -174,9 +172,7 @@ const FormularioPublicacion = ({ id }) => {
               },
             })}
           />
-          <div className="text-danger text-start">
-            {errors.price?.message}
-          </div>
+          <div className="text-danger text-start">{errors.price?.message}</div>
         </Form.Group>
       </div>
 

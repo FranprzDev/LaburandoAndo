@@ -6,6 +6,7 @@ import categorySlice from "../slices/categorySlice";
 import registerSlice from "../slices/registerSlice";
 import reviewsSlice from "../slices/reviewsSlice";
 import feedbackSlice from "../slices/feedbackSlice";
+import usersSlice from "../slices/usersSlice";
 
 export const store = configureStore({
     reducer:{
@@ -15,6 +16,7 @@ export const store = configureStore({
         register: registerSlice,
         categories: categorySlice,
         reviews: reviewsSlice,
-        feedbacks: feedbackSlice
+        feedbacks: feedbackSlice,
+        users: usersSlice
     }
 })
