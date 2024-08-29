@@ -4,17 +4,27 @@ import { MdDelete } from "react-icons/md";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { deleteWorker } from "../../../slices/actions/workersActions";
+import useAlert from "../../../hooks/useAlertHook";
+import { deleteUser } from "../../../slices/actions/usersActions";
 
 const ItemUsuario = ({ user, profesional }) => {
 
   const dispatch = useDispatch()
 
+  const {customAlert, autoCloseAlert} = useAlert()
+
   const handleDelete = (id) => {
      if(user.role)
      {
-       dispatch(deleteWorker(id))
+      customAlert('¿Estas seguro que quieres borrar a este usuario profesional?', () => {
+        dispatch(deleteWorker(id))
+        autoCloseAlert('Usuario eliminado',"success")
+      })
      }else{
-      console.log("Esto es usuario papi")
+      customAlert('¿Estas seguro que quieres borrar a este usuario cliente?',() => {
+        dispatch(deleteUser(id))
+        autoCloseAlert('Usuario eliminado',"success")
+      })
      }
   }
 
