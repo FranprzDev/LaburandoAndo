@@ -29,6 +29,10 @@
   min-height: 150px;
 }
 
+.btnDeleteReview{
+  width: 25%;
+}
+
 @media (min-width: 768px) {
   .containerDetail {
     display: flex;
