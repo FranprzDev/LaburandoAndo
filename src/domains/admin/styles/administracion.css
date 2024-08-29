@@ -15,6 +15,10 @@
     width: 100%;
 }
 
+.filterMessages{
+    max-width: 200px;
+}
+
 @media all and (min-width:576px){
     .formCategory .btnCategory{
         width: 50%;

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createFeedback } from "./actions/feedbackActions";
+import { createFeedback, getFeedbacks } from "./actions/feedbackActions";
 
 const initialState = {
     feedbacks: [],
@@ -14,6 +14,17 @@ const feedbackSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+        .addCase(getFeedbacks.pending, (state) => {
+            state.status = "Cargando";
+          })
+          .addCase(getFeedbacks.fulfilled, (state, action) => {
+            state.status = "Exitoso";
+            state.feedbacks = action.payload;
+          })
+          .addCase(getFeedbacks.rejected, (state, action) => {
+            state.status = "Denegado";
+            state.error = action.error.message;
+          })
         .addCase(createFeedback.pending,(state) => {
             state.status = "idle"
         })
