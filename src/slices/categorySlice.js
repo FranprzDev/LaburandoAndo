@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createCategory, fetchCategories } from "./actions/categoryActions";
+import { createCategory, deleteCategory, fetchCategories } from "./actions/categoryActions";
 
 const initialState = {
   categories: [],
@@ -35,6 +35,17 @@ const categoriesSlice = createSlice({
       .addCase(createCategory.rejected, (state, action) => {
         state.status = "denegado"
         state.error = action.error.message
+      })
+      .addCase(deleteCategory.pending, (state) => {
+        state.status = "cargando";
+      })
+      .addCase(deleteCategory.fulfilled, (state, action) => {
+        state.status = "exitoso";
+        state.posts = state.categories.filter((item) => item.id !== action.payload);
+      })
+      .addCase(deleteCategory.rejected, (state, action) => {
+        state.status = "denegado";
+        state.error = action.error.message;
       })
   },
 });
