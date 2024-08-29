@@ -10,3 +10,8 @@ export const fetchWorkers = createAsyncThunk("workers/fetchWorkers", async () =>
     const response = await instance.get(`${import.meta.env.VITE_API_WORKERS}`);
     return response.data.data;
 });
+
+export const getWorkers = createAsyncThunk("workers/getWorkers", async () => {
+    const response = await instance.get('/worker/')
+    return response.data.data
+})
