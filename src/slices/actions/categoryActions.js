@@ -19,3 +19,12 @@ export const createCategory = createAsyncThunk("categories/createCategory", asyn
       return rejectWithValue(error.response?.data?.message || 'An error occurred while creating the post');
     }
 })
+
+export const deleteCategory = createAsyncThunk("categories/deleteCategory", async(id) => {
+  try {
+    const res = await instance.delete(`/category/${id}`)
+    return id
+  } catch (error) {
+    return error
+  }
+})
