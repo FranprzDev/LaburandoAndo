@@ -6,13 +6,14 @@ import { getUsers } from "../../../slices/actions/usersActions";
 const Clientes = () => {
 
   const users = useSelector((state) => state.users.users)
+  const usersFiltrados = users.filter((user) => !user.role)
   const dispatch = useDispatch()
 
   useEffect(() => {
    dispatch(getUsers())
   }, [])
   
-  console.log(users)
+
 
   return (
     <section className="container-fluid px-2 px-lg-5 py-3 py-md-5 mainSection containerProfile">
@@ -22,7 +23,7 @@ const Clientes = () => {
           <li className="breadcrumb-item text-primary">Clientes</li>
         </ol>
       </nav>
-      <ListaUsuarios users={users} />
+      <ListaUsuarios users={usersFiltrados} />
     </section>
   );
 };

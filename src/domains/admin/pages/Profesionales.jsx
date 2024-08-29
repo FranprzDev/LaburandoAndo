@@ -1,7 +1,11 @@
 import React from "react";
 import ListaUsuarios from "../components/ListaUsuarios";
+import { useSelector } from "react-redux";
 
 const Profesionales = () => {
+
+  const profesional = useSelector((state) => state)
+
   return (
     <section className="container-fluid px-2 px-lg-5 py-3 py-md-5 mainSection containerProfile">
       <nav aria-label="breadcrumb">
