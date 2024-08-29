@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { RiEdit2Fill } from "react-icons/ri";
 
-const ItemUsuario = ({user}) => {
+const ItemUsuario = ({user, profesional}) => {
   return (
     <>
       {/* el div a continuacion se debe repetir por cada profesional/cliente 

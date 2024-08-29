@@ -1,10 +1,18 @@
-import React from "react";
+import { useEffect } from "react";
 import ListaUsuarios from "../components/ListaUsuarios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getWorkers } from "../../../slices/actions/workersActions";
 
 const Profesionales = () => {
 
-  const profesional = useSelector((state) => state)
+  const profesionales = useSelector((state) => state.workers.workers)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getWorkers())
+  }, [])
+  
+  console.log(profesionales)
 
   return (
     <section className="container-fluid px-2 px-lg-5 py-3 py-md-5 mainSection containerProfile">
@@ -14,7 +22,7 @@ const Profesionales = () => {
           <li className="breadcrumb-item text-primary">Profesionales</li>
         </ol>
       </nav>
-      <ListaUsuarios />
+      <ListaUsuarios profesionales={profesionales} />
     </section>
   );
 };
