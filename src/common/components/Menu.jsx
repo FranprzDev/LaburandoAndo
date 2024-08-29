@@ -13,19 +13,16 @@ import useAlert from "../../hooks/useAlertHook";
 const Menu = () => {
   const user = useSelector((state) => state.auth.user);
   const status = useSelector((state) => state.auth.stateSync);
-
   const usuario = JSON.parse(sessionStorage.getItem("usuarioLogeado")) || null;
 
   const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
 
-  const logoutUser = () =>{
+  const logoutUser = () => {
     customAlert("¿Estás seguro que deseas salir?", cerrarSesion);
-  }
+  };
   useEffect(() => {}, [status]);
-  useEffect(()=>{
-
-  },[user,usuario])
+  useEffect(() => {}, [user, usuario]);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
@@ -50,12 +47,14 @@ const Menu = () => {
                 Publicar Anuncio
               </Link>
             )}
-            {(user?.role !== "worker" && user?.role !== "client" && (usuario && usuario.role !== "admin")) && (
-              <Link className="btn btn-Profesional me-3" to="/auth/register">
-                Anúnciate como profesional
-              </Link>
-            )}
-            {(!user && !usuario) && (
+            {(!user?.role ||
+              !["worker", "client", "admin"].includes(user.role)) &&
+              !usuario?.role && (
+                <Link className="btn btn-Profesional me-3" to="/auth/register">
+                  Anúnciate como profesional
+                </Link>
+              )}
+            {!user && !usuario && (
               <Link
                 className="nav-link d-flex align-items-center gap-1 me-3"
                 to="/auth/login"
@@ -66,9 +65,17 @@ const Menu = () => {
                 <span>Ingresar</span>
               </Link>
             )}
-            {((usuario && usuario.role === "admin") || user?.role === "worker")  && (
+            {((usuario && usuario.role === "admin") ||
+              user?.role === "worker") && (
               <>
-                <Link className="nav-link d-lg-none" to={`${user?.role === "worker" ? "/work/mi-perfil" : "/admin/clientes"}`}>
+                <Link
+                  className="nav-link d-lg-none"
+                  to={`${
+                    user?.role === "worker"
+                      ? "/work/mi-perfil"
+                      : "/admin/clientes"
+                  }`}
+                >
                   Mi cuenta
                 </Link>
                 <button
@@ -84,36 +91,62 @@ const Menu = () => {
                 >
                   <div className="w-100 text-center">
                     <img
-                      src={`${user?.role === "worker" ? `${user.img}` : `${image}`}`}
+                      src={`${
+                        user?.role === "worker" ? `${user.img}` : `${image}`
+                      }`}
                       alt="imagen de perfil"
                       title="imagen de perfil"
                       className="rounded-circle shadow imgProfileDropdown mx-auto"
                     />
                   </div>
-                  <p className="fw-bold text-center my-1">{`${user?.role === "worker" ? `${user.fullname}` : `admin`}`}</p>
+                  <p className="fw-bold text-center my-1">{`${
+                    user?.role === "worker" ? `${user.fullname}` : `admin`
+                  }`}</p>
                   <NavDropdown.Item
                     as={Link}
-                    to={`${user?.role === "worker" ? `/work/mi-perfil` : `/admin/clientes`}`}
+                    to={`${
+                      user?.role === "worker"
+                        ? `/work/mi-perfil`
+                        : `/admin/clientes`
+                    }`}
                     className="d-flex gap-2 align-items-center px-2"
                   >
                     <FaUser className="fs-5 iconMenu" />{" "}
-                    <span className="align-middle">{`${user?.role === "worker" ? `Mi perfil` : `Clientes`}`}</span>
+                    <span className="align-middle">{`${
+                      user?.role === "worker" ? `Mi perfil` : `Clientes`
+                    }`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
-                    to={`${user?.role === "worker" ? `/work/publicar-anuncio` : `/admin/profesionales`}`}
+                    to={`${
+                      user?.role === "worker"
+                        ? `/work/publicar-anuncio`
+                        : `/admin/profesionales`
+                    }`}
                     className="d-flex gap-2 align-items-center px-2"
                   >
                     <FaWpforms className="fs-5 iconMenu" />{" "}
-                    <span className="align-middle">{`${user?.role === "worker" ? `Publicar Anuncio` : `Profesionales`}`}</span>
+                    <span className="align-middle">{`${
+                      user?.role === "worker"
+                        ? `Publicar Anuncio`
+                        : `Profesionales`
+                    }`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     className="d-flex gap-2 align-items-center px-2"
                     as={Link}
-                    to={`${user?.role === "worker" ? `/work/mis-publicaciones` : `/admin/categorias`}`}
+                    to={`${
+                      user?.role === "worker"
+                        ? `/work/mis-publicaciones`
+                        : `/admin/categorias`
+                    }`}
                   >
                     <FaListAlt className="fs-5 iconMenu" />
-                    <span className="align-middle">{`${user?.role === "worker" ? `Mis publicaciones` : `Categorías`}`}</span>
+                    <span className="align-middle">{`${
+                      user?.role === "worker"
+                        ? `Mis publicaciones`
+                        : `Categorías`
+                    }`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <button
@@ -145,7 +178,6 @@ const Menu = () => {
                 </NavDropdown>
               </>
             )}
-             
           </Nav>
         </Navbar.Collapse>
       </Container>

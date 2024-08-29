@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCategories } from "./actions/categoryActions";
+import { createCategory, fetchCategories } from "./actions/categoryActions";
 
 const initialState = {
   categories: [],
+  category: null,
   status: "idle",
   error: null,
 };
@@ -23,7 +24,18 @@ const categoriesSlice = createSlice({
       .addCase(fetchCategories.rejected, (state, action) => {
         state.status = "denegado";
         state.error = action.error.message;
-      });
+      })
+      .addCase(createCategory.pending, (state) => {
+        state.status = "cargando"
+      })
+      .addCase(createCategory.fulfilled, (state, action) => {
+        state.status = "exitoso"
+        state.category = action.payload
+      })
+      .addCase(createCategory.rejected, (state, action) => {
+        state.status = "denegado"
+        state.error = action.error.message
+      })
   },
 });
 

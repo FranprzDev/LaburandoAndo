@@ -1,9 +1,9 @@
 import FormFiltros from './FormFiltros';
 
-const Filtros = ({ onCategoryChange }) => {
+const Filtros = () => {
     return (
-        <div className='h-100'>
-            <FormFiltros onCategoryChange={onCategoryChange} />
+        <div className='h-100 d-flex w-100'>
+            <FormFiltros/>
         </div>
     );
 };

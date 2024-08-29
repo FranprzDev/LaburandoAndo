@@ -5,6 +5,7 @@ import workersSlice from "../slices/workersSlice";
 import categorySlice from "../slices/categorySlice";
 import registerSlice from "../slices/registerSlice";
 import reviewsSlice from "../slices/reviewsSlice";
+import feedbackSlice from "../slices/feedbackSlice";
 
 export const store = configureStore({
     reducer:{
@@ -13,6 +14,7 @@ export const store = configureStore({
         workers: workersSlice,
         register: registerSlice,
         categories: categorySlice,
-        reviews: reviewsSlice
+        reviews: reviewsSlice,
+        feedbacks: feedbackSlice
     }
 })

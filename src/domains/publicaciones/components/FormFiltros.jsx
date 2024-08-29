@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../../../api/api";
 import { Accordion } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { filterPostByCategory, filterPostByName, filterPostByLocation } from "../../../slices/postsSlice";
 
-const FormFiltros = ({ onCategoryChange }) => {
+const FormFiltros = () => {
+  const dispatch = useDispatch();
   const [categoriaTrabajos, setCategoriaTrabajos] = useState([]);
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
 
   const categorias = async () => {
     try {
@@ -18,13 +23,18 @@ const FormFiltros = ({ onCategoryChange }) => {
     categorias();
   }, []);
 
-  const handleCambioDeCategoria = (e) => {
-    onCategoryChange(e.target.value);
-  };
+  useEffect(() => {
+    dispatch(filterPostByName(name));
+  }, [name]);
+
+  useEffect(() => {
+    dispatch(filterPostByLocation(location));
+  }, [location]);
+
 
   return (
-    <Accordion defaultActiveKey="0">
-      <Accordion.Item eventKey="0" show>
+    <Accordion defaultActiveKey="0" className="w-100">
+      <Accordion.Item eventKey="0">
         <Accordion.Header>Filtrar por:</Accordion.Header>
         <Accordion.Body>
           <div className=" rounded-2 bg-white">
@@ -36,6 +46,8 @@ const FormFiltros = ({ onCategoryChange }) => {
                 type="text"
                 className="form-control input w-100 rounded-2"
                 placeholder="Juan Perez"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="input-group mb-2 mb-md-3">
@@ -46,6 +58,7 @@ const FormFiltros = ({ onCategoryChange }) => {
                 type="text"
                 className="form-control input w-100 rounded-2"
                 placeholder="Yerba Buena, Tucumán"
+                onChange={(e) => setLocation(e.target.value)}
               />
             </div>
             <div className="input-group mb-2 mb-md-3">
@@ -54,9 +67,9 @@ const FormFiltros = ({ onCategoryChange }) => {
               </label>
               <select
                 className="form-select w-100 rounded-2 input"
-                onChange={handleCambioDeCategoria}
+                onChange={(e) => {dispatch(filterPostByCategory(e.target.value))}}
               >
-                <option value="">Seleccionar categoría</option>
+                <option value="">Todas las categorías</option>
                 {Array.isArray(categoriaTrabajos) &&
                   categoriaTrabajos.map((categoria) => (
                     <option key={categoria._id} value={categoria.name}>
