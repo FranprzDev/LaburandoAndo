@@ -5,6 +5,7 @@ import Home from '../pages/Home/Home';
 import Nosotros from '../pages/AboutUs/Nosotros';
 import DetallePublicacion from '../domains/publicaciones/pages/DetallePublicacion';
 import Contacto from '../pages/Contacto/Contacto';
+import Error404 from '../pages/Error404/Error404';
 
 const ClientRouter = () => {
     return (
@@ -15,6 +16,7 @@ const ClientRouter = () => {
                 <Route path="/detalle/:id" element={<DetallePublicacion />} />
                 <Route path='/nosotros' element={<Nosotros/>}/>
                 <Route path='/contacto' element={<Contacto></Contacto>}/>
+                <Route path="/*" element={<Error404/>}/>
             </Routes>
         </MainLayout>
     )
