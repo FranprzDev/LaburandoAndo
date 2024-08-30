@@ -3,6 +3,7 @@ import AuthRouter from "./AuthRouter";
 import ClientRouter from "./ClientRouter";
 import WorkerRouter from "./WorkerRouter";
 import AdminRouter from "./AdminRouter";
+import ProtectedAdminRoutes from "./ProtectedAdminRoutes";
 
 const AppRouter = () => {
   return (
@@ -10,7 +11,10 @@ const AppRouter = () => {
         <Route path="/*" element={<ClientRouter/>} />
         <Route path="/work/*" element={<WorkerRouter/>} />
         <Route path="/auth/*" element={<AuthRouter/>} />
-        <Route path="/admin/*" element={<AdminRouter />} />
+        <Route path="/admin/*" element={
+          <ProtectedAdminRoutes>
+            <AdminRouter />
+            </ProtectedAdminRoutes>} />
     </Routes>
   );
 };
