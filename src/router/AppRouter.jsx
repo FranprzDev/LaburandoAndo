@@ -9,16 +9,24 @@ import ProtectedWorkerRoutes from "./ProtectedWorkerRoutes";
 const AppRouter = () => {
   return (
     <Routes>
-        <Route path="/*" element={<ClientRouter/>} />
-        <Route path="/work/*" element={
+      <Route path="/*" element={<ClientRouter />} />
+      <Route
+        path="/work/*"
+        element={
           <ProtectedWorkerRoutes>
-            <WorkerRouter/>
-            </ProtectedWorkerRoutes>} />
-        <Route path="/auth/*" element={<AuthRouter/>} />
-        <Route path="/admin/*" element={
+            <WorkerRouter />
+          </ProtectedWorkerRoutes>
+        }
+      />
+      <Route path="/auth/*" element={<AuthRouter />} />
+      <Route
+        path="/admin/*"
+        element={
           <ProtectedAdminRoutes>
             <AdminRouter />
-            </ProtectedAdminRoutes>} />
+          </ProtectedAdminRoutes>
+        }
+      />
     </Routes>
   );
 };
