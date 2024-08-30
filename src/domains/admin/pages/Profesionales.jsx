@@ -9,7 +9,7 @@ const Profesionales = () => {
 
   useEffect(() => {
     dispatch(getWorkers());
-  }, []);
+  }, [profesionales]);
 
   return (
     <section className="container-fluid px-2 px-lg-5 py-3 py-md-5 mainSection containerProfile">
