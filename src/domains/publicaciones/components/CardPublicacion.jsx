@@ -13,10 +13,6 @@ const CardPublicacion = () => {
   const selectedCategory = useSelector((state) => state.posts.selectCategory);
 
   const publicaciones = useSelector((state) => state.posts.posts);
-  const reviews = publicaciones.map((publicacion) =>
-    publicacion.reviews.map((review) => review.stars)
-  );
-  const promedios = promedioValoracion(reviews);
   const filterPosts = useSelector((state) => state.posts.filterPosts);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,6 +29,10 @@ const CardPublicacion = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filterPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const reviews = currentPosts.map((publicacion) =>
+    publicacion.reviews.map((review) => review.stars)
+  );
+  const promedios = promedioValoracion(reviews);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
