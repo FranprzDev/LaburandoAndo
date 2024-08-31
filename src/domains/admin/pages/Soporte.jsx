@@ -15,9 +15,6 @@ const Soporte = () => {
     else if (valor === "No Leido"){
       setLeido(false)     
     }
-    else{
-      setLeido("")
-    }
   }
 
   return (
@@ -34,8 +31,8 @@ const Soporte = () => {
           <small className="mb-0 mb-md-1">
             Filtrar por
           </small>
-          <select onChange={handleLeido} className="form-select  rounded-2 input">
-            <option value="">Todos</option>
+          <select onChange={handleLeido} required className="form-select  rounded-2 input">
+            <option value="">Seleccione</option>
             <option value="Leido">Leídos</option>
             <option value="No Leido">No Leídos</option>
           </select>

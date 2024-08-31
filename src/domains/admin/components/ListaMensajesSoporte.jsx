@@ -5,18 +5,16 @@ import { getFeedbacks } from "../../../slices/actions/feedbackActions";
 
 const ListaMensajesSoporte = ({leido}) => {
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
-  const feedbackFiltrado = leido === "" ? feedbacks : feedbacks.filter((feedback) => feedback.isRead === leido)
   const dispatch = useDispatch();
-  console.log(leido)
 
   useEffect(() => {
-    dispatch(getFeedbacks());
-  }, []);
+    dispatch(getFeedbacks(leido));
+  }, [leido]);
 
   return (
     <div className="gap-3 align-items-start d-flex flex-column containerMessages w-100 mt-2">
-      {feedbackFiltrado.length > 0 ? (
-        feedbackFiltrado.map((feedback) => (
+      {feedbacks.length > 0 ? (
+        feedbacks.map((feedback) => (
           <ItemMensaje key={feedback._id} feedback={feedback}></ItemMensaje>
         ))
       ) : (
