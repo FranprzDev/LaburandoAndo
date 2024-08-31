@@ -6,7 +6,7 @@ const ProtectedWorkerRoutes = ({ children }) => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!usuario || usuario.role !== "worker") {
-      navigate("/");
+      navigate("/*");
     }
   }, [usuario, navigate]);
 

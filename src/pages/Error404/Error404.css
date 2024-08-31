@@ -1,0 +1,12 @@
+.imgError{
+    height: 100%;
+    width: 100%;
+}
+
+@media all and (min-width: 768px)
+{
+    .imgError{
+        height:500px;
+        width: 500px;
+    }
+}

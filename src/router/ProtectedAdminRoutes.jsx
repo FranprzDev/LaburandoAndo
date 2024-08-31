@@ -6,7 +6,7 @@ const ProtectedAdminRoutes = ({ children }) => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!usuario || usuario.role !== "admin") {
-      navigate("/");
+      navigate("/*");
     }
   }, [usuario, navigate]);
 
