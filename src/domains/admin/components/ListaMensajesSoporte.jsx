@@ -3,9 +3,11 @@ import ItemMensaje from "./ItemMensaje";
 import { useEffect } from "react";
 import { getFeedbacks } from "../../../slices/actions/feedbackActions";
 
-const ListaMensajesSoporte = () => {
+const ListaMensajesSoporte = ({leido}) => {
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
+  const feedbackFiltrado = leido === "" ? feedbacks : feedbacks.filter((feedback) => feedback.isRead === leido)
   const dispatch = useDispatch();
+  console.log(leido)
 
   useEffect(() => {
     dispatch(getFeedbacks());
@@ -13,8 +15,8 @@ const ListaMensajesSoporte = () => {
 
   return (
     <div className="gap-3 align-items-start d-flex flex-column containerMessages w-100 mt-2">
-      {feedbacks.length > 0 ? (
-        feedbacks.map((feedback) => (
+      {feedbackFiltrado.length > 0 ? (
+        feedbackFiltrado.map((feedback) => (
           <ItemMensaje key={feedback._id} feedback={feedback}></ItemMensaje>
         ))
       ) : (
