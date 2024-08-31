@@ -4,7 +4,7 @@ import "../styles/soporte.css";
 
 const Soporte = () => {
 
-  const [leido,setLeido] = useState("")
+  const [leido,setLeido] = useState(false)
 
   const handleLeido = (e) => {
     const valor = e.target.value
@@ -32,9 +32,8 @@ const Soporte = () => {
             Filtrar por
           </small>
           <select onChange={handleLeido} required className="form-select  rounded-2 input">
-            <option value="">Seleccione</option>
-            <option value="Leido">Leídos</option>
             <option value="No Leido">No Leídos</option>
+            <option value="Leido">Leídos</option>
           </select>
         </div>
       </div>

@@ -9,7 +9,7 @@ const ListaMensajesSoporte = ({leido}) => {
 
   useEffect(() => {
     dispatch(getFeedbacks(leido));
-  }, [leido]);
+  }, [dispatch,leido]);
 
   return (
     <div className="gap-3 align-items-start d-flex flex-column containerMessages w-100 mt-2">
