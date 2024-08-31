@@ -3,13 +3,13 @@ import ItemMensaje from "./ItemMensaje";
 import { useEffect } from "react";
 import { getFeedbacks } from "../../../slices/actions/feedbackActions";
 
-const ListaMensajesSoporte = () => {
+const ListaMensajesSoporte = ({leido}) => {
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getFeedbacks());
-  }, []);
+    dispatch(getFeedbacks(leido));
+  }, [dispatch,leido]);
 
   return (
     <div className="gap-3 align-items-start d-flex flex-column containerMessages w-100 mt-2">

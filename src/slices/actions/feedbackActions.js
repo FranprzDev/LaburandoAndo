@@ -25,7 +25,7 @@ export const createFeedback = createAsyncThunk(
   }
 );
 
-export const getFeedbacks = createAsyncThunk("admin/Feedbacks", async () => {
-  const res = await instance.get("/feedback/?read=false");
+export const getFeedbacks = createAsyncThunk("admin/Feedbacks", async (leido) => {
+  const res = await instance.get(`/feedback/?read=${leido}`);
   return res.data.data;
 });
