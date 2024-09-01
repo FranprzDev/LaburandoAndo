@@ -37,7 +37,7 @@ const UsoProfesional = () => {
           2.1 Provisión de Servicios: Los Profesionales son responsables de
           proporcionar los servicios acordados con los clientes, conforme a los
           términos establecidos en el acuerdo entre ambas partes. La Empresa no
-          garantiza ningún nivel de éxito o contratación a través del Sitio.{" "}
+          garantiza ningún nivel de éxito o contratación a través del Sitio.
           <br />
           2.2 Comportamiento Profesional: Debes actuar de manera profesional y
           respetuosa en todas tus interacciones con clientes. No se tolerará
@@ -90,13 +90,13 @@ const UsoProfesional = () => {
           <br />
           Estas Condiciones se rigen por las leyes de Argentina sin
           consideración a sus principios de conflicto de leyes. Cualquier
-          disputa derivada de estas Condiciones se resolverá en los tribunales.{" "}
+          disputa derivada de estas Condiciones se resolverá en los tribunales.
           <br />
           <br />
           <strong>8. Contacto</strong>
           <br />
           Para consultas sobre estas Condiciones de Uso, contáctanos a través
-          del link al pie de la página “Contacto”
+          del link “Contacto” al pie de la página.
         </p>
       </div>
     </div>
