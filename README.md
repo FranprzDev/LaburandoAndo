@@ -32,6 +32,21 @@ El objetivo principal de LaburandoAndo es proporcionar una plataforma inclusiva 
 Definición de requerimientos:
 🔗 [Requerimientos](https://docs.google.com/document/d/16tiuCTl4iTxX9pWXMaG5LXTYvLGEALZR746Ct8giFXU/edit)
 
+## Tecnologías utilizadas
+
+- Mockups:
+    - Draw.io
+- Frontend:
+    - HTML5, CSS3, Bootstrap5, Javascript, Reactjs, React-Hook-Form, React-Router-Dom, React-Bootstrap, React-Redux, Redux-Toolkit, Jason Web Token (JWT), Axios, SweetAlert, React-Icons
+- Gestión del proyecto:
+    - Trello, Metodología Scrumban
+- Envío de emails:
+    - Email JS
+- Almacenamiento de imagénes:
+    - Cloudinary
+- Backend:
+    - Node js, Express js, MongoDB, Mongoose, Passport, bcrypt
+
 ## Enlace de Mockups de interfaces
 
 Los mockups de interfaces fueron desarrollados usando la herramienta de software Draw.io.
@@ -187,21 +202,6 @@ Página de Detalle del Profesional.
 - Visualizar número de mensajes pendientes.
 
 **Resultado:** Los administradores pueden gestionar eficientemente el soporte ofrecido a los profesionales.
-
-## Tecnologías utilizadas
-
-- Mockups:
-    - Draw.io
-- Frontend:
-    - HTML5, CSS3, Bootstrap5, Javascript, Reactjs, React-Hook-Form, React-Router-Dom, React-Bootstrap, React-Redux, Redux-Toolkit, Jason Web Token (JWT), Axios, SweetAlert, React-Icons
-- Gestión del proyecto:
-    - Trello, Metodología Scrumban
-- Envío de emails:
-    - Email JS
-- Almacenamiento de imagénes:
-    - Cloudinary
-- Backend:
-    - Node js, Express js, MongoDB, Mongoose, Passport, bcrypt
 
 ## Requisitos previos
 
