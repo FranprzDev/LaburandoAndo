@@ -261,10 +261,10 @@ Una vez que hayas ejecutado el tercer comando y tengas el servidor en funcionami
 
 ## Equipo
 
-| Nombre                              | Perfil GitHub                                            |
-|-------------------------------------|----------------------------------------------------------|
-| Bruno Madozzo Romay                 | [brunomry](https://github.com/brunomry)                  |
-| Francisco Miguel Perez              | [Franprz_Dev](https://github.com/FranprzDev)              |
-| Julian Martin                      | [Juliancito1](https://github.com/Juliancito1)                |
-| Nicolas Cosme Mas                      | [CosmeNicolas](https://github.com/CosmeNicolas)                |
-| Flavia Maria Walther Virla                     | [flawalther](https://github.com/flawalther)                |
+| Nombre                              | Perfil GitHub                                            | LinkedIn                                               |
+|-------------------------------------|----------------------------------------------------------|--------------------------------------------------------|
+| Bruno Madozzo Romay                 | [brunomry](https://github.com/brunomry)                  | [Bruno Madozzo Romay](https://www.linkedin.com/in/bruno-madozzo/) |
+| Francisco Miguel Perez              | [Franprz_Dev](https://github.com/FranprzDev)             | [Francisco Miguel Perez](https://www.linkedin.com/in/franprzdev/) |
+| Julian Martin                       | [Juliancito1](https://github.com/Juliancito1)            | [Julian Martin](https://www.linkedin.com/in/julian-martin-/) |
+| Nicolas Cosme Mas                   | [CosmeNicolas](https://github.com/CosmeNicolas)          | [Nicolas Cosme Mas](https://www.linkedin.com/in/cosmenicolas?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) |
+| Flavia Maria Walther Virla          | [flawalther](https://github.com/flawalther)              | [Flavia Maria Walther Virla](https://linkedin.com/in/flavia-walther-154144216) |
