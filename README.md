@@ -72,7 +72,7 @@ El proyecto LaburandoAndo se desarrolló utilizando una Arquitectura Basada en D
 En nuestro proyecto, organizamos el código en carpetas correspondientes a cada dominio funcional. Por ejemplo:
 
 - admin: Contiene todo lo relacionado con la gestión del administrador de la plataforma.
-- auth: Contiene todo lo relacionado con la autenticación de usuarios (registro, login, protección de rutas, etc.).
+- auth: Contiene todo lo relacionado con la autenticación de usuarios (registro, login, etc.).
 - profesionales: Incluye componentes y lógica para la gestión de los perfiles de los profesionales, sus publicaciones, valoraciones, etc.
 - publicaciones: Se encarga de la creación, edición y eliminación de los anuncios publicados por los profesionales.
 
