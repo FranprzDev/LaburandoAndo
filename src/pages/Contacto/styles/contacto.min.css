@@ -1,0 +1,1 @@
+.formContact{width:100%}.btnContact{width:100%;background-color:var(--Violeta)}.btnContact:hover{background-color:var(--HoverVioleta)}@media all and (min-width:768px){.formContact{max-width:700px}}@media all and (min-width:992px){.btnContact{width:50%}}

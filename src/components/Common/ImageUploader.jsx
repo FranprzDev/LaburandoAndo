@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { changePhoto } from "../../slices/registerSlice";
+import { useEffect } from "react";
 import { useCloudinary } from "../../hooks/useCloudinaryHook";
 import Loader from "../loaders/Loader";
+
 const ImageUploader = () => {
-
-
-  const dispatch = useDispatch();
   const { loading } = useCloudinary();
-
-
-
 
   useEffect(() => {
     console.log("El estado actual es: ", loading)

@@ -108,7 +108,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="text"
             id="name"
             className="input rounded-2"
-            title="tu nombre y apellido"
+            title="Tu nombre y apellido"
             value={worker ? worker.fullname : ""}
             disabled={true}
           />
@@ -124,7 +124,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="email"
             id="email"
             className="input rounded-2"
-            title="tu dirección de correo electrónico"
+            title="Tu dirección de correo electrónico"
             disabled={edit}
             defaultValue={worker ? worker.mail : ""}
             {...register("mail", {
@@ -148,7 +148,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="text"
             id="ubication"
             className="input rounded-2"
-            title="tu ubicación actual"
+            title="Tu ubicación actual"
             disabled={edit}
             defaultValue={worker ? worker.address : ""}
             {...register("address", {
@@ -174,7 +174,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="text"
             id="wpp"
             className="input rounded-2"
-            title="tu número de WhatsApp"
+            title="Tu número de WhatsApp"
             disabled={edit}
             defaultValue={worker ? worker.phone : ""}
             {...register("phone", {
@@ -202,6 +202,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             className="d-none"
             type="file"
             name="FotoPerfil"
+            title="Cambiar imagen de perfil"
             id="FotoPerfil"
             accept="image/png, image/jpeg"
             {...register("img")}
@@ -219,7 +220,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
       <div className="d-flex justify-content-end gap-2 justify-content-md-center justify-content-lg-end d-block w-100">
         {!edit && (
           <button
-            className="px-3 px-md-5 py-2 rounded-2 btn btn-secondary text-white border-0 opacity-75"
+            className="px-3 px-md-5 py-2 rounded-2 btn btn-secondary text-white border-0 opacity-75 button"
             onClick={handleEdit}
           >
             Cancelar
@@ -227,7 +228,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
         )}
         <button
           type="submit"
-          className="px-3 px-md-5 py-2 rounded-2 btnEdit text-white border-0"
+          className="px-3 px-md-5 py-2 rounded-2 btnEdit text-white border-0 button"
           onClick={edit ? handleEdit : null}
         >
           {edit ? "Editar Mis datos" : "Guardar"}

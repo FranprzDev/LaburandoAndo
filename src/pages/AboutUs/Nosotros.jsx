@@ -1,6 +1,6 @@
-import "./nosotros.css";
-import { fundadores } from "../../helpers/fundadores";
 import CardNosotros from "./components/CardNosotros";
+import {fundadores} from "../../helpers/fundadores";
+import "./styles/nosotros.min.css";
 
 const Nosotros = () => {
   return (
@@ -53,7 +53,7 @@ const Nosotros = () => {
         </div>
         <div className="py-5 ">
           <h3 className="mb-3 mb-md-4 text-center">Fundadores</h3>
-          <div className="d-flex flex-wrap gap-5 justify-content-center">
+          <div className="d-flex flex-wrap gap-2 gap-lg-5 justify-content-center">
             {fundadores.map((fundador) => (
               <CardNosotros key={fundador.id} fundador={fundador} />
             ))}

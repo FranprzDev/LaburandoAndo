@@ -1,8 +1,8 @@
-import "../styles/login.css";
+import "../styles/min/login.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { loginUser } from "../../../slices/actions/authActions";
 import useAlert from "../../../hooks/useAlertHook";
 import Loader from "../../../components/loaders/Loader";
@@ -29,7 +29,7 @@ export default function Login() {
   const login = async (usuario) => {
     if(usuario.mail === adminEmail && usuario.password === adminPassword){
       usuario.role = "admin";
-      autoCloseAlert(`Iniciando sesión...`, "success");
+      autoCloseAlert(`Haz iniciado sesión. Bienvenido Administrador!`, "success");
       sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
       navigate("/admin/clientes")
     }else{
@@ -39,9 +39,9 @@ export default function Login() {
 
   useEffect(() => {
     if (status === "error") {
-      autoCloseAlert(`Error al iniciar sesión`, "error");
+      autoCloseAlert(`Correo o Contraseña incorrecto. Verifica los datos ingresados`, "error");
     } else if (status === "exitoso" && isAuth) {
-      autoCloseAlert(`Iniciando sesión...`, "success");
+      autoCloseAlert(`Haz iniciado sesión. Bienvenido!`, "success");
       if (role === "client"){
         navigate("../../profesionales");
       } 
@@ -60,14 +60,14 @@ export default function Login() {
       } 
       <div className="row w-100">
         <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
-          <form className="card p-4" onSubmit={handleSubmit(login)}>
+          <form className="card py-3 px-3 p-md-4 shadow" onSubmit={handleSubmit(login)}>
             <div className="text-center">
               <h5 className="card-title">
                 Accede a <span className="text-primary">LaburandoAndo</span>
               </h5>
             </div>
-            <div className="card-body">
-              <button className="btn btn-LoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
+            <div className="card-body px-0 px-lg-4">
+              <button className="btn btnLoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -92,6 +92,7 @@ export default function Login() {
                 <div className="mb-3">
                   <input
                     type="email"
+                    title="Ingresa tu correo electrónico"
                     className="form-control input"
                     placeholder="juanperez@gmail.com"
                     {...register("mail", {
@@ -109,6 +110,7 @@ export default function Login() {
                 <div className="mb-3">
                   <input
                     type="password"
+                    title="Ingresa tu contraseña"
                     className="form-control input"
                     placeholder="Ju4n23!"
                     {...register("password", {
@@ -128,15 +130,15 @@ export default function Login() {
                     {errors.password?.message}
                   </div>
                 </div>
-                <button className="btn btn-danger w-100 mb-3">Ingresar</button>
+                <button className="btn btnLogin w-100 mb-md-3">Ingresar</button>
               </div>
               <div className="text-center">
                 <Link to={"/*"} className="text-primary text-decoration-none">
                   ¿No recuerdas tu contraseña?
                 </Link>
               </div>
-            </div>
-            <div className="d-flex align-items-center w-100 my-3">
+            
+            <div className="d-flex align-items-center w-100 my-md-3">
               <hr className="flex-grow-1 border border-secondary border-1" />
               <span className="mx-2">o</span>
               <hr className="flex-grow-1 border border-secondary border-1" />
@@ -144,10 +146,11 @@ export default function Login() {
             <div className="text-center">
               <Link
                 to={"../register"}
-                className="btn btn-outline-secondary btn-Registrarse w-100 mt-2 text-dark"
+                className="btn btnCreateAccount w-100 mt-2"
               >
                 Crear una cuenta nueva
               </Link>
+            </div>
             </div>
           </form>
         </div>

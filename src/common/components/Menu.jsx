@@ -3,11 +3,11 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BiSolidExit } from "react-icons/bi";
 import { FaListAlt, FaUser, FaWpforms } from "react-icons/fa";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "../styles/menu.css";
+import "../styles/min/menu.min.css";
 import useLogout from "../../hooks/useLogout";
-import image from "../../img/Logo.jpg";
+import image from "../../img/Logo.webp";
 import useAlert from "../../hooks/useAlertHook";
 
 const Menu = () => {
@@ -28,7 +28,7 @@ const Menu = () => {
     <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
       <Container>
         <Link to={"/"} className="navbar-brand ">
-          <h5 className="logo">LaburandoAndo</h5>
+          <h5 className="logo" title="Logo de LaburandoAndo">LaburandoAndo</h5>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -59,7 +59,7 @@ const Menu = () => {
                 className="nav-link d-flex align-items-center gap-1 me-3"
                 to="/auth/login"
               >
-                <span className="fs-3 align-middle d-flex align-items-center">
+                <span className="fs-3 align-middle d-flex align-items-center" title="icono de usuario">
                   <IoPersonCircleOutline></IoPersonCircleOutline>
                 </span>
                 <span>Ingresar</span>
@@ -87,7 +87,7 @@ const Menu = () => {
                 <NavDropdown
                   title={`Mi cuenta`}
                   id="basic-nav-dropdown"
-                  className="w-7100 mx-auto d-none d-lg-block"
+                  className=" mx-auto d-none d-lg-block "
                 >
                   <div className="w-100 text-center">
                     <img
@@ -109,7 +109,7 @@ const Menu = () => {
                         ? `/work/mi-perfil`
                         : `/admin/clientes`
                     }`}
-                    className="d-flex gap-2 align-items-center px-2"
+                    className="d-flex gap-2 align-items-center px-2 fontSizeDropdown"
                   >
                     <FaUser className="fs-5 iconMenu" />{" "}
                     <span className="align-middle">{`${
@@ -123,7 +123,7 @@ const Menu = () => {
                         ? `/work/publicar-anuncio`
                         : `/admin/profesionales`
                     }`}
-                    className="d-flex gap-2 align-items-center px-2"
+                    className="d-flex gap-2 align-items-center px-2 fontSizeDropdown"
                   >
                     <FaWpforms className="fs-5 iconMenu" />{" "}
                     <span className="align-middle">{`${
@@ -133,7 +133,7 @@ const Menu = () => {
                     }`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    className="d-flex gap-2 align-items-center px-2"
+                    className="d-flex gap-2 align-items-center px-2 fontSizeDropdown"
                     as={Link}
                     to={`${
                       user?.role === "worker"
@@ -149,8 +149,8 @@ const Menu = () => {
                     }`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <button
-                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
+                  <button 
+                    className="py-0 nav-link fontSizeDropdown text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
                     onClick={logoutUser}
                   >
                     <BiSolidExit className="fs-4 iconMenu" />
@@ -165,11 +165,11 @@ const Menu = () => {
                 <NavDropdown
                   title={`${user.fullname}`}
                   id="basic-nav-dropdown"
-                  className="w-7100 mx-auto"
+                  className="opcionClient mx-auto"
                 >
                   <p className=" text-center my-1 mb-2"></p>
                   <button
-                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
+                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1 "
                     onClick={logoutUser}
                   >
                     <BiSolidExit className="fs-4 iconMenu" />

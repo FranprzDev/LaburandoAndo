@@ -1,5 +1,5 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
-import Profesional from "../../../img/home/Profesional.jpg";
+import { Col, Container, Row } from "react-bootstrap";
+import Profesional from "../../../img/home/Profesional.webp";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 

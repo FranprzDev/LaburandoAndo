@@ -26,8 +26,8 @@ function FormAuth() {
   return (
     <div className="col-md-6 d-flex justify-content-center align-items-center mb-3 mb-md-0 order-md-1 px-0">
       <div className={`col-11 col-sm-10 col-md-12 col-lg-11 col-xl-9 mx-auto`}>
-        <div className="card p-lg-4 pt-3 px-0">
-          <div className="text-center">
+        <div className="card px-lg-4 pt-lg-4 pb-0 pt-3 px-0">
+          <div className="text-center px-2">
             <p className="fw-bold mb-0">
               Registrate en <span className="text-primary">LaburandoAndo</span>
               {
@@ -59,6 +59,7 @@ function FormAuth() {
                 <input
                   type="text"
                   className="form-control input"
+                  title="Ingresa tu nombre y apellido"
                   placeholder="Francisco Perez"
                   {...register("fullname", {
                     required: "El nombre completo es obligatorio",
@@ -76,6 +77,7 @@ function FormAuth() {
                 </label>
                 <input
                   type="email"
+                  title="Ingresa tu correo electrónico"
                   className="form-control input"
                   placeholder="franciscoperez@gmail.com"
                   {...register("mail", {
@@ -95,6 +97,7 @@ function FormAuth() {
                 <input
                   type="password"
                   name="password"
+                  title="Ingresa una contraseña de al menos 8 caracteres"
                   className="form-control input"
                   placeholder="Ju4n23!"
                   {...register("password", {
@@ -118,6 +121,7 @@ function FormAuth() {
                 <input
                   name="password_repeat"
                   type="password"
+                  title="Vuelve a ingresar la contraseña nuevamente"
                   className="form-control input"
                   placeholder="Ju4n23!"
                   {...register("password_repeat", {
@@ -127,7 +131,7 @@ function FormAuth() {
                 />
                 <div className="text-danger">{errors.password_repeat?.message}</div>
               </div>
-              <button className="btn btn-danger w-100 mb-3">Registrarme</button>
+              <button className="btn btnCreateAccount w-100 mb-3">Registrarme</button>
             </form>
             <button className="btn btn-LoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
               <svg
