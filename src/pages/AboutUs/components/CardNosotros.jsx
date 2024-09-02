@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../nosotros.css";
+import "../styles/nosotros.min.css";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithubSquare } from "react-icons/fa";
 
@@ -7,7 +7,7 @@ const CardNosotros = ({ fundador }) => {
   return (
       <div className="card cardUs shadow">
         <img
-          src={fundador.foto}
+          src={fundador?.foto}
           className="card-img-top imgCardUs"
           alt={fundador.nombre}
         />

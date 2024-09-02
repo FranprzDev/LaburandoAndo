@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import ListaPublicaciones from '../components/ListaPublicaciones';
-import "../styles/publicacionesProfesional.css";
+import "../styles/min/publicacionesProfesional.min.css";
 
 const PublicacionesProfesional = () => {
 

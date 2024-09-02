@@ -1,13 +1,14 @@
 import axios from "axios";
+const url = import.meta.env.VITE_URL_BACK;
 
 const instance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: url,
 });
 
 const getCategories = async () => {
     try {
         const response = await instance.get('/category/');
-        return response.data; // Asegúrate de que esta es la estructura de los datos esperados
+        return response.data;
     } catch (error) {
         console.error('Error al solicitar las categorías', error);
         throw error;

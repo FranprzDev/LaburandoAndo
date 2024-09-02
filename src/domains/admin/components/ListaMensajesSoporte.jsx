@@ -19,16 +19,18 @@ const ListaMensajesSoporte = ({ leido }) => {
   let currentItems = feedbacks.slice(start, end);
 
   return (
-    <div className="gap-3 justify-content-center d-flex flex-column containerMessages w-100 mt-2">
-      {feedbacks.length > 0 ? (
-        currentItems.map((feedback) => (
-          <ItemMensaje key={feedback._id} feedback={feedback}></ItemMensaje>
-        ))
-      ) : (
-        <div className="mt-3 text-center border px-3 py-3 py-md-5 rounded-2 shadow w-100">
-          <p className="mb-0">No tienes mensajes</p>
-        </div>
-      )}
+    <div className="gap-3 containerFeedbacks justify-content-between d-flex flex-column containerMessages w-100 mt-2">
+      <div>
+        {feedbacks.length > 0 ? (
+          currentItems.map((feedback) => (
+            <ItemMensaje key={feedback._id} feedback={feedback}></ItemMensaje>
+          ))
+        ) : (
+          <div className="mt-3 text-center border px-3 py-3 py-md-5 rounded-2 shadow w-100">
+            <p className="mb-0">No tienes mensajes</p>
+          </div>
+        )}
+      </div>
 
       <div className="d-flex justify-content-center mt-3">
         <nav aria-label="Navigation">

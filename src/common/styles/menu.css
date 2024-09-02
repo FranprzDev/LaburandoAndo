@@ -1,7 +1,7 @@
 .btn-Profesional {
     width: 75%;
-    background-color: var(--Violeta);
-    color: var(--Lavanda);
+    background-color: var(--HoverVioleta);
+    color:#fff
 }
 
 .dropdown{
@@ -9,13 +9,17 @@
 }
 
 .btn-Profesional:hover {
-    background-color: #501c46;
-    color: var(--Lavanda);
+    background-color:#5a0b57;
+    color:#fff
 }
 
 .imgProfileDropdown{
     width: 75px;
     height: 75px;
+}
+
+.opcionClient{
+    width: 175px;
 }
 
 @media all and (min-width:768px){

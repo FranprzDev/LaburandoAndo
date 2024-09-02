@@ -6,12 +6,12 @@ const ListaUsuarios = ({ users, profesionales }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (profesionales && profesionales.length > 0) {
+    if ((profesionales && profesionales.length > 0) || (users && users.length > 0)) {
       setLoading(false);
     } else {
       setLoading(false); 
     }
-  }, [profesionales]);
+  }, [profesionales, users]);
 
   return (
     <div className="gap-3 align-items-start d-flex flex-column containerMessages w-100 mt-2">

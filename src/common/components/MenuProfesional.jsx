@@ -1,21 +1,18 @@
-import { Link, useNavigate } from "react-router-dom";
-import image from "../../img/Logo.jpg";
+import { Link } from "react-router-dom";
+import image from "../../img/Logo.webp";
 import { FaUser, FaWpforms, FaListAlt, FaUsers } from "react-icons/fa";
 import { BiSolidExit, BiSupport } from "react-icons/bi";
 import { GrUserWorker } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkerForID } from "../../slices/actions/workersActions";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import useLogout from "../../hooks/useLogout";
 import useAlert from "../../hooks/useAlertHook";
-import { getCategories } from "../../api/api";
-import { getFeedbacks } from "../../slices/actions/feedbackActions";
 
 const MenuProfesional = () => {
   const userJwt = useSelector((state) => state.auth.user);
   const worker = useSelector((state) => state.workers.worker);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
   
@@ -42,7 +39,7 @@ const MenuProfesional = () => {
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
       <div className="px-0 px-md-2 py-md-3 pt-lg-0 container-fluid containerMenu d-flex flex-md-column align-items-start">
         <div className="text-md-center">
-          <Link className="fw-medium text-dark logo" to={"/"}>
+          <Link className="fw-medium text-dark logo" to={"/"} title="Logo de LaburandoAndo">
             LaburandoAndo
           </Link>
         </div>
