@@ -11,7 +11,7 @@ const Clientes = () => {
 
   useEffect(() => {
    dispatch(getUsers())
-  }, [])
+  }, [usersFiltrados])
   
 
 
