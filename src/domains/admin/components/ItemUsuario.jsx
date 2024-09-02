@@ -1,7 +1,4 @@
-import React from "react";
-import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { RiEdit2Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { deleteWorker } from "../../../slices/actions/workersActions";
 import useAlert from "../../../hooks/useAlertHook";
@@ -34,17 +31,20 @@ const ItemUsuario = ({ user, profesional }) => {
 
   return (
     <>
-      <div className="row ms-1 cardMessage shadow rounded-2 p-2 pt-md-3 px-md-3 border">
-        <div className="col-9 d-flex flex-column flex-md-row justify-content-start ">
-          <p className="fw-bold mb-0 me-5">{user?.fullname}</p>
+      <div className="row cardMessage shadow rounded-2 p-1 py-md-3 px-md-2 border">
+        <div className="col-lg-4 d-flex align-items-center ">
+          <p className="fw-bold mb-0">{user?.fullname}</p>
+        </div>
+        <div className="col-lg-6 d-flex  align-items-center ">
           <p className="mb-0">{user?.mail}</p>
         </div>
-        <div className="col-3 d-flex justify-content-end">
-          <button className="btn btn-warning me-3">
+        <div className="col-lg-2 d-flex justify-content-end">
+          {/* <button className="btn btn-warning me-3">
             <RiEdit2Fill className="fs-5" />
-          </button>
+          </button> */}
           <button
             className="btn btn-danger"
+            title="Eliminar usuario"
             onClick={() => handleDelete(user._id)}
           >
             <MdDelete className="fs-5" />

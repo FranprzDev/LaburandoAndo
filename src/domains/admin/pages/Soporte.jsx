@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ListaMensajesSoporte from "../components/ListaMensajesSoporte";
-import "../styles/soporte.css";
+import "../styles/administracion.min.css";
 
 const Soporte = () => {
 

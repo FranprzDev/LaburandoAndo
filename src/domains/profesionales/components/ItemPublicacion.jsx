@@ -25,10 +25,10 @@ const ItemPublicacion = ({ work, onDelete }) => {
       </p>
       <span className="mb-0">{work.category[0]?.name}</span>
       <div className="d-flex gap-3 align-items-center justify-content-end mt-0">
-        <Link to={`/work/editar-anuncio/${work._id}`} className="iconUpdatePost" title="editar publicación">
+        <Link to={`/work/editar-anuncio/${work._id}`} className="iconUpdatePost" title="Editar publicación">
           <FaEdit />
         </Link>
-        <a className="iconDeletePost" title="eliminar publicación" onClick={handleDelete}>
+        <a className="iconDeletePost" title="Eliminar publicación" onClick={handleDelete}>
           <MdDelete />
         </a>
       </div>

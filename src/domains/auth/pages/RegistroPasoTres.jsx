@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
-import "../styles/registroPasoTres.css";
+import "../styles/min/registroPasoTres.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
@@ -90,6 +90,7 @@ const RegistroPasoTres = () => {
                 <input
                   id="location"
                   type="text"
+                  title="Ingresa tu ciudad y provincia actual"
                   className=" form-control input"
                   {...register("adress")}
                 />
@@ -106,6 +107,7 @@ const RegistroPasoTres = () => {
                 <input
                   id="wpp"
                   type="text"
+                  title="Ingresa tu número de WhatsApp"
                   className="form-control input-optionals input"
                   {...register("phone", {
                     pattern: {
@@ -127,6 +129,7 @@ const RegistroPasoTres = () => {
                   <input
                     id="file-upload"
                     type="file"
+                    title="Sube una imagen profesional de ti"
                     className={`d-none ${
                       !file ? "uploadButtonDefaultValue" : ""
                     }`}

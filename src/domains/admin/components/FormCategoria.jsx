@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -36,6 +35,7 @@ const FormCategoria = () => {
         </Form.Label>
         <Form.Control
           className="rounded-2 input "
+          title="Ingresa una categoría"
           placeholder="Por ej. Fotógrafo"
           {...register("name", {
             required: "La categoría es obligatoria",

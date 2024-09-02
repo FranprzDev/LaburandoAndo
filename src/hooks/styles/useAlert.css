@@ -34,7 +34,7 @@ custom-container, .alert-container{
   }
   
   .warning{
-    background-color: orange !important;
+    background-color: rgb(203, 145, 38) !important;
   }
   
   .error{
@@ -42,7 +42,7 @@ custom-container, .alert-container{
   }
   
   .text-modal{
-    color: var(--Lavanda);
+    color: #f7f7f7;
     font-weight: bolder !important;
     margin: auto;
   }
