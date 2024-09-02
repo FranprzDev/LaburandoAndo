@@ -57,13 +57,57 @@ Los mockups de interfaces fueron desarrollados usando la herramienta de software
 
 ## Deploy de la aplicación
 
-🔗 [LaburandoAndo]()
+🔗 [LaburandoAndo](https://laburando-ando.netlify.app)
 
 ## Integración con proyecto de Backend
 
 Este proyecto de Frontend se integró a su proyecto Backend correspondiente donde se utilizó la base de datos no relacional de MongoDB para almacenar los datos.
 
 * #### Repositorio Backend: [LaburandoAndo-Back](https://github.com/FranprzDev/LaburandoAndo-Back)
+
+## Estructura del Proyecto
+El proyecto LaburandoAndo se desarrolló utilizando una Arquitectura Basada en Dominios. Este enfoque nos permitió organizar el código de manera modular y mantener una separación clara entre las diferentes funcionalidades del sistema, lo que facilita el mantenimiento, escalabilidad y la colaboración entre los miembros del equipo.
+
+### Implementación en LaburandoAndo
+En nuestro proyecto, organizamos el código en carpetas correspondientes a cada dominio funcional. Por ejemplo:
+
+- admin: Contiene todo lo relacionado con la gestión del administrador de la plataforma.
+- auth: Contiene todo lo relacionado con la autenticación de usuarios (registro, login, protección de rutas, etc.).
+- profesionales: Incluye componentes y lógica para la gestión de los perfiles de los profesionales, sus publicaciones, valoraciones, etc.
+- publicaciones: Se encarga de la creación, edición y eliminación de los anuncios publicados por los profesionales.
+
+```
+src/
+│
+├── api/
+├── common/
+├── components/
+├── domains/
+│   ├── admin/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── styles
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── styles/
+│   ├── profesionales/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── styles/
+│   └── publicaciones/
+│       ├── components/
+│       ├── pages/
+│       ├── styles
+├── helpers/
+├── hooks/
+├── img/
+├── layout/
+├── pages/
+├── router/
+├── slices/
+└── store/
+```
 
 ## Funcionalidades Principales 
 
