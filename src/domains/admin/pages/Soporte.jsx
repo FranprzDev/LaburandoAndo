@@ -25,9 +25,9 @@ const Soporte = () => {
           <li className="breadcrumb-item text-primary">Soporte</li>
         </ol>
       </nav>
-        <p className="fw-bold">Mensajes</p>
-      <div className="d-flex justify-content-end">
-        <div className="mb-2 mb-md-3 filterMessages">
+        <p className="fw-bold mb-0">Mensajes</p>
+      <div className="d-flex justify-content-end filterMessages">
+        <div className="mb-2 mb-md-3 ">
           <small className="mb-0 mb-md-1">
             Filtrar por
           </small>
@@ -38,7 +38,7 @@ const Soporte = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-center">
+      <div className="d-flex ">
         <ListaMensajesSoporte leido={leido} />
       </div>
     </section>
