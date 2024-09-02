@@ -86,6 +86,18 @@ img{
   border: 2px solid #d3c5cf;
 }
 
+p,
+.btn, 
+.nav-link,
+button,
+label,
+li,
+span{
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
 @media all and (min-width: 1200px){
     p,
     .btn, 
