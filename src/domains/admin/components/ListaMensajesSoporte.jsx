@@ -1,21 +1,50 @@
 import { useDispatch, useSelector } from "react-redux";
 import ItemMensaje from "./ItemMensaje";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getFeedbacks } from "../../../slices/actions/feedbackActions";
+import { Button } from "bootstrap";
 
-const ListaMensajesSoporte = ({leido}) => {
+const ListaMensajesSoporte = ({ leido }) => {
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFeedbacks(leido));
-  }, [dispatch,leido]);
+  }, [leido]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+  let maxPage = Math.ceil(feedbacks.length / itemsPerPage);
+  let start = (currentPage - 1) * itemsPerPage;
+  let end = start + itemsPerPage;
+  let currentItems = feedbacks.slice(start, end);
 
   return (
-    <div className="gap-3 align-items-start d-flex flex-column containerMessages w-100 mt-2">
+    <div className="gap-3 justify-content-center d-flex flex-column containerMessages w-100 mt-2">
+      <div className="d-flex justify-content-center">
+        <nav aria-label="Navigation">
+          <ul className="pagination">
+            {Array.from({ length: maxPage }, (_, i) => (
+              <li className="page-item">
+                <a
+                  className="page-link"
+                  href="#"
+                  onClick={() => {
+                    setCurrentPage(i + 1);
+                  }}
+                >
+                  {i + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
       {feedbacks.length > 0 ? (
-        feedbacks.map((feedback) => (
-          <ItemMensaje key={feedback._id} feedback={feedback}></ItemMensaje>
+        currentItems.map((feedback) => (
+          <>
+            <ItemMensaje key={feedback._id} feedback={feedback}></ItemMensaje>
+          </>
         ))
       ) : (
         <div className="mt-3 text-center border px-3 py-3 py-md-5 rounded-2 shadow w-100">
