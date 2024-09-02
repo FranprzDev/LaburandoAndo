@@ -18,16 +18,10 @@ const Footer = () => {
             <div className="d-flex flex-column ">
               <h5>Sobre Nosotros</h5>
               <ul className="list-group">
-                <Link
-                  to={"/nosotros"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/nosotros"} className="text-dark mb-1">
                   ¿Quiénes Somos?
                 </Link>
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/nosotros"} className="text-dark mb-1">
                   Nuestros Valores
                 </Link>
               </ul>
@@ -37,58 +31,35 @@ const Footer = () => {
                   <FaFacebook className="fs-1 text-primary" />
                 </Link>
                 <Link>
-                <FaSquareInstagram className="fs-1 iconInstagram"/>
+                  <FaSquareInstagram className="fs-1 iconInstagram" />
                 </Link>
               </article>
             </div>
           </Col>
-          <Col
-            className="text-center text-lg-start "
-            md={4}
-            lg={3}
-          >
+          <Col className="text-center text-lg-start " md={4} lg={3}>
             <div>
               <h5>Términos y Condiciones</h5>
               <ul className="list-group">
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/politica"} className="text-dark mb-1">
                   Políticas de privacidad
                 </Link>
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/usoprofesional"} className="text-dark mb-1">
                   Condiciones de uso para profesionales
                 </Link>
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/usocliente"} className="text-dark mb-1">
                   Condiciones de uso para clientes
                 </Link>
               </ul>
             </div>
           </Col>
-          <Col
-            className="mt-3 text-center text-lg-start "
-            md={4}
-            lg={3}
-          >
+          <Col className="mt-3 text-center text-lg-start " md={4} lg={3}>
             <div>
               <h5>Asistencia</h5>
               <ul className="list-group">
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/"} className="text-dark mb-1">
                   ¿Necesitas Ayuda?
                 </Link>
-                <Link
-                  to={"/contacto"}
-                  className="text-dark"
-                >
+                <Link to={"/contacto"} className="text-dark">
                   Contacto
                 </Link>
               </ul>
