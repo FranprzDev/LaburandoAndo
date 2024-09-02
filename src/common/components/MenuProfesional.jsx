@@ -5,9 +5,11 @@ import { BiSolidExit, BiSupport } from "react-icons/bi";
 import { GrUserWorker } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkerForID } from "../../slices/actions/workersActions";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import useLogout from "../../hooks/useLogout";
 import useAlert from "../../hooks/useAlertHook";
+import { getCategories } from "../../api/api";
+import { getFeedbacks } from "../../slices/actions/feedbackActions";
 
 const MenuProfesional = () => {
   const userJwt = useSelector((state) => state.auth.user);
@@ -85,7 +87,7 @@ const MenuProfesional = () => {
           <figure className="d-md-none text-center w-100 d-flex flex-column align-items-center mt-3 mt-md-5 mt-lg-3 mt-xl-5 mb-md-3 mb-lg-0 mb-xl-3 position-relative">
             {imageLoading && (
               <div className="position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center">
-                <div className="spinner"></div> {/* Loader */}
+                <div className="spinner"></div>
               </div>
             )}
             <img
@@ -156,11 +158,6 @@ const MenuProfesional = () => {
                 >
                   <BiSupport className="fs-4 iconMenu" />
                   <span className="align-middle">Soporte</span>
-                  {userJwt?.role !== "worker" && (
-                    <span className="rounded-circle px-2 bg-primary text-white">
-                      5
-                    </span>
-                  )}
                 </Link>
               </li>
               <li className="nav-item navItemOffCanvas text-start">

@@ -6,6 +6,9 @@ import Nosotros from '../pages/AboutUs/Nosotros';
 import DetallePublicacion from '../domains/publicaciones/pages/DetallePublicacion';
 import Contacto from '../pages/Contacto/Contacto';
 import Error404 from '../pages/Error404/Error404';
+import PoliticaPrivacidad from '../pages/TerminosCondiciones/PoliticasYPrivacidad';
+import CondicionesUsoCliente from '../pages/TerminosCondiciones/CondicionesUsoCliente';
+import CondicionesUsoProfesional from '../pages/TerminosCondiciones/CondicionesUsoProfesional';
 
 const ClientRouter = () => {
   return (
@@ -17,8 +20,8 @@ const ClientRouter = () => {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/contacto" element={<Contacto></Contacto>} />
         <Route path="/politicas" element={<PoliticaPrivacidad />} />
-        <Route path="/condiciones-profesional" element={<UsoProfesional />} />
-        <Route path="/condiciones-cliente" element={<UsoCliente />} />
+        <Route path="/condiciones-profesional" element={<CondicionesUsoCliente />} />
+        <Route path="/condiciones-cliente" element={<CondicionesUsoProfesional />} />
         <Route path="/*" element={<Error404 />} />
       </Routes>
     </MainLayout>
