@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/menu.css";
 import useLogout from "../../hooks/useLogout";
-import image from "../../img/Logo.jpg";
+import image from "../../img/Logo.webp";
 import useAlert from "../../hooks/useAlertHook";
 
 const Menu = () => {

@@ -1,4 +1,4 @@
-import Error from "../../img/Error404.jpeg";
+import Error from "../../img/Error404.webp";
 import "./Error404.css";
 import { Link } from "react-router-dom";
 

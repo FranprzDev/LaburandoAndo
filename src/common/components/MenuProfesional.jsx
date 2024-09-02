@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import image from "../../img/Logo.jpg";
+import image from "../../img/Logo.webp";
 import { FaUser, FaWpforms, FaListAlt, FaUsers } from "react-icons/fa";
 import { BiSolidExit, BiSupport } from "react-icons/bi";
 import { GrUserWorker } from "react-icons/gr";

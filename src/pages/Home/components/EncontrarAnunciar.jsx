@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import Busca from "../../../img/home/Busca.jpg";
-import Contacto from "../../..//img/home/Contacto.jpg";
+import Busca from "../../../img/home/Busca.webp";
+import Contacto from "../../..//img/home/Contacto.webp";
 import { Link } from "react-router-dom";
 const EncontrarAnunciar = () => {
   return (

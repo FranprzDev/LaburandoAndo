@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
-import Educacion from "../../img/home/Educacion.jpg";
-import Electricista from "../../img/home/Electricista.jpg";
-import Fotografo from "../../img/home/Fotografo.jpg";
-import Trainer from "../../img/home/Trainer.jpg";
+import Educacion from "../../img/home/Educacion.webp";
+import Electricista from "../../img/home/Electricista.webp";
+import Fotografo from "../../img/home/Fotografo.webp";
+import Trainer from "../../img/home/Trainer.webp";
 import EncontrarAnunciar from "./components/EncontrarAnunciar";
 import RegistroProfesional from "./components/RegistroProfesional";
 import PreguntasFrecuentes from "./components/PreguntasFrecuentes";
