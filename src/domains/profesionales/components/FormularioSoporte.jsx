@@ -82,7 +82,7 @@ const FormularioSoporte = () => {
       <div className="py-2 text-end">
         <Button
           type="submit"
-          className="px-3 px-md-5 py-2 btnPost rounded-2 text-white border-0"
+          className="px-3 px-md-5 py-2 btnPost rounded-2 text-white border-0 button"
         >
           Enviar Consulta
         </Button>

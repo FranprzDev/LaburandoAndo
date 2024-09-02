@@ -98,6 +98,20 @@ span{
     word-break: break-word;
 }
 
+.button{
+  width: 100%;
+}
+
+.fontSizeDropdown{
+  font-size: 14px;
+}
+
+@media all and (min-width: 992px){
+  .button{
+    width: initial;
+  }
+}
+
 @media all and (min-width: 1200px){
     p,
     .btn, 
@@ -106,5 +120,9 @@ span{
     label,
     li{
         font-size: var(--fontText-xl);
+    }
+
+    .fontSizeDropdown{
+      font-size: 14px;
     }
 }

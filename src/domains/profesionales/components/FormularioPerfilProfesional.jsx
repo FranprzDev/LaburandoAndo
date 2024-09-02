@@ -219,7 +219,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
       <div className="d-flex justify-content-end gap-2 justify-content-md-center justify-content-lg-end d-block w-100">
         {!edit && (
           <button
-            className="px-3 px-md-5 py-2 rounded-2 btn btn-secondary text-white border-0 opacity-75"
+            className="px-3 px-md-5 py-2 rounded-2 btn btn-secondary text-white border-0 opacity-75 button"
             onClick={handleEdit}
           >
             Cancelar
@@ -227,7 +227,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
         )}
         <button
           type="submit"
-          className="px-3 px-md-5 py-2 rounded-2 btnEdit text-white border-0"
+          className="px-3 px-md-5 py-2 rounded-2 btnEdit text-white border-0 button"
           onClick={edit ? handleEdit : null}
         >
           {edit ? "Editar Mis datos" : "Guardar"}

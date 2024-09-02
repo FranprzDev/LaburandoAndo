@@ -87,7 +87,7 @@ const Menu = () => {
                 <NavDropdown
                   title={`Mi cuenta`}
                   id="basic-nav-dropdown"
-                  className="w-7100 mx-auto d-none d-lg-block"
+                  className=" mx-auto d-none d-lg-block "
                 >
                   <div className="w-100 text-center">
                     <img
@@ -109,7 +109,7 @@ const Menu = () => {
                         ? `/work/mi-perfil`
                         : `/admin/clientes`
                     }`}
-                    className="d-flex gap-2 align-items-center px-2"
+                    className="d-flex gap-2 align-items-center px-2 fontSizeDropdown"
                   >
                     <FaUser className="fs-5 iconMenu" />{" "}
                     <span className="align-middle">{`${
@@ -123,7 +123,7 @@ const Menu = () => {
                         ? `/work/publicar-anuncio`
                         : `/admin/profesionales`
                     }`}
-                    className="d-flex gap-2 align-items-center px-2"
+                    className="d-flex gap-2 align-items-center px-2 fontSizeDropdown"
                   >
                     <FaWpforms className="fs-5 iconMenu" />{" "}
                     <span className="align-middle">{`${
@@ -133,7 +133,7 @@ const Menu = () => {
                     }`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    className="d-flex gap-2 align-items-center px-2"
+                    className="d-flex gap-2 align-items-center px-2 fontSizeDropdown"
                     as={Link}
                     to={`${
                       user?.role === "worker"
@@ -149,8 +149,8 @@ const Menu = () => {
                     }`}</span>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <button
-                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
+                  <button 
+                    className="py-0 nav-link fontSizeDropdown text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
                     onClick={logoutUser}
                   >
                     <BiSolidExit className="fs-4 iconMenu" />
@@ -169,7 +169,7 @@ const Menu = () => {
                 >
                   <p className=" text-center my-1 mb-2"></p>
                   <button
-                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1"
+                    className="py-0 nav-link text-start d-flex gap-1 align-items-center nav-item w-100 px-1 "
                     onClick={logoutUser}
                   >
                     <BiSolidExit className="fs-4 iconMenu" />

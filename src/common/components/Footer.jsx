@@ -25,7 +25,7 @@ const Footer = () => {
                   ¿Quiénes Somos?
                 </Link>
                 <Link
-                  to={"/"}
+                  to={"/*"}
                   className="text-dark mb-1"
                 >
                   Nuestros Valores
@@ -71,7 +71,7 @@ const Footer = () => {
               <h5>Asistencia</h5>
               <ul className="list-group">
                 <Link
-                  to={"/"}
+                  to={"/*"}
                   className="text-dark mb-1"
                 >
                   ¿Necesitas Ayuda?
