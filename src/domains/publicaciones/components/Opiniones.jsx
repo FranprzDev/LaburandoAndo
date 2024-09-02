@@ -37,7 +37,7 @@ const Opiniones = () => {
             <DropdownButton
               id="dropdown-basic-button"
               title="Filtrar opiniones"
-              className="boton-filtrar"
+              className="w-100"
               variant=""
             >
               <Dropdown.Item onClick={() => handleFiltrarPorCalificacion(null)}>

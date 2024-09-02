@@ -67,7 +67,7 @@ const DetallePublicacion = () => {
             handleWhatsApp={handleWhatsApp}
             promedio={promedio}
           ></CardProfesional>
-          <div className="mt-3 mt-md-5 w-100">
+          <div className="mt-3 mt-lg-3 mt-xl-5 w-100">
             <div className=" w-100">
               {profesional?.category.map((category) => (
                 <span key={category?.name} className=" px-5 py-2 rounded-2 category opacity-50 text-white">

@@ -52,7 +52,7 @@ const CardPublicacion = () => {
               className="card cardPost py-2 px-2 px-md-3 rounded-3 shadow"
             >
               <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
-                <div className="h-100 d-flex flex-column justify-content-between align-items-center mt-lg-3">
+                <div className="h-100 d-flex flex-column justify-content-between align-items-center mt-md-3">
                   <img
                     src={publicacion.worker.img}
                     alt="imagen de perfil"
@@ -89,7 +89,7 @@ const CardPublicacion = () => {
                       <IoMdStar className="fs-3 text-warning" />
                       <span>{promedios[index] ? promedios[index] : 0}</span>
                     </div>
-                    <span className="text-center">
+                    <span className="text-center textRatings">
                       {reviews[index].length === 1
                         ? "1 valoración"
                         : reviews[index].length > 1

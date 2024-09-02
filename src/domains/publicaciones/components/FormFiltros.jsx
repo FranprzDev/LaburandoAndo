@@ -36,7 +36,7 @@ const FormFiltros = () => {
     <Accordion defaultActiveKey="0" className="w-100">
       <Accordion.Item eventKey="0">
         <Accordion.Header>Filtrar por:</Accordion.Header>
-        <Accordion.Body>
+        <Accordion.Body className="px-2 px-xl-3">
           <div className=" rounded-2 bg-white">
             <div className="input-group mb-2">
               <label className="form-label fw-medium mb-0 mb-md-1">
