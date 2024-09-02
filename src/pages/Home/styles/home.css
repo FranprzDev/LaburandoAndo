@@ -1,19 +1,19 @@
 .btnExplore {
   width: 280px;
-  background-color:var(--HoverVioleta);
+  background-color:var(--Violeta);
   color: white;
 }
 
 .btnExplore:hover {
-    background-color: var(--HoverVioleta);
-    border: 1px solid var(--HoverVioleta);
-    color: var(--Lavanda);
+    background-color: var(--Violeta);
+    background-color: #570b5d;
+    color: white;
 }
 
 .btnRegister {
   width: 250px;
   background-color: var(--HoverVioleta);
-  color: var(--Lavanda);
+  color: #fff;
 }
 
 .btnRegister:hover {

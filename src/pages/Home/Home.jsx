@@ -7,7 +7,7 @@ import EncontrarAnunciar from "./components/EncontrarAnunciar";
 import RegistroProfesional from "./components/RegistroProfesional";
 import PreguntasFrecuentes from "./components/PreguntasFrecuentes";
 import { Link } from "react-router-dom";
-import "./styles/home.min.css";
+import "./styles/home.css";
 
 const Home = () => {
   return (
