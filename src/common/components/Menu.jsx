@@ -165,7 +165,7 @@ const Menu = () => {
                 <NavDropdown
                   title={`${user.fullname}`}
                   id="basic-nav-dropdown"
-                  className="w-7100 mx-auto"
+                  className="opcionClient mx-auto"
                 >
                   <p className=" text-center my-1 mb-2"></p>
                   <button
