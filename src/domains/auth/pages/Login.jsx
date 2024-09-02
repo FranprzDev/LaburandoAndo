@@ -1,8 +1,8 @@
-import "../styles/login.css";
+import "../styles/min/login.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { loginUser } from "../../../slices/actions/authActions";
 import useAlert from "../../../hooks/useAlertHook";
 import Loader from "../../../components/loaders/Loader";

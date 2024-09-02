@@ -1,4 +1,3 @@
-import React from "react";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { deleteCategory } from "../../../slices/actions/categoryActions";

@@ -1,7 +1,4 @@
-import React from "react";
-import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { RiEdit2Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { deleteWorker } from "../../../slices/actions/workersActions";
 import useAlert from "../../../hooks/useAlertHook";

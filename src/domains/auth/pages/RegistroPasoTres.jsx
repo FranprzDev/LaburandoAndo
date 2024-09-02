@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
-import "../styles/registroPasoTres.css";
+import "../styles/min/registroPasoTres.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";

@@ -1,5 +1,5 @@
 import Error from "../../img/Error404.webp";
-import "./Error404.css";
+import "./styles/error404.min.css";
 import { Link } from "react-router-dom";
 
 const Error404 = () => {

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import FormularioPublicacion from "../components/FormularioPublicacion";
-import "../styles/publicacionProfesional.css";
+import "../styles/min/publicacionProfesional.min.css";
 import { useSelector } from "react-redux";
 
 const PublicacionProfesional = () => {

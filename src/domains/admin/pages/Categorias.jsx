@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import FormCategoria from "../components/FormCategoria";
-import "../styles/administracion.css";
+import "../styles/administracion.min.css";
 import ListaCategorias from "../components/ListaCategorias";
 import { useDispatch } from "react-redux";
 import { fetchCategories } from "../../../slices/actions/categoryActions";

@@ -1,6 +1,5 @@
-import "../styles/detallePublicacion.css";
-import Button from "react-bootstrap/Button";
-import { Container } from "react-bootstrap";
+import "../styles/min/detallePublicacion.min.css";
+import { Container, Button } from "react-bootstrap";
 import Opiniones from "../components/Opiniones";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,8 +8,8 @@ import { getPost } from "../../../slices/actions/postsActions";
 import CardProfesional from "../components/CardProfesional";
 import { FaWhatsapp } from "react-icons/fa";
 import useAlert from "../../../hooks/useAlertHook";
-import { promedioValoracionDetalle } from "../../../helpers/promedioValoracion";
-import { convertirFecha } from "../../../helpers/convertirFecha";
+import { promedioValoracionDetalle } from "../../../helpers/min/promedioValoracion.min.js";
+import { convertirFecha } from "../../../helpers/min/convertirFecha.min.js";
 
 const DetallePublicacion = () => {
   const profesional = useSelector((state) => state.posts.post);

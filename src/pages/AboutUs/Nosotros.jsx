@@ -1,6 +1,6 @@
-import "./nosotros.css";
-import { fundadores } from "../../helpers/fundadores";
 import CardNosotros from "./components/CardNosotros";
+import {fundadores} from "../../helpers/fundadores";
+import "./styles/nosotros.min.css";
 
 const Nosotros = () => {
   return (

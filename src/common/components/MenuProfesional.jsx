@@ -5,17 +5,14 @@ import { BiSolidExit, BiSupport } from "react-icons/bi";
 import { GrUserWorker } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkerForID } from "../../slices/actions/workersActions";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import useLogout from "../../hooks/useLogout";
 import useAlert from "../../hooks/useAlertHook";
-import { getCategories } from "../../api/api";
-import { getFeedbacks } from "../../slices/actions/feedbackActions";
 
 const MenuProfesional = () => {
   const userJwt = useSelector((state) => state.auth.user);
   const worker = useSelector((state) => state.workers.worker);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { customAlert } = useAlert();
   const { cerrarSesion } = useLogout();
   

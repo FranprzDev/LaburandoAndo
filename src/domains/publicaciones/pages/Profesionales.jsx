@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import Filtros from "../components/Filtros";
 import ListaPublicaciones from "../components/ListaPublicaciones";
-import "../styles/profesionales.css";
+import "../styles/min/profesionales.min.css";
 
 const Profesionales = () => {
   return (

@@ -103,7 +103,7 @@ span{
 }
 
 .fontSizeDropdown{
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 @media all and (min-width: 992px){
@@ -120,9 +120,5 @@ span{
     label,
     li{
         font-size: var(--fontText-xl);
-    }
-
-    .fontSizeDropdown{
-      font-size: 14px;
     }
 }

@@ -1,5 +1,4 @@
-import React from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Busca from "../../../img/home/Busca.webp";
 import Contacto from "../../..//img/home/Contacto.webp";
 import { Link } from "react-router-dom";

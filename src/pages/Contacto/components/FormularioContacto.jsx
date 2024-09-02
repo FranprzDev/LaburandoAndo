@@ -1,5 +1,4 @@
 import { Button, Form } from "react-bootstrap";
-import "../contacto.css";
 import { useForm } from "react-hook-form";
 import { sendEmail } from "../emailJS/email";
 
@@ -82,8 +81,8 @@ const FormularioContacto = () => {
           {...register("mensaje", {
             required: "Su mensaje es requerido",
             minLength: {
-              value: 4,
-              message: "El mínimo de carácteres es 4",
+              value: 15,
+              message: "El mínimo de carácteres es 15",
             },
             maxLength: {
               value: 300,
