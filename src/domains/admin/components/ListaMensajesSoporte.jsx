@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import ItemMensaje from "./ItemMensaje";
 import { useEffect, useState } from "react";
 import { getFeedbacks } from "../../../slices/actions/feedbackActions";
-import { Button } from "bootstrap";
 
 const ListaMensajesSoporte = ({ leido }) => {
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
