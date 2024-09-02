@@ -15,6 +15,14 @@
     width: 100%;
 }
 
+.cardMessage {
+    width: 100%;
+  }
+  
+  .descriptionMessage{
+      background: #f2f2f7;
+  }
+
 @media all and (min-width:576px){
     .formCategory .btnCategory{
         width: 50%;
@@ -23,4 +31,14 @@
     .cardCategory{
         width: 500px;
     }
+}
+
+@media all and (min-width: 1400px) {
+    .containerMessages {
+      max-width: 50%;
+    }
+    
+    .filterMessages{
+      max-width: 50%;
+  }
 }
