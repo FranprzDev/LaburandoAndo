@@ -56,6 +56,7 @@ const CardPublicacion = () => {
                   <img
                     src={publicacion.worker.img}
                     alt="imagen de perfil"
+                    title="Imagen de Profesional"
                     className="imgcardPost border rounded-circle"
                   />
                 </div>

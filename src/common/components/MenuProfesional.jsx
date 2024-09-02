@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import image from "../../img/Logo.webp";
 import { FaUser, FaWpforms, FaListAlt, FaUsers } from "react-icons/fa";
 import { BiSolidExit, BiSupport } from "react-icons/bi";
@@ -39,7 +39,7 @@ const MenuProfesional = () => {
     <nav className="navbar navbar-expand-md menuProfessional bg-body-tertiary d-flex align-items-start w-100 px-2 py-3">
       <div className="px-0 px-md-2 py-md-3 pt-lg-0 container-fluid containerMenu d-flex flex-md-column align-items-start">
         <div className="text-md-center">
-          <Link className="fw-medium text-dark logo" to={"/"}>
+          <Link className="fw-medium text-dark logo" to={"/"} title="Logo de LaburandoAndo">
             LaburandoAndo
           </Link>
         </div>

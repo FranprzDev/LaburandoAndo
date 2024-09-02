@@ -21,7 +21,7 @@ const ItemCategoria = ({categoria}) => {
       </p>
       <div className="d-flex justify-content-end ">
         <button className=" btn py-0 py-md-1">
-          <MdDelete onClick={() => handleDelete(categoria._id)} className="fs-1 text-danger" />
+          <MdDelete onClick={() => handleDelete(categoria._id)} className="fs-1 text-danger" title="eliminar categoría"/>
         </button>
       </div>
     </div>

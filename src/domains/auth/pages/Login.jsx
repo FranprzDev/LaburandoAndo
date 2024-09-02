@@ -92,6 +92,7 @@ export default function Login() {
                 <div className="mb-3">
                   <input
                     type="email"
+                    title="Ingresa tu correo electrónico"
                     className="form-control input"
                     placeholder="juanperez@gmail.com"
                     {...register("mail", {
@@ -109,6 +110,7 @@ export default function Login() {
                 <div className="mb-3">
                   <input
                     type="password"
+                    title="Ingresa tu contraseña"
                     className="form-control input"
                     placeholder="Ju4n23!"
                     {...register("password", {

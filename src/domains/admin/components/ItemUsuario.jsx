@@ -44,6 +44,7 @@ const ItemUsuario = ({ user, profesional }) => {
           </button> */}
           <button
             className="btn btn-danger"
+            title="Eliminar usuario"
             onClick={() => handleDelete(user._id)}
           >
             <MdDelete className="fs-5" />

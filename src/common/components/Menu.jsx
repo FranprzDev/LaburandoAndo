@@ -5,7 +5,7 @@ import { FaListAlt, FaUser, FaWpforms } from "react-icons/fa";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "../styles/menu.min.css";
+import "../styles/min/menu.min.css";
 import useLogout from "../../hooks/useLogout";
 import image from "../../img/Logo.webp";
 import useAlert from "../../hooks/useAlertHook";
@@ -28,7 +28,7 @@ const Menu = () => {
     <Navbar expand="lg" className="bg-body-tertiary text-center border-bottom">
       <Container>
         <Link to={"/"} className="navbar-brand ">
-          <h5 className="logo">LaburandoAndo</h5>
+          <h5 className="logo" title="Logo de LaburandoAndo">LaburandoAndo</h5>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -59,7 +59,7 @@ const Menu = () => {
                 className="nav-link d-flex align-items-center gap-1 me-3"
                 to="/auth/login"
               >
-                <span className="fs-3 align-middle d-flex align-items-center">
+                <span className="fs-3 align-middle d-flex align-items-center" title="icono de usuario">
                   <IoPersonCircleOutline></IoPersonCircleOutline>
                 </span>
                 <span>Ingresar</span>

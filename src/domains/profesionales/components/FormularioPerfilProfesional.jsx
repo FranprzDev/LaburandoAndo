@@ -108,7 +108,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="text"
             id="name"
             className="input rounded-2"
-            title="tu nombre y apellido"
+            title="Tu nombre y apellido"
             value={worker ? worker.fullname : ""}
             disabled={true}
           />
@@ -124,7 +124,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="email"
             id="email"
             className="input rounded-2"
-            title="tu dirección de correo electrónico"
+            title="Tu dirección de correo electrónico"
             disabled={edit}
             defaultValue={worker ? worker.mail : ""}
             {...register("mail", {
@@ -148,7 +148,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="text"
             id="ubication"
             className="input rounded-2"
-            title="tu ubicación actual"
+            title="Tu ubicación actual"
             disabled={edit}
             defaultValue={worker ? worker.address : ""}
             {...register("address", {
@@ -174,7 +174,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             type="text"
             id="wpp"
             className="input rounded-2"
-            title="tu número de WhatsApp"
+            title="Tu número de WhatsApp"
             disabled={edit}
             defaultValue={worker ? worker.phone : ""}
             {...register("phone", {
@@ -202,6 +202,7 @@ const FormularioPerfilProf = ({ setLoading }) => {
             className="d-none"
             type="file"
             name="FotoPerfil"
+            title="Cambiar imagen de perfil"
             id="FotoPerfil"
             accept="image/png, image/jpeg"
             {...register("img")}

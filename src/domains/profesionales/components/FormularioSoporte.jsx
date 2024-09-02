@@ -14,11 +14,11 @@ const FormularioSoporte = () => {
 
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
-  const {autoCloseAlert} = useAlert()
+  const { autoCloseAlert } = useAlert();
 
   const handleCrear = (data) => {
     dispatch(createFeedback({ id: user._id, data: data }));
-    autoCloseAlert('Su mensaje fue enviado con éxito', 'success')
+    autoCloseAlert("Su mensaje fue enviado con éxito", "success");
     reset();
   };
 
@@ -34,12 +34,15 @@ const FormularioSoporte = () => {
       <Form.Group className="my-2 my-md-3">
         <Form.Label
           label="Asunto"
+          htmlFor="affair"
           className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
         >
           Asunto
         </Form.Label>
         <Form.Select
+          id="affair"
           className="rounded-2 input inputAffair"
+          title="Selecciona el asunto"
           {...register("affair", {
             required: "El asunto es obligatorio",
           })}
@@ -56,12 +59,14 @@ const FormularioSoporte = () => {
       <Form.Group className="mb-2 mb-md-3">
         <Form.Label
           label="Comentarios"
+          htmlFor="message"
           className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
         >
           Mensaje
         </Form.Label>
         <Form.Control
           as="textarea"
+          id="message"
           className="rounded-2 input textareaMessage"
           placeholder="Escribe tu mensaje..."
           {...register("message", {

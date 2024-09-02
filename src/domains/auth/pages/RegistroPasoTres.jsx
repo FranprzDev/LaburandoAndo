@@ -90,6 +90,7 @@ const RegistroPasoTres = () => {
                 <input
                   id="location"
                   type="text"
+                  title="Ingresa tu ciudad y provincia actual"
                   className=" form-control input"
                   {...register("adress")}
                 />
@@ -106,6 +107,7 @@ const RegistroPasoTres = () => {
                 <input
                   id="wpp"
                   type="text"
+                  title="Ingresa tu número de WhatsApp"
                   className="form-control input-optionals input"
                   {...register("phone", {
                     pattern: {
@@ -127,6 +129,7 @@ const RegistroPasoTres = () => {
                   <input
                     id="file-upload"
                     type="file"
+                    title="Sube una imagen profesional de ti"
                     className={`d-none ${
                       !file ? "uploadButtonDefaultValue" : ""
                     }`}

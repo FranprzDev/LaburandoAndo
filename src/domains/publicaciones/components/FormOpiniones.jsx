@@ -43,7 +43,7 @@ const FormOpiniones = () => {
         </label>
         <Form.Select
           className="rounded-2 w-100 input py-2 border-1"
-          title="selecciona una valoración"
+          title="Selecciona una valoración"
           {...register("stars", {
             required: "La valoración es obligatoria",
           })}
@@ -63,6 +63,7 @@ const FormOpiniones = () => {
         </label>
         <textarea
           className="form-control rounded-2 w-100 input"
+          title="Ingresa tu comentario"
           placeholder="Escribe tu comentario aquí..."
           {...register("comment", {
             required: "El comentario es obligatorio",

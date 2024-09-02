@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
@@ -11,7 +10,7 @@ const Footer = () => {
         <Row className="gy-2 gy-md-3 gx-5 justify-content-md-center">
           <Col className="text-center mb-3 mb-md-0" md={12} lg={3} xl={3}>
             <Link to={"/"} className="navbar-brand">
-              <h5 className="logo">LaburandoAndo</h5>
+              <h5 className="logo" title="Logo de LaburandoAndo">LaburandoAndo</h5>
             </Link>
           </Col>
           <Col className="text-center text-lg-start" md={4} lg={3}>
@@ -33,10 +32,10 @@ const Footer = () => {
               </ul>
               <article className="mt-lg-5 mt-md-3">
                 <h5>Síguenos en nuestras redes</h5>
-                <Link to={'/*'}>
+                <Link to={'/*'} title="facebook">
                   <FaFacebook className="fs-1 text-primary" />
                 </Link>
-                <Link to={'/*'}>
+                <Link to={'/*'} title="instagram">
                 <FaSquareInstagram className="fs-1 iconInstagram"/>
                 </Link>
               </article>

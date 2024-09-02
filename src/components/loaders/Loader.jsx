@@ -1,5 +1,4 @@
-import React from 'react';
-import './Loader.css';
+import './styles/Loader.min.css';
 
 function Loader() {
   return (

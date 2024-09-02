@@ -59,6 +59,7 @@ function FormAuth() {
                 <input
                   type="text"
                   className="form-control input"
+                  title="Ingresa tu nombre y apellido"
                   placeholder="Francisco Perez"
                   {...register("fullname", {
                     required: "El nombre completo es obligatorio",
@@ -76,6 +77,7 @@ function FormAuth() {
                 </label>
                 <input
                   type="email"
+                  title="Ingresa tu correo electrónico"
                   className="form-control input"
                   placeholder="franciscoperez@gmail.com"
                   {...register("mail", {
@@ -95,6 +97,7 @@ function FormAuth() {
                 <input
                   type="password"
                   name="password"
+                  title="Ingresa una contraseña de al menos 8 caracteres"
                   className="form-control input"
                   placeholder="Ju4n23!"
                   {...register("password", {
@@ -118,6 +121,7 @@ function FormAuth() {
                 <input
                   name="password_repeat"
                   type="password"
+                  title="Vuelve a ingresar la contraseña nuevamente"
                   className="form-control input"
                   placeholder="Ju4n23!"
                   {...register("password_repeat", {
