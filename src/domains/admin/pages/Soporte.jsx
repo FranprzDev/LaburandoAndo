@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import ListaMensajesSoporte from "../components/ListaMensajesSoporte";
-import "../styles/soporte.css";
 import Loader from "../../../components/loaders/Loader"; 
 import "../styles/administracion.min.css";
 
