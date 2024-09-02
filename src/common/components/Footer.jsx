@@ -33,10 +33,10 @@ const Footer = () => {
               </ul>
               <article className="mt-lg-5 mt-md-3">
                 <h5>Síguenos en nuestras redes</h5>
-                <Link>
+                <Link to={'/*'}>
                   <FaFacebook className="fs-1 text-primary" />
                 </Link>
-                <Link>
+                <Link to={'/*'}>
                 <FaSquareInstagram className="fs-1 iconInstagram"/>
                 </Link>
               </article>
@@ -50,24 +50,14 @@ const Footer = () => {
             <div>
               <h5>Términos y Condiciones</h5>
               <ul className="list-group">
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/politicas"} className="text-dark mb-1">
                   Políticas de privacidad
                 </Link>
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/condiciones-profesional"} className="text-dark mb-1">
                   Condiciones de uso para profesionales
                 </Link>
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
-                  Condiciones de uso para clientes
-                </Link>
+                <Link to={"/condiciones-cliente"} className="text-dark mb-1">
+                </Link>      
               </ul>
             </div>
           </Col>
