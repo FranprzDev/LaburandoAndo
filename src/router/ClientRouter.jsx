@@ -8,18 +8,21 @@ import Contacto from '../pages/Contacto/Contacto';
 import Error404 from '../pages/Error404/Error404';
 
 const ClientRouter = () => {
-    return (
-        <MainLayout>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path='/profesionales' element={<Profesionales/>}/>
-                <Route path="/detalle/:id" element={<DetallePublicacion />} />
-                <Route path='/nosotros' element={<Nosotros/>}/>
-                <Route path='/contacto' element={<Contacto></Contacto>}/>
-                <Route path="/*" element={<Error404/>}/>
-            </Routes>
-        </MainLayout>
-    )
-}
+  return (
+    <MainLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profesionales" element={<Profesionales />} />
+        <Route path="/detalle/:id" element={<DetallePublicacion />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/contacto" element={<Contacto></Contacto>} />
+        <Route path="/politicas" element={<PoliticaPrivacidad />} />
+        <Route path="/condiciones-profesional" element={<UsoProfesional />} />
+        <Route path="/condiciones-cliente" element={<UsoCliente />} />
+        <Route path="/*" element={<Error404 />} />
+      </Routes>
+    </MainLayout>
+  );
+};
 
 export default ClientRouter;

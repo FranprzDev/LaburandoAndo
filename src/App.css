@@ -91,7 +91,8 @@ img{
     .btn, 
     .nav-link,
     button,
-    label{
+    label,
+    li{
         font-size: var(--fontText-xl);
     }
 }

@@ -50,24 +50,14 @@ const Footer = () => {
             <div>
               <h5>Términos y Condiciones</h5>
               <ul className="list-group">
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/politicas"} className="text-dark mb-1">
                   Políticas de privacidad
                 </Link>
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/condiciones-profesional"} className="text-dark mb-1">
                   Condiciones de uso para profesionales
                 </Link>
-                <Link
-                  to={"/"}
-                  className="text-dark mb-1"
-                >
-                  Condiciones de uso para clientes
-                </Link>
+                <Link to={"/condiciones-cliente"} className="text-dark mb-1">
+                </Link>      
               </ul>
             </div>
           </Col>
