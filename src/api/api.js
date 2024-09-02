@@ -1,7 +1,8 @@
 import axios from "axios";
+const url = import.meta.env.VITE_URL_BACK;
 
 const instance = axios.create({
-    baseURL: "https://laburandoando-back.onrender.com/",
+    baseURL: url,
 });
 
 const getCategories = async () => {

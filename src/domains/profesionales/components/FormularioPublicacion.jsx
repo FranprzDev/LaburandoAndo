@@ -192,11 +192,11 @@ const FormularioPublicacion = ({ id }) => {
           {...register("description", {
             required: "La descripción es obligatoria",
             minLength: {
-              value: 25,
+              value: 300,
               message: "La descripción debe tener al menos 25 caracteres",
             },
             maxLength: {
-              value: 500,
+              value: 900,
               message: "La descripción debe tener como máximo 500 caracteres",
             },
           })}
