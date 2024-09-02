@@ -33,10 +33,10 @@ const Footer = () => {
               </ul>
               <article className="mt-lg-5 mt-md-3">
                 <h5>Síguenos en nuestras redes</h5>
-                <Link>
+                <Link to={'/*'} onClick={() => scroll.toTop()}>
                   <FaFacebook className="fs-1 text-primary" />
                 </Link>
-                <Link>
+                <Link to={'/*'} onClick={() => scroll.toTop()}>
                 <FaSquareInstagram className="fs-1 iconInstagram"/>
                 </Link>
               </article>
