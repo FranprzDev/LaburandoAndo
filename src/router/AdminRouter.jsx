@@ -1,4 +1,3 @@
-import React from "react";
 import PerfilLayout from "../layout/PerfilLayout";
 import { Route, Routes } from "react-router-dom";
 import Clientes from "../domains/admin/pages/Clientes";

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import FormularioSoporte from "../components/FormularioSoporte";
-import "../styles/soporteProfesional.css";
+import "../styles/min/soporteProfesional.min.css";
 
 const SoporteProfesional = () => {
   const user = useSelector((state) => state.auth.user);

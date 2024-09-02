@@ -19,11 +19,11 @@ const Opinion = ({ review }) => {
   return (
     <div className="cardOpinion w-100 d-flex flex-column gap-3 border rounded-2 p-3">
       <div className="d-flex justify-content-between">
-        <div className="d-flex align-items-center gap-2">
-          <span>
+        <div className="d-flex align-items-center gap-2" title="Cliente">
+          <span title="usuario">
             <FaUser className="fs-4" />
           </span>
-          <p className="fw-bold mb-0">{review.user.fullname}</p>
+          <p className="fw-bold mb-0">{review.user?.fullname}</p>
         </div>
         <div className="calificacion mb-2">
           {[...Array(review.stars)].map((_, index) => (
@@ -32,11 +32,12 @@ const Opinion = ({ review }) => {
         </div>
       </div>
 
-      <p className="mb-0">{review.comment}</p>
+      <p className="mb-0">{review?.comment}</p>
       {usuario && usuario.role === "admin" && (
         <div className="d-flex justify-content-end">
           <button
             className="btn btnDeleteReview border py-1 border-primary  text-primary"
+            title="Eliminar comentario"
             onClick={() => handleDelete(review._id)}
           >
             eliminar

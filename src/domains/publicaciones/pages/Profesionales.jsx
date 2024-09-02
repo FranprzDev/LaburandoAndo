@@ -1,16 +1,15 @@
-import React, { useState } from "react";
 import Filtros from "../components/Filtros";
 import ListaPublicaciones from "../components/ListaPublicaciones";
-import "../styles/profesionales.css";
+import "../styles/min/profesionales.min.css";
 
 const Profesionales = () => {
   return (
-    <section className="mainSection py-2 pb-md-5 pt-md-4 sectionBanner">
+    <section className="mainSection py-3 pb-md-5 pt-md-4 sectionBanner">
       <div className="container">
-      <div className="row gap-2 gap-md-3 gap-lg-2 justify-content-center">
+      <div className="row gap-2 gap-lg-2 justify-content-center">
         <article className="mb-2 mb-md-3">
           <h1>Profesionales a tu alcance</h1>
-          <p>Estos son todos los profesionales que puedes contratar!</p>
+          <p className="mb-0 mb-md-2">Estos son todos los profesionales que puedes contratar!</p>
         </article>
         <article className="col-md-9 col-lg-3">
           <Filtros/>

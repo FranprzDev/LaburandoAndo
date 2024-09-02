@@ -1,5 +1,4 @@
-import React from "react";
-import { Container, Accordion } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { IoAddSharp } from "react-icons/io5";
 
 const PreguntasFrecuentes = () => {

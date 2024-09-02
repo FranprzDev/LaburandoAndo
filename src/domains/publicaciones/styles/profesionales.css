@@ -1,81 +1,90 @@
-.cardPost{
-    width: 100%;
-    min-height: 200px;
-    cursor: pointer;
-    border: 1px solid #d6d4d6;
+.cardPost {
+  width: 100%;
+  min-height: 200px;
+  cursor: pointer;
+  border: 1px solid #d6d4d6;
 }
 
-.imgcardPost{
-    width: 100px;
-    height: 150px;
+.imgcardPost {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .cardPost .description,
-.cardPost .title{
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 1;
-    white-space: normal;
-    text-overflow: ellipsis;
+.cardPost .title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  white-space: normal;
+  text-overflow: ellipsis;
 }
 
-.category{
-    display: inline;
-    min-width: 150px;
-    max-width: 200px;
-    background: #853f78;
+.category {
+  display: inline;
+  min-width: 150px;
+  max-width: 200px;
+  background: #853f78;
 }
 
-.cardPost .btnSeeProfile{
-    width: 100%;
+.cardPost .btnSeeProfile {
+  width: 100%;
+  background: #c24ead;
+}
+
+.cardPost .btnSeeProfile:hover {
+  background: #9c2d88;
+}
+
+.cardPost .outstanding {
+  background: #4c8cee;
+}
+
+@media all and (min-width: 768px) {
+  .cardPost .btnSeeProfile {
+    width: 25%;
+    min-width: 250px;
     background: #c24ead;
-}
-
-.cardPost .btnSeeProfile:hover{
-    background: #9c2d88;
-}
-
-.cardPost .outstanding{
-    background: #4c8cee;
-}
-
-@media all and (min-width: 768px){
-    .cardPost .btnSeeProfile{
-        width: 25%;
-        min-width: 250px;
-        background: #c24ead;
-    }
-.containerDescriptionPost{
+  }
+  .containerDescriptionPost {
     width: 100%;
     max-width: 608px;
-}
-    .containerStars{
-        width: 150px;
-    }
-}
+  }
+  .containerStars {
+    width: 150px;
+  }
 
-
-@media all and (min-width: 992px){
-    .cardPost .btnSeeProfile{
-        width: 25%;
-        min-width: 250px;
-        background: #c24ead;
-    }
-
-    .cardPost .imgcardPost{
-        width: 150px;
-    }
+  .textRatings {
+    font-size: 0.875rem;
+  }
 }
 
-@media all and (min-width: 1400px){
-    .cardPost{
-        transition: 0.8s;
-        min-width: 850px;
-    }
+@media all and (min-width: 992px) {
+  .cardPost .btnSeeProfile {
+    width: 25%;
+    min-width: 250px;
+    background: #c24ead;
+  }
 
-    .cardPost:hover{
-        transition: 0.8s;
-        border: 1px solid #c24ead;
-    }
+  .cardPost .imgcardPost {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media all and (min-width: 1400px) {
+  .cardPost {
+    transition: 0.8s;
+    min-width: 850px;
+  }
+
+  .cardPost:hover {
+    transition: 0.8s;
+    border: 1px solid #c24ead;
+  }
+
+  .textRatings {
+    font-size: 14px;
+  }
 }

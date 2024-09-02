@@ -97,7 +97,7 @@ const FormularioPublicacion = ({ id }) => {
           as="textarea"
           id="title"
           className="rounded-2 input"
-          title="Ingresa el título del anuncio"
+          title="Ingresa el título de tu anuncio de trabajo"
           placeholder="Clases particulares de inglés en línea..."
           {...register("title", {
             required: "El título es obligatorio",
@@ -158,7 +158,7 @@ const FormularioPublicacion = ({ id }) => {
             type="number"
             id="price"
             className="rounded-2 input"
-            title="Ingresa el sitio web de tu negocio en caso de tener"
+            title="Ingresa el costo por tu servicio"
             placeholder="5000"
             {...register("price", {
               required: "El precio es obligatorio",
@@ -187,17 +187,17 @@ const FormularioPublicacion = ({ id }) => {
           as="textarea"
           id="description"
           className="rounded-2 input textareaDescription"
-          title="Ingresa una breve presentación sobre ti y del anuncio"
+          title="Ingresa una breve presentación sobre ti y sobre tu anuncio de trabajo"
           placeholder="Hola, me llamo Juan y soy electricista con más de 5 años de experiencia..."
           {...register("description", {
             required: "La descripción es obligatoria",
             minLength: {
-              value: 25,
-              message: "La descripción debe tener al menos 25 caracteres",
+              value: 300,
+              message: "La descripción debe tener al menos 300 caracteres",
             },
             maxLength: {
-              value: 500,
-              message: "La descripción debe tener como máximo 500 caracteres",
+              value: 900,
+              message: "La descripción debe tener como máximo 900 caracteres",
             },
           })}
         />
@@ -208,7 +208,7 @@ const FormularioPublicacion = ({ id }) => {
       <div className="d-flex justify-content-end justify-content-md-center justify-content-lg-end d-block w-100">
         <button
           type="submit"
-          className="px-3 px-md-5 py-2 btnPost rounded-2 text-white border-0"
+          className="px-3 px-md-5 py-2 btnPost rounded-2 text-white border-0 button"
         >
           {id ? "Editar Anuncio" : "Publicar Anuncio"}
         </button>

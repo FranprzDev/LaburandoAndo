@@ -1,5 +1,4 @@
 import { Button, Form } from "react-bootstrap";
-import "../contacto.css";
 import { useForm } from "react-hook-form";
 import { sendEmail } from "../emailJS/email";
 
@@ -26,12 +25,17 @@ const FormularioContacto = () => {
         Contáctanos y pronto recibirás una respuesta
       </p>
       <Form.Group className="mb-2 mb-md-3">
-        <Form.Label className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1">
+        <Form.Label
+          htmlFor="full-name"
+          className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
+        >
           Nombre y Apellido
         </Form.Label>
         <Form.Control
           type="text"
           className="input"
+          id="full-name"
+          title="Ingresa tu nombre y apellido"
           placeholder="Juan Perez"
           {...register("nombreApellido", {
             required: "Su nombre y apellido es requerido",
@@ -51,13 +55,18 @@ const FormularioContacto = () => {
         />
         <div className="text-danger">{errors.nombreApellido?.message}</div>
       </Form.Group>
-      <Form.Group className="mb-2 mb-md-3">
-        <Form.Label className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1">
+      <Form.Group className="mb-2 mb-md-3" htmlFor="emailContact">
+        <Form.Label
+          className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
+          htmlFor="emailContact"
+        >
           Email
         </Form.Label>
         <Form.Control
           className="input"
           type="email"
+          id="emailContact"
+          title="Ingresa tu correo electrónico"
           placeholder="juanperez@gmail.com"
           {...register("email", {
             required: "Su email es requerido",
@@ -71,19 +80,24 @@ const FormularioContacto = () => {
         <div className="text-danger">{errors.email?.message}</div>
       </Form.Group>
       <Form.Group className="mb-2 mb-md-3">
-        <Form.Label className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1">
+        <Form.Label
+          className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
+          htmlFor="Message"
+        >
           Mensaje
         </Form.Label>
         <Form.Control
           className="input"
           as="textarea"
+          id="Message"
+          title="Ingresa tu consulta o problema.."
           rows={5}
           placeholder="Tengo un problema con..."
           {...register("mensaje", {
             required: "Su mensaje es requerido",
             minLength: {
-              value: 4,
-              message: "El mínimo de carácteres es 4",
+              value: 15,
+              message: "El mínimo de carácteres es 15",
             },
             maxLength: {
               value: 300,

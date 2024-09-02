@@ -1,7 +1,7 @@
 import FormularioPerfilProfesional from "../components/FormularioPerfilProfesional";
-import "../styles/perfilProfesional.css";
+import "../styles/min/perfilProfesional.min.css";
 import { useSelector } from "react-redux";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../../components/loaders/Loader";
 
 const PerfilProfesional = () => { 

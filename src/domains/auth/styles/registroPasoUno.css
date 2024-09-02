@@ -1,13 +1,8 @@
 .cardRegister {
   width: 75%;
-  height: 15vh;
+  height: 20vh;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border: 1px solid rgb(231, 228, 228);
-  transition: 0.7s;
-}
-
-.cardRegister:hover {
-  border: 1px solid var(--Violeta);
   transition: 0.7s;
 }
 
@@ -21,13 +16,9 @@
 }
 
 @media all and (min-width: 768px) {
-  .fontSizeText {
-    font-size: 1.125rem; /* 18px */
-  }
-
   .cardRegister {
     width: 50%;
-    height: 30vh;
+    height: 25vh;
   }
 
   .btnOptionLogin {
@@ -36,13 +27,15 @@
 }
 
 @media all and (min-width: 992px) {
-  .fontSizeText {
-    font-size: 1.25rem; /* 20px */ 
-  }
-
   .cardRegister {
     width: 30%;
+    height: 30vh;
     cursor: pointer;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+
+  .cardRegister:hover {
+    border: 1px solid var(--Violeta);
+    transition: 0.7s;
   }
 }

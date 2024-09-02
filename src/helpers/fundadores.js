@@ -1,8 +1,8 @@
-import flaviaImage from "../img/aboutUs/flavia.jpeg";
-import franciscoImage from "../img//aboutUs/francisco.jpeg";
-import nicolasImage from "../img//aboutUs/nicolas.jpeg";
-import julianImage from "../img//aboutUs/julian.jpeg";
-import brunoImage from "../img//aboutUs/bruno.jpeg";
+import flaviaImage from "../img/aboutUs/flavia.webp";
+import franciscoImage from "../img//aboutUs/francisco.webp";
+import nicolasImage from "../img//aboutUs/nicolas.webp";
+import julianImage from "../img//aboutUs/julian.webp";
+import brunoImage from "../img//aboutUs/bruno.webp";
 
 export const fundadores = [
     {

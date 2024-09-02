@@ -1,4 +1,5 @@
 import FormularioContacto from "./components/FormularioContacto";
+import "./styles/contacto.min.css";
 
 const Contacto = () => {
   return (
