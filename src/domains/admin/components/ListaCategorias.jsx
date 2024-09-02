@@ -2,7 +2,7 @@ import React from "react";
 import ItemCategoria from "./ItemCategoria";
 import { useSelector } from "react-redux";
 const ListaCategorias = () => {
-  const category = useSelector((state) => state.categories.categories);
+const category = useSelector((state) => state.categories.categories);
 
   return (
     <div className="d-flex justify-content-center flex-column gap-2 flex-md-row flex-wrap">
