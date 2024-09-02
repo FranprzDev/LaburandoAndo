@@ -4,7 +4,7 @@ import { FaStar, FaWhatsapp } from "react-icons/fa";
 
 const CardProfesional = ({ profesional, handleWhatsApp, promedio }) => {
   return (
-    <Card className="me-3 mt-3 cardDetail">
+    <Card className="me-md-3 mt-md-3 cardDetail">
       <div>
         <Card.Body className="d-flex flex-column justify-content-center align-items-center pb-0 pb-md-2">
           <Image

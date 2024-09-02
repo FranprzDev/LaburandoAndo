@@ -29,7 +29,7 @@ export default function Login() {
   const login = async (usuario) => {
     if(usuario.mail === adminEmail && usuario.password === adminPassword){
       usuario.role = "admin";
-      autoCloseAlert(`Iniciando sesión...`, "success");
+      autoCloseAlert(`Haz iniciado sesión. Bienvenido Administrador!`, "success");
       sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
       navigate("/admin/clientes")
     }else{
@@ -39,9 +39,9 @@ export default function Login() {
 
   useEffect(() => {
     if (status === "error") {
-      autoCloseAlert(`Error al iniciar sesión`, "error");
+      autoCloseAlert(`Correo o Contraseña incorrecto. Verifica los datos ingresados`, "error");
     } else if (status === "exitoso" && isAuth) {
-      autoCloseAlert(`Iniciando sesión...`, "success");
+      autoCloseAlert(`Haz iniciado sesión. Bienvenido!`, "success");
       if (role === "client"){
         navigate("../../profesionales");
       } 

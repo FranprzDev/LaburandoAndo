@@ -1,4 +1,3 @@
-import React from 'react';
 import CardPublicacion from './CardPublicacion';
 
 const ListaPublicaciones = () => {
