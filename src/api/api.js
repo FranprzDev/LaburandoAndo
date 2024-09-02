@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://laburandoando-back.onrender.com/",
 });
 
 const getCategories = async () => {
     try {
         const response = await instance.get('/category/');
-        return response.data; // Asegúrate de que esta es la estructura de los datos esperados
+        return response.data;
     } catch (error) {
         console.error('Error al solicitar las categorías', error);
         throw error;

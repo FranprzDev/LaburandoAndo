@@ -72,7 +72,7 @@ const DetallePublicacion = () => {
             promedio={promedio}
           ></CardProfesional>
           <div className="text-center d-block d-md-none">
-            <p className="mb-0">Publicado: {fecha}</p>
+            <p className="mb-0"><span className="fw-bold">Publicado:</span> {fecha}</p>
           </div>
           <div className="mt-3 mt-lg-3 mt-xl-5 w-100">
             <div className=" w-100">
@@ -102,7 +102,7 @@ const DetallePublicacion = () => {
           </div>
         </section>
         <div className="mt-3 d-none d-md-block">
-          <p className="mb-0">Publicado: {fecha}</p>
+          <p className="mb-0"><span className="fw-bold">Publicado:</span> {fecha}</p>
         </div>
         <Opiniones reviews={profesional?.reviews} />
       </Container>
