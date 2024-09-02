@@ -1,4 +1,4 @@
-const UsoCliente = () => {
+const CondicionesUsoCliente = () => {
   return (
     <div className="container py-5">
       <h1>Condiciones de Uso para Clientes</h1>
@@ -112,4 +112,4 @@ const UsoCliente = () => {
   );
 };
 
-export default UsoCliente;
+export default CondicionesUsoCliente;

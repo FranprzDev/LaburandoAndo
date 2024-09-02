@@ -1,6 +1,4 @@
-import React from "react";
-
-const UsoProfesional = () => {
+const CondicionesUsoProfesional = () => {
   return (
     <div className="container py-5">
       <h1>Condiciones de Uso para Profesionales</h1>
@@ -63,17 +61,17 @@ const UsoProfesional = () => {
       </ul>
       <p className="fw-bold mt-3">3. Restricciones de Uso</p>
       <ul className="list-unstyled">
-        <li>• Usar el Sitio para fines ilegales o no autorizados.</li>
+        <li>Usar el Sitio para fines ilegales o no autorizados.</li>
         <li>
-          • Transmitir contenido que sea ofensivo, difamatorio, obsceno o que
+          Transmitir contenido que sea ofensivo, difamatorio, obsceno o que
           infrinja derechos de terceros.
         </li>
         <li>
-          • Realizar actividades que puedan dañar, deshabilitar o perjudicar la
+          Realizar actividades que puedan dañar, deshabilitar o perjudicar la
           funcionalidad del Sitio.
         </li>
         <li>
-          • Intentar obtener acceso no autorizado a las cuentas de otros
+          Intentar obtener acceso no autorizado a las cuentas de otros
           usuarios o sistemas de la Empresa.
         </li>
       </ul>
@@ -123,4 +121,4 @@ const UsoProfesional = () => {
   );
 };
 
-export default UsoProfesional;
+export default CondicionesUsoProfesional;

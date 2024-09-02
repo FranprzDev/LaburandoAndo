@@ -19,9 +19,9 @@ const ClientRouter = () => {
         <Route path="/detalle/:id" element={<DetallePublicacion />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/contacto" element={<Contacto></Contacto>} />
-        <Route path="/politica" element={<PoliticaPrivacidad />} />
-        <Route path="/usoprofesional" element={<UsoProfesional />} />
-        <Route path="/usocliente" element={<UsoCliente />} />
+        <Route path="/politicas" element={<PoliticaPrivacidad />} />
+        <Route path="/condiciones-profesional" element={<UsoProfesional />} />
+        <Route path="/condiciones-cliente" element={<UsoCliente />} />
         <Route path="/*" element={<Error404 />} />
       </Routes>
     </MainLayout>
