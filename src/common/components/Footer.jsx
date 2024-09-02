@@ -57,6 +57,7 @@ const Footer = () => {
                   Condiciones de uso para profesionales
                 </Link>
                 <Link to={"/condiciones-cliente"} className="text-dark mb-1">
+                  Condiciones de uso para clientes
                 </Link>      
               </ul>
             </div>

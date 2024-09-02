@@ -10,4 +10,8 @@
   .containerMessages {
     max-width: 50%;
   }
+  
+  .filterMessages{
+    max-width: 50%;
+}
 }

@@ -1,20 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
 import ItemMensaje from "./ItemMensaje";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getFeedbacks } from "../../../slices/actions/feedbackActions";
 
-const ListaMensajesSoporte = ({leido}) => {
+const ListaMensajesSoporte = ({ leido }) => {
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFeedbacks(leido));
-  }, [dispatch,leido]);
+  }, [leido]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+  let maxPage = Math.ceil(feedbacks.length / itemsPerPage);
+  let start = (currentPage - 1) * itemsPerPage;
+  let end = start + itemsPerPage;
+  let currentItems = feedbacks.slice(start, end);
 
   return (
-    <div className="gap-3 align-items-start d-flex flex-column containerMessages w-100 mt-2">
+    <div className="gap-3 justify-content-center d-flex flex-column containerMessages w-100 mt-2">
       {feedbacks.length > 0 ? (
-        feedbacks.map((feedback) => (
+        currentItems.map((feedback) => (
           <ItemMensaje key={feedback._id} feedback={feedback}></ItemMensaje>
         ))
       ) : (
@@ -22,6 +29,24 @@ const ListaMensajesSoporte = ({leido}) => {
           <p className="mb-0">No tienes mensajes</p>
         </div>
       )}
+
+      <div className="d-flex justify-content-center mt-3">
+        <nav aria-label="Navigation">
+          <ul className="pagination">
+            {Array.from({ length: maxPage }, (_, i) => (
+              <li className="page-item" key={i}>
+                <a
+                  className="page-link"
+                  href="#"
+                  onClick={() => setCurrentPage(i + 1)}
+                >
+                  {i + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 };
