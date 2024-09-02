@@ -26,8 +26,8 @@ function FormAuth() {
   return (
     <div className="col-md-6 d-flex justify-content-center align-items-center mb-3 mb-md-0 order-md-1 px-0">
       <div className={`col-11 col-sm-10 col-md-12 col-lg-11 col-xl-9 mx-auto`}>
-        <div className="card p-lg-4 pt-3 px-0">
-          <div className="text-center">
+        <div className="card px-lg-4 pt-lg-4 pb-0 pt-3 px-0">
+          <div className="text-center px-2">
             <p className="fw-bold mb-0">
               Registrate en <span className="text-primary">LaburandoAndo</span>
               {
@@ -127,7 +127,7 @@ function FormAuth() {
                 />
                 <div className="text-danger">{errors.password_repeat?.message}</div>
               </div>
-              <button className="btn btn-danger w-100 mb-3">Registrarme</button>
+              <button className="btn btnCreateAccount w-100 mb-3">Registrarme</button>
             </form>
             <button className="btn btn-LoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
               <svg

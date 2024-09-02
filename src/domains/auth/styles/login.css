@@ -1,31 +1,42 @@
-.btn-Registrarse {
-    background-color: #E9D5FF;
+.btnLogin{
+    background-color: #932ca5;
+    color: #fff;
+    outline: #932ca5;
 }
 
-.btn-Registrarse:hover {
-    background-color: #D1B3FF;
+.btnLogin:hover{
+    background-color: #8d17a2;
+    color: #fff;
+    outline: #932ca5;
 }
 
-.btn-Registrarse:focus {
-    background-color: #D1B3FF;
+.btnLogin:active{
+    background-color: #8d17a2!important;
+    color: #fff!important;
+    outline: #932ca5;
 }
 
-.btn-Registrarse:active {
-    background-color: #D1B3FF !important;
+.btnCreateAccount {
+    background-color: #7373c9;
+    color: #fff;
 }
 
-.btn-LoginGoogle:hover {
+.btnCreateAccount:hover {
+    background-color: #45457f;
+    color: #fff;
+}
+
+.btnLoginGoogle:hover {
     background-color: #efeef0;
     color: #000000;
 }
 
-.btn-LoginGoogle:active {
+.btnLoginGoogle:active {
     background-color: #efeef0 !important;
     color: #000000 !important;
-
 }
 
-.btn-LoginGoogle:focus {
+.btnLoginGoogle:focus {
     background-color: #efeef0;
     color: #000000;
 }

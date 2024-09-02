@@ -15,7 +15,7 @@ const CardRegistroPasoUno = ({ usuario }) => {
 
   return (
     <article className="cardRegister d-flex justify-content-center align-items-center rounded-2 p-3" onClick={handleClick}>
-      <h3>
+      <h3 className="mb-0">
         {usuario
           ? "Soy cliente"
           : "Soy profesional autónomo en busca de trabajo"}
