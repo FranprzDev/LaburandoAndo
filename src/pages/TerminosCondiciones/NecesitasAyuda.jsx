@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import "./styles/home.css"; // Asegúrate de tener los estilos necesarios aquí
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "../Home/styles/home.css"; // Asegúrate de tener los estilos necesarios aquí
 
 const NecesitasAyuda = () => {
   return (
@@ -50,18 +51,16 @@ const NecesitasAyuda = () => {
             </li>
           </ul>
 
-          <p className="fw-bold mt-3">4. Preguntas Frecuentes</p>
+          <p className="fw-bold mt-3">4. Contacto y Asistencia Adicional</p>
           <p>
-            Si tienes más preguntas, consulta nuestra sección de "Preguntas
-            Frecuentes" para obtener respuestas a las consultas comunes sobre el uso
-            de la plataforma.
+            Si tienes más preguntas, consulta nuestra sección de "Contacto" para obtener respuestas a las consultas comunes sobre el uso
+            de la plataforma. Para obtener asistencia adicional, no dudes en contactarnos a través del enlace "Contacto" al pie de la página.
           </p>
-
-          <p className="fw-bold mt-3">5. Contacto</p>
-          <p>
-            Para obtener asistencia adicional, no dudes en contactarnos a través del
-            enlace "Contacto" al pie de la página.
-          </p>
+          <div className="text-center mt-4">
+            <Link to="/contacto">
+              <Button variant="primary">Contactar</Button>
+            </Link>
+          </div>
         </Col>
       </Row>
     </Container>
