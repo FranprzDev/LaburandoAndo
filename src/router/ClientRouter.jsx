@@ -9,6 +9,7 @@ import Error404 from '../pages/Error404/Error404';
 import PoliticasYPrivacidad from '../pages/TerminosCondiciones/PoliticasYPrivacidad';
 import CondicionesUsoCliente from '../pages/TerminosCondiciones/CondicionesUsoCliente';
 import CondicionesUsoProfesional from '../pages/TerminosCondiciones/CondicionesUsoProfesional';
+import NecesitasAyuda from '../pages/TerminosCondiciones/NecesitasAyuda';
 
 const ClientRouter = () => {
   return (
@@ -22,7 +23,7 @@ const ClientRouter = () => {
         <Route path="/politicas" element={<PoliticasYPrivacidad />} />
         <Route path="/condiciones-profesional" element={<CondicionesUsoProfesional />} />
         <Route path="/condiciones-cliente" element={<CondicionesUsoCliente />} />
-
+        <Route path="/necesitasAyuda" element={<NecesitasAyuda/>}/>
         <Route path="/*" element={<Error404 />} />
       </Routes>
     </MainLayout>
