@@ -1,0 +1,105 @@
+.btnExplore {
+  width: 280px;
+  background-color:var(--Violeta);
+  color: white;
+}
+
+.btnExplore:hover {
+    background-color: var(--Violeta);
+    background-color: #570b5d;
+    color: white;
+}
+
+.btnRegister {
+  width: 250px;
+  background-color: var(--HoverVioleta);
+  color: #fff;
+}
+
+.btnRegister:hover {
+  background-color: var(--Violeta);
+  color: var(--Lavanda);
+  border: 1px solid var(--Violeta);
+}
+
+.imgHome {
+  width: 200px;
+  height: 200px;
+}
+
+.sectionBanner,
+.sectionRegister{
+    background: #f7f7f7;
+    color: #000;
+}
+
+.iconAdd{
+    font-size: 1.25rem;
+}
+
+@media all and (min-width: 360px) {
+  .imgRegister {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .imgBanner {
+    width: 200px;
+    height: 200px;
+    border: 2px solid grey;
+  }
+
+  .imgRegister {
+    width: 100%;
+    height: 350px;
+  }
+
+  .containerImgBanner {
+    max-width: 700px;
+  }
+
+.iconAdd{
+    font-size: 1.5625rem;
+}
+}
+
+@media all and (min-width: 992px) {
+    .imgBanner {
+      width: 225px;
+      height: 225px;
+      border: 2px solid grey;
+    }
+
+    .imgRegister {
+        width: 100%;
+        height: 600;
+      }
+}
+
+@media all and (min-width: 1200px) {
+    .imgBanner {
+      width: 225px;
+      height: 225px;
+      border: 2px solid grey;
+    }
+
+    .imgRegister {
+        width: 100%;
+        height: 500px;
+      }
+}
+
+@media all and (min-width: 1400px) {
+    .imgBanner {
+      width: 250px;
+      height: 250px;
+      border: 2px solid grey;
+    }
+
+    .imgRegister {
+        width: 100%;
+        height: 550px;
+      }
+}

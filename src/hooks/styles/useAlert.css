@@ -1,0 +1,48 @@
+
+custom-container, .alert-container{
+    z-index: 999999;
+  }
+  
+  .alert-custom{
+    color: #333333;
+  }
+  
+  .custom-confirm-button{
+    background-color: var(--Rosa);
+    color: var(--HoverVioleta);
+    padding: 8px 16px;
+    border-radius: 24px;
+    border: none;
+    font-weight: bolder !important;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .custom-cancel-button{
+    background-color: var(--Lavanda);
+    color: var(--Violeta);
+    padding: 8px 16px;
+    border-radius: 24px;
+    border: none;
+    font-weight: bolder !important;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .success{
+    background-color: #28a745 !important;
+  }
+  
+  .warning{
+    background-color: rgb(203, 145, 38) !important;
+  }
+  
+  .error{
+    background-color: #dc3545 !important;
+  }
+  
+  .text-modal{
+    color: #f7f7f7;
+    font-weight: bolder !important;
+    margin: auto;
+  }

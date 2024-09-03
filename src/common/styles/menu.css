@@ -1,0 +1,35 @@
+.btn-Profesional {
+    width: 75%;
+    background-color: var(--HoverVioleta);
+    color:#fff
+}
+
+.dropdown{
+    width: 150px;
+}
+
+.btn-Profesional:hover {
+    background-color:#5a0b57;
+    color:#fff
+}
+
+.imgProfileDropdown{
+    width: 75px;
+    height: 75px;
+}
+
+.opcionClient{
+    width: 175px;
+}
+
+@media all and (min-width:768px){
+    .btn-Profesional {
+        width: 50%;
+    }
+}
+
+@media all and (min-width:992px){
+    .btn-Profesional {
+        width: inherit;
+    }
+}

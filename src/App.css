@@ -1,37 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+:root {
+  --Negro: #000000;
+  --Violeta: #91277d;
+  --Violeta-secondary: #902c7e;
+  --Rosa: #ffe3fa;
+  --Lavanda: #ffebfd;
+  --HoverVioleta: #501c46;
+  --fontText-xl: 1.125rem; 
+}
+
 #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    --Negro: #000000;
-    --Violeta: #853f78;
-    --Rosa: #f1d0eb;
-    --Lavanda: #f0e6ef;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Questrial", sans-serif;
 }
 
 .mainSection {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
-.btn-Profesional {
-    background-color: var(--Violeta);
-    color: white;
+.logo{
+  font-size: 1.8rem;
 }
 
-.btn-Profesional:hover {
-    background-color: #501c46;
-    color: white;
+.iconInstagram {
+  background: rgb(250, 240, 243);
+  color: rgb(225, 51, 102);
 }
 
-.instagramLogo {
-    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
-    color: white;
+a{
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.input:focus{
-    outline: none;
-    box-shadow: none;
+.input{
+  background: #F4F8FB;
+  color: #424549;
+  border:1px solid #F4F8FB;
 }
+
+.input:focus {
+  outline: none;
+  box-shadow: none;
+  background: #F4F8FB;
+  border: 1px solid #9692d0;
+}
+
+.input:disabled{
+  background: #F4F8FB;
+  color: #424549;
+  border:1px solid #F4F8FB;
+}
+
 .btn:active {
-    transform: translateY(2px);
-    transition: cubic-bezier(1, 0, 0, 1) 0.2s;
+  transform: translateY(2px);
+  transition: cubic-bezier(1, 0, 0, 1) 0.2s;
+}
+
+img{
+    object-fit: cover;
+}
+
+.accordion-button:focus{
+  outline: none;
+  box-shadow: none;
+  background: none;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #876e8f;
+  border-radius: 3px;
+  border: 2px solid #d3c5cf;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--Violeta);
+  border-radius: 3px;
+  border: 2px solid #d3c5cf;
+}
+
+p,
+.btn, 
+.nav-link,
+button,
+label,
+li,
+span{
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.button{
+  width: 100%;
+}
+
+.fontSizeDropdown{
+  font-size: 0.875rem;
+}
+
+@media all and (min-width: 992px){
+  .button{
+    width: initial;
+  }
+}
+
+@media all and (min-width: 1200px){
+    p,
+    .btn, 
+    .nav-link,
+    button,
+    label,
+    li{
+        font-size: var(--fontText-xl);
+    }
 }
