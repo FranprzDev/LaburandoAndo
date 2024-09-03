@@ -4,7 +4,7 @@ Este proyecto es una aplicación web sobre portal de trabajo.
 
 ## Logotipo 
 
-<img src="./src/img/Logo.jpg" width="200" height="200">
+<img src="../LaburandoAndo/src/img/Logo.webp" width="200" height="200">
 
 ##  Aplicación Web con React y Vite
 
