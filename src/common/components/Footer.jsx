@@ -70,7 +70,7 @@ const Footer = () => {
               <h5>Asistencia</h5>
               <ul className="list-group">
                 <Link
-                  to={"/*"}
+                  to={"/necesitasAyuda"}
                   className="text-dark mb-1"
                 >
                   ¿Necesitas Ayuda?
