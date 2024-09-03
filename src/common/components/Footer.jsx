@@ -29,7 +29,7 @@ const Footer = () => {
               <article className="mt-lg-5 mt-md-3">
                 <h5>Síguenos en nuestras redes</h5>
                 <Link to={"/*"} title="facebook">
-                  <FaFacebook className="fs-1 text-primary" />
+                  <FaFacebook className="fs-1 text-primary me-2" />
                 </Link>
                 <Link to={"/*"} title="instagram">
                   <FaSquareInstagram className="fs-1 iconInstagram" />

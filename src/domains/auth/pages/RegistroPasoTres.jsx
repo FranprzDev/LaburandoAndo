@@ -92,6 +92,7 @@ const RegistroPasoTres = () => {
                   type="text"
                   title="Ingresa tu ciudad y provincia actual"
                   className=" form-control input"
+                  placeholder="Yerba Buena, Tucumán"
                   {...register("adress")}
                 />
               </div>
@@ -109,6 +110,7 @@ const RegistroPasoTres = () => {
                   type="text"
                   title="Ingresa tu número de WhatsApp"
                   className="form-control input-optionals input"
+                  placeholder="Por ej. 3816582109"
                   {...register("phone", {
                     pattern: {
                       value: /^[0-9]+$/,

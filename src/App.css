@@ -118,7 +118,8 @@ span{
     .nav-link,
     button,
     label,
-    li{
+    li,
+    a{
         font-size: var(--fontText-xl);
     }
 }
