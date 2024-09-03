@@ -1,7 +1,7 @@
 import "../styles/min/detallePublicacion.min.css";
 import { Container, Button } from "react-bootstrap";
 import Opiniones from "../components/Opiniones";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getPost } from "../../../slices/actions/postsActions";
@@ -51,7 +51,19 @@ const DetallePublicacion = () => {
 
   return (
     <>
-      <div className="w-100 py-3 d-md-none border-0 rounded-0 fixed-bottom px-2 containerBtnWpp">
+      <div className="container mt-3">
+        <nav aria-label="breadcrumb container">
+          <ol className="breadcrumb">
+            <Link className="breadcrumb-item" to={"/profesionales"}>
+              Profesionales
+            </Link>
+            <li className="breadcrumb-item text-primary">
+              {profesional?.worker?.fullname}
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div className="w-100 d-md-none border-0 rounded-0 fixed-bottom px-2 containerBtnWpp">
         <div className="d-flex flex-column justify-content-center align-items-center py-0">
           <Button
             onClick={handleWhatsApp}
@@ -63,7 +75,7 @@ const DetallePublicacion = () => {
           </Button>
         </div>
       </div>
-      <Container className="mainSection py-3 py-md-4 pt-lg-4 pb-lg-5">
+      <Container className="mainSection pb-lg-5">
         <section className="d-flex flex-column align-items-center align-items-md-start flex-md-row gap-1 gap-lg-5 containerDetail pt-2 ">
           <CardProfesional
             profesional={profesional}
@@ -71,7 +83,9 @@ const DetallePublicacion = () => {
             promedio={promedio}
           ></CardProfesional>
           <div className="text-center d-block d-md-none">
-            <p className="mb-0"><span className="fw-bold">Publicado:</span> {fecha}</p>
+            <p className="mb-0">
+              <span className="fw-bold">Publicado:</span> {fecha}
+            </p>
           </div>
           <div className="mt-3 mt-lg-3 mt-xl-5 w-100">
             <div className=" w-100">
@@ -101,7 +115,9 @@ const DetallePublicacion = () => {
           </div>
         </section>
         <div className="mt-3 d-none d-md-block">
-          <p className="mb-0"><span className="fw-bold">Publicado:</span> {fecha}</p>
+          <p className="mb-0">
+            <span className="fw-bold">Publicado:</span> {fecha}
+          </p>
         </div>
         <Opiniones reviews={profesional?.reviews} />
       </Container>

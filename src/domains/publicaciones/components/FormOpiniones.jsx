@@ -38,11 +38,12 @@ const FormOpiniones = () => {
       onSubmit={handleSubmit(handleReview)}
     >
       <div className="mb-2 d-flex flex-column w-100">
-        <label htmlFor="" className="form-label d-block">
+        <label htmlFor="valoracion" className="form-label d-block">
           Valoración
         </label>
         <Form.Select
           className="rounded-2 w-100 input py-2 border-1"
+          id="valoracion"
           title="Selecciona una valoración"
           {...register("stars", {
             required: "La valoración es obligatoria",
@@ -58,12 +59,13 @@ const FormOpiniones = () => {
         <div className="text-danger text-start">{errors.stars?.message}</div>
       </div>
       <div className="mb-2 d-flex flex-column w-100">
-        <label htmlFor="" className="form-label d-block">
+        <label htmlFor="comentario" className="form-label d-block">
           Comentario
         </label>
         <textarea
           className="form-control rounded-2 w-100 input"
           title="Ingresa tu comentario"
+          id="comentario"
           placeholder="Escribe tu comentario aquí..."
           {...register("comment", {
             required: "El comentario es obligatorio",

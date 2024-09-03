@@ -30,12 +30,14 @@ const FormCategoria = () => {
         <Form.Label
           label="Correo Electrónico"
           className="w-100 text-lg-start fw-medium  fontSizeLabel mb-0 mb-md-1"
+          htmlFor="cat"
         >
           Nueva Categoría
         </Form.Label>
         <Form.Control
           className="rounded-2 input "
           title="Ingresa una categoría"
+          id="cat"
           placeholder="Por ej. Fotógrafo"
           {...register("name", {
             required: "La categoría es obligatoria",

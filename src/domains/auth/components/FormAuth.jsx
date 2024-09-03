@@ -58,6 +58,7 @@ function FormAuth() {
                 </label>
                 <input
                   type="text"
+                  id="fullname"
                   className="form-control input"
                   title="Ingresa tu nombre y apellido"
                   placeholder="Francisco Perez"
@@ -72,11 +73,12 @@ function FormAuth() {
                 <div className="text-danger">{errors.fullname?.message}</div>
               </div>
               <div className="mb-2 text-start">
-                <label htmlFor="mail" className="mb-1 fw-medium">
+                <label htmlFor="email" className="mb-1 fw-medium">
                   Email
                 </label>
                 <input
                   type="email"
+                  id="email"
                   title="Ingresa tu correo electrónico"
                   className="form-control input"
                   placeholder="franciscoperez@gmail.com"
@@ -91,12 +93,13 @@ function FormAuth() {
                 <div className="text-danger">{errors.mail?.message}</div>
               </div>
               <div className="mb-2 text-start">
-                <label htmlFor="password" className="mb-1 fw-medium">
+                <label htmlFor="pass" className="mb-1 fw-medium">
                   Contraseña
                 </label>
                 <input
                   type="password"
                   name="password"
+                  id="pass"
                   title="Ingresa una contraseña de al menos 8 caracteres"
                   className="form-control input"
                   placeholder="Ju4n23!"
@@ -121,6 +124,7 @@ function FormAuth() {
                 <input
                   name="password_repeat"
                   type="password"
+                  id="retry-password"
                   title="Vuelve a ingresar la contraseña nuevamente"
                   className="form-control input"
                   placeholder="Ju4n23!"

@@ -3,7 +3,7 @@ const CondicionesUsoCliente = () => {
     <div className="container py-5">
       <h1>Condiciones de Uso para Clientes</h1>
       <p>
-        <span className="fw-bold mt-3">Última actualización: </span>01/09/224
+        <span className="fw-bold mt-3">Última actualización: </span>01/09/2024
         <span></span>{" "}
       </p>
       <p>

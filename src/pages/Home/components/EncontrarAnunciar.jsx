@@ -16,6 +16,7 @@ const EncontrarAnunciar = () => {
                 className="imgHome rounded-2"
                 src={Busca}
                 alt="Buscar profesional"
+                title="Búsqueda de profesional"
               />
             </div>
             <p className="mb-0 fw-medium">1. Busca</p>
@@ -27,6 +28,7 @@ const EncontrarAnunciar = () => {
                 className="imgHome rounded-2"
                 src={Contacto}
                 alt="Contactar profesional"
+                title="Contactar profesional"
               />
             </div>
             <p className="mb-0 fw-medium">2. Contacta</p>
