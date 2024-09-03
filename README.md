@@ -1,4 +1,4 @@
-# LaburandoAndo
+# LaburandoAndo 👷‍♂️🛠️👷
 
 Este proyecto es una aplicación web sobre portal de trabajo.
 
