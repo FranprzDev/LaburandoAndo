@@ -10,75 +10,60 @@ const Footer = () => {
         <Row className="gy-2 gy-md-3 gx-5 justify-content-md-center">
           <Col className="text-center mb-3 mb-md-0" md={12} lg={3} xl={3}>
             <Link to={"/"} className="navbar-brand">
-              <h5 className="logo" title="Logo de LaburandoAndo">LaburandoAndo</h5>
+              <h5 className="logo" title="Logo de LaburandoAndo">
+                LaburandoAndo
+              </h5>
             </Link>
           </Col>
           <Col className="text-center text-lg-start" md={4} lg={3}>
             <div className="d-flex flex-column ">
               <h5>Sobre Nosotros</h5>
               <ul className="list-group">
-                <Link
-                  to={"/nosotros"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/nosotros"} className="text-dark mb-1">
                   ¿Quiénes Somos?
                 </Link>
-                <Link
-                  to={"/*"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/*"} className="text-dark mb-1">
                   Nuestros Valores
                 </Link>
               </ul>
               <article className="mt-lg-5 mt-md-3">
                 <h5>Síguenos en nuestras redes</h5>
-                <Link to={'/*'} title="facebook">
+                <Link to={"/*"} title="facebook">
                   <FaFacebook className="fs-1 text-primary" />
                 </Link>
-                <Link to={'/*'} title="instagram">
-                <FaSquareInstagram className="fs-1 iconInstagram"/>
+                <Link to={"/*"} title="instagram">
+                  <FaSquareInstagram className="fs-1 iconInstagram" />
                 </Link>
               </article>
             </div>
           </Col>
-          <Col
-            className="text-center text-lg-start "
-            md={4}
-            lg={3}
-          >
+          <Col className="text-center text-lg-start " md={4} lg={3}>
             <div>
               <h5>Términos y Condiciones</h5>
               <ul className="list-group">
                 <Link to={"/politicas"} className="text-dark mb-1">
                   Políticas de privacidad
                 </Link>
-                <Link to={"/condiciones-profesional"} className="text-dark mb-1">
+                <Link
+                  to={"/condiciones-profesional"}
+                  className="text-dark mb-1"
+                >
                   Condiciones de uso para profesionales
                 </Link>
                 <Link to={"/condiciones-cliente"} className="text-dark mb-1">
                   Condiciones de uso para clientes
-                </Link>      
+                </Link>
               </ul>
             </div>
           </Col>
-          <Col
-            className="mt-3 text-center text-lg-start "
-            md={4}
-            lg={3}
-          >
+          <Col className="mt-3 text-center text-lg-start " md={4} lg={3}>
             <div>
               <h5>Asistencia</h5>
               <ul className="list-group">
-                <Link
-                  to={"/necesitasAyuda"}
-                  className="text-dark mb-1"
-                >
+                <Link to={"/necesitasAyuda"} className="text-dark mb-1">
                   ¿Necesitas Ayuda?
                 </Link>
-                <Link
-                  to={"/contacto"}
-                  className="text-dark"
-                >
+                <Link to={"/contacto"} className="text-dark">
                   Contacto
                 </Link>
               </ul>

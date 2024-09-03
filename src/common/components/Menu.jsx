@@ -51,10 +51,12 @@ const Menu = () => {
     >
       <Container>
         <Link to={"/"} className="navbar-brand">
-          <h5 className="logo" title="Logo de LaburandoAndo">LaburandoAndo</h5>
+          <h5 className="logo" title="Logo de LaburandoAndo">
+            LaburandoAndo
+          </h5>
         </Link>
-        <Navbar.Toggle 
-          aria-controls="basic-navbar-nav" 
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
           onClick={() => setExpanded(expanded ? false : "expanded")}
         />
         <Navbar.Collapse id="basic-navbar-nav">
