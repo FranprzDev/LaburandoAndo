@@ -6,7 +6,6 @@ const ImageUploader = () => {
   const { loading } = useCloudinary();
 
 
-
   return (
     <div className="d-flex align-items-center justify-content-center position-relative mb-3 flex-column">
       {
