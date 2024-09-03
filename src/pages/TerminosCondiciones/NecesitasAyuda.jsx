@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../Home/styles/home.css"; // Asegúrate de tener los estilos necesarios aquí
+import "../Home/styles/home.css"; 
 
 const NecesitasAyuda = () => {
   return (
