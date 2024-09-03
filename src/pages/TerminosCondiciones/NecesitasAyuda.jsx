@@ -58,7 +58,7 @@ const NecesitasAyuda = () => {
           </p>
           <div className="text-center mt-4">
             <Link to="/contacto">
-              <Button variant="primary">Contactar</Button>
+              <Button  className="btnContact border-black">Contactar</Button>
             </Link>
           </div>
         </Col>
