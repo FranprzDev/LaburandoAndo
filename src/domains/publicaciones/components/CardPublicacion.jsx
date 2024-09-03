@@ -142,7 +142,7 @@ const CardPublicacion = () => {
           <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
             <div className="d-flex flex-column justify-content-md-center align-items-center ">
               <img
-                src="https://media.discordapp.net/attachments/1271548261097934871/1271583466768564368/Imagen_de_WhatsApp_2024-08-09_a_las_18.37.56_612a8ac6.jpg?ex=66b7dde3&is=66b68c63&hm=56f0c7645bf3ca0e1028530d01f492ba11269c4f9b28ecf75f1a24f9e7da0f65&=&format=webp&width=676&height=676"
+                src="https://asset.cloudinary.com/dh4b6g2ld/09d204f015420e4d017ad076b31d10f4"
                 alt="imagen de perfil"
                 className="imgcardPost border rounded-circle "
               />
