@@ -43,7 +43,7 @@ const postSlice = createSlice({
       state.filterPosts = state.posts;
       if(action.payload !== "") {
         state.filterPosts = state.posts.filter((post) =>
-          post.worker.address.toLowerCase().includes(action.payload.toLowerCase())
+          post.worker.address?.toLowerCase().includes(action.payload.toLowerCase())
         );
       }
     },
