@@ -15,6 +15,7 @@ const RegistroProfesional = () => {
               className="imgRegister img-fluid"
               src={Profesional}
               alt="Imagen de alguien usando una notebook"
+              title="Profesional registrándose en la aplicación"
             />
           </div>
         </Col>
