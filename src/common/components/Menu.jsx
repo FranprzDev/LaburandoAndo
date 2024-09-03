@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect } from "react";
-=======
 import React, { useEffect, useState, useRef } from "react";
->>>>>>> f815c76d26f634f466141ab981ba3824a4eaedf0
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BiSolidExit } from "react-icons/bi";
 import { FaListAlt, FaUser, FaWpforms } from "react-icons/fa";

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemCategoria from "./ItemCategoria";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../../../slices/actions/categoryActions";
 
 const ListaCategorias = () => {
   const category = useSelector((state) => state.categories.categories);
-
+  const dispatch = useDispatch()
   useEffect(()=>{
+    dispatch(fetchCategories())
   },[category])
 
   return (
