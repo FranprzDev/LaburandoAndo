@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 const ListaCategorias = () => {
   const category = useSelector((state) => state.categories.categories);
 
+  useEffect(()=>{
+  },[category])
+
   return (
     <div className="d-flex justify-content-center justify-content-xxl-center flex-column gap-2 flex-md-row flex-wrap">
       {category.length === 0 ? (
