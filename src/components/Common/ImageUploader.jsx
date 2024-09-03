@@ -5,9 +5,7 @@ import Loader from "../loaders/Loader";
 const ImageUploader = () => {
   const { loading } = useCloudinary();
 
-  useEffect(() => {
-    console.log("El estado actual es: ", loading)
-  }, [loading])
+
 
   return (
     <div className="d-flex align-items-center justify-content-center position-relative mb-3 flex-column">
