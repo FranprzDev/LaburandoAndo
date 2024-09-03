@@ -67,7 +67,7 @@ export default function Login() {
               </h5>
             </div>
             <div className="card-body px-0 px-lg-4">
-              <button className="btn btnLoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
+              <Link to={"/*"} className="btn btnLoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -87,7 +87,7 @@ export default function Login() {
                   <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
                 </svg>
                 Continúa con Google
-              </button>
+              </Link>
               <div className="text-center my-3">
                 <div className="mb-3">
                   <input

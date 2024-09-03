@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createClient } from "../../../slices/actions/registerActions";
@@ -137,7 +137,7 @@ function FormAuth() {
               </div>
               <button className="btn btnCreateAccount w-100 mb-3">Registrarme</button>
             </form>
-            <button className="btn btn-LoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
+            <Link to={"/*"} className="btn btn-LoginGoogle btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -157,7 +157,7 @@ function FormAuth() {
                 <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
               </svg>
               Continúa con Google
-            </button>
+            </Link>
           </div>
         </div>
       </div>

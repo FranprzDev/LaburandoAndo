@@ -5,6 +5,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { promedioValoracion } from "../../../helpers/promedioValoracion";
+import logo from "../../../img/Logo.webp"
 
 const CardPublicacion = () => {
   const [loading, setLoading] = useState(true);
@@ -142,7 +143,7 @@ const CardPublicacion = () => {
           <div className="d-flex flex-column flex-md-row w-100 gap-2 gap-md-4 h-100">
             <div className="d-flex flex-column justify-content-md-center align-items-center ">
               <img
-                src="https://asset.cloudinary.com/dh4b6g2ld/09d204f015420e4d017ad076b31d10f4"
+                src={logo}
                 alt="imagen de perfil"
                 className="imgcardPost border rounded-circle "
               />
