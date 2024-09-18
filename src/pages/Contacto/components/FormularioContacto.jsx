@@ -104,7 +104,7 @@ const FormularioContacto = () => {
               message: "El máximo de carácteres es 300",
             },
             pattern: {
-              value: /^[a-zA-Z\s0-9]{4,300}$/,
+              value: /^[a-zA-Z\s0-9.,áéíóúÁÉÍÓÚ]{4,300}$/,
               message: "Ingrese un mensaje válido",
             },
           })}
