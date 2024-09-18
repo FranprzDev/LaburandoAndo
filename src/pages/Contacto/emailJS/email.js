@@ -1,4 +1,4 @@
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
 export const sendEmail = (nombreApellido, correo) => {
 let templateParams = {

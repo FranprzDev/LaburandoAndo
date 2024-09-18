@@ -1,6 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { sendEmail } from "../emailJS/email";
+import useAlert from "../../../hooks/useAlertHook";
 
 const FormularioContacto = () => {
   const {
@@ -9,10 +10,13 @@ const FormularioContacto = () => {
     reset,
     formState: { errors },
   } = useForm();
+  
+  const {autoCloseAlert} = useAlert()
 
   const onSubmit = (data) => {
     const { nombreApellido, email } = data;
     sendEmail(nombreApellido, email);
+    autoCloseAlert('Mensaje Enviado','success')
     reset();
   };
 
