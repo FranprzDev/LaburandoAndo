@@ -47,7 +47,6 @@ const FormularioPerfilProf = ({ setLoading }) => {
     customAlert(
       "¿Estás seguro de que deseas actualizar tus datos?",
       async () => {
-        console.log(data.mail);
         try {
           await instance.put(`/worker/update/${worker._id}`, {
             mail: data.mail,

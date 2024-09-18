@@ -92,7 +92,7 @@ const FormularioContacto = () => {
           id="Message"
           title="Ingresa tu consulta o problema.."
           rows={5}
-          placeholder="Tengo un problema con..."
+          placeholder="Hola, tengo una consulta sobre..."
           {...register("mensaje", {
             required: "Su mensaje es requerido",
             minLength: {
